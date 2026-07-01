@@ -218,7 +218,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
   }
 
   async _updateBarInHomePage() {
-    const homeFile = this.app.vault.getAbstractFileByPath('00 🏠 Home.md');
+    const homeFile = this.app.vault.getAbstractFileByPath('00_Home.md');
     if (!homeFile) {
       new Notice('00 🏠 Home.md not found!');
       return;
