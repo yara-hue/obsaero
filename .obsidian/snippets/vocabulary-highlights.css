@@ -1,0 +1,19 @@
+/* Vocabulary highlight: wrap words in <span class="vocab">...</span>
+   or in html mode use <span class='vocab'>word</span> */
+
+.vocab {
+  border-bottom: 2px dotted #4a9eff;
+  cursor: help;
+  transition: background 0.15s ease;
+}
+
+.vocab:hover {
+  background: rgba(74, 158, 255, 0.08);
+}
+
+/* Also highlight ==marked== text with a weaker underline
+   so you know it's interactive */
+mark, .cm-s-obsidian mark {
+  border-bottom: 2px dotted rgba(74, 158, 255, 0.5);
+  padding-bottom: 1px;
+}

@@ -1,0 +1,2068 @@
+/* ─── Lumina Plugin Settings Tab Styles ────────────────────────────────────────── */
+
+/* 1. Global settings container overrides */
+.vertical-tab-content-container .vertical-tab-content.lumina-settings {
+	padding: 20px 48px 40px 48px;
+	font-family: var(--font-interface, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif);
+	container-type: inline-size;
+}
+
+/* Center all top-level layout components */
+.lumina-settings .lumina-settings__nav,
+.lumina-settings .lumina-settings__body,
+.lumina-settings .lumina-settings__section-heading,
+.lumina-settings .lumina-settings__info-box,
+.lumina-settings .lumina-settings__advanced-label {
+	max-width: 780px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+}
+
+/* 2. Advanced Toggle inline styles inside navigation bar */
+.lumina-settings__nav-separator {
+	width: 1px;
+	background-color: var(--background-modifier-border);
+	margin: 6px 4px;
+	align-self: stretch;
+	flex-shrink: 0;
+}
+
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn.lumina-settings__nav-btn--advanced {
+	flex: 0 0 auto;
+	width: auto;
+	min-width: 0;
+	padding: 6px 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	white-space: normal;
+	text-align: center;
+	max-width: 90px;
+}
+
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn--advanced .lumina-settings__nav-label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+}
+
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn--advanced .lumina-settings__nav-text {
+	display: block;
+	margin-left: 0;
+}
+
+@container (max-width: 650px) {
+	.lumina-settings__nav-separator {
+		display: none;
+	}
+	html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn--advanced .lumina-settings__nav-text {
+		display: none;
+	}
+}
+
+/* 3. Tab Navigation Menu (Horizontal Segmented Control) */
+.lumina-settings__nav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	background-color: var(--background-primary);
+	padding: 4px;
+	border-radius: 10px;
+	border: 1px solid var(--background-modifier-border);
+	gap: 4px;
+	--input-height: auto;
+	--button-height: auto;
+	margin-bottom: 12px;
+	position: sticky;
+	top: -20px;
+	z-index: 99;
+	box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+}
+
+body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn {
+	background: none;
+	border: none;
+	margin: 0;
+	outline: none;
+	appearance: none;
+	-webkit-appearance: none;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 6px 6px;
+	height: auto;
+	min-height: 0;
+	max-height: none;
+	font-size: 0.85em;
+	font-weight: 600;
+	color: var(--text-muted);
+	border-radius: 7px;
+	cursor: pointer;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	gap: 2px;
+	line-height: 1.15;
+}
+
+.lumina-settings__nav-btn:hover {
+	color: var(--text-normal);
+	background-color: rgba(255, 255, 255, 0.05);
+	transform: translateY(-1px);
+}
+
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn.is-active {
+	color: #ffffff;
+	background: linear-gradient(135deg, var(--interactive-accent) 0%, #8b5cf6 100%);
+	box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+}
+
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn.lumina-settings__nav-btn--advanced.is-active {
+	color: #ffffff;
+	background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+	box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+}
+
+body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__nav button.lumina-settings__nav-btn--advanced.is-active .lumina-settings__nav-icon {
+	transform: rotate(30deg);
+	display: inline-block;
+	transition: transform 0.3s ease;
+}
+
+.lumina-settings .lumina-settings__nav-label {
+	white-space: pre-line;
+	text-align: center;
+}
+
+.lumina-settings__nav-badge {
+	font-size: 0.65em;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	background-color: rgba(168, 85, 247, 0.15);
+	color: #a855f7;
+	padding: 2px 6px;
+	border-radius: 4px;
+	line-height: 1;
+	display: inline-block;
+}
+
+.lumina-settings__nav-btn.is-active .lumina-settings__nav-badge {
+	background-color: rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+}
+
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__body > .lumina-settings__section-heading:first-of-type,
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__body > .setting-item-heading:first-of-type,
+html body .vertical-tab-content-container .vertical-tab-content.lumina-settings .lumina-settings__body > .setting-item:first-of-type {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.lumina-settings__section-heading {
+	margin-top: 36px;
+	margin-bottom: 16px;
+	padding-bottom: 8px;
+	font-size: 1.3em;
+	font-weight: 700;
+	color: var(--text-normal);
+	border-bottom: 1.5px solid var(--background-modifier-border);
+	position: relative;
+}
+
+.lumina-settings__section-heading::after {
+	content: '';
+	position: absolute;
+	bottom: -1.5px;
+	left: 0;
+	width: 180px;
+	height: 1.5px;
+	background: linear-gradient(90deg, var(--interactive-accent), #a855f7);
+}
+
+/* Advanced section indicator label */
+.lumina-settings__advanced-label {
+	display: inline-block;
+	font-size: 0.75em;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #ffffff;
+	background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+	padding: 2px 8px;
+	border-radius: 4px;
+	margin: 24px 0 8px 0;
+	box-shadow: 0 2px 6px rgba(217, 119, 6, 0.25);
+}
+
+/* 6. Elegant Alerts & Info Boxes */
+.lumina-settings__info-box {
+	border-radius: 8px;
+	padding: 12px 18px;
+	margin: 16px 0;
+	font-size: 0.9em;
+	line-height: 1.5;
+	display: flex;
+	align-items: center;
+	border: 1px solid transparent;
+}
+
+.lumina-settings__info-box--info {
+	background-color: rgba(99, 102, 241, 0.08);
+	border-left: 4px solid var(--interactive-accent);
+	border-color: rgba(99, 102, 241, 0.15) rgba(99, 102, 241, 0.15) rgba(99, 102, 241, 0.15) var(--interactive-accent);
+	color: var(--text-normal);
+}
+
+.lumina-settings__info-box--warning {
+	background-color: rgba(245, 158, 11, 0.08);
+	border-left: 4px solid #f59e0b;
+	border-color: rgba(245, 158, 11, 0.15) rgba(245, 158, 11, 0.15) rgba(245, 158, 11, 0.15) #f59e0b;
+	color: var(--text-normal);
+}
+
+/* 7. Provider Card Design (Glassmorphic Container) - Now Horizontal Row */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card {
+	background: linear-gradient(135deg, var(--background-secondary-alt) 0%, var(--background-secondary) 100%);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 12px;
+	padding: 16px 20px 14px 20px;
+	margin-bottom: 16px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+
+	display: grid;
+	grid-template-columns: 1fr 1.25fr;
+	align-items: flex-end;
+	gap: 14px 18px;
+}
+
+.lumina-provider-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 4px;
+	height: 100%;
+	background: linear-gradient(180deg, var(--text-muted) 0%, rgba(var(--mono-rgb-100), 0.2) 100%);
+	opacity: 0.4;
+	transition: all 0.3s ease;
+}
+
+.lumina-provider-card:hover {
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	border-color: var(--background-modifier-border-hover);
+	transform: translateY(-1px);
+}
+
+/* Verified/Connected State */
+.lumina-provider-card.is-verified {
+	border-color: rgba(16, 185, 129, 0.35);
+	background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, var(--background-secondary-alt) 100%);
+	box-shadow: 0 4px 16px rgba(16, 185, 129, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.lumina-provider-card.is-verified::before {
+	background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+	box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+	opacity: 1;
+}
+
+/* Feature Card Design (For Agent, Local Server etc.) */
+.lumina-feature-card {
+	background: linear-gradient(135deg, var(--background-secondary-alt) 0%, var(--background-secondary) 100%);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 12px;
+	padding: 4px 20px;
+	margin-bottom: 16px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+}
+
+.lumina-feature-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 4px;
+	height: 100%;
+	background: linear-gradient(180deg, var(--text-muted) 0%, rgba(var(--mono-rgb-100), 0.2) 100%);
+	opacity: 0.4;
+	transition: all 0.3s ease;
+	border-radius: 12px 0 0 12px;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-feature-card.is-active {
+	border-color: rgba(16, 185, 129, 0.35);
+	background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, var(--background-secondary-alt) 100%);
+	box-shadow: 0 4px 16px rgba(16, 185, 129, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-feature-card.is-active::before {
+	background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+	box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+	opacity: 1;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-feature-card .setting-item {
+	border-bottom: 1px solid rgba(var(--mono-rgb-100), 0.05);
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-feature-card .setting-item:last-child {
+	border-bottom: none;
+}
+
+/* Error State */
+.lumina-provider-card.is-error {
+	border-color: rgba(239, 68, 68, 0.35);
+	background: linear-gradient(135deg, rgba(239, 68, 68, 0.02) 0%, var(--background-secondary-alt) 100%);
+}
+
+.lumina-provider-card.is-error::before {
+	background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+	opacity: 1;
+}
+
+/* 8. RAG status UI */
+.lumina-rag-status {
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	padding: 14px 18px;
+	margin-bottom: 18px;
+	font-size: 0.9em;
+}
+
+.lumina-rag-status p {
+	margin: 6px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.lumina-rag-status p::before {
+	color: var(--text-muted);
+}
+
+/* 9. Styling elements inside settings tab (Inputs, Buttons, Dropdowns, Sliders) */
+.lumina-settings input[type="text"],
+.lumina-settings input[type="password"],
+.lumina-settings textarea,
+.lumina-settings select {
+	border-radius: 6px;
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-primary);
+	transition: all 0.2s ease;
+	padding: 6px 10px;
+}
+
+.lumina-settings input[type="text"]:focus,
+.lumina-settings input[type="password"]:focus,
+.lumina-settings textarea:focus,
+.lumina-settings select:focus {
+	border-color: var(--interactive-accent);
+	box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+	outline: none;
+}
+
+/* Custom CSS for standard Obsidian Setting items inside Lumina Settings */
+.vertical-tab-content-container .lumina-settings .setting-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
+	width: 100%;
+	max-width: 780px;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 1px solid rgba(var(--mono-rgb-100), 0.05);
+	padding: 16px 0;
+	box-sizing: border-box;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item-info {
+	flex: 1 1 auto;
+	padding-left: 20px;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item-control {
+	flex: 0 0 auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 12px;
+	padding-right: 20px;
+}
+
+/* Make inputs inside settings extend properly instead of being tiny and collapsing */
+.vertical-tab-content-container .lumina-settings .setting-item-control input[type="text"],
+.vertical-tab-content-container .lumina-settings .setting-item-control input[type="password"],
+.vertical-tab-content-container .lumina-settings .setting-item-control select {
+	width: 320px;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* Provider card settings inner alignment override - Show labels above controls */
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .setting-item {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	gap: 6px;
+	height: auto;
+	width: auto;
+	background: transparent;
+	box-shadow: none;
+	border-bottom: none;
+	padding: 0;
+	margin: 0;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .setting-item-info {
+	display: block;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.lumina-provider-card .setting-item-name {
+	font-size: 0.85em;
+	font-weight: 600;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .setting-item-description {
+	display: none;
+	/* Hide long descriptions to keep UI compact */
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .setting-item-control {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 6px;
+	width: 100%;
+}
+
+/* Unified input/dropdown/button sizing */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card select,
+.vertical-tab-content-container .lumina-settings .lumina-provider-card input[type="text"],
+.vertical-tab-content-container .lumina-settings .lumina-provider-card input[type="password"] {
+	height: 32px;
+	padding: 4px 8px;
+	font-size: 0.9em;
+	margin: 0;
+	border-radius: 6px;
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-primary);
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card button {
+	height: 32px;
+	padding: 4px 12px;
+	font-size: 0.85em;
+	white-space: nowrap;
+	border-radius: 6px;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .clickable-icon {
+	height: 32px;
+	width: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+/* Individual Column Width Allocations */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card__setting-type {
+	grid-column: 1;
+	width: 100%;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card__setting-type select {
+	width: 100%;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card__setting-credential {
+	grid-column: 2;
+	width: 100%;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card__setting-credential input {
+	width: 100%;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .lumina-provider-card__setting-actions {
+	grid-column: 1 / -1;
+	justify-self: flex-end;
+	padding-bottom: 2px;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .lumina-provider-card__setting-actions .setting-item-info {
+	display: none;
+}
+
+.lumina-settings .setting-item-name {
+	font-weight: 600;
+	color: var(--text-normal);
+}
+
+.lumina-settings .setting-item-description {
+	font-size: 0.85em;
+	color: var(--text-muted);
+	white-space: pre-wrap;
+}
+
+/* Style CTA button inside setting tab */
+.lumina-settings button.mod-cta {
+	background: linear-gradient(135deg, var(--interactive-accent) 0%, #8b5cf6 100%);
+	color: #ffffff;
+	border: none;
+	font-weight: 600;
+	border-radius: 6px;
+	padding: 6px 14px;
+	box-shadow: 0 2px 6px rgba(139, 92, 246, 0.2);
+	transition: all 0.2s ease;
+}
+
+.lumina-settings button.mod-cta:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+}
+
+.lumina-settings button.mod-cta:active {
+	transform: translateY(0);
+}
+
+/* Style Warning buttons inside setting tab */
+.lumina-settings button.mod-warning {
+	background-color: transparent;
+	border: 1px solid var(--text-error);
+	color: var(--text-error);
+	transition: all 0.2s ease;
+}
+
+.lumina-settings button.mod-warning:hover {
+	background-color: var(--text-error);
+	color: #ffffff;
+}
+
+/* 10. Prompt Card styling */
+.lumina-settings .lumina-prompt-card {
+	background-color: var(--background-secondary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 12px;
+	padding: 8px 16px;
+	margin-bottom: 16px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+	transition: border-color 0.2s, box-shadow 0.2s, padding 0.2s;
+}
+
+.lumina-settings .lumina-prompt-card[open] {
+	padding: 16px;
+}
+
+.lumina-prompt-card:hover {
+	border-color: var(--background-modifier-border-hover);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
+}
+
+.lumina-settings .lumina-prompt-card__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	gap: 12px;
+	cursor: pointer;
+	outline: none;
+	list-style: none;
+}
+
+.lumina-settings .lumina-prompt-card__header::-webkit-details-marker {
+	display: none;
+}
+
+.lumina-settings .lumina-prompt-card[open] .lumina-prompt-card__header {
+	margin-bottom: 12px;
+}
+
+.lumina-settings .lumina-prompt-card__name {
+	font-weight: 600;
+	font-size: 1.05em;
+	border: none;
+	background: transparent;
+	padding: 4px 0;
+	margin: 0;
+	flex-grow: 1;
+	color: var(--text-normal);
+}
+
+.lumina-settings .lumina-prompt-card__name:focus {
+	border-bottom: 1.5px solid var(--interactive-accent);
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.lumina-prompt-card__status {
+	font-size: 0.85em;
+	padding: 2px 8px;
+	border-radius: 4px;
+	background-color: rgba(16, 185, 129, 0.1);
+	color: #10b981;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.lumina-prompt-card__actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.lumina-settings .lumina-prompt-card__btn-activate {
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	color: var(--text-normal);
+	font-size: 0.85em;
+	padding: 4px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.lumina-settings .lumina-prompt-card__btn-activate:hover {
+	background-color: var(--interactive-accent);
+	border-color: var(--interactive-accent);
+	color: #ffffff;
+}
+
+.lumina-settings .lumina-prompt-card__btn-delete {
+	background: transparent;
+	border: none;
+	padding: 6px;
+	cursor: pointer;
+	border-radius: 6px;
+	font-size: 1.1em;
+	transition: background-color 0.2s;
+	color: var(--text-muted);
+}
+
+.lumina-settings .lumina-prompt-card__btn-delete:hover {
+	background-color: rgba(239, 68, 68, 0.1);
+	color: #ef4444;
+}
+
+.lumina-prompt-card__body {
+	width: 100%;
+}
+
+.lumina-prompt-card__content {
+	width: 100%;
+	min-height: 80px;
+	resize: vertical;
+	font-family: var(--font-monospace);
+	font-size: 0.9em;
+	box-sizing: border-box;
+	margin-top: 4px;
+}
+
+/* 11. Settings description guide styling */
+.lumina-settings__desc-guide {
+	margin-top: 4px;
+	font-size: 0.9em;
+	color: var(--text-accent);
+	opacity: 0.95;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-textarea-setting {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	padding-right: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-textarea-setting .setting-item-info {
+	width: 100%;
+	padding: 0;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-textarea-setting .setting-item-control {
+	display: none;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-textarea-setting textarea {
+	width: 100%;
+	box-sizing: border-box;
+	max-width: 100%;
+	margin: 0;
+}
+
+/* 12. Settings Button & Focus Improvements */
+.lumina-settings .setting-item.lumina-setting-cta {
+	border-bottom: none;
+	padding: 16px 0;
+	justify-content: center;
+}
+
+.lumina-settings .setting-item.lumina-setting-cta .setting-item-control {
+	width: 100%;
+	justify-content: center;
+	padding: 0;
+}
+
+.lumina-settings .setting-item.lumina-setting-cta button.mod-cta {
+	width: 100%;
+	max-width: 360px;
+	height: 38px;
+	font-size: 0.95em;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	border-radius: 8px;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-center-button {
+	justify-content: center;
+	border-bottom: none;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-center-button .setting-item-info {
+	display: none;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-center-button .setting-item-control {
+	width: 100%;
+	justify-content: center;
+	padding: 0;
+}
+
+.lumina-provider-card .clickable-icon {
+	color: var(--text-muted);
+	transition: all 0.2s ease-in-out;
+	border-radius: 6px;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .clickable-icon:hover {
+	color: var(--text-error);
+	background-color: rgba(239, 68, 68, 0.12);
+}
+
+/* MCP Server Card - 2열 그리드 레이아웃 (기본 provider card grid 오버라이드) */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto auto auto;
+	gap: 4px 16px;
+	overflow: visible;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 12px 16px 8px 16px;
+	align-items: start;
+	align-content: start;
+	grid-auto-rows: auto;
+	grid-auto-flow: row;
+}
+
+/* 각 설정 항목 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+	width: 100%;
+	min-width: 0;
+	padding: 6px 0;
+	border-bottom: none;
+	background: transparent;
+	box-shadow: none;
+	margin: 0;
+}
+
+/* ── 2x2 그리드 배치 (시맨틱 클래스 기반) ── */
+/* Row 1 */
+.lumina-provider-card.mcp-server-card .mcp-server-card__name {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.lumina-provider-card.mcp-server-card .mcp-server-card__transport {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+/* Row 2: SSE 모드 (URL + Token) */
+.lumina-provider-card.mcp-server-card .mcp-server-card__url {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.lumina-provider-card.mcp-server-card .mcp-server-card__token {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+
+/* 액션 영역 (토글 + 삭제) - 전체 너비, 자동 행 배치 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .lumina-provider-card__setting-actions,
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .mcp-server-card__actions {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+	padding-top: 8px;
+	margin-top: 4px;
+	border-top: 1.5px solid var(--background-modifier-border);
+	box-sizing: border-box;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item-info {
+	padding-left: 0;
+	width: auto;
+	flex: unset;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item-name {
+	font-size: 0.85em;
+	font-weight: 600;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+/* 컨트롤 영역 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item-control {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 6px;
+	padding-right: 0;
+	width: 100%;
+	flex: unset;
+	min-width: 0;
+}
+
+/* 입력 필드 높이/스타일 통일 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item-control input[type="text"],
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item-control input[type="password"],
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item-control select,
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .setting-item-control textarea {
+	flex: 1 1 auto;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	height: 32px;
+	padding: 4px 10px;
+	font-size: 0.9em;
+}
+
+/* 액션 영역 컨트롤 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .lumina-provider-card__setting-actions .setting-item-info,
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .mcp-server-card__actions .setting-item-info {
+	display: none;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .lumina-provider-card__setting-actions .setting-item-control,
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .mcp-server-card__actions .setting-item-control {
+	justify-content: flex-end;
+	align-items: center;
+	gap: 10px;
+	padding-right: 0;
+	width: 100%;
+	flex: unset;
+}
+
+/* 토글/아이콘/버튼 잘림 방지 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .toggle,
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card .clickable-icon {
+	flex-shrink: 0;
+	display: inline-flex;
+	position: static;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card button:not(.mod-cta) {
+	flex-shrink: 0;
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	color: var(--text-normal);
+	transition: all 0.2s ease;
+	height: 32px;
+	padding: 4px 12px;
+	font-size: 0.85em;
+	border-radius: 6px;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card button:not(.mod-cta):hover {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--background-modifier-border-hover);
+	color: var(--text-normal);
+}
+
+/* 연결 상태별 카드 스타일 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card--connected {
+	border-color: rgba(16, 185, 129, 0.35);
+	background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, var(--background-secondary-alt) 100%);
+	box-shadow: 0 4px 16px rgba(16, 185, 129, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card--connected::before {
+	background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+	box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+	opacity: 1;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card--error {
+	border-color: rgba(239, 68, 68, 0.35);
+	background: linear-gradient(135deg, rgba(239, 68, 68, 0.02) 0%, var(--background-secondary-alt) 100%);
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card.mcp-server-card--error::before {
+	background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+	opacity: 1;
+}
+
+/* 모든 Obsidian 설정 항목의 기본 overflow 제한 해제 */
+.vertical-tab-content-container .lumina-settings .lumina-provider-card .setting-item {
+	overflow: visible;
+	max-height: none;
+}
+
+.vertical-tab-content-container .lumina-settings .lumina-provider-card {
+	overflow: visible;
+	min-height: auto;
+}
+
+/* 13. Model Selector Highlight for Default Selected Item */
+body .lumina-model-suggest-modal .suggestion-item.is-selected-default {
+	background-color: rgba(139, 92, 246, 0.15);
+	border-left: 3px solid var(--interactive-accent);
+	font-weight: 600;
+	position: relative;
+	padding-right: 32px;
+}
+
+body .lumina-model-suggest-modal .suggestion-item.is-selected-default::after {
+	content: '✓';
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--interactive-accent);
+	font-weight: 700;
+	font-size: 1.1em;
+}
+
+/* 14. Agent Beta Activation Modal */
+.modal-container .modal.lumina-agent-beta-modal,
+.lumina-agent-beta-modal .modal-content {
+	max-width: 420px;
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__title {
+	font-size: 1.3em;
+	font-weight: 700;
+	margin-bottom: 16px;
+	color: var(--text-normal);
+	line-height: 1.3;
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__desc {
+	margin-bottom: 24px;
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__desc p {
+	font-size: 0.95em;
+	color: var(--text-muted);
+	margin: 6px 0;
+	line-height: 1.6;
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	padding-top: 8px;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__btn-skip {
+	background: transparent;
+	border: 1px solid var(--background-modifier-border);
+	color: var(--text-muted);
+	padding: 8px 18px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 0.9em;
+	font-weight: 500;
+	transition: all 0.15s ease;
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__btn-skip:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__btn-confirm {
+	background: linear-gradient(135deg, var(--interactive-accent) 0%, #8b5cf6 100%);
+	border: none;
+	color: #ffffff;
+	padding: 8px 22px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 0.9em;
+	font-weight: 600;
+	box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+	transition: all 0.15s ease;
+}
+
+.lumina-agent-beta-modal .lumina-agent-beta-modal__btn-confirm:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Chat Panel (ChatPanel.svelte)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.lumina-chat {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: var(--background-primary);
+	font-family: var(--font-interface);
+}
+
+.lumina-chat__history-wrap {
+	flex: 1;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Header */
+
+.lumina-chat__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 8px 6px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	background: var(--background-secondary);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+	flex-shrink: 0;
+	position: relative;
+}
+
+.lumina-chat__title {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--text-normal);
+}
+
+.lumina-chat__logo {
+	font-size: 16px;
+	background: linear-gradient(135deg, var(--interactive-accent) 0%, #a855f7 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	filter: drop-shadow(0 2px 6px rgba(168, 85, 247, 0.25));
+}
+
+.lumina-chat__controls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.lumina-chat__icon-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+	border: none;
+	background: transparent;
+	color: var(--text-muted);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lumina-chat__icon-btn:hover:not(:disabled) {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.lumina-chat__icon-btn:disabled {
+	opacity: 0.25;
+	cursor: default;
+	pointer-events: none;
+}
+
+.lumina-chat__toggle-btn {
+	font-size: 10px;
+	font-weight: 700;
+	padding: 0 6px;
+	height: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	border: 1px solid var(--background-modifier-border);
+	background: transparent;
+	color: var(--text-muted);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lumina-chat__toggle-btn:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.lumina-chat__toggle-btn.is-active {
+	background: var(--interactive-accent);
+	color: white;
+	border-color: var(--interactive-accent);
+}
+
+.lumina-chat__toggle-btn.is-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* Messages */
+
+.lumina-chat__messages {
+	flex: 1;
+	overflow-y: auto;
+	padding: 8px;
+	scroll-behavior: smooth;
+}
+
+.lumina-chat__messages::-webkit-scrollbar { width: 6px; }
+.lumina-chat__messages::-webkit-scrollbar-thumb {
+	background: var(--background-modifier-border);
+	border-radius: 3px;
+	transition: background 0.25s;
+}
+.lumina-chat__messages::-webkit-scrollbar-thumb:hover {
+	background: var(--background-modifier-border-hover);
+}
+.lumina-chat__messages::-webkit-scrollbar-track { background: transparent; }
+
+.lumina-chat__messages-inner {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.lumina-chat__empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	min-height: 220px;
+	gap: 10px;
+	color: var(--text-muted);
+	text-align: center;
+	padding: 0 20px;
+}
+
+.lumina-chat__empty-icon {
+	font-size: 36px;
+	margin-bottom: 6px;
+	filter: drop-shadow(0 4px 8px rgba(168, 85, 247, 0.15));
+}
+
+.lumina-chat__empty p {
+	font-size: 13.5px;
+	font-weight: 600;
+	margin: 0;
+	color: var(--text-normal);
+}
+
+.lumina-chat__empty .lumina-chat__empty-sub {
+	font-size: 11px;
+	color: var(--text-muted);
+	opacity: 0.8;
+}
+
+.lumina-chat__setup-btn {
+	margin-top: 8px;
+	padding: 8px 16px;
+	border-radius: 8px;
+	border: 1px solid var(--interactive-accent);
+	background: transparent;
+	color: var(--interactive-accent);
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lumina-chat__setup-btn:hover {
+	background: var(--interactive-accent);
+	color: white;
+	box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+	transform: translateY(-1px);
+}
+
+/* Input area */
+
+.lumina-chat__input-area {
+	flex-shrink: 0;
+	padding: 6px 8px 2px;
+	border-top: 1px solid var(--background-modifier-border);
+	background: var(--background-secondary);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.lumina-chat__input-toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 4px;
+}
+
+.lumina-chat__toolbar-group { display: flex; gap: 6px; }
+
+.lumina-chat__toolbar-btn {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 10px;
+	font-weight: 600;
+	color: var(--text-muted);
+	background: transparent;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 6px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lumina-chat__toolbar-btn:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.lumina-chat__toolbar-btn.is-agent-active {
+	background: rgba(var(--color-accent-rgb, 139, 92, 246), 0.12);
+	color: var(--interactive-accent);
+}
+
+.lumina-chat__context-badge {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 9px;
+	font-weight: 600;
+	padding: 3px 8px;
+	border-radius: 4px;
+	background: rgba(var(--mono-rgb-100), 0.05);
+	color: var(--text-muted);
+	border: 1px solid var(--background-modifier-border);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lumina-chat__context-badge:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.lumina-chat__context-badge.is-active {
+	background: rgba(var(--color-accent-rgb, 139, 92, 246), 0.12);
+	color: var(--interactive-accent);
+	border-color: var(--interactive-accent);
+}
+
+/* RAG badge / banner */
+
+.lumina-chat__rag-badge {
+	font-size: 10px;
+	font-weight: 700;
+	padding: 0 6px;
+	height: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	border: 1px solid;
+}
+
+.lumina-chat__rag-badge--idle {
+	background: rgba(156, 163, 175, 0.1);
+	color: rgb(156, 163, 175);
+	border-color: rgba(156, 163, 175, 0.3);
+}
+
+.lumina-chat__rag-badge--ready {
+	background: rgba(34, 197, 94, 0.1);
+	color: rgb(34, 197, 94);
+	border-color: rgba(34, 197, 94, 0.3);
+}
+
+.lumina-chat__rag-badge--indexing {
+	background: rgba(251, 191, 36, 0.1);
+	color: rgb(251, 191, 36);
+	border-color: rgba(251, 191, 36, 0.3);
+	animation: lumina-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes lumina-pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.5; }
+}
+
+.lumina-chat__rag-banner {
+	margin: 8px 8px 0;
+	flex-shrink: 0;
+	padding: 12px 16px;
+	background: rgba(139, 92, 246, 0.08);
+	border: 1px solid rgba(139, 92, 246, 0.3);
+	border-radius: 8px;
+	animation: lumina-pulse 2.5s ease-in-out infinite;
+}
+
+.lumina-chat__rag-banner-content {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.lumina-chat__rag-banner-content strong {
+	color: var(--interactive-accent);
+	font-size: 13px;
+}
+
+.lumina-chat__rag-banner-content span {
+	color: var(--text-muted);
+	font-size: 12px;
+}
+
+/* Textarea */
+
+.lumina-chat__textarea-wrap {
+	display: flex;
+	align-items: flex-end;
+	gap: 8px;
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 12px;
+	padding: 10px 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lumina-chat__textarea-wrap:focus-within {
+	border-color: var(--interactive-accent);
+	box-shadow: 0 4px 16px rgba(139, 92, 246, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.lumina-chat__textarea {
+	flex: 1;
+	border: none;
+	background: transparent;
+	resize: none;
+	font-size: 13px;
+	line-height: 20px;
+	color: var(--text-normal);
+	font-family: var(--font-interface);
+	outline: none;
+	min-height: 30px;
+	max-height: 160px;
+	overflow-y: auto;
+	padding: 5px 0;
+}
+
+.lumina-chat__textarea::-webkit-scrollbar { width: 4px; }
+.lumina-chat__textarea::-webkit-scrollbar-thumb {
+	background: var(--background-modifier-border);
+	border-radius: 2px;
+}
+.lumina-chat__textarea::placeholder { color: var(--text-faint); }
+.lumina-chat__textarea:disabled { opacity: 0.5; }
+
+/* Send / Clear buttons */
+
+button.lumina-chat__send-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border-radius: 8px;
+	border: none;
+	background: var(--background-modifier-border);
+	color: var(--text-muted);
+	cursor: pointer;
+	flex-shrink: 0;
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button.lumina-chat__send-btn svg.lucide-icon {
+	width: 22px;
+	height: 22px;
+	stroke-width: 2.2px;
+}
+
+.lumina-chat__clear-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border-radius: 8px;
+	border: none;
+	background: transparent;
+	color: var(--text-muted);
+	cursor: pointer;
+	flex-shrink: 0;
+	transition: all 0.2s ease;
+}
+
+.lumina-chat__clear-btn:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+button.lumina-chat__clear-btn svg.lucide-icon {
+	width: 18px;
+	height: 18px;
+	stroke-width: 2px;
+}
+
+.lumina-chat__send-btn.is-active {
+	background: linear-gradient(135deg, var(--interactive-accent) 0%, #8b5cf6 100%);
+	color: #ffffff;
+	box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.lumina-chat__send-btn.is-active:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.lumina-chat__send-btn:active { transform: scale(0.92); }
+
+button.lumina-chat__send-btn:disabled {
+	opacity: 0.4;
+	cursor: default;
+	background: var(--background-modifier-border);
+	color: var(--text-muted);
+	box-shadow: none;
+	transform: none;
+}
+
+button.lumina-chat__send-btn.lumina-chat__send-btn--cancel {
+	background: var(--color-red);
+	color: white;
+	opacity: 0.9;
+	box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+button.lumina-chat__send-btn.lumina-chat__send-btn--cancel:hover {
+	opacity: 1;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Attachments */
+
+.lumina-chat__attachments {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	padding: 2px 4px 6px;
+}
+
+.lumina-chat__attachment-chip {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	background: var(--background-secondary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 12px;
+	padding: 4px 8px;
+	font-size: 11px;
+	color: var(--text-normal);
+	max-width: 100%;
+}
+
+.lumina-chat__attachment-icon {
+	display: flex;
+	align-items: center;
+	color: var(--text-muted);
+	flex-shrink: 0;
+}
+
+.lumina-chat__attachment-icon svg { width: 12px; height: 12px; }
+
+.lumina-chat__attachment-name {
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.lumina-chat__attachment-remove {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: none;
+	color: var(--text-muted);
+	cursor: pointer;
+	padding: 2px;
+	margin-left: 2px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.lumina-chat__attachment-remove:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.lumina-chat__attachment-remove svg { width: 10px; height: 10px; }
+
+/* Misc */
+
+.lumina-chat__hint-inline {
+	font-size: 11.5px;
+	color: var(--text-faint);
+	font-weight: 500;
+}
+
+.lumina-chat__hidden-file-input { display: none; }
+
+.lumina-chat__toolbar-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.lumina-chat__input-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.lumina-chat__input-row {
+	display: flex;
+	gap: 8px;
+	align-items: flex-end;
+}
+
+.lumina-chat__token-stats {
+	font-size: 11.5px;
+	color: var(--text-muted);
+	font-weight: 500;
+	background: var(--background-primary);
+	padding: 2px 6px;
+	border-radius: 4px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Shared popover / dropdown utilities
+   SlashCommandSelector, ModelSelector 등에서 공통 사용
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes lumina-popover-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* 얇은 스크롤바 유틸리티 (4px) */
+.lumina-scrollbar-thin::-webkit-scrollbar {
+	width: 4px;
+}
+.lumina-scrollbar-thin::-webkit-scrollbar-thumb {
+	background: var(--background-modifier-border);
+	border-radius: 2px;
+}
+
+/* Lumina Inline Diff Extension */
+.markdown-source-view.mod-cm6 .cm-line.lumina-diff-removed-line,
+.markdown-source-view.mod-cm6 .cm-activeLine.lumina-diff-removed-line,
+.cm-content .cm-line.lumina-diff-removed-line,
+.lumina-diff-removed-line {
+	background-color: rgba(220, 38, 38, 0.15);
+	text-decoration: line-through;
+	color: var(--text-muted);
+}
+
+.markdown-source-view.mod-cm6 .cm-content .lumina-diff-added-widget,
+.markdown-source-view.mod-cm6 .lumina-diff-added-widget,
+.cm-content .lumina-diff-added-widget,
+div.lumina-diff-added-widget {
+	background-color: rgba(16, 185, 129, 0.1);
+	border-left: 3px solid var(--text-success, #10b981);
+	margin: 2px 0;
+	padding: 4px 8px;
+	color: var(--text-success, #10b981);
+	font-family: var(--font-monospace);
+	display: block;
+}
+
+.lumina-diff-added-line {
+	white-space: pre-wrap;
+	line-height: var(--line-height-normal);
+}
+
+.lumina-diff-action-widget {
+	display: flex;
+	gap: 6px;
+	padding: 4px;
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	margin-bottom: 4px;
+	font-size: 0.85em;
+	width: max-content;
+}
+
+.lumina-diff-btn {
+	cursor: pointer;
+	padding: 2px 8px;
+	border-radius: 4px;
+	border: 1px solid transparent;
+	background: transparent;
+	font-weight: bold;
+}
+
+.lumina-diff-btn.accept {
+	color: var(--text-success, #10b981);
+	background: rgba(16, 185, 129, 0.1);
+}
+.lumina-diff-btn.accept:hover {
+	background: rgba(16, 185, 129, 0.2);
+}
+
+.lumina-diff-btn.reject {
+	color: var(--text-error, #ef4444);
+	background: rgba(220, 38, 38, 0.1);
+}
+.lumina-diff-btn.reject:hover {
+	background: rgba(220, 38, 38, 0.2);
+}
+
+/* Shared styles for popup selectors (Context, Slash Command, Model, etc.) */
+
+.lumina-popup-selector {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	width: 340px;
+	max-width: calc(100vw - 32px);
+	margin-bottom: 8px;
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	animation: lumina-popover-fade-in 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes lumina-popover-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.lumina-popup-selector__header {
+	padding: 8px 12px 4px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.lumina-popup-selector__list {
+	max-height: 280px;
+	overflow-y: auto;
+	padding: 4px 0;
+}
+
+.lumina-popup-selector__list::-webkit-scrollbar {
+	width: 4px;
+}
+
+.lumina-popup-selector__list::-webkit-scrollbar-thumb {
+	background: var(--background-modifier-border);
+	border-radius: 2px;
+}
+
+.lumina-popup-selector__empty {
+	font-size: 12px;
+	color: var(--text-muted);
+	padding: 12px;
+	text-align: center;
+}
+
+.lumina-popup-selector__item {
+	background: transparent;
+	border: none;
+	margin: 0;
+	outline: none;
+	appearance: none;
+	-webkit-appearance: none;
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 8px 12px;
+	font-size: 12px;
+	color: var(--text-normal);
+	cursor: pointer;
+	transition: background-color 0.1s ease;
+	gap: 10px;
+}
+
+.lumina-popup-selector__item.is-active {
+	background-color: var(--background-modifier-hover);
+}
+
+.lumina-popup-selector__item-icon {
+	display: flex;
+	align-items: center;
+	color: var(--text-muted);
+	flex-shrink: 0;
+}
+
+.lumina-popup-selector__item-icon svg {
+	width: 14px;
+	height: 14px;
+}
+
+.lumina-popup-selector__item.is-active .lumina-popup-selector__item-icon {
+	color: var(--interactive-accent);
+}
+
+.lumina-popup-selector__item-info {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	overflow: hidden;
+	gap: 2px;
+}
+
+.lumina-popup-selector__item-name {
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.lumina-popup-selector__item-badge {
+	font-size: 9px;
+	font-weight: 700;
+	padding: 2px 5px;
+	border-radius: 4px;
+	background: var(--background-secondary-alt);
+	color: var(--text-muted);
+	border: 1px solid var(--background-modifier-border);
+	flex-shrink: 0;
+}
+
+/* ── Inline Autocomplete (Ghost Text) ── */
+.lumina-autocomplete-ghost {
+	color: var(--text-faint);
+	font-style: italic;
+	opacity: 0.7;
+	pointer-events: none;
+	user-select: none;
+}
+
+
+/* Fix MCP Token setting layout (Stack vertically) */
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-token {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	padding-right: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-token .setting-item-info {
+	width: 100%;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-token .setting-item-control {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-token .setting-item-control input[type="text"],
+.vertical-tab-content-container .lumina-settings .setting-item.lumina-setting-token .setting-item-control input[type="password"] {
+	flex: 1 1 auto;
+	min-width: 0;
+	margin-bottom: 0;
+}
+/* src/features/debug/ui/debug-shared.css */
+
+/* ── Shared Action Button ── */
+.lumina-debug__action-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 5px;
+	border: none;
+	background: transparent;
+	color: var(--text-muted);
+	cursor: pointer;
+	transition: all 0.15s ease;
+	padding: 0;
+}
+
+.lumina-debug__action-btn:hover:not(:disabled) {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.lumina-debug__action-btn.is-active {
+	background: rgba(var(--color-accent-1), 0.15);
+	color: var(--interactive-accent);
+}
+
+.lumina-debug__action-btn--danger:hover:not(:disabled) {
+	background: rgba(var(--color-red-rgb), 0.12);
+	color: var(--color-red);
+}
+
+.lumina-debug__action-btn:disabled {
+	opacity: 0.3;
+	cursor: default;
+}
+
+/* ── Section ── */
+.lumina-debug__section {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.lumina-debug__section-title {
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-faint);
+	padding-top: 6px;
+}
+
+.lumina-debug__section-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 8px;
+}
+
+.lumina-debug__copy-btn {
+	background: none;
+	border: none;
+	padding: 4px;
+	color: var(--text-muted);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+}
+
+.lumina-debug__copy-btn:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+/* ── Table ── */
+.lumina-debug__table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 11px;
+}
+
+.lumina-debug__table td {
+	padding: 2px 6px 2px 0;
+	vertical-align: top;
+	user-select: text;
+	-webkit-user-select: text;
+}
+
+.lumina-debug__table td:first-child {
+	width: 120px;
+	color: var(--text-faint);
+	font-size: 10px;
+	font-weight: 600;
+	flex-shrink: 0;
+}
+
+.lumina-debug__table td:last-child {
+	color: var(--text-normal);
+	font-family: var(--font-monospace);
+	word-break: break-all;
+}
+
+/* ── Pre ── */
+.lumina-debug__pre {
+	margin: 0;
+	padding: 6px 8px;
+	background: var(--background-primary-alt);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	font-size: 10.5px;
+	font-family: var(--font-monospace);
+	color: var(--text-muted);
+	white-space: pre-wrap;
+	word-break: break-all;
+	line-height: 1.5;
+	max-height: 240px;
+	overflow-y: auto;
+	user-select: text;
+	-webkit-user-select: text;
+}
+
+.lumina-debug__pre--error {
+	color: #f87171;
+	background: rgba(239, 68, 68, 0.05);
+	border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* ── Messages ── */
+.lumina-debug__message-item {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin-bottom: 6px;
+}
+
+.lumina-debug__message-role {
+	font-size: 9px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	padding: 1px 5px;
+	border-radius: 3px;
+	align-self: flex-start;
+}
+
+.lumina-debug__message-role--user {
+	background: rgba(99, 102, 241, 0.15);
+	color: #818cf8;
+}
+
+.lumina-debug__message-role--assistant {
+	background: rgba(34, 197, 94, 0.12);
+	color: #4ade80;
+}
+
+.lumina-debug__message-role--system {
+	background: rgba(148, 163, 184, 0.12);
+	color: var(--text-muted);
+}
+
+/* ── RAG Chunks ── */
+.lumina-debug__rag-chunk {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin-bottom: 6px;
+}
+
+.lumina-debug__rag-chunk-header {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.lumina-debug__rag-rank {
+	font-size: 9px;
+	font-weight: 700;
+	color: var(--text-faint);
+	font-family: var(--font-monospace);
+}
+
+.lumina-debug__rag-score {
+	font-size: 9px;
+	font-weight: 700;
+	padding: 1px 5px;
+	border-radius: 3px;
+	background: rgba(234, 179, 8, 0.12);
+	color: #facc15;
+	font-family: var(--font-monospace);
+}
+
+.lumina-debug__rag-path {
+	font-size: 10px;
+	color: var(--text-muted);
+	font-style: italic;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* ── Misc ── */
+.lumina-debug__mono {
+	font-family: var(--font-monospace);
+	font-size: 10px;
+}
+
+.lumina-debug__error-text {
+	color: #f87171;
+}

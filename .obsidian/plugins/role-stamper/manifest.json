@@ -1,0 +1,9 @@
+{
+  "id": "role-stamper",
+  "name": "Role Stamper",
+  "version": "1.0.0",
+  "minAppVersion": "1.12.7",
+  "description": "Select your team role (Lead, Research, Design) and stamp contributions with color-coded divs via hotkey.",
+  "author": "AeroSTAR",
+  "isDesktopOnly": false
+}

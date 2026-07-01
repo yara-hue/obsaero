@@ -1,0 +1,505 @@
+:root {
+  --color-00: #8B9DC3;
+  --color-10: #5DADE2;
+  --color-20: #AF7AC5;
+  --color-30: #E59866;
+  --color-40: #76D7C4;
+  --color-50: #BDC3C7;
+  --color-60: #F1948A;
+  --color-70: #F7DC6F;
+  --color-80: #7FB3D8;
+  --color-90: #82E0AA;
+  --color-99: #A6ACAF;
+}
+
+.theme-light {
+  --background-primary: #e8f4fd;
+  --background-primary-alt: #d4eaf7;
+  --background-secondary: #dceef9;
+  --background-secondary-alt: #c8e2f2;
+  --background-modifier-border: #b8d4e8;
+  --background-modifier-form-field: #f0f8ff;
+  --background-modifier-form-field-highlighted: #e8f4fd;
+  --background-modifier-box-shadow: rgba(44, 95, 138, 0.1);
+  --background-modifier-success: #82E0AA;
+  --background-modifier-error: #F1948A;
+  --background-modifier-error-rgb: 241, 148, 138;
+  --background-modifier-error-hover: #e8847a;
+  --background-modifier-cover: rgba(10, 22, 40, 0.6);
+  --text-normal: #1a2a3a;
+  --text-muted: #4a6a8a;
+  --text-faint: #8aabca;
+  --text-accent: #2e86c1;
+  --text-accent-hover: #1a6b9e;
+  --text-error: #c0392b;
+  --text-error-hover: #a93226;
+  --text-highlight-bg: rgba(93, 173, 226, 0.25);
+  --text-highlight-bg-active: rgba(93, 173, 226, 0.4);
+  --text-selection: rgba(93, 173, 226, 0.2);
+  --text-on-accent: #ffffff;
+  --interactive-normal: #d4eaf7;
+  --interactive-hover: #c8e2f2;
+  --interactive-accent: #2e86c1;
+  --interactive-accent-rgb: 46, 134, 193;
+  --interactive-accent-hover: #1a6b9e;
+  --interactive-success: #82E0AA;
+  --scrollbar-active-thumb-bg: rgba(44, 95, 138, 0.3);
+  --scrollbar-bg: rgba(44, 95, 138, 0.05);
+  --scrollbar-thumb-bg: rgba(44, 95, 138, 0.15);
+  --highlight-mix-blend-mode: darken;
+  --titlebar-background: #c8e2f2;
+  --titlebar-background-focused: #b8d4e8;
+  --ribbon-background: #d4eaf7;
+  --ribbon-background-collapsed: #c8e2f2;
+  --side-bar-background: #dceef9;
+  --nav-item-background-active: color-mix(in srgb, #2e86c1 15%, transparent);
+  --nav-item-color: #1a2a3a;
+  --nav-item-color-hover: #1a2a3a;
+  --nav-item-color-active: #1a5276;
+  --nav-item-color-highlighted: #2e86c1;
+  --nav-item-background-hover: rgba(46, 134, 193, 0.08);
+  --nav-item-background-active: rgba(46, 134, 193, 0.15);
+  --graph-line: rgba(44, 95, 138, 0.2);
+  --graph-node: #1a2a3a;
+  --graph-node-focused: #2e86c1;
+  --graph-node-unresolved: #8aabca;
+  --graph-node-tag: #AF7AC5;
+  --graph-node-attachment: #E59866;
+}
+
+.theme-dark {
+  --background-primary: #0a1628;
+  --background-primary-alt: #0d1e36;
+  --background-secondary: #0c1a30;
+  --background-secondary-alt: #0f2340;
+  --background-modifier-border: #1a3456;
+  --background-modifier-form-field: #0d1e36;
+  --background-modifier-form-field-highlighted: #0f2340;
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+  --background-modifier-success: #82E0AA;
+  --background-modifier-error: #F1948A;
+  --background-modifier-error-rgb: 241, 148, 138;
+  --background-modifier-error-hover: #e8847a;
+  --background-modifier-cover: rgba(0, 0, 0, 0.6);
+  --text-normal: #c8d6e5;
+  --text-muted: #8aabca;
+  --text-faint: #4a6a8a;
+  --text-accent: #5dade2;
+  --text-accent-hover: #85c1e9;
+  --text-error: #e74c3c;
+  --text-error-hover: #ec7063;
+  --text-highlight-bg: rgba(93, 173, 226, 0.2);
+  --text-highlight-bg-active: rgba(93, 173, 226, 0.35);
+  --text-selection: rgba(93, 173, 226, 0.25);
+  --text-on-accent: #0a1628;
+  --interactive-normal: #0f2340;
+  --interactive-hover: #1a3456;
+  --interactive-accent: #5dade2;
+  --interactive-accent-rgb: 93, 173, 226;
+  --interactive-accent-hover: #85c1e9;
+  --interactive-success: #82E0AA;
+  --scrollbar-active-thumb-bg: rgba(93, 173, 226, 0.3);
+  --scrollbar-bg: rgba(93, 173, 226, 0.05);
+  --scrollbar-thumb-bg: rgba(93, 173, 226, 0.15);
+  --highlight-mix-blend-mode: lighten;
+  --titlebar-background: #0d1e36;
+  --titlebar-background-focused: #0f2340;
+  --ribbon-background: #0c1a30;
+  --ribbon-background-collapsed: #0d1e36;
+  --side-bar-background: #0c1a30;
+  --nav-item-color: #c8d6e5;
+  --nav-item-color-hover: #c8d6e5;
+  --nav-item-color-active: #85c1e9;
+  --nav-item-color-highlighted: #5dade2;
+  --nav-item-background-hover: rgba(93, 173, 226, 0.08);
+  --nav-item-background-active: rgba(93, 173, 226, 0.15);
+  --graph-line: rgba(93, 173, 226, 0.15);
+  --graph-node: #c8d6e5;
+  --graph-node-focused: #5dade2;
+  --graph-node-unresolved: #4a6a8a;
+  --graph-node-tag: #AF7AC5;
+  --graph-node-attachment: #E59866;
+}
+
+.theme-light .workspace {
+  background: linear-gradient(175deg, #d4eaf7 0%, #e8f4fd 30%, #f0f8ff 70%, #e8f4fd 100%) !important;
+}
+.theme-dark .workspace {
+  background: linear-gradient(175deg, #060e1a 0%, #0a1628 25%, #0d1e36 60%, #0a1628 100%) !important;
+}
+
+.markdown-preview-view, .markdown-source-view,
+.cm-s-obsidian, .workspace-leaf,
+.workspace-split, .workspace-tabs {
+  background-color: transparent !important;
+}
+
+.nav-folder-title-content,
+.nav-file-title-content {
+  font-family: 'Consolas', 'Courier New', monospace !important;
+  font-size: 12.5px !important;
+}
+
+.markdown-preview-view h1::after {
+  content: " ══✈︎══ ☁︎ ⋆" !important;
+  display: block !important;
+  font-size: 14px !important;
+  color: var(--color-10) !important;
+  opacity: 0.5 !important;
+  margin-top: -8px !important;
+  margin-bottom: 8px !important;
+}
+
+.markdown-preview-view hr {
+  border: none !important;
+  height: 20px !important;
+  background: transparent !important;
+  position: relative !important;
+}
+.markdown-preview-view hr::after {
+  content: "──☁︎✈︎☁︎──" !important;
+  display: block !important;
+  text-align: center !important;
+  color: var(--color-10) !important;
+  opacity: 0.3 !important;
+  font-size: 14px !important;
+}
+
+.view-header-title::before {
+  content: "✈︎ " !important;
+  opacity: 0.5 !important;
+}
+
+.view-header-title,
+.markdown-preview-view h1, .markdown-preview-view h2,
+.markdown-preview-view h3, .markdown-preview-view h4,
+.cm-s-obsidian .cm-header {
+  font-family: 'Consolas', 'Courier New', monospace !important;
+}
+
+.nav-folder-title[data-path^="00_Team_Foundation"] .nav-folder-title-content::before {
+  content: "✈︎ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="10_Research_Library"] .nav-folder-title-content::before {
+  content: "☁︎ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="20_Concept_Design"] .nav-folder-title-content::before {
+  content: "⟡ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="30_Pitch_Studio"] .nav-folder-title-content::before {
+  content: "⋆｡° " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="40_Team_Journey"] .nav-folder-title-content::before {
+  content: "༄ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="50_Templates"] .nav-folder-title-content::before {
+  content: "✅ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="60_AI_Prompt_Engineering"] .nav-folder-title-content::before {
+  content: "⚙ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="70_Validation"] .nav-folder-title-content::before {
+  content: "☁︎⋆.ೃ࿔ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="80_Final_Deliverables"] .nav-folder-title-content::before {
+  content: "ᯓ★ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="90_Winning_Strategy"] .nav-folder-title-content::before {
+  content: "➜✈︎ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="99_Archive"] .nav-folder-title-content::before {
+  content: "☁︎ ☾ " !important;
+  opacity: 0.6 !important;
+}
+
+[data-path^="00_Team_Foundation"] .nav-folder-title-content,
+[data-path^="00_Team_Foundation"] .nav-file-title-content {
+  color: var(--color-00) !important;
+}
+[data-path^="10_Research_Library"] .nav-folder-title-content,
+[data-path^="10_Research_Library"] .nav-file-title-content {
+  color: var(--color-10) !important;
+}
+[data-path^="20_Concept_Design"] .nav-folder-title-content,
+[data-path^="20_Concept_Design"] .nav-file-title-content {
+  color: var(--color-20) !important;
+}
+[data-path^="30_Pitch_Studio"] .nav-folder-title-content,
+[data-path^="30_Pitch_Studio"] .nav-file-title-content {
+  color: var(--color-30) !important;
+}
+[data-path^="40_Team_Journey"] .nav-folder-title-content,
+[data-path^="40_Team_Journey"] .nav-file-title-content {
+  color: var(--color-40) !important;
+}
+[data-path^="50_Templates"] .nav-folder-title-content,
+[data-path^="50_Templates"] .nav-file-title-content {
+  color: var(--color-50) !important;
+}
+[data-path^="60_AI_Prompt_Engineering"] .nav-folder-title-content,
+[data-path^="60_AI_Prompt_Engineering"] .nav-file-title-content {
+  color: var(--color-60) !important;
+}
+[data-path^="70_Validation"] .nav-folder-title-content,
+[data-path^="70_Validation"] .nav-file-title-content {
+  color: var(--color-70) !important;
+}
+[data-path^="80_Final_Deliverables"] .nav-folder-title-content,
+[data-path^="80_Final_Deliverables"] .nav-file-title-content {
+  color: var(--color-80) !important;
+}
+[data-path^="90_Winning_Strategy"] .nav-folder-title-content,
+[data-path^="90_Winning_Strategy"] .nav-file-title-content {
+  color: var(--color-90) !important;
+}
+[data-path^="99_Archive"] .nav-folder-title-content,
+[data-path^="99_Archive"] .nav-file-title-content {
+  color: var(--color-99) !important;
+}
+
+.nav-file-title[data-path^="00_Team_Foundation"] {
+  border-left: 3px solid var(--color-00);
+}
+.nav-file-title[data-path^="10_Research_Library"] {
+  border-left: 3px solid var(--color-10);
+}
+.nav-file-title[data-path^="20_Concept_Design"] {
+  border-left: 3px solid var(--color-20);
+}
+.nav-file-title[data-path^="30_Pitch_Studio"] {
+  border-left: 3px solid var(--color-30);
+}
+.nav-file-title[data-path^="40_Team_Journey"] {
+  border-left: 3px solid var(--color-40);
+}
+.nav-file-title[data-path^="50_Templates"] {
+  border-left: 3px solid var(--color-50);
+}
+.nav-file-title[data-path^="60_AI_Prompt_Engineering"] {
+  border-left: 3px solid var(--color-60);
+}
+.nav-file-title[data-path^="70_Validation"] {
+  border-left: 3px solid var(--color-70);
+}
+.nav-file-title[data-path^="80_Final_Deliverables"] {
+  border-left: 3px solid var(--color-80);
+}
+.nav-file-title[data-path^="90_Winning_Strategy"] {
+  border-left: 3px solid var(--color-90);
+}
+.nav-file-title[data-path^="99_Archive"] {
+  border-left: 3px solid var(--color-99);
+}
+
+.nav-folder-title[data-path^="00_Team_Foundation"] {
+  background-color: color-mix(in srgb, var(--color-00) 20%, transparent);
+}
+.nav-folder-title[data-path^="10_Research_Library"] {
+  background-color: color-mix(in srgb, var(--color-10) 20%, transparent);
+}
+.nav-folder-title[data-path^="20_Concept_Design"] {
+  background-color: color-mix(in srgb, var(--color-20) 20%, transparent);
+}
+.nav-folder-title[data-path^="30_Pitch_Studio"] {
+  background-color: color-mix(in srgb, var(--color-30) 20%, transparent);
+}
+.nav-folder-title[data-path^="40_Team_Journey"] {
+  background-color: color-mix(in srgb, var(--color-40) 20%, transparent);
+}
+.nav-folder-title[data-path^="50_Templates"] {
+  background-color: color-mix(in srgb, var(--color-50) 20%, transparent);
+}
+.nav-folder-title[data-path^="60_AI_Prompt_Engineering"] {
+  background-color: color-mix(in srgb, var(--color-60) 20%, transparent);
+}
+.nav-folder-title[data-path^="70_Validation"] {
+  background-color: color-mix(in srgb, var(--color-70) 20%, transparent);
+}
+.nav-folder-title[data-path^="80_Final_Deliverables"] {
+  background-color: color-mix(in srgb, var(--color-80) 20%, transparent);
+}
+.nav-folder-title[data-path^="90_Winning_Strategy"] {
+  background-color: color-mix(in srgb, var(--color-90) 20%, transparent);
+}
+.nav-folder-title[data-path^="99_Archive"] {
+  background-color: color-mix(in srgb, var(--color-99) 20%, transparent);
+}
+
+.nav-file-title.is-active[data-path^="00_Team_Foundation"] { background-color: color-mix(in srgb, var(--color-00) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="10_Research_Library"] { background-color: color-mix(in srgb, var(--color-10) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="20_Concept_Design"] { background-color: color-mix(in srgb, var(--color-20) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="30_Pitch_Studio"] { background-color: color-mix(in srgb, var(--color-30) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="40_Team_Journey"] { background-color: color-mix(in srgb, var(--color-40) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="50_Templates"] { background-color: color-mix(in srgb, var(--color-50) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="60_AI_Prompt_Engineering"] { background-color: color-mix(in srgb, var(--color-60) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="70_Validation"] { background-color: color-mix(in srgb, var(--color-70) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="80_Final_Deliverables"] { background-color: color-mix(in srgb, var(--color-80) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="90_Winning_Strategy"] { background-color: color-mix(in srgb, var(--color-90) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="99_Archive"] { background-color: color-mix(in srgb, var(--color-99) 18%, transparent) !important; }
+
+.workspace-tab-header[data-path^="00_Team_Foundation"] { border-bottom: 2px solid var(--color-00) !important; }
+.workspace-tab-header.is-active[data-path^="00_Team_Foundation"] { background-color: color-mix(in srgb, var(--color-00) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="00_Team_Foundation"] .workspace-tab-header-inner-title { color: var(--color-00) !important; }
+.workspace-tab-header[data-path^="10_Research_Library"] { border-bottom: 2px solid var(--color-10) !important; }
+.workspace-tab-header.is-active[data-path^="10_Research_Library"] { background-color: color-mix(in srgb, var(--color-10) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="10_Research_Library"] .workspace-tab-header-inner-title { color: var(--color-10) !important; }
+.workspace-tab-header[data-path^="20_Concept_Design"] { border-bottom: 2px solid var(--color-20) !important; }
+.workspace-tab-header.is-active[data-path^="20_Concept_Design"] { background-color: color-mix(in srgb, var(--color-20) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="20_Concept_Design"] .workspace-tab-header-inner-title { color: var(--color-20) !important; }
+.workspace-tab-header[data-path^="30_Pitch_Studio"] { border-bottom: 2px solid var(--color-30) !important; }
+.workspace-tab-header.is-active[data-path^="30_Pitch_Studio"] { background-color: color-mix(in srgb, var(--color-30) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="30_Pitch_Studio"] .workspace-tab-header-inner-title { color: var(--color-30) !important; }
+.workspace-tab-header[data-path^="40_Team_Journey"] { border-bottom: 2px solid var(--color-40) !important; }
+.workspace-tab-header.is-active[data-path^="40_Team_Journey"] { background-color: color-mix(in srgb, var(--color-40) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="40_Team_Journey"] .workspace-tab-header-inner-title { color: var(--color-40) !important; }
+.workspace-tab-header[data-path^="50_Templates"] { border-bottom: 2px solid var(--color-50) !important; }
+.workspace-tab-header.is-active[data-path^="50_Templates"] { background-color: color-mix(in srgb, var(--color-50) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="50_Templates"] .workspace-tab-header-inner-title { color: var(--color-50) !important; }
+.workspace-tab-header[data-path^="60_AI_Prompt_Engineering"] { border-bottom: 2px solid var(--color-60) !important; }
+.workspace-tab-header.is-active[data-path^="60_AI_Prompt_Engineering"] { background-color: color-mix(in srgb, var(--color-60) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="60_AI_Prompt_Engineering"] .workspace-tab-header-inner-title { color: var(--color-60) !important; }
+.workspace-tab-header[data-path^="70_Validation"] { border-bottom: 2px solid var(--color-70) !important; }
+.workspace-tab-header.is-active[data-path^="70_Validation"] { background-color: color-mix(in srgb, var(--color-70) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="70_Validation"] .workspace-tab-header-inner-title { color: var(--color-70) !important; }
+.workspace-tab-header[data-path^="80_Final_Deliverables"] { border-bottom: 2px solid var(--color-80) !important; }
+.workspace-tab-header.is-active[data-path^="80_Final_Deliverables"] { background-color: color-mix(in srgb, var(--color-80) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="80_Final_Deliverables"] .workspace-tab-header-inner-title { color: var(--color-80) !important; }
+.workspace-tab-header[data-path^="90_Winning_Strategy"] { border-bottom: 2px solid var(--color-90) !important; }
+.workspace-tab-header.is-active[data-path^="90_Winning_Strategy"] { background-color: color-mix(in srgb, var(--color-90) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="90_Winning_Strategy"] .workspace-tab-header-inner-title { color: var(--color-90) !important; }
+.workspace-tab-header[data-path^="99_Archive"] { border-bottom: 2px solid var(--color-99) !important; }
+.workspace-tab-header.is-active[data-path^="99_Archive"] { background-color: color-mix(in srgb, var(--color-99) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="99_Archive"] .workspace-tab-header-inner-title { color: var(--color-99) !important; }
+
+.graph-node[data-path*="00_Team_Foundation"] .graph-fill,
+.graph-node[data-id*="00_Team_Foundation"] .graph-fill,
+.graph-node[data-path*="00_Team_Foundation"] circle,
+.graph-node[data-id*="00_Team_Foundation"] circle { fill: var(--color-00) !important; stroke: var(--color-00) !important; }
+.graph-node[data-path*="00_Team_Foundation"] text,
+.graph-node[data-id*="00_Team_Foundation"] text { fill: var(--color-00) !important; }
+.graph-node[data-path*="10_Research_Library"] .graph-fill,
+.graph-node[data-id*="10_Research_Library"] .graph-fill,
+.graph-node[data-path*="10_Research_Library"] circle,
+.graph-node[data-id*="10_Research_Library"] circle { fill: var(--color-10) !important; stroke: var(--color-10) !important; }
+.graph-node[data-path*="10_Research_Library"] text,
+.graph-node[data-id*="10_Research_Library"] text { fill: var(--color-10) !important; }
+.graph-node[data-path*="20_Concept_Design"] .graph-fill,
+.graph-node[data-id*="20_Concept_Design"] .graph-fill,
+.graph-node[data-path*="20_Concept_Design"] circle,
+.graph-node[data-id*="20_Concept_Design"] circle { fill: var(--color-20) !important; stroke: var(--color-20) !important; }
+.graph-node[data-path*="20_Concept_Design"] text,
+.graph-node[data-id*="20_Concept_Design"] text { fill: var(--color-20) !important; }
+.graph-node[data-path*="30_Pitch_Studio"] .graph-fill,
+.graph-node[data-id*="30_Pitch_Studio"] .graph-fill,
+.graph-node[data-path*="30_Pitch_Studio"] circle,
+.graph-node[data-id*="30_Pitch_Studio"] circle { fill: var(--color-30) !important; stroke: var(--color-30) !important; }
+.graph-node[data-path*="30_Pitch_Studio"] text,
+.graph-node[data-id*="30_Pitch_Studio"] text { fill: var(--color-30) !important; }
+.graph-node[data-path*="40_Team_Journey"] .graph-fill,
+.graph-node[data-id*="40_Team_Journey"] .graph-fill,
+.graph-node[data-path*="40_Team_Journey"] circle,
+.graph-node[data-id*="40_Team_Journey"] circle { fill: var(--color-40) !important; stroke: var(--color-40) !important; }
+.graph-node[data-path*="40_Team_Journey"] text,
+.graph-node[data-id*="40_Team_Journey"] text { fill: var(--color-40) !important; }
+.graph-node[data-path*="50_Templates"] .graph-fill,
+.graph-node[data-id*="50_Templates"] .graph-fill,
+.graph-node[data-path*="50_Templates"] circle,
+.graph-node[data-id*="50_Templates"] circle { fill: var(--color-50) !important; stroke: var(--color-50) !important; }
+.graph-node[data-path*="50_Templates"] text,
+.graph-node[data-id*="50_Templates"] text { fill: var(--color-50) !important; }
+.graph-node[data-path*="60_AI_Prompt_Engineering"] .graph-fill,
+.graph-node[data-id*="60_AI_Prompt_Engineering"] .graph-fill,
+.graph-node[data-path*="60_AI_Prompt_Engineering"] circle,
+.graph-node[data-id*="60_AI_Prompt_Engineering"] circle { fill: var(--color-60) !important; stroke: var(--color-60) !important; }
+.graph-node[data-path*="60_AI_Prompt_Engineering"] text,
+.graph-node[data-id*="60_AI_Prompt_Engineering"] text { fill: var(--color-60) !important; }
+.graph-node[data-path*="70_Validation"] .graph-fill,
+.graph-node[data-id*="70_Validation"] .graph-fill,
+.graph-node[data-path*="70_Validation"] circle,
+.graph-node[data-id*="70_Validation"] circle { fill: var(--color-70) !important; stroke: var(--color-70) !important; }
+.graph-node[data-path*="70_Validation"] text,
+.graph-node[data-id*="70_Validation"] text { fill: var(--color-70) !important; }
+.graph-node[data-path*="80_Final_Deliverables"] .graph-fill,
+.graph-node[data-id*="80_Final_Deliverables"] .graph-fill,
+.graph-node[data-path*="80_Final_Deliverables"] circle,
+.graph-node[data-id*="80_Final_Deliverables"] circle { fill: var(--color-80) !important; stroke: var(--color-80) !important; }
+.graph-node[data-path*="80_Final_Deliverables"] text,
+.graph-node[data-id*="80_Final_Deliverables"] text { fill: var(--color-80) !important; }
+.graph-node[data-path*="90_Winning_Strategy"] .graph-fill,
+.graph-node[data-id*="90_Winning_Strategy"] .graph-fill,
+.graph-node[data-path*="90_Winning_Strategy"] circle,
+.graph-node[data-id*="90_Winning_Strategy"] circle { fill: var(--color-90) !important; stroke: var(--color-90) !important; }
+.graph-node[data-path*="90_Winning_Strategy"] text,
+.graph-node[data-id*="90_Winning_Strategy"] text { fill: var(--color-90) !important; }
+.graph-node[data-path*="99_Archive"] .graph-fill,
+.graph-node[data-id*="99_Archive"] .graph-fill,
+.graph-node[data-path*="99_Archive"] circle,
+.graph-node[data-id*="99_Archive"] circle { fill: var(--color-99) !important; stroke: var(--color-99) !important; }
+.graph-node[data-path*="99_Archive"] text,
+.graph-node[data-id*="99_Archive"] text { fill: var(--color-99) !important; }
+
+/* ===== TEAMMATE CONTRIBUTION COLORS ===== */
+:root {
+  --contrib-t1:    #F4D03F;
+  --contrib-t1-bg: rgba(244, 208, 63, 0.12);
+  --contrib-t2:    #5DADE2;
+  --contrib-t2-bg: rgba(93, 173, 226, 0.12);
+  --contrib-t3:    #AF7AC5;
+  --contrib-t3-bg: rgba(175, 122, 197, 0.12);
+}
+
+/* Inline contribution markers (Reading view) */
+.contrib-t1 { border-left: 4px solid var(--contrib-t1); padding-left: 12px; background: var(--contrib-t1-bg); border-radius: 0 4px 4px 0; }
+.contrib-t2 { border-left: 4px solid var(--contrib-t2); padding-left: 12px; background: var(--contrib-t2-bg); border-radius: 0 4px 4px 0; }
+.contrib-t3 { border-left: 4px solid var(--contrib-t3); padding-left: 12px; background: var(--contrib-t3-bg); border-radius: 0 4px 4px 0; }
+
+/* Custom callouts per teammate */
+.callout[data-callout="t1"] { --callout-color: 244, 208, 63; }
+.callout[data-callout="t2"] { --callout-color: 93, 173, 226; }
+.callout[data-callout="t3"] { --callout-color: 175, 122, 197; }
+
+/* Contribution Bar Widget on Home page */
+.contrib-bar-container {
+  display: flex;
+  height: 28px;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 8px 0;
+  background: var(--background-modifier-border);
+}
+.contrib-bar-t1 { height: 100%; background: var(--contrib-t1); transition: width 0.4s ease; }
+.contrib-bar-t2 { height: 100%; background: var(--contrib-t2); transition: width 0.4s ease; }
+.contrib-bar-t3 { height: 100%; background: var(--contrib-t3); transition: width 0.4s ease; }
+
+.contrib-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  font-size: 13px;
+}
+.contrib-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.contrib-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.contrib-legend-dot.t1 { background: var(--contrib-t1); }
+.contrib-legend-dot.t2 { background: var(--contrib-t2); }
+.contrib-legend-dot.t3 { background: var(--contrib-t3); }

@@ -1,0 +1,139 @@
+{
+  "connections": {
+    "language": "en",
+    "providers": [],
+    "ragEnabled": false,
+    "embedding": {
+      "mode": "auto",
+      "providerId": "",
+      "modelId": ""
+    },
+    "defaultProviderId": "",
+    "defaultModelId": "",
+    "quickActionProviderId": "",
+    "quickActionModelId": "",
+    "taskProviderId": "",
+    "taskModelId": "",
+    "rerankerProviderId": "",
+    "rerankerModelId": ""
+  },
+  "chat": {
+    "systemPrompts": [
+      {
+        "id": "default",
+        "name": "Default",
+        "content": "You are a helpful assistant integrated into Obsidian.\nDo not use conversational filler or introductory phrases. Go straight to the point."
+      }
+    ],
+    "activeSystemPromptId": "default",
+    "autoSaveHistory": true,
+    "historyPath": "chatHistory",
+    "sendKey": "enter",
+    "inlineTrigger": "/ai",
+    "enableAutocomplete": false,
+    "quickActions": [
+      {
+        "id": "qa-summarize",
+        "name": "Summarize",
+        "prompt": "Summarize the following text concisely:\n\n",
+        "actionType": "append"
+      },
+      {
+        "id": "qa-translate",
+        "name": "Translate to English",
+        "prompt": "Translate the following text into natural English:\n\n",
+        "actionType": "replace"
+      },
+      {
+        "id": "qa-explain",
+        "name": "Explain",
+        "prompt": "Explain the following text in detail:\n\n",
+        "actionType": "chat"
+      }
+    ],
+    "memoryMethod": "auto_summary",
+    "contextWindowTurns": 10,
+    "useTokenLimit": false,
+    "maxContextTokens": 8000,
+    "temperature": 0.7,
+    "maxOutputTokens": 4000,
+    "streaming": true,
+    "responseLanguage": "auto",
+    "agentEnabled": false,
+    "agentExecutionMode": "read",
+    "agentMaxSteps": 15
+  },
+  "rag": {
+    "dataScope": "vault",
+    "includeActiveNote": false,
+    "includedPaths": [],
+    "excludedPaths": [
+      "templates",
+      "Templates",
+      "_templates",
+      "chatHistory",
+      "backups",
+      ".obsidian"
+    ],
+    "parentChunkSize": 2000,
+    "parentChunkOverlap": 200,
+    "childChunkSize": 200,
+    "childChunkOverlap": 40,
+    "cachePersistCheckpointInterval": 1,
+    "topK": 5,
+    "minSimilarity": 0,
+    "syncMode": "watch",
+    "maxFileSizeMB": 50
+  },
+  "misc": {
+    "contextMenuEnabled": true,
+    "showRibbonIcon": true,
+    "autoFrontmatter": false,
+    "debugMode": false,
+    "hasMigratedChatHistory": true
+  },
+  "mcp": {
+    "servers": [],
+    "serverEnabled": false,
+    "serverPort": 3000,
+    "serverAuthToken": "",
+    "serverMaxReadChars": 20000,
+    "serverSearchSnippetLength": 300,
+    "serverSearchMaxResults": 10,
+    "serverMaxAppendChars": 10000,
+    "clientToolsEnabled": true,
+    "serverEnableShellCommands": false,
+    "agentRespectRagExclusions": true
+  },
+  "webSearch": {
+    "enabled": false,
+    "providers": [
+      {
+        "type": "tavily",
+        "apiKey": ""
+      },
+      {
+        "type": "brave",
+        "apiKey": ""
+      },
+      {
+        "type": "searxng",
+        "baseUrl": "http://localhost:8080",
+        "apiKey": ""
+      }
+    ],
+    "activeProviderId": "tavily",
+    "maxResults": 5,
+    "maxContentLength": 3000
+  },
+  "canvas": {
+    "depth": 1,
+    "layout": "radial",
+    "bidirectional": true,
+    "includeAttachments": false,
+    "maxNodes": 200,
+    "folderDepth": 0,
+    "outputPath": "canvasVisualize",
+    "showFolderGroups": false
+  }
+}

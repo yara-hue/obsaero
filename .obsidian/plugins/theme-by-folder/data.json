@@ -1,0 +1,13 @@
+{
+  "mappings": [
+    {
+      "name": "Mapping 1",
+      "folder": "00_Team_Foundation",
+      "theme": "",
+      "mode": "light"
+    }
+  ],
+  "defaultTheme": "",
+  "defaultMode": "",
+  "showNotifications": true
+}

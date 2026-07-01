@@ -1,0 +1,240 @@
+{
+  "nodePositions": [
+    {
+      "id": "00_Team_Foundation/00 - Team Foundation.md",
+      "x": 710.677001953125,
+      "y": -532.4501953125
+    },
+    {
+      "id": "00_Team_Foundation/Communication Protocols.md",
+      "x": 951.9945068359375,
+      "y": -725.5780639648438
+    },
+    {
+      "id": "00_Team_Foundation/Evaluation Rubric.md",
+      "x": 982.4469604492188,
+      "y": -535.2783813476562
+    },
+    {
+      "id": "00_Team_Foundation/Team Charter.md",
+      "x": 759.2142944335938,
+      "y": -784.5609130859375
+    },
+    {
+      "id": "10_Research_Library/10 - Research Library.md",
+      "x": 102.45347595214844,
+      "y": -269.0844421386719
+    },
+    {
+      "id": "10_Research_Library/NotebookLM Briefings.md",
+      "x": 126.326904296875,
+      "y": -499.3349914550781
+    },
+    {
+      "id": "10_Research_Library/Research Questions.md",
+      "x": 306.6515808105469,
+      "y": -325.4072570800781
+    },
+    {
+      "id": "10_Research_Library/Sources Database.md",
+      "x": -93.31565856933594,
+      "y": -365.1514587402344
+    },
+    {
+      "id": "20_Concept_Design/20 - Concept Design.md",
+      "x": 154.86732482910156,
+      "y": 767.6546020507812
+    },
+    {
+      "id": "20_Concept_Design/AI Prompts Library.md",
+      "x": 162.1382598876953,
+      "y": 1089.8221435546875
+    },
+    {
+      "id": "20_Concept_Design/Concept Blueprint.md",
+      "x": 19.287734985351562,
+      "y": 953.6495361328125
+    },
+    {
+      "id": "20_Concept_Design/Concept Evaluation Matrix.md",
+      "x": 340.7757263183594,
+      "y": 1011.7630615234375
+    },
+    {
+      "id": "20_Concept_Design/Idea Dump.md",
+      "x": 352.9792175292969,
+      "y": 809.2564697265625
+    },
+    {
+      "id": "30_Pitch_Studio/30 - Pitch Studio.md",
+      "x": 88.17227935791016,
+      "y": -916.1134033203125
+    },
+    {
+      "id": "30_Pitch_Studio/Gamma Deck Link.md",
+      "x": 294.4762878417969,
+      "y": -1053.935546875
+    },
+    {
+      "id": "30_Pitch_Studio/Narrative Outline.md",
+      "x": -34.293087005615234,
+      "y": -1194.15966796875
+    },
+    {
+      "id": "30_Pitch_Studio/Pitch Script.md",
+      "x": 166.16647338867188,
+      "y": -1196.9542236328125
+    },
+    {
+      "id": "30_Pitch_Studio/Visual Assets Tracker.md",
+      "x": -121.1446304321289,
+      "y": -1022.89306640625
+    },
+    {
+      "id": "40_Team_Journey/40 - Team Journey.md",
+      "x": -255.80291748046875,
+      "y": 209.6124725341797
+    },
+    {
+      "id": "40_Team_Journey/Individual Reflections.md",
+      "x": -491.0205993652344,
+      "y": 325.9334411621094
+    },
+    {
+      "id": "40_Team_Journey/Process Artifact Draft.md",
+      "x": -437.7010192871094,
+      "y": 88.09537506103516
+    },
+    {
+      "id": "40_Team_Journey/Team Thinking Log.md",
+      "x": -270.8043212890625,
+      "y": 419.41912841796875
+    },
+    {
+      "id": "50_Templates/50 - Templates.md",
+      "x": -573.650390625,
+      "y": -526.1595458984375
+    },
+    {
+      "id": "50_Templates/tpl_Concept_Evaluation.md",
+      "x": -777.3028564453125,
+      "y": -448.2929382324219
+    },
+    {
+      "id": "50_Templates/tpl_Meeting_Note.md",
+      "x": -870.3643188476562,
+      "y": -623.3915405273438
+    },
+    {
+      "id": "50_Templates/tpl_Research_Insight.md",
+      "x": -561.78662109375,
+      "y": -760.324951171875
+    },
+    {
+      "id": "50_Templates/tpl_Weekly_Reflection.md",
+      "x": -752.9126586914062,
+      "y": -780.0281982421875
+    },
+    {
+      "id": "60_AI_Prompt_Engineering/60 - AI Prompt Engineering.md",
+      "x": -435.0094909667969,
+      "y": 785.4039306640625
+    },
+    {
+      "id": "60_AI_Prompt_Engineering/Chatbot Role Matrices.md",
+      "x": -405.1455993652344,
+      "y": 1051.861572265625
+    },
+    {
+      "id": "60_AI_Prompt_Engineering/Frontier Prompts Core.md",
+      "x": -603.4395141601562,
+      "y": 1030.3370361328125
+    },
+    {
+      "id": "60_AI_Prompt_Engineering/Prompt Iteration Log.md",
+      "x": -692.3983764648438,
+      "y": 847.8873291015625
+    },
+    {
+      "id": "70_Validation_&_Evidence/70 - Validation & Evidence.md",
+      "x": 735.7703247070312,
+      "y": 522.094482421875
+    },
+    {
+      "id": "70_Validation_&_Evidence/Academic Citation Index.md",
+      "x": 1012.1508178710938,
+      "y": 496.57806396484375
+    },
+    {
+      "id": "70_Validation_&_Evidence/Quantitative Survey Data.md",
+      "x": 816.6136474609375,
+      "y": 773.4512329101562
+    },
+    {
+      "id": "70_Validation_&_Evidence/User Interview Transcripts.md",
+      "x": 995.284912109375,
+      "y": 690.62255859375
+    },
+    {
+      "id": "80_Final_Deliverables/80 - Final Deliverables.md",
+      "x": -870.4951171875,
+      "y": 107.8144760131836
+    },
+    {
+      "id": "80_Final_Deliverables/Executive Summary (One-Pager).md",
+      "x": -1046.3321533203125,
+      "y": 311.76873779296875
+    },
+    {
+      "id": "80_Final_Deliverables/Final Presentation Script.md",
+      "x": -1088.1593017578125,
+      "y": -43.9290885925293
+    },
+    {
+      "id": "80_Final_Deliverables/Submission Checklist.md",
+      "x": -1163.95263671875,
+      "y": 145.34031677246094
+    },
+    {
+      "id": "90_Winning_Strategy/90 - Winning Strategy.md",
+      "x": 680.7306518554688,
+      "y": -4.667877197265625
+    },
+    {
+      "id": "90_Winning_Strategy/Boeing ESG Alignment Matrix.md",
+      "x": 842.6954956054688,
+      "y": 135.03578186035156
+    },
+    {
+      "id": "90_Winning_Strategy/Judge Persona Analysis.md",
+      "x": 1015.853759765625,
+      "y": 6.999780654907227
+    },
+    {
+      "id": "90_Winning_Strategy/Risk Mitigation Register.md",
+      "x": 885.3257446289062,
+      "y": -145.05178833007812
+    },
+    {
+      "id": "99_Archive/99 - Archive.md",
+      "x": 177.71725463867188,
+      "y": 168.89125061035156
+    },
+    {
+      "id": "🏠 Home.md",
+      "x": 47.743995666503906,
+      "y": 28.348960876464844
+    }
+  ],
+  "pinnedNodes": [],
+  "globalOptions": {},
+  "workspacesGraphData": {},
+  "automaticallyRestoreNodePositions": true,
+  "enableSaveOptions": false,
+  "enableWorkspaces": false,
+  "timesShowedRestoredNotification": 5,
+  "showSaveNotification": false,
+  "enableGraphSimulationCommands": false,
+  "enableAutoSave": false,
+  "autoSaveIntervalMinutes": 5
+}
