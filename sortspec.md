@@ -1,8 +1,8 @@
 ---
 sorting-spec: |
   target-folder: .
-  00_Home.md
-  01_Project_Roadmap.md
+  00_Home
+  01_Project_Roadmap
   01_Understand_Challenge
   02_Research
   03_Idea_Dump
@@ -17,5 +17,5 @@ sorting-spec: |
   50_Templates
   60_AI_Prompt_Engineering
   99_Archive
-  VAULT_AUDIT.md
+  VAULT_AUDIT
 ---
