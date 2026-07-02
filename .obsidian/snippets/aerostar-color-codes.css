@@ -601,3 +601,13 @@
 
 
 
+
+
+/* ===== DISABLE DRAG-AND-DROP IN FILE EXPLORER ===== */
+.nav-file-title,
+.nav-folder-title {
+  -webkit-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -ms-user-drag: none !important;
+  user-drag: none !important;
+}

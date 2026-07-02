@@ -5,9 +5,9 @@
   "statusBarEntryEnabled": true,
   "notificationsEnabled": true,
   "mobileNotificationsEnabled": false,
-  "customSortContextSubmenu": false,
-  "automaticBookmarksIntegration": false,
-  "bookmarksContextMenus": false,
+  "customSortContextSubmenu": true,
+  "automaticBookmarksIntegration": true,
+  "bookmarksContextMenus": true,
   "bookmarksGroupToConsumeAsOrderingReference": "sortspec",
   "delayForInitialApplication": 1000
 }
