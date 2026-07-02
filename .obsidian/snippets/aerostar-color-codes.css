@@ -536,6 +536,13 @@
 .graph-node[data-id*="10 Winning Strategy"] circle { fill: var(--color-90) !important; stroke: var(--color-90) !important; }
 .graph-node[data-path*="10 Winning Strategy"] text,
 .graph-node[data-id*="10 Winning Strategy"] text { fill: var(--color-90) !important; }
+
+/* ===== SECTION SEPARATORS ===== */
+.nav-folder-title[data-path="40 Team Journey"] {
+  margin-top: 16px !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+  padding-top: 8px !important;
+}
 /* ===== TEAMMATE CONTRIBUTION COLORS ===== */
 :root {
   --contrib-t1:    #F4D03F;
