@@ -1,6 +1,6 @@
-# AeroSTAR Vault — Complete Audit for AI Analysis
+﻿# AeroSTAR Vault — Complete Audit for AI Analysis
 
-Generated: 01 Jul 2026
+Generated: 01 Jul 2026 (updated 02 Jul 2026)
 Path: C:\Users\ehabn\Aerostar-Sustainability-Challenge
 
 This document describes every file in the vault — its purpose, the type of content it holds, and how it connects to other files. Use this as a map for an AI to understand the project structure and generate prompt templates for filling the vault.
@@ -31,7 +31,7 @@ This document describes every file in the vault — its purpose, the type of con
 | 30 | Pitch Studio | Presentation assets: narrative, script, visuals, Gamma deck |
 | 40 | Team Journey | Process documentation for judges: reflections, thinking log, drafts |
 | 50 | Templates | Reusable markdown templates for notes |
-| 60 | AI Prompt Engineering | AI Operating Manual (11 files: rules per AI, task prompts, debugging) |
+| 60 | AI Prompt Engineering | AI Operating Manual (13 files: rules per AI, task prompts, debugging, anti-patterns) |
 | 70 | Validation and Evidence | Proof: citations, survey data, interview transcripts |
 | 80 | Final Deliverables | Locked submission-ready materials |
 | 90 | Winning Strategy | Competitive positioning: ESG alignment, judge analysis, risk register |
@@ -47,9 +47,9 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 
 ### ROOT
 
-#### Home.md
-- **Role:** Team command center — first thing everyone sees on startup. Pinned tab via Homepage plugin.
-- **Content:** Flight status header, sprint tracker table (4-week timeline with status indicators), Lumina AI usage instructions, crew manifest with teammate assignments and focus areas, contribution bar chart (33/33/34 default), critical north stars briefing.
+#### 00_Home.md
+- **Role:** Team command center — first thing everyone sees on startup. Pinned tab via Homepage plugin. Sorts first in file explorer.
+- **Content:** Flight status header, sprint tracker table, crew manifest with teammate assignments, contribution bar chart, reading roadmap (prioritized 10 files), stamp usage guide, critical north stars briefing.
 - **Structure:** Sections separated by ---. Uses HTML divs for contribution bar widget. Wikilinks to each vault folder.
 - **Related:** All folders. Homepage plugin opens this on startup. Role Stamper plugin updates the bar section.
 
@@ -269,7 +269,7 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 
 ---
 
-### 60_AI_Prompt_Engineering/ — AI Operating Manual (12 files, numbered for order)
+### 60_AI_Prompt_Engineering/ — AI Operating Manual (13 files, numbered for order)
 
 Number prefixes ensure correct sort order in Obsidian. This folder is an AI operations manual, not a prompt library.
 
@@ -320,6 +320,10 @@ Number prefixes ensure correct sort order in Obsidian. This folder is an AI oper
 #### 11 - Prompt Debugging.md
 - **Role:** Troubleshooting guide and iteration log
 - **Content:** 9 failure modes table, 4 anti-patterns, blank log, pre-prompt checklist
+
+#### 12 - LLM Behaviours to Avoid.md
+- **Role:** Anti-patterns guide — what NOT to do when using AI
+- **Content:** 12 anti-patterns (single-prompt trap, passive validation, constraint drifting, etc.), team checklist, behaviour-to-fix quick reference table
 
 ---
 
@@ -421,12 +425,12 @@ Number prefixes ensure correct sort order in Obsidian. This folder is an AI oper
 - **Purpose:** Teammate selection and color-coded contribution stamping
 - **Key features:** Status bar cycle (click to switch teammate), right-click context menu on selected text, Ctrl+Shift+L to stamp, Ctrl+Shift+D for personal draft, ribbon icon to auto-update Home page bar
 - **Commands:** Cycle teammate, Stamp selection/paragraph, Open personal draft, Update contribution bar
-- **Current config:** currentRole = t1 (Teammate 1/Lead)
+- **Current config:** currentRole = t2 (Teammate 2)
 - **Tags files with:** HTML divs with class contrib-t1, contrib-t2, or contrib-t3
 
 ### 4.2 homepage (v4.4.4)
-- **Purpose:** Opens Home.md on startup
-- **Config:** Pinned tab, replaces all open notes, opens on startup
+- **Purpose:** Opens 00_Home.md on startup
+- **Config:** Pinned tab, replaces all open notes, opens on startup. Target file: 00_Home
 
 ### 4.3 lumina (v1.2.19)
 - **Purpose:** RAG and MCP agent with multilingual embeddings (IBM Granite model)
@@ -454,7 +458,11 @@ Number prefixes ensure correct sort order in Obsidian. This folder is an AI oper
 - **Purpose:** Custom mermaid.js diagram themes
 - **Config:** Theme = default
 
-### 4.9 theme-by-folder (v1.3.3)
+### 4.10 obsidian-git (v2.x)
+- **Purpose:** Auto-sync vault with GitHub via git commit/push/pull
+- **Config:** Remote: yara-hue/obsaero on GitHub. Token-based auth. Auto-sync configured via plugin settings.
+
+ (v1.3.3)
 - **Purpose:** Auto-switches Obsidian theme based on active folder
 - **Config:** 00_Team_Foundation folder triggers light mode
 
@@ -483,8 +491,8 @@ Number prefixes ensure correct sort order in Obsidian. This folder is an AI oper
 
 ## 6. CONFIGURATION SUMMARY
 
-### community-plugins.json (8 plugins)
-persistent-graph, lumina, homepage, theme-by-folder, mermaid-themes, obsidian-dictionary-plugin, fingertip-translation, role-stamper
+### community-plugins.json (9 plugins)
+persistent-graph, lumina, homepage, theme-by-folder, mermaid-themes, obsidian-dictionary-plugin, fingertip-translation, role-stamper, obsidian-git
 
 ### appearance.json
 - Theme: obsidian (default)
@@ -500,19 +508,18 @@ footnotes, slash-command, markdown-importer, zk-prefixer, random-note, slides, a
 ### Workspace layout
 - Left sidebar: File Explorer, Global Search, Bookmarks
 - Right sidebar: Backlinks, Outgoing Links, Tags, Properties, Outline
-- Main area: Home.md as pinned startup tab
+- Main area: 00_Home.md as pinned startup tab
 
 ---
 
 ## 7. WORKFLOWS
 
 ### Contribution Tracking
-1. Click status bar bottom to select teammate (cycles: T1, T2, T3)
-2. Type normally, select text
-3. Right-click context menu "Stamp as..." or Ctrl+Shift+L
-4. Text wrapped in contrib-tX div with colored left border
-5. Click ribbon icon to auto-count stamps and update Home page bar
-6. Bar shows percentage split based on stamp counts
+1. **Mouse:** Select text → right-click → pick a teammate from menu → stamped immediately
+2. **Keyboard:** Ctrl+Shift+L stamps with current teammate (click status bar to cycle T1→T2→T3 first)
+3. Text wrapped in contrib-tX div with colored left border
+4. Click ribbon icon to auto-count stamps and update Home page bar
+5. Bar shows percentage split based on stamp counts
 
 ### Personal Drafts
 - Ctrl+Shift+D creates/opens Draft - Teammate X.md
@@ -530,6 +537,7 @@ footnotes, slash-command, markdown-importer, zk-prefixer, random-note, slides, a
 
 ## 8. NOTE STATUS
 
-All content notes were placeholder files — now 40 remain as templates. The 60_AI_Prompt_Engineering/ folder has been fully populated with 12 files (AI Operating Manual, rules per AI, Devil's Advocate, task prompts, debugging). Numbered prefixes keep them in logical order in Obsidian's file explorer. They contain FILE PURPOSE and HOW TO USE headers but no actual project content. The only exception is Home.md which has the dashboard structure with real metadata.
+All content notes were placeholder files — 36 of 55 markdown files still have FILE PURPOSE headers (empty templates). The 60_AI_Prompt_Engineering/ folder has been fully populated with 13 files (AI Operating Manual, 5 AI rules, Devil's Advocate, 4 task prompt sets, LLM anti-patterns, debugging). Numbered prefixes keep them in logical order in Obsidian's file explorer. The only exception is 00_Home.md which has the dashboard structure with real metadata.
 
-File sizes: 87 bytes (99 - Archive.md) to 933 bytes (tpl_Concept_Evaluation.md).
+File sizes: 87 bytes (99 - Archive.md) to ~720 KB (obsidian-git/main.js).
+

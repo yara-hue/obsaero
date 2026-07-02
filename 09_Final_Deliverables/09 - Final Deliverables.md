@@ -1,0 +1,45 @@
+# 📦 Final Deliverables
+
+## Purpose
+
+Produce the polished, submission‑ready materials that will be handed over to the judges.
+
+## Inputs
+
+- The pitch deck and script
+- All evidence and supporting documentation
+
+## Process
+
+1. **Consolidate** – ensure all files are final and locked.
+2. **Check against rubric** – use [[Submission Checklist]] to verify every criterion.
+3. **Create the executive summary** – a one‑pager readable in 60 seconds.
+4. **Lock the final script** – use [[Final Presentation Script]] as the master copy.
+
+## Outputs
+
+- Submission‑ready package:
+  - Executive Summary (One‑Pager)
+  - Final Presentation Script
+  - Slide deck (Gamma)
+  - Supporting evidence (optional)
+- All files pass the [[Submission Checklist]].
+
+## Files in this Stage
+
+### Executive Summary (One-Pager)
+*Purpose:* Concise overview of the concept, system mechanics, and SDG impact – for quick reading.
+
+### Final Presentation Script
+*Purpose:* The locked, timed script used for rehearsal and final delivery.
+
+### Submission Checklist
+*Purpose:* The quality‑control gatekeeper verifying file formats, word limits, and rubric compliance.
+
+## Next Stage
+
+None – you've reached the end!
+
+---
+
+← [[08 - Pitch Studio]] | ↑ [[01_Project_Roadmap]]
