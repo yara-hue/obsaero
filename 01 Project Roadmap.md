@@ -25,7 +25,7 @@ flowchart TD
 
 | Stage | Mode | Purpose | Team Sync |
 |:------|:-----|:--------|:----------|
-| [[01 - Understand the Challenge]] | 👥 Team | Grasp rules, agreements, and evaluation criteria. | Kick-off meeting |
+| [[01 - Understand the Challenge]] | 🧑‍💻 Individual | Grasp rules, agreements, and evaluation criteria. | Align as team |
 | [[02 - Research]] | 🧑‍💻 Individual | Build a factual foundation with data, papers, and reports. | Share findings |
 | [[03 - Idea Dump]] | 🧑‍💻 Individual | Generate a large pool of concepts. | Pool & discuss |
 | [[04 - Concept Evaluation]] | 👥 Team | Compare concepts objectively; vote on the winner. | — |
@@ -35,7 +35,7 @@ flowchart TD
 | [[08 - Pitch Studio]] | 👥 Team | Build the presentation story together. | — |
 | [[09 - Final Deliverables]] | 👥 Team | Polish, final review, and submit. | —
 
-> **Sync rhythm:** Team meets after stages **02, 03, 06, 07** to connect individual work before moving to the next team phase.
+> **Sync rhythm:** Team meets after stages **01, 02, 03, 06, 07** to connect individual work before moving to the next team phase.
 
 Begin your journey: [[01 - Understand the Challenge]]
 

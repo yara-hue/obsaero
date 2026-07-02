@@ -12,7 +12,7 @@ Work alternates between **individual sprints** and **team syncs**.
 
 | Stage | Mode | Who | Team Sync |
 |:------|:-----|:----|:----------|
-| [[01 - Understand the Challenge]] | Team | Everyone | Kick-off meeting |
+| [[01 - Understand the Challenge]] | Individual | Read brief & rubric | Align as team |
 | [[02 - Research]] | Individual | Split by topic | Share findings |
 | [[03 - Idea Dump]] | Individual | Everyone ideates | Pool & discuss |
 | [[04 - Concept Evaluation]] | Team | Everyone | Vote on winner |
@@ -23,7 +23,7 @@ Work alternates between **individual sprints** and **team syncs**.
 | [[09 - Final Deliverables]] | Team | Everyone | Final review & submit |
 
 > [!important] **Connection points**
-> After stages **02, 03, 06, 07** the team meets to merge individual work before moving forward.
+> After stages **01, 02, 03, 06, 07** the team meets to merge individual work before moving forward.
 
 ---
 
