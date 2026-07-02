@@ -1,6 +1,5 @@
 ---
 sorting-spec: |
-  target-folder: .
   00_Home
   01_Project_Roadmap
   01_Understand_Challenge
