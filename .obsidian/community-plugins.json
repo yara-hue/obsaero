@@ -1,11 +1,12 @@
 [
-  "persistent-graph",
-  "lumina",
-  "homepage",
-  "theme-by-folder",
-  "mermaid-themes",
-  "obsidian-dictionary-plugin",
-  "fingertip-translation",
-  "role-stamper",
-  "obsidian-git"
+    "persistent-graph",
+    "lumina",
+    "homepage",
+    "theme-by-folder",
+    "mermaid-themes",
+    "obsidian-dictionary-plugin",
+    "fingertip-translation",
+    "role-stamper",
+    "obsidian-git",
+    "custom-sort"
 ]
