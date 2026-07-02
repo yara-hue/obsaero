@@ -6,15 +6,15 @@ Prove every claim made in the blueprint with real‑world evidence. Judges will 
 
 ## Inputs
 
-- The [[Concept Blueprint]]
+- The [[A - Concept Blueprint|Concept Blueprint]]
 - Research from Stage 02
 - Any additional data sources
 
 ## Process
 
 1. **Review the blueprint** – identify every assertion that needs support.
-2. **Find evidence** – pull from [[Sources Database]], [[Academic Citation Index]], and conduct new interviews or surveys if needed.
-3. **Compile an evidence package** – use [[Quantitative Survey Data]], [[User Interview Transcripts]], and existing citations.
+2. **Find evidence** – pull from [[B - Sources Database|Sources Database]], [[D - Academic Citation Index|Academic Citation Index]], and conduct new interviews or surveys if needed.
+3. **Compile an evidence package** – use [[A - Quantitative Survey Data|Quantitative Survey Data]], [[B - User Interview Transcripts|User Interview Transcripts]], and existing citations.
 4. **Cross‑reference** – ensure each blueprint claim has a corresponding citation or data point.
 
 ## Outputs

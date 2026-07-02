@@ -6,19 +6,19 @@ Objectively compare the generated concepts to identify the strongest candidates.
 
 ## Inputs
 
-- The raw idea pool from [[Idea Pool]]
-- The [[Evaluation Rubric]] (from Stage 01)
+- The raw idea pool from [[A - Idea Pool|Idea Pool]]
+- The [[A - Evaluation Rubric|Evaluation Rubric]] (from Stage 01)
 
 ## Process
 
 1. **Shortlist** – pick the top 5–10 ideas that seem most feasible and impactful.
-2. **Score each** – use [[Concept Evaluation Matrix]] with weighted criteria:
+2. **Score each** – use [[A - Concept Evaluation Matrix|Concept Evaluation Matrix]] with weighted criteria:
    - Friction (passenger/crew impact)
    - Feasibility (operational, cost, timeline)
    - SDG Alignment (score against at least 2 SDGs)
    - Novelty / competitive edge
 3. **Calculate scores** – the highest scorer becomes your *primary* concept.
-4. **Document** the winning concept in [[Concept Blueprint]] (next stage).
+4. **Document** the winning concept in [[A - Concept Blueprint|Concept Blueprint]] (next stage).
 
 ## Outputs
 

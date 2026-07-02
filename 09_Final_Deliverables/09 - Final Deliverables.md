@@ -14,7 +14,7 @@ Produce the polished, submission‑ready materials that will be handed over to t
 1. **Consolidate** – ensure all files are final and locked.
 2. **Check against rubric** – use [[Submission Checklist]] to verify every criterion.
 3. **Create the executive summary** – a one‑pager readable in 60 seconds.
-4. **Lock the final script** – use [[Final Presentation Script]] as the master copy.
+4. **Lock the final script** – use [[C - Final Presentation Script|Final Presentation Script]] as the master copy.
 
 ## Outputs
 
@@ -23,7 +23,7 @@ Produce the polished, submission‑ready materials that will be handed over to t
   - Final Presentation Script
   - Slide deck (Gamma)
   - Supporting evidence (optional)
-- All files pass the [[Submission Checklist]].
+- All files pass the [[A - Submission Checklist|Submission Checklist]].
 
 ## Files in this Stage
 

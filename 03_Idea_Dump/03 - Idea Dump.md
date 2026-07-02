@@ -11,7 +11,7 @@ Generate as many ideas as possible – without judging them. Quantity leads to q
 
 ## Process
 
-1. **Brainstorm** – use [[Idea Pool]] (the file) to capture every idea, no matter how wild.
+1. **Brainstorm** – use [[A - Idea Pool|Idea Pool]] (the file) to capture every idea, no matter how wild.
    - Target: 100+ concepts.
    - Categorise by theme (terminal operations, cabin behaviour, communication, etc.).
 2. **Don't filter** – at this stage, all ideas are welcome.

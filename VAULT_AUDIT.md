@@ -1,4 +1,4 @@
-﻿# AeroSTAR Vault — Complete Audit for AI Analysis
+# AeroSTAR Vault — Complete Audit for AI Analysis
 
 Generated: 01 Jul 2026 (updated 02 Jul 2026)
 Path: C:\Users\ehabn\Aerostar-Sustainability-Challenge

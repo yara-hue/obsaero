@@ -11,8 +11,8 @@ Build the factual foundation for your proposal. All decisions must be grounded i
 
 ## Process
 
-1. **Identify knowledge gaps** – use [[Research Questions]] to log what you need to know.
-2. **Collect data** – use [[NotebookLM Briefings]] for AI‑synthesised summaries of uploaded PDFs; use [[Sources Database]] to record every statistic with citation.
+1. **Identify knowledge gaps** – use [[A - Research Questions|Research Questions]] to log what you need to know.
+2. **Collect data** – use [[C - NotebookLM Briefings|NotebookLM Briefings]] for AI‑synthesised summaries of uploaded PDFs; use [[B - Sources Database|Sources Database]] to record every statistic with citation.
 3. **Verify and cross‑reference** – ensure every claim is backed by a trustworthy source (IATA, ICAO, FAA, Boeing, peer‑reviewed papers).
 4. **Link findings to SDGs** – map each insight to relevant UN SDG targets.
 

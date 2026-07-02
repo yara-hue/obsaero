@@ -7,8 +7,8 @@ Most ideas fail because nobody tries to break them before the judges do. This st
 ## Inputs
 
 - The winning concept from [[Concept Evaluation]]
-- The [[Evaluation Rubric]] (judge expectations)
-- The [[Risk Mitigation Register]] (to track threats)
+- The [[A - Evaluation Rubric|Evaluation Rubric]] (judge expectations)
+- The [[B - Risk Mitigation Register|Risk Mitigation Register]] (to track threats)
 
 ## Process
 
