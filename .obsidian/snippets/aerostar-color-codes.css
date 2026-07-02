@@ -603,6 +603,11 @@
 
 
 
+/* ===== HOME PAGE CENTERING ===== */
+.home-centered {
+  text-align: center;
+}
+
 /* ===== DISABLE DRAG-AND-DROP IN FILE EXPLORER ===== */
 .nav-file-title,
 .nav-folder-title {

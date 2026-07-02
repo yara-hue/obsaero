@@ -1,3 +1,5 @@
+<div class="home-centered">
+
 # ✈️ AeroSTAR
 
 Welcome to the AeroSTAR operating system.
@@ -68,4 +70,6 @@ Open **[[01 Project Roadmap]]** for the full pipeline with a visual flowchart.
   <span class="contrib-legend-item">
     <span class="contrib-legend-dot t3"></span> ✧ Teammate 3 — <strong>34%</strong>
   </span>
+</div>
+
 </div>
