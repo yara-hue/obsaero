@@ -181,59 +181,59 @@
 }
 
 .nav-folder-title[data-path^="01 Understand Challenge"] .nav-folder-title-content::before {
-  content: "?? " !important;
+  content: "> " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="02 Research"] .nav-folder-title-content::before {
-  content: "?? " !important;
+  content: "> " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="03 Idea Dump"] .nav-folder-title-content::before {
-  content: "? " !important;
+  content: "> " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="04 Concept Evaluation"] .nav-folder-title-content::before {
-  content: "? " !important;
+  content: "> " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="05 Devils Advocate"] .nav-folder-title-content::before {
-  content: "? " !important;
+  content: "> " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="06 Concept Blueprint"] .nav-folder-title-content::before {
-  content: "? " !important;
-  opacity: 0.6 !important;
-}
-.nav-folder-title[data-path^="08 Pitch Studio"] .nav-folder-title-content::before {
-  content: "??° " !important;
-  opacity: 0.6 !important;
-}
-.nav-folder-title[data-path^="40 Team Journey"] .nav-folder-title-content::before {
-  content: "? " !important;
-  opacity: 0.6 !important;
-}
-.nav-folder-title[data-path^="50 Templates"] .nav-folder-title-content::before {
-  content: "? " !important;
-  opacity: 0.6 !important;
-}
-.nav-folder-title[data-path^="60 AI Prompt Engineering"] .nav-folder-title-content::before {
-  content: "? " !important;
+  content: "> " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="07 Validation Evidence"] .nav-folder-title-content::before {
-  content: "???.?? " !important;
+  content: "> " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="08 Pitch Studio"] .nav-folder-title-content::before {
+  content: "* " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="09 Final Deliverables"] .nav-folder-title-content::before {
-  content: "?? " !important;
+  content: "* " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="10 Winning Strategy"] .nav-folder-title-content::before {
-  content: "??? " !important;
+  content: "# " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="40 Team Journey"] .nav-folder-title-content::before {
+  content: "~ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="50 Templates"] .nav-folder-title-content::before {
+  content: "[] " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="60 AI Prompt Engineering"] .nav-folder-title-content::before {
+  content: "@ " !important;
   opacity: 0.6 !important;
 }
 .nav-folder-title[data-path^="99 Archive"] .nav-folder-title-content::before {
-  content: "?? ? " !important;
+  content: "_ " !important;
   opacity: 0.6 !important;
 }
 
