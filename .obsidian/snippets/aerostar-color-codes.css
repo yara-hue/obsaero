@@ -608,7 +608,54 @@
   text-align: center;
 }
 
-/* ===== DISABLE DRAG-AND-DROP IN FILE EXPLORER ===== */
+/* ===== PAPER PLANE CURSOR SET ===== */
+/* Cursors by glitchy (CC BY) — https://www.rw-designer.com/cursor-set/paper-plane */
+
+body {
+  cursor: url("../cursors/normal select.cur"), auto;
+}
+
+body:not(.is-mobile) .cm-editor .cm-content,
+body:not(.is-mobile) .markdown-preview-view {
+  cursor: url("../cursors/text select.ani"), text;
+}
+
+.cm-editor .cm-content .cm-hmd-internal-link,
+.markdown-preview-view .internal-link,
+.cm-hmd-internal-link,
+a {
+  cursor: url("../cursors/link select.ani"), pointer;
+}
+
+.cm-editor .cm-content .cm-hmd-internal-link:hover,
+.markdown-preview-view .internal-link:hover,
+a:hover {
+  cursor: url("../cursors/alternate select.cur"), pointer;
+}
+
+/* Busy / loading states */
+body.is-loading {
+  cursor: url("../cursors/busy select.ani"), wait;
+}
+
+.workspace-leaf,
+.view-content,
+.workspace-split {
+  cursor: url("../cursors/normal select.cur"), auto;
+}
+
+/* Sidebar panes */
+.sidebar {
+  cursor: url("../cursors/normal select.cur"), auto;
+}
+
+/* Resize handles */
+.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle,
+.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle {
+  cursor: url("../cursors/horizantal select.ani"), col-resize;
+}
+
+/* Disable drag-and-drop in file explorer */
 .nav-file-title,
 .nav-folder-title {
   -webkit-user-drag: none !important;
