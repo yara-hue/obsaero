@@ -1,7 +1,10 @@
-:root {
+﻿:root {
   --color-00: #8B9DC3;
   --color-10: #5DADE2;
-  --color-20: #AF7AC5;
+    --color-20: #AF7AC5;
+  --color-21: #E67E22;
+  --color-22: #1ABC9C;
+  --color-23: #3498DB;
   --color-30: #E59866;
   --color-40: #76D7C4;
   --color-50: #BDC3C7;
@@ -177,19 +180,31 @@
   font-family: 'Consolas', 'Courier New', monospace !important;
 }
 
-.nav-folder-title[data-path^="00_Team_Foundation"] .nav-folder-title-content::before {
+.nav-folder-title[data-path^="01_Understand_Challenge"] .nav-folder-title-content::before {
   content: "✈︎ " !important;
   opacity: 0.6 !important;
 }
-.nav-folder-title[data-path^="10_Research_Library"] .nav-folder-title-content::before {
+.nav-folder-title[data-path^="02_Research"] .nav-folder-title-content::before {
   content: "☁︎ " !important;
   opacity: 0.6 !important;
 }
-.nav-folder-title[data-path^="20_Concept_Design"] .nav-folder-title-content::before {
+.nav-folder-title[data-path^="03_Idea_Dump"] .nav-folder-title-content::before {
   content: "⟡ " !important;
   opacity: 0.6 !important;
 }
-.nav-folder-title[data-path^="30_Pitch_Studio"] .nav-folder-title-content::before {
+.nav-folder-title[data-path^="04_Concept_Evaluation"] .nav-folder-title-content::before {
+  content: "⟡ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="05_Devils_Advocate"] .nav-folder-title-content::before {
+  content: "⟡ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="06_Concept_Blueprint"] .nav-folder-title-content::before {
+  content: "⟡ " !important;
+  opacity: 0.6 !important;
+}
+.nav-folder-title[data-path^="08_Pitch_Studio"] .nav-folder-title-content::before {
   content: "⋆｡° " !important;
   opacity: 0.6 !important;
 }
@@ -205,15 +220,15 @@
   content: "⚙ " !important;
   opacity: 0.6 !important;
 }
-.nav-folder-title[data-path^="70_Validation"] .nav-folder-title-content::before {
+.nav-folder-title[data-path^="07_Validation_Evidence"] .nav-folder-title-content::before {
   content: "☁︎⋆.ೃ࿔ " !important;
   opacity: 0.6 !important;
 }
-.nav-folder-title[data-path^="80_Final_Deliverables"] .nav-folder-title-content::before {
+.nav-folder-title[data-path^="09_Final_Deliverables"] .nav-folder-title-content::before {
   content: "ᯓ★ " !important;
   opacity: 0.6 !important;
 }
-.nav-folder-title[data-path^="90_Winning_Strategy"] .nav-folder-title-content::before {
+.nav-folder-title[data-path^="10_Winning_Strategy"] .nav-folder-title-content::before {
   content: "➜✈︎ " !important;
   opacity: 0.6 !important;
 }
@@ -222,20 +237,44 @@
   opacity: 0.6 !important;
 }
 
-[data-path^="00_Team_Foundation"] .nav-folder-title-content,
-[data-path^="00_Team_Foundation"] .nav-file-title-content {
+[data-path^="01_Understand_Challenge"] .nav-folder-title-content,
+[data-path^="01_Understand_Challenge"] .nav-file-title-content {
   color: var(--color-00) !important;
 }
-[data-path^="10_Research_Library"] .nav-folder-title-content,
-[data-path^="10_Research_Library"] .nav-file-title-content {
+[data-path^="02_Research"] .nav-folder-title-content,
+[data-path^="02_Research"] .nav-file-title-content {
   color: var(--color-10) !important;
 }
-[data-path^="20_Concept_Design"] .nav-folder-title-content,
-[data-path^="20_Concept_Design"] .nav-file-title-content {
+[data-path^="03_Idea_Dump"] .nav-folder-title-content,
+[data-path^="03_Idea_Dump"] .nav-file-title-content {
   color: var(--color-20) !important;
 }
-[data-path^="30_Pitch_Studio"] .nav-folder-title-content,
-[data-path^="30_Pitch_Studio"] .nav-file-title-content {
+[data-path^="04_Concept_Evaluation"] .nav-folder-title-content,
+[data-path^="04_Concept_Evaluation"] .nav-file-title-content {
+  color: var(--color-21) !important;
+}
+[data-path^="05_Devils_Advocate"] .nav-folder-title-content,
+[data-path^="05_Devils_Advocate"] .nav-file-title-content {
+  color: var(--color-22) !important;
+}
+[data-path^="06_Concept_Blueprint"] .nav-folder-title-content,
+[data-path^="06_Concept_Blueprint"] .nav-file-title-content {
+  color: var(--color-23) !important;
+}
+[data-path^="04_Concept_Evaluation"] .nav-folder-title-content,
+[data-path^="04_Concept_Evaluation"] .nav-file-title-content {
+  color: var(--color-21) !important;
+}
+[data-path^="05_Devils_Advocate"] .nav-folder-title-content,
+[data-path^="05_Devils_Advocate"] .nav-file-title-content {
+  color: var(--color-22) !important;
+}
+[data-path^="06_Concept_Blueprint"] .nav-folder-title-content,
+[data-path^="06_Concept_Blueprint"] .nav-file-title-content {
+  color: var(--color-23) !important;
+}
+[data-path^="08_Pitch_Studio"] .nav-folder-title-content,
+[data-path^="08_Pitch_Studio"] .nav-file-title-content {
   color: var(--color-30) !important;
 }
 [data-path^="40_Team_Journey"] .nav-folder-title-content,
@@ -250,16 +289,16 @@
 [data-path^="60_AI_Prompt_Engineering"] .nav-file-title-content {
   color: var(--color-60) !important;
 }
-[data-path^="70_Validation"] .nav-folder-title-content,
-[data-path^="70_Validation"] .nav-file-title-content {
+[data-path^="07_Validation_Evidence"] .nav-folder-title-content,
+[data-path^="07_Validation_Evidence"] .nav-file-title-content {
   color: var(--color-70) !important;
 }
-[data-path^="80_Final_Deliverables"] .nav-folder-title-content,
-[data-path^="80_Final_Deliverables"] .nav-file-title-content {
+[data-path^="09_Final_Deliverables"] .nav-folder-title-content,
+[data-path^="09_Final_Deliverables"] .nav-file-title-content {
   color: var(--color-80) !important;
 }
-[data-path^="90_Winning_Strategy"] .nav-folder-title-content,
-[data-path^="90_Winning_Strategy"] .nav-file-title-content {
+[data-path^="10_Winning_Strategy"] .nav-folder-title-content,
+[data-path^="10_Winning_Strategy"] .nav-file-title-content {
   color: var(--color-90) !important;
 }
 [data-path^="99_Archive"] .nav-folder-title-content,
@@ -267,16 +306,25 @@
   color: var(--color-99) !important;
 }
 
-.nav-file-title[data-path^="00_Team_Foundation"] {
+.nav-file-title[data-path^="01_Understand_Challenge"] {
   border-left: 3px solid var(--color-00);
 }
-.nav-file-title[data-path^="10_Research_Library"] {
+.nav-file-title[data-path^="02_Research"] {
   border-left: 3px solid var(--color-10);
 }
-.nav-file-title[data-path^="20_Concept_Design"] {
+.nav-file-title[data-path^="03_Idea_Dump"] {
   border-left: 3px solid var(--color-20);
 }
-.nav-file-title[data-path^="30_Pitch_Studio"] {
+.nav-file-title[data-path^="04_Concept_Evaluation"] {
+  border-left: 3px solid var(--color-21);
+}
+.nav-file-title[data-path^="05_Devils_Advocate"] {
+  border-left: 3px solid var(--color-22);
+}
+.nav-file-title[data-path^="06_Concept_Blueprint"] {
+  border-left: 3px solid var(--color-23);
+}
+.nav-file-title[data-path^="08_Pitch_Studio"] {
   border-left: 3px solid var(--color-30);
 }
 .nav-file-title[data-path^="40_Team_Journey"] {
@@ -288,29 +336,38 @@
 .nav-file-title[data-path^="60_AI_Prompt_Engineering"] {
   border-left: 3px solid var(--color-60);
 }
-.nav-file-title[data-path^="70_Validation"] {
+.nav-file-title[data-path^="07_Validation_Evidence"] {
   border-left: 3px solid var(--color-70);
 }
-.nav-file-title[data-path^="80_Final_Deliverables"] {
+.nav-file-title[data-path^="09_Final_Deliverables"] {
   border-left: 3px solid var(--color-80);
 }
-.nav-file-title[data-path^="90_Winning_Strategy"] {
+.nav-file-title[data-path^="10_Winning_Strategy"] {
   border-left: 3px solid var(--color-90);
 }
 .nav-file-title[data-path^="99_Archive"] {
   border-left: 3px solid var(--color-99);
 }
 
-.nav-folder-title[data-path^="00_Team_Foundation"] {
+.nav-folder-title[data-path^="01_Understand_Challenge"] {
   background-color: color-mix(in srgb, var(--color-00) 20%, transparent);
 }
-.nav-folder-title[data-path^="10_Research_Library"] {
+.nav-folder-title[data-path^="02_Research"] {
   background-color: color-mix(in srgb, var(--color-10) 20%, transparent);
 }
-.nav-folder-title[data-path^="20_Concept_Design"] {
+.nav-folder-title[data-path^="03_Idea_Dump"] {
   background-color: color-mix(in srgb, var(--color-20) 20%, transparent);
 }
-.nav-folder-title[data-path^="30_Pitch_Studio"] {
+.nav-folder-title[data-path^="04_Concept_Evaluation"] {
+  background-color: color-mix(in srgb, var(--color-21) 20%, transparent);
+}
+.nav-folder-title[data-path^="05_Devils_Advocate"] {
+  background-color: color-mix(in srgb, var(--color-22) 20%, transparent);
+}
+.nav-folder-title[data-path^="06_Concept_Blueprint"] {
+  background-color: color-mix(in srgb, var(--color-23) 20%, transparent);
+}
+.nav-folder-title[data-path^="08_Pitch_Studio"] {
   background-color: color-mix(in srgb, var(--color-30) 20%, transparent);
 }
 .nav-folder-title[data-path^="40_Team_Journey"] {
@@ -322,43 +379,55 @@
 .nav-folder-title[data-path^="60_AI_Prompt_Engineering"] {
   background-color: color-mix(in srgb, var(--color-60) 20%, transparent);
 }
-.nav-folder-title[data-path^="70_Validation"] {
+.nav-folder-title[data-path^="07_Validation_Evidence"] {
   background-color: color-mix(in srgb, var(--color-70) 20%, transparent);
 }
-.nav-folder-title[data-path^="80_Final_Deliverables"] {
+.nav-folder-title[data-path^="09_Final_Deliverables"] {
   background-color: color-mix(in srgb, var(--color-80) 20%, transparent);
 }
-.nav-folder-title[data-path^="90_Winning_Strategy"] {
+.nav-folder-title[data-path^="10_Winning_Strategy"] {
   background-color: color-mix(in srgb, var(--color-90) 20%, transparent);
 }
 .nav-folder-title[data-path^="99_Archive"] {
   background-color: color-mix(in srgb, var(--color-99) 20%, transparent);
 }
 
-.nav-file-title.is-active[data-path^="00_Team_Foundation"] { background-color: color-mix(in srgb, var(--color-00) 18%, transparent) !important; }
-.nav-file-title.is-active[data-path^="10_Research_Library"] { background-color: color-mix(in srgb, var(--color-10) 18%, transparent) !important; }
-.nav-file-title.is-active[data-path^="20_Concept_Design"] { background-color: color-mix(in srgb, var(--color-20) 18%, transparent) !important; }
-.nav-file-title.is-active[data-path^="30_Pitch_Studio"] { background-color: color-mix(in srgb, var(--color-30) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="01_Understand_Challenge"] { background-color: color-mix(in srgb, var(--color-00) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="02_Research"] { background-color: color-mix(in srgb, var(--color-10) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="03_Idea_Dump"] { background-color: color-mix(in srgb, var(--color-20) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="04_Concept_Evaluation"] { background-color: color-mix(in srgb, var(--color-21) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="05_Devils_Advocate"] { background-color: color-mix(in srgb, var(--color-22) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="06_Concept_Blueprint"] { background-color: color-mix(in srgb, var(--color-23) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="08_Pitch_Studio"] { background-color: color-mix(in srgb, var(--color-30) 18%, transparent) !important; }
 .nav-file-title.is-active[data-path^="40_Team_Journey"] { background-color: color-mix(in srgb, var(--color-40) 18%, transparent) !important; }
 .nav-file-title.is-active[data-path^="50_Templates"] { background-color: color-mix(in srgb, var(--color-50) 18%, transparent) !important; }
 .nav-file-title.is-active[data-path^="60_AI_Prompt_Engineering"] { background-color: color-mix(in srgb, var(--color-60) 18%, transparent) !important; }
-.nav-file-title.is-active[data-path^="70_Validation"] { background-color: color-mix(in srgb, var(--color-70) 18%, transparent) !important; }
-.nav-file-title.is-active[data-path^="80_Final_Deliverables"] { background-color: color-mix(in srgb, var(--color-80) 18%, transparent) !important; }
-.nav-file-title.is-active[data-path^="90_Winning_Strategy"] { background-color: color-mix(in srgb, var(--color-90) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="07_Validation_Evidence"] { background-color: color-mix(in srgb, var(--color-70) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="09_Final_Deliverables"] { background-color: color-mix(in srgb, var(--color-80) 18%, transparent) !important; }
+.nav-file-title.is-active[data-path^="10_Winning_Strategy"] { background-color: color-mix(in srgb, var(--color-90) 18%, transparent) !important; }
 .nav-file-title.is-active[data-path^="99_Archive"] { background-color: color-mix(in srgb, var(--color-99) 18%, transparent) !important; }
 
-.workspace-tab-header[data-path^="00_Team_Foundation"] { border-bottom: 2px solid var(--color-00) !important; }
-.workspace-tab-header.is-active[data-path^="00_Team_Foundation"] { background-color: color-mix(in srgb, var(--color-00) 12%, transparent) !important; }
-.workspace-tab-header.is-active[data-path^="00_Team_Foundation"] .workspace-tab-header-inner-title { color: var(--color-00) !important; }
-.workspace-tab-header[data-path^="10_Research_Library"] { border-bottom: 2px solid var(--color-10) !important; }
-.workspace-tab-header.is-active[data-path^="10_Research_Library"] { background-color: color-mix(in srgb, var(--color-10) 12%, transparent) !important; }
-.workspace-tab-header.is-active[data-path^="10_Research_Library"] .workspace-tab-header-inner-title { color: var(--color-10) !important; }
-.workspace-tab-header[data-path^="20_Concept_Design"] { border-bottom: 2px solid var(--color-20) !important; }
-.workspace-tab-header.is-active[data-path^="20_Concept_Design"] { background-color: color-mix(in srgb, var(--color-20) 12%, transparent) !important; }
-.workspace-tab-header.is-active[data-path^="20_Concept_Design"] .workspace-tab-header-inner-title { color: var(--color-20) !important; }
-.workspace-tab-header[data-path^="30_Pitch_Studio"] { border-bottom: 2px solid var(--color-30) !important; }
-.workspace-tab-header.is-active[data-path^="30_Pitch_Studio"] { background-color: color-mix(in srgb, var(--color-30) 12%, transparent) !important; }
-.workspace-tab-header.is-active[data-path^="30_Pitch_Studio"] .workspace-tab-header-inner-title { color: var(--color-30) !important; }
+.workspace-tab-header[data-path^="01_Understand_Challenge"] { border-bottom: 2px solid var(--color-00) !important; }
+.workspace-tab-header.is-active[data-path^="01_Understand_Challenge"] { background-color: color-mix(in srgb, var(--color-00) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="01_Understand_Challenge"] .workspace-tab-header-inner-title { color: var(--color-00) !important; }
+.workspace-tab-header[data-path^="02_Research"] { border-bottom: 2px solid var(--color-10) !important; }
+.workspace-tab-header.is-active[data-path^="02_Research"] { background-color: color-mix(in srgb, var(--color-10) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="02_Research"] .workspace-tab-header-inner-title { color: var(--color-10) !important; }
+.workspace-tab-header[data-path^="03_Idea_Dump"] { border-bottom: 2px solid var(--color-20) !important; }
+.workspace-tab-header[data-path^="04_Concept_Evaluation"] { border-bottom: 2px solid var(--color-21) !important; }
+.workspace-tab-header[data-path^="05_Devils_Advocate"] { border-bottom: 2px solid var(--color-22) !important; }
+.workspace-tab-header[data-path^="06_Concept_Blueprint"] { border-bottom: 2px solid var(--color-23) !important; }
+.workspace-tab-header.is-active[data-path^="03_Idea_Dump"] { background-color: color-mix(in srgb, var(--color-20) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="04_Concept_Evaluation"] { background-color: color-mix(in srgb, var(--color-21) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="05_Devils_Advocate"] { background-color: color-mix(in srgb, var(--color-22) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="06_Concept_Blueprint"] { background-color: color-mix(in srgb, var(--color-23) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="03_Idea_Dump"] .workspace-tab-header-inner-title { color: var(--color-20) !important; }
+.workspace-tab-header.is-active[data-path^="04_Concept_Evaluation"] .workspace-tab-header-inner-title { color: var(--color-21) !important; }
+.workspace-tab-header.is-active[data-path^="05_Devils_Advocate"] .workspace-tab-header-inner-title { color: var(--color-22) !important; }
+.workspace-tab-header.is-active[data-path^="06_Concept_Blueprint"] .workspace-tab-header-inner-title { color: var(--color-23) !important; }
+.workspace-tab-header[data-path^="08_Pitch_Studio"] { border-bottom: 2px solid var(--color-30) !important; }
+.workspace-tab-header.is-active[data-path^="08_Pitch_Studio"] { background-color: color-mix(in srgb, var(--color-30) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="08_Pitch_Studio"] .workspace-tab-header-inner-title { color: var(--color-30) !important; }
 .workspace-tab-header[data-path^="40_Team_Journey"] { border-bottom: 2px solid var(--color-40) !important; }
 .workspace-tab-header.is-active[data-path^="40_Team_Journey"] { background-color: color-mix(in srgb, var(--color-40) 12%, transparent) !important; }
 .workspace-tab-header.is-active[data-path^="40_Team_Journey"] .workspace-tab-header-inner-title { color: var(--color-40) !important; }
@@ -368,15 +437,15 @@
 .workspace-tab-header[data-path^="60_AI_Prompt_Engineering"] { border-bottom: 2px solid var(--color-60) !important; }
 .workspace-tab-header.is-active[data-path^="60_AI_Prompt_Engineering"] { background-color: color-mix(in srgb, var(--color-60) 12%, transparent) !important; }
 .workspace-tab-header.is-active[data-path^="60_AI_Prompt_Engineering"] .workspace-tab-header-inner-title { color: var(--color-60) !important; }
-.workspace-tab-header[data-path^="70_Validation"] { border-bottom: 2px solid var(--color-70) !important; }
-.workspace-tab-header.is-active[data-path^="70_Validation"] { background-color: color-mix(in srgb, var(--color-70) 12%, transparent) !important; }
-.workspace-tab-header.is-active[data-path^="70_Validation"] .workspace-tab-header-inner-title { color: var(--color-70) !important; }
-.workspace-tab-header[data-path^="80_Final_Deliverables"] { border-bottom: 2px solid var(--color-80) !important; }
-.workspace-tab-header.is-active[data-path^="80_Final_Deliverables"] { background-color: color-mix(in srgb, var(--color-80) 12%, transparent) !important; }
-.workspace-tab-header.is-active[data-path^="80_Final_Deliverables"] .workspace-tab-header-inner-title { color: var(--color-80) !important; }
-.workspace-tab-header[data-path^="90_Winning_Strategy"] { border-bottom: 2px solid var(--color-90) !important; }
-.workspace-tab-header.is-active[data-path^="90_Winning_Strategy"] { background-color: color-mix(in srgb, var(--color-90) 12%, transparent) !important; }
-.workspace-tab-header.is-active[data-path^="90_Winning_Strategy"] .workspace-tab-header-inner-title { color: var(--color-90) !important; }
+.workspace-tab-header[data-path^="07_Validation_Evidence"] { border-bottom: 2px solid var(--color-70) !important; }
+.workspace-tab-header.is-active[data-path^="07_Validation_Evidence"] { background-color: color-mix(in srgb, var(--color-70) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="07_Validation_Evidence"] .workspace-tab-header-inner-title { color: var(--color-70) !important; }
+.workspace-tab-header[data-path^="09_Final_Deliverables"] { border-bottom: 2px solid var(--color-80) !important; }
+.workspace-tab-header.is-active[data-path^="09_Final_Deliverables"] { background-color: color-mix(in srgb, var(--color-80) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="09_Final_Deliverables"] .workspace-tab-header-inner-title { color: var(--color-80) !important; }
+.workspace-tab-header[data-path^="10_Winning_Strategy"] { border-bottom: 2px solid var(--color-90) !important; }
+.workspace-tab-header.is-active[data-path^="10_Winning_Strategy"] { background-color: color-mix(in srgb, var(--color-90) 12%, transparent) !important; }
+.workspace-tab-header.is-active[data-path^="10_Winning_Strategy"] .workspace-tab-header-inner-title { color: var(--color-90) !important; }
 .workspace-tab-header[data-path^="99_Archive"] { border-bottom: 2px solid var(--color-99) !important; }
 .workspace-tab-header.is-active[data-path^="99_Archive"] { background-color: color-mix(in srgb, var(--color-99) 12%, transparent) !important; }
 .workspace-tab-header.is-active[data-path^="99_Archive"] .workspace-tab-header-inner-title { color: var(--color-99) !important; }
@@ -503,3 +572,6 @@
 .contrib-legend-dot.t1 { background: var(--contrib-t1); }
 .contrib-legend-dot.t2 { background: var(--contrib-t2); }
 .contrib-legend-dot.t3 { background: var(--contrib-t3); }
+
+
+
