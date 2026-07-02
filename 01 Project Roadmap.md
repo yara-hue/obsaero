@@ -23,17 +23,19 @@ flowchart TD
 
 ## Stage Overview
 
-| Stage | Purpose |
-|:------|:--------|
-| [[01 - Understand the Challenge]] | Grasp the competition rules, team agreements, and evaluation criteria. |
-| [[02 - Research]] | Build a factual foundation with data, papers, and reports. |
-| [[03 - Idea Dump]] | Generate a large pool of concepts without judgment. |
-| [[04 - Concept Evaluation]] | Objectively compare concepts to select the strongest. |
-| [[05 - Devil's Advocate]] | Stress‑test the best idea until it's bulletproof. |
-| [[06 - Concept Blueprint]] | Define the complete solution in a master document. |
-| [[07 - Validation & Evidence]] | Prove every claim with citations and real‑world data. |
-| [[08 - Pitch Studio]] | Turn the solution into a compelling presentation. |
-| [[09 - Final Deliverables]] | Polish and submit the final materials. |
+| Stage | Mode | Purpose | Team Sync |
+|:------|:-----|:--------|:----------|
+| [[01 - Understand the Challenge]] | 👥 Team | Grasp rules, agreements, and evaluation criteria. | Kick-off meeting |
+| [[02 - Research]] | 🧑‍💻 Individual | Build a factual foundation with data, papers, and reports. | Share findings |
+| [[03 - Idea Dump]] | 🧑‍💻 Individual | Generate a large pool of concepts. | Pool & discuss |
+| [[04 - Concept Evaluation]] | 👥 Team | Compare concepts objectively; vote on the winner. | — |
+| [[05 - Devil's Advocate]] | 👥 Team | Stress‑test the best idea until bulletproof. | — |
+| [[06 - Concept Blueprint]] | 🧑‍💻 Individual | Define the solution per module. | Merge into master doc |
+| [[07 - Validation & Evidence]] | 🧑‍💻 Individual | Prove every claim with citations and data. | Cross-check findings |
+| [[08 - Pitch Studio]] | 👥 Team | Build the presentation story together. | — |
+| [[09 - Final Deliverables]] | 👥 Team | Polish, final review, and submit. | —
+
+> **Sync rhythm:** Team meets after stages **02, 03, 06, 07** to connect individual work before moving to the next team phase.
 
 Begin your journey: [[01 - Understand the Challenge]]
 
