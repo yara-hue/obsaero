@@ -24,7 +24,7 @@ Every stage has one purpose. Complete it, then move to the next.
 
 ## Start Here
 
-Open **[[01_Project_Roadmap]]** for the full pipeline with a visual flowchart.
+Open **[[01 Project Roadmap]]** for the full pipeline with a visual flowchart.
 
 > [!tip] **Pro tip**
 > Just follow the pipeline from top to bottom. The vault will guide you.
