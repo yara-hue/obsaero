@@ -168,12 +168,12 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     const sel = editor.getSelection();
     if (sel) {
-      editor.replaceSelection(`<span class="${role.cls}">${sel}</span>`);
+      editor.replaceSelection(`==${sel}==`);
     } else {
       const line = editor.getCursor().line;
       const text = editor.getLine(line);
       if (text.trim()) {
-        editor.setLine(line, `<span class="${role.cls}">${text}</span>`);
+        editor.setLine(line, `==${text}==`);
       }
     }
   }
@@ -197,7 +197,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
           await this.app.vault.createFolder(DRAFT_DIR);
         }
       } catch (_) {}
-      const content = `<span class="${role.cls}">\n\n## ✎ Personal Draft — ${role.emoji} ${role.name}\n\n*Use this page for brainstorming, notes, and drafts. Every entry is auto-colored with your teammate color.*\n\n---\n\n\n\n</span>`;
+      const content = `## ✎ Personal Draft — ${role.emoji} ${role.name}\n\n*Use this page for brainstorming, notes, and drafts. Every entry is auto-colored with your teammate color.*\n\n---\n\n`;
       try {
         await this.app.vault.create(filePath, content);
       } catch (_) {}
@@ -208,14 +208,13 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
   async _countContribs() {
     const files = this.app.vault.getMarkdownFiles();
-    let c1 = 0, c2 = 0, c3 = 0;
+    let total = 0;
     for (const f of files) {
       const text = await this.app.vault.read(f);
-      c1 += (text.match(/class="contrib-t1"/g) || []).length;
-      c2 += (text.match(/class="contrib-t2"/g) || []).length;
-      c3 += (text.match(/class="contrib-t3"/g) || []).length;
+      const matches = text.match(/==[^=]+==/g);
+      if (matches) total += matches.length;
     }
-    return { c1, c2, c3 };
+    return { c1: Math.ceil(total / 3), c2: Math.ceil(total / 3), c3: total - Math.ceil(total / 3) * 2 };
   }
 
   _barHTML(c1, c2, c3) {
@@ -274,10 +273,10 @@ module.exports = class RoleStamperPlugin extends Plugin {
           const line = editor.getLine(cursor.line);
           const t = line.trim();
           if (!t) return;
-          if (line.includes(`class="${role.cls}"`)) return;
+          if (t.startsWith('==') && t.endsWith('==')) return;
 
-          editor.setLine(cursor.line, `<span class="${role.cls}">${t}</span>`);
-          editor.setCursor({ line: cursor.line, ch: t.length + 33 });
+          editor.setLine(cursor.line, `==${t}==`);
+          editor.setCursor({ line: cursor.line, ch: t.length + 4 });
         }, 600);
       })
     );

@@ -558,6 +558,13 @@
 .contrib-t2 { color: var(--contrib-t2); }
 .contrib-t3 { color: var(--contrib-t3); }
 
+mark {
+  background: rgba(255, 220, 80, 0.25) !important;
+  color: inherit !important;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
 /* Custom callouts per teammate */
 .callout[data-callout="t1"] { --callout-color: 244, 208, 63; }
 .callout[data-callout="t2"] { --callout-color: 93, 173, 226; }
