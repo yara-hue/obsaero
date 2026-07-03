@@ -32,4 +32,4 @@ Generate as many ideas as possible – without judging them. Quantity leads to q
 
 ---
 
-← [[02 - Research]] | ↑ [[01 Project Roadmap]]
+← [[02 - Research]] | ↑ [[Project Roadmap]]

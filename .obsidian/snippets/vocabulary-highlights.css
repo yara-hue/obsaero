@@ -3,7 +3,6 @@
 
 .vocab {
   border-bottom: 2px dotted #4a9eff;
-  cursor: help;
   transition: background 0.15s ease;
 }
 

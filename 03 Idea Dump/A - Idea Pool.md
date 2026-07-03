@@ -1,7 +1,7 @@
 # ??? The Master Idea Dump (100+ Concepts)
 
-> **Purpose:** The active brainstorming sandbox — add every idea here without judgment.
-> **When to use:** During the divergent phase — anything goes.
+> **Purpose:** The active brainstorming sandbox ï¿½ add every idea here without judgment.
+> **When to use:** During the divergent phase ï¿½ anything goes.
 
 ### ?? FILE PURPOSE
 An open, unfiltered sandbox for raw brainstorming. There are no bad ideas here during Week 1.
@@ -9,4 +9,27 @@ An open, unfiltered sandbox for raw brainstorming. There are no bad ideas here d
 
 ---
 
-? [[03 - Idea Dump]] | ? [[01 Project Roadmap]]
+## Terminal Operations Ideas
+
+1. _e.g. Smart tray table that changes color based on waste type_
+2. _e.g. AI-powered seatback sorting assistant_
+3. _e.g. Biodegradable packaging with embedded seeds_
+4. _Add more..._
+
+## Cabin Behavior Ideas
+
+1. _e.g. Gamified recycling â€” passengers earn miles for proper sorting_
+2. _e.g. "Green seat" upgrade for passengers who opt into zero-waste_
+3. _e.g. Ambient lighting shifts when cabin reaches waste milestone_
+4. _Add more..._
+
+## Communication Style Ideas
+
+1. _e.g. Crew script: "Would you like to join our sustainability challenge?"_
+2. _e.g. Seatback screen shows live cabin waste metrics_
+3. _e.g. Post-flight email: "You helped save X kg of waste today"_
+4. _Add more..._
+
+---
+
+? [[03 - Idea Dump]] | ? [[Project Roadmap]]

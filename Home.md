@@ -1,5 +1,3 @@
-<div class="home-centered">
-
 # ✈️ AeroSTAR
 
 Welcome to the AeroSTAR operating system.
@@ -45,7 +43,7 @@ Work alternates between **individual sprints** and **team syncs**.
 
 ## Start Here
 
-Open **[[01 Project Roadmap]]** for the full pipeline with a visual flowchart.
+Open **[[Project Roadmap]]** for the full pipeline with a visual flowchart.
 
 > [!tip] **Pro tip**
 > Just follow the pipeline from top to bottom. The vault will guide you.
@@ -72,4 +70,16 @@ Open **[[01 Project Roadmap]]** for the full pipeline with a visual flowchart.
   </span>
 </div>
 
+<div class="contrib-t1">
+yyjghjkl
 </div>
+
+<div class="contrib-t1">
+asdfghjk
+</div>
+
+<div class="contrib-t1">
+sdfghjkl
+</div>
+
+sdfghjkl

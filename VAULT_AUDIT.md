@@ -47,7 +47,7 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 
 ### ROOT
 
-#### 00_Home.md
+#### -Home.md
 - **Role:** Team command center — first thing everyone sees on startup. Pinned tab via Homepage plugin. Sorts first in file explorer.
 - **Content:** Flight status header, sprint tracker table, crew manifest with teammate assignments, contribution bar chart, reading roadmap (prioritized 10 files), stamp usage guide, critical north stars briefing.
 - **Structure:** Sections separated by ---. Uses HTML divs for contribution bar widget. Wikilinks to each vault folder.
@@ -69,7 +69,7 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 - **Role:** Defines team roles, individual strengths, internal performance goals
 - **Content:** Commitment hours per teammate, responsibility assignments, success criteria for the 3-person team
 - **Structure:** H1 header, FILE PURPOSE section with usage instructions
-- **Related:** Crew Manifest section in Home.md, Communication Protocols.md
+- **Related:** Crew Manifest section in -Home.md, Communication Protocols.md
 - **Status:** Template — needs to be filled in on Day 1 with actual names and commitments
 
 #### Communication Protocols.md
@@ -429,8 +429,8 @@ Number prefixes ensure correct sort order in Obsidian. This folder is an AI oper
 - **Tags files with:** HTML divs with class contrib-t1, contrib-t2, or contrib-t3
 
 ### 4.2 homepage (v4.4.4)
-- **Purpose:** Opens 00_Home.md on startup
-- **Config:** Pinned tab, replaces all open notes, opens on startup. Target file: 00_Home
+- **Purpose:** Opens -Home.md on startup
+- **Config:** Pinned tab, replaces all open notes, opens on startup. Target file: -Home
 
 ### 4.3 lumina (v1.2.19)
 - **Purpose:** RAG and MCP agent with multilingual embeddings (IBM Granite model)
@@ -508,7 +508,7 @@ footnotes, slash-command, markdown-importer, zk-prefixer, random-note, slides, a
 ### Workspace layout
 - Left sidebar: File Explorer, Global Search, Bookmarks
 - Right sidebar: Backlinks, Outgoing Links, Tags, Properties, Outline
-- Main area: 00_Home.md as pinned startup tab
+- Main area: -Home.md as pinned startup tab
 
 ---
 
@@ -537,7 +537,7 @@ footnotes, slash-command, markdown-importer, zk-prefixer, random-note, slides, a
 
 ## 8. NOTE STATUS
 
-All content notes were placeholder files — 36 of 55 markdown files still have FILE PURPOSE headers (empty templates). The 60_AI_Prompt_Engineering/ folder has been fully populated with 13 files (AI Operating Manual, 5 AI rules, Devil's Advocate, 4 task prompt sets, LLM anti-patterns, debugging). Numbered prefixes keep them in logical order in Obsidian's file explorer. The only exception is 00_Home.md which has the dashboard structure with real metadata.
+All content notes were placeholder files — 36 of 55 markdown files still have FILE PURPOSE headers (empty templates). The 60_AI_Prompt_Engineering/ folder has been fully populated with 13 files (AI Operating Manual, 5 AI rules, Devil's Advocate, 4 task prompt sets, LLM anti-patterns, debugging). Numbered prefixes keep them in logical order in Obsidian's file explorer. The only exception is -Home.md which has the dashboard structure with real metadata.
 
 File sizes: 87 bytes (99 - Archive.md) to ~720 KB (obsidian-git/main.js).
 

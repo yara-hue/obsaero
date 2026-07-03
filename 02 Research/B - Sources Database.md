@@ -1,7 +1,7 @@
 # ??? Master Sources Database
 
 > **Purpose:** Central repository of every statistic, report, and paper with full citation and SDG relevance.
-> **When to use:** Every time you find a verified fact — log it here immediately.
+> **When to use:** Every time you find a verified fact ï¿½ log it here immediately.
 
 ### ?? FILE PURPOSE
 The central repository for all verified data, IATA reports, academic papers, and industrial statistics.
@@ -9,4 +9,16 @@ The central repository for all verified data, IATA reports, academic papers, and
 
 ---
 
-? [[02 - Research]] | ? [[01 Project Roadmap]]
+## Verified Sources
+
+| # | Source Title | Author / Org | Year | Key Statistic | SDG Relevance | Link |
+|---|-------------|--------------|------|---------------|---------------|------|
+| 1 | _e.g. IATA Environmental Report_ | _IATA_ | _2024_ | _e.g. Aviation = 2.5% global CO2_ | _SDG 13: Climate Action_ | _link_ |
+| 2 | _e.g. Nudge Theory paper_ | _Thaler & Sunstein_ | _2008_ | _e.g. Choice architecture boosts compliance 30%_ | _SDG 12: Responsible Consumption_ | _link_ |
+| 3 | _e.g. Boeing EcoDemonstrator summary_ | _Boeing_ | _2023_ | _e.g. 30% fuel savings on test flights_ | _SDG 9: Industry & Innovation_ | _link_ |
+
+_Add rows as new sources are verified._
+
+---
+
+? [[02 - Research]] | ? [[Project Roadmap]]

@@ -1,7 +1,7 @@
 # ?? NotebookLM Briefings & Syntheses
 
 > **Purpose:** AI-generated summaries and extractions from uploaded PDFs, used to quickly surface key facts.
-> **When to use:** After running NotebookLM on a source document — paste the synthesis here.
+> **When to use:** After running NotebookLM on a source document ï¿½ paste the synthesis here.
 
 ### ?? FILE PURPOSE
 The landing zone for insights extracted from our private Google NotebookLM engine.
@@ -9,4 +9,24 @@ The landing zone for insights extracted from our private Google NotebookLM engin
 
 ---
 
-? [[02 - Research]] | ? [[01 Project Roadmap]]
+## Briefing Log
+
+### _Source Document 1_
+- **Document name:** _paste PDF name_
+- **Date uploaded:** _date_
+- **Key findings:** _paste NotebookLM summary_
+- **FAQ:** _paste auto-generated FAQ_
+- **Data points:** _paste extracted statistics_
+
+### _Source Document 2_
+- **Document name:** _paste PDF name_
+- **Date uploaded:** _date_
+- **Key findings:** _paste NotebookLM summary_
+- **FAQ:** _paste auto-generated FAQ_
+- **Data points:** _paste extracted statistics_
+
+_Add a new section for each document you upload._
+
+---
+
+? [[02 - Research]] | ? [[Project Roadmap]]

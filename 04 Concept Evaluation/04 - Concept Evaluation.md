@@ -39,4 +39,4 @@ Objectively compare the generated concepts to identify the strongest candidates.
 
 ---
 
-← [[03 - Idea Dump]] | ↑ [[01 Project Roadmap]]
+← [[03 - Idea Dump]] | ↑ [[Project Roadmap]]

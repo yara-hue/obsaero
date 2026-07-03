@@ -43,4 +43,4 @@ Transform the solution into a compelling presentation that sells the idea to Boe
 
 ---
 
-← [[07 - Validation & Evidence]] | ↑ [[01 Project Roadmap]]
+← [[07 - Validation & Evidence]] | ↑ [[Project Roadmap]]

@@ -9,4 +9,4 @@ A breakdown analyzing the professional perspectives, values, and secret expectat
 
 ---
 
-← [[10 - Winning Strategy]] | ↑ [[01 Project Roadmap]]
+← [[10 - Winning Strategy]] | ↑ [[Project Roadmap]]

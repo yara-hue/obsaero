@@ -9,7 +9,7 @@ const ROLES = {
 const ROLE_ORDER = ['t1', 't2', 't3'];
 const COLORS = { t1: '#F4D03F', t2: '#5DADE2', t3: '#AF7AC5' };
 const DRAFT_DIR = '40_Team_Journey/Drafts';
-const DEFAULT_SETTINGS = { currentRole: '' };
+const DEFAULT_SETTINGS = { currentRole: '', autostamp: false };
 
 class RoleStamperSettingTab extends PluginSettingTab {
   constructor(app, plugin) {
@@ -36,6 +36,15 @@ class RoleStamperSettingTab extends PluginSettingTab {
           this.plugin._updateStatusBar();
         });
       });
+    new Setting(containerEl)
+      .setName('Autostamp')
+      .setDesc('Automatically stamp new lines you type or paste with current teammate color (600ms pause)')
+      .addToggle(tb => tb
+        .setValue(this.plugin.settings.autostamp)
+        .onChange(async v => {
+          this.plugin.settings.autostamp = v;
+          await this.plugin.saveSettings();
+        }));
   }
 }
 
@@ -47,6 +56,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
     this._addCommands();
     this._addContextMenu();
     this.addSettingTab(new RoleStamperSettingTab(this.app, this));
+    this._addAutoStamp();
   }
 
   /* ── Ribbon (sidebar button) ───────────────── */
@@ -218,7 +228,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
   }
 
   async _updateBarInHomePage() {
-    const homeFile = this.app.vault.getAbstractFileByPath('00_Home.md');
+    const homeFile = this.app.vault.getAbstractFileByPath('Home.md');
     if (!homeFile) {
       new Notice('00 🏠 Home.md not found!');
       return;
@@ -243,6 +253,34 @@ module.exports = class RoleStamperPlugin extends Plugin {
     const updated = content.replace(pattern, newBar);
     await this.app.vault.modify(homeFile, updated);
     new Notice(`📊 Bar updated! T1: ${c1}, T2: ${c2}, T3: ${c3} (${total} total)`);
+  }
+
+  /* ── Autostamp ─────────────────────────────── */
+  _addAutoStamp() {
+    let timer = null;
+    this.registerEvent(
+      this.app.workspace.on('editor-change', () => {
+        if (!this.settings.autostamp || !this.settings.currentRole) return;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const view = this.app.workspace.getActiveViewOfType(MarkdownView);
+          if (!view || !view.file) return;
+          const editor = view.editor;
+          if (!editor) return;
+          const role = ROLES[this.settings.currentRole];
+          if (!role) return;
+
+          const cursor = editor.getCursor();
+          const line = editor.getLine(cursor.line);
+          const t = line.trim();
+          if (!t) return;
+          if (line.includes(`class="${role.cls}"`)) return;
+
+          editor.setLine(cursor.line, `<div class="${role.cls}">\n${t}\n</div>`);
+          editor.setCursor({ line: cursor.line + 1, ch: t.length });
+        }, 600);
+      })
+    );
   }
 
   _editor() {

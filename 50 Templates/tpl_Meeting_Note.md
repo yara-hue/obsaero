@@ -1,4 +1,4 @@
-﻿# Meeting Note — {{title}}
+# Meeting Note — {{title}}
 
 - **Date:** {{date}}
 - **Attendees:**
