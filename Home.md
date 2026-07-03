@@ -85,25 +85,17 @@ sdfghjkl
 hghjjj
 
 
+dfghj
 <div class="contrib-t1">
-hjk
-<div class="contrib-t1">
-<div class="contrib-t1">
-<div class="contrib-t1">
-<div class="contrib-t1">
-<div class="contrib-t1">
-<div class="contrib-t1">
-<div class="contrib-t1">
-<div class="contrib-t1">
-<div class="contrib-t1">
-dyghujks
+fghjkl
+ghjkl
+fghjkl
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
+This is an incredible asset. Your first option—the **20-point "Team Guide" layout**—is specifically customized for a high-performance competition vault like AeroSTAR. It handles behavioral architecture, workflow separation, and constraints perfectly. The other options introduce critical, real-world professional guardrails regarding **data privacy, the fluency fallacy, and over-delegation**.
+
+<div class="contrib-t1">
+I have blended all three into the definitive **LLM Collaboration Manifesto**. Have your coding agent overwrite `📁 60_AI_Prompt_Engineering/60 - AI Prompt Engineering.md` with this exact document. It will serve as your team’s absolute rulebook for AI operations.
+
 </div>

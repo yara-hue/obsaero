@@ -168,12 +168,12 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     const sel = editor.getSelection();
     if (sel) {
-      editor.replaceSelection(`<div class="${role.cls}">\n${sel}\n</div>`);
+      editor.replaceSelection(`<span class="${role.cls}">${sel}</span>`);
     } else {
       const line = editor.getCursor().line;
       const text = editor.getLine(line);
       if (text.trim()) {
-        editor.setLine(line, `<div class="${role.cls}">\n${text}\n</div>`);
+        editor.setLine(line, `<span class="${role.cls}">${text}</span>`);
       }
     }
   }
@@ -197,7 +197,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
           await this.app.vault.createFolder(DRAFT_DIR);
         }
       } catch (_) {}
-      const content = `<div class="${role.cls}">\n\n## ✎ Personal Draft — ${role.emoji} ${role.name}\n\n*Use this page for brainstorming, notes, and drafts. Every entry is auto-colored with your teammate color.*\n\n---\n\n\n\n</div>`;
+      const content = `<span class="${role.cls}">\n\n## ✎ Personal Draft — ${role.emoji} ${role.name}\n\n*Use this page for brainstorming, notes, and drafts. Every entry is auto-colored with your teammate color.*\n\n---\n\n\n\n</span>`;
       try {
         await this.app.vault.create(filePath, content);
       } catch (_) {}
@@ -274,19 +274,10 @@ module.exports = class RoleStamperPlugin extends Plugin {
           const line = editor.getLine(cursor.line);
           const t = line.trim();
           if (!t) return;
-          if (t.startsWith('<div') || t.startsWith('</div>')) return;
           if (line.includes(`class="${role.cls}"`)) return;
 
-          let insideBlock = false;
-          for (let i = cursor.line - 1; i >= 0; i--) {
-            const l = editor.getLine(i);
-            if (l.includes('</div>')) break;
-            if (l.includes(`class="${role.cls}"`)) { insideBlock = true; break; }
-          }
-          if (insideBlock) return;
-
-          editor.setLine(cursor.line, `<div class="${role.cls}">\n${t}\n</div>`);
-          editor.setCursor({ line: cursor.line + 1, ch: t.length });
+          editor.setLine(cursor.line, `<span class="${role.cls}">${t}</span>`);
+          editor.setCursor({ line: cursor.line, ch: t.length + 33 });
         }, 600);
       })
     );

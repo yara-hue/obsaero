@@ -554,9 +554,9 @@
 }
 
 /* Inline contribution markers (Reading view) */
-.contrib-t1 { border-left: 4px solid var(--contrib-t1); padding-left: 12px; background: var(--contrib-t1-bg); border-radius: 0 4px 4px 0; }
-.contrib-t2 { border-left: 4px solid var(--contrib-t2); padding-left: 12px; background: var(--contrib-t2-bg); border-radius: 0 4px 4px 0; }
-.contrib-t3 { border-left: 4px solid var(--contrib-t3); padding-left: 12px; background: var(--contrib-t3-bg); border-radius: 0 4px 4px 0; }
+.contrib-t1 { color: var(--contrib-t1); }
+.contrib-t2 { color: var(--contrib-t2); }
+.contrib-t3 { color: var(--contrib-t3); }
 
 /* Custom callouts per teammate */
 .callout[data-callout="t1"] { --callout-color: 244, 208, 63; }
