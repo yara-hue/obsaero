@@ -274,7 +274,16 @@ module.exports = class RoleStamperPlugin extends Plugin {
           const line = editor.getLine(cursor.line);
           const t = line.trim();
           if (!t) return;
+          if (t.startsWith('<div') || t.startsWith('</div>')) return;
           if (line.includes(`class="${role.cls}"`)) return;
+
+          let insideBlock = false;
+          for (let i = cursor.line - 1; i >= 0; i--) {
+            const l = editor.getLine(i);
+            if (l.includes('</div>')) break;
+            if (l.includes(`class="${role.cls}"`)) { insideBlock = true; break; }
+          }
+          if (insideBlock) return;
 
           editor.setLine(cursor.line, `<div class="${role.cls}">\n${t}\n</div>`);
           editor.setCursor({ line: cursor.line + 1, ch: t.length });
