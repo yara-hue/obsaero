@@ -1,4 +1,6 @@
 const { Plugin, PluginSettingTab, Setting, Notice, MarkdownView, normalizePath } = require('obsidian');
+const { ViewPlugin, Decoration } = require('@codemirror/view');
+const { RangeSetBuilder } = require('@codemirror/state');
 
 const ROLES = {
   t1: { emoji: '✈︎', name: 'Teammate 1', cls: 'contrib-t1' },
@@ -10,6 +12,37 @@ const ROLE_ORDER = ['t1', 't2', 't3'];
 const COLORS = { t1: '#F4D03F', t2: '#5DADE2', t3: '#AF7AC5' };
 const DRAFT_DIR = '40_Team_Journey/Drafts';
 const DEFAULT_SETTINGS = { currentRole: '', autostamp: false };
+
+/* ── CM6 decoration: hide ::t1: / :: markers, color text in Live Preview ── */
+const teammateDecorationPlugin = ViewPlugin.fromClass(class {
+  decorations;
+  constructor(view) { this.decorations = this.buildDecorations(view); }
+  update(update) {
+    if (update.docChanged || update.viewportChanged)
+      this.decorations = this.buildDecorations(update.view);
+  }
+  buildDecorations(view) {
+    const builder = new RangeSetBuilder();
+    for (const { from, to } of view.visibleRanges) {
+      const text = view.state.doc.sliceString(from, to);
+      const re = /::(t[123]):(.*?)::/gs;
+      let m;
+      while ((m = re.exec(text)) !== null) {
+        const tagLen = `::${m[1]}:`.length;
+        const s = from + m.index;
+        const se = s + tagLen;
+        const ce = se + m[2].length;
+        const ee = ce + 2;
+        builder.add(s, se, Decoration.replace({}));
+        builder.add(se, ce, Decoration.mark({
+          attributes: { style: `color: ${COLORS[m[1]]}` }
+        }));
+        builder.add(ce, ee, Decoration.replace({}));
+      }
+    }
+    return builder.finish();
+  }
+}, { decorations: v => v.decorations });
 
 class RoleStamperSettingTab extends PluginSettingTab {
   constructor(app, plugin) {
@@ -57,6 +90,15 @@ module.exports = class RoleStamperPlugin extends Plugin {
     this._addContextMenu();
     this.addSettingTab(new RoleStamperSettingTab(this.app, this));
     this._addAutoStamp();
+
+    this.registerEditorExtension(teammateDecorationPlugin);
+
+    this.registerMarkdownPostProcessor((el, ctx) => {
+      el.innerHTML = el.innerHTML.replace(
+        /::(t[123]):(.*?)::/gs,
+        (_, role, text) => `<span style="color: ${COLORS[role]}">${text}</span>`
+      );
+    });
   }
 
   /* ── Ribbon (sidebar button) ───────────────── */
@@ -168,12 +210,12 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     const sel = editor.getSelection();
     if (sel) {
-      editor.replaceSelection(`==${sel}==`);
+      editor.replaceSelection(`::${roleKey}:${sel}::`);
     } else {
       const line = editor.getCursor().line;
       const text = editor.getLine(line);
       if (text.trim()) {
-        editor.setLine(line, `==${text}==`);
+        editor.setLine(line, `::${roleKey}:${text.trim()}::`);
       }
     }
   }
@@ -208,13 +250,14 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
   async _countContribs() {
     const files = this.app.vault.getMarkdownFiles();
-    let total = 0;
+    let c1 = 0, c2 = 0, c3 = 0;
     for (const f of files) {
       const text = await this.app.vault.read(f);
-      const matches = text.match(/==[^=]+==/g);
-      if (matches) total += matches.length;
+      c1 += (text.match(/::t1:.*?::/gs) || []).length;
+      c2 += (text.match(/::t2:.*?::/gs) || []).length;
+      c3 += (text.match(/::t3:.*?::/gs) || []).length;
     }
-    return { c1: Math.ceil(total / 3), c2: Math.ceil(total / 3), c3: total - Math.ceil(total / 3) * 2 };
+    return { c1, c2, c3 };
   }
 
   _barHTML(c1, c2, c3) {
@@ -273,10 +316,10 @@ module.exports = class RoleStamperPlugin extends Plugin {
           const line = editor.getLine(cursor.line);
           const t = line.trim();
           if (!t) return;
-          if (t.startsWith('==') && t.endsWith('==')) return;
+          if (t.startsWith('::')) return;
 
-          editor.setLine(cursor.line, `==${t}==`);
-          editor.setCursor({ line: cursor.line, ch: t.length + 4 });
+          editor.setLine(cursor.line, `::${this.settings.currentRole}:${t}::`);
+          editor.setCursor({ line: cursor.line, ch: `::${this.settings.currentRole}:${t}::`.length });
         }, 600);
       })
     );
