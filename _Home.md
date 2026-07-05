@@ -1,3 +1,9 @@
+> [!info]+ **👋 New to the vault?**
+> 1. **Trust the author** when Obsidian asks → enables all plugins
+> 2. Obsidian Git **auto-syncs** every 10 minutes — no manual steps
+> 3. Open **[[_Project Roadmap]]** for the full pipeline
+> 4. See **[[99 Archive/REFERENCE Setup Guide]]** for troubleshooting
+
 # ✈️ AeroSTAR
 
 Welcome to the AeroSTAR operating system.
@@ -68,10 +74,4 @@ Open **[[_Project Roadmap]]** for the full pipeline with a visual flowchart.
   <span class="contrib-legend-item">
     <span class="contrib-legend-dot t3"></span> ✧ Teammate 3 — <strong>34%</strong>
   </span>
-::t2:</div>
-
-
-
-::t2:sdfghjkl::
-::t2:sdfghjkl::
-::t2:sdfghjk'::
+</div>
