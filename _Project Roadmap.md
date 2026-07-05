@@ -41,4 +41,4 @@ Begin your journey: [[01 - Understand the Challenge]]
 
 ---
 
-← [[Home]] | ↑ [[Home]]
+← [[_Home]] | ↑ [[_Home]]

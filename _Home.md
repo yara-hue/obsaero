@@ -43,7 +43,7 @@ Work alternates between **individual sprints** and **team syncs**.
 
 ## Start Here
 
-Open **[[Project Roadmap]]** for the full pipeline with a visual flowchart.
+Open **[[_Project Roadmap]]** for the full pipeline with a visual flowchart.
 
 > [!tip] **Pro tip**
 > Just follow the pipeline from top to bottom. The vault will guide you.
@@ -72,3 +72,35 @@ Open **[[Project Roadmap]]** for the full pipeline with a visual flowchart.
 
 
 
+wertyui
+dfghjk
+dfghjk
+
+
+::t1:dhwqsi::
+::t1:jhqdo::
+::t2:sfgahj::
+::t3:fsghajkl::
+::t3:wertyuio::
+::t3:asdfghjkl;::
+::t3:sdfghj::
+
+::t1:dfghjkl::
+::t1:asdfghjkl::
+::t2:asdfghjk::
+
+
+::t2:tyuio::
+::t2:dfghjk
+::t2:wertyuj::::
+::t2:sdfghjk::cvbnm
+::t2:fghjk::
+::t2:sfgh::sdfgh
+::t2:sdfghjk::
+::t2:sdfghjk::
+
+::t2:fghjkl::xcvbjkl
+::t2:sdfgm,::
+
+::t2:wsfqf::
+::t2:sdfghjk::

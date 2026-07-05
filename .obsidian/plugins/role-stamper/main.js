@@ -270,9 +270,9 @@ module.exports = class RoleStamperPlugin extends Plugin {
   }
 
   async _updateBarInHomePage() {
-    const homeFile = this.app.vault.getAbstractFileByPath('Home.md');
+    const homeFile = this.app.vault.getAbstractFileByPath('_Home.md');
     if (!homeFile) {
-      new Notice('00 🏠 Home.md not found!');
+      new Notice('00 🏠 _Home.md not found!');
       return;
     }
 
@@ -288,7 +288,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     const pattern = /<div class="contrib-bar-container">[\s\S]*?<\/div>\n\n<div class="contrib-legend">[\s\S]*?<\/div>/;
     if (!pattern.test(content)) {
-      new Notice('Could not find the bar section in 🏠 Home.md');
+      new Notice('Could not find the bar section in 🏠 _Home.md');
       return;
     }
 
