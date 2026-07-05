@@ -1,10 +1,4 @@
-> [!info]+ **👋 New to the vault?**
-> 1. **Trust the author** when Obsidian asks → enables all plugins
-> 2. Obsidian Git **auto-syncs** every 10 minutes — no manual steps
-> 3. Open **[[_Project Roadmap]]** for the full pipeline
-> 4. See **[[99 Archive/REFERENCE Setup Guide]]** for troubleshooting
-
-# ✈️ AeroSTAR
+::t2:# ✈️ AeroSTAR::
 
 Welcome to the AeroSTAR operating system.
 
