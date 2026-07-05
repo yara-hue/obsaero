@@ -13,7 +13,12 @@ const COLORS = { t1: '#F4D03F', t2: '#5DADE2', t3: '#AF7AC5' };
 const DRAFT_DIR = '40_Team_Journey/Drafts';
 const DEFAULT_SETTINGS = { currentRole: '', autostamp: false };
 
-/* ── CM6 decoration: hide ::t1: / :: markers, color text in Live Preview ── */
+/* ── Regex patterns ──────────────────────────────── */
+const INLINE_RE = /::(t[123]):(.*?)::/gs;
+const BOX_OPEN_RE  = /<!--\s*(t[123]):(.*?)-->/g;
+const BOX_CLOSE_RE = /<!--\s*\/(t[123])\s*-->/g;
+
+/* ── CM6 decoration: hide markers, color text ──── */
 const teammateDecorationPlugin = ViewPlugin.fromClass(class {
   decorations;
   constructor(view) { this.decorations = this.buildDecorations(view); }
@@ -25,9 +30,11 @@ const teammateDecorationPlugin = ViewPlugin.fromClass(class {
     const builder = new RangeSetBuilder();
     for (const { from, to } of view.visibleRanges) {
       const text = view.state.doc.sliceString(from, to);
-      const re = /::(t[123]):(.*?)::/gs;
+
+      // Hide inline ::t1:content:: markers & color content
       let m;
-      while ((m = re.exec(text)) !== null) {
+      INLINE_RE.lastIndex = 0;
+      while ((m = INLINE_RE.exec(text)) !== null) {
         const tagLen = `::${m[1]}:`.length;
         const s = from + m.index;
         const se = s + tagLen;
@@ -39,11 +46,67 @@ const teammateDecorationPlugin = ViewPlugin.fromClass(class {
         }));
         builder.add(ce, ee, Decoration.replace({}));
       }
+
+      // Hide box markers and add background to content
+      const markers = [];
+      BOX_OPEN_RE.lastIndex = 0;
+      while ((m = BOX_OPEN_RE.exec(text)) !== null) {
+        markers.push({
+          type: 'open',
+          role: m[1],
+          from: from + m.index,
+          to: from + m.index + m[0].length,
+        });
+      }
+      BOX_CLOSE_RE.lastIndex = 0;
+      while ((m = BOX_CLOSE_RE.exec(text)) !== null) {
+        markers.push({
+          type: 'close',
+          role: m[1],
+          from: from + m.index,
+          to: from + m.index + m[0].length,
+        });
+      }
+
+      markers.sort((a, b) => a.from - b.from);
+
+      // Match open/close pairs and add decorations
+      const stack = [];
+      for (const mk of markers) {
+        if (mk.type === 'open') {
+          stack.push(mk);
+        } else if (mk.type === 'close') {
+          // Find matching open marker on stack
+          let pairIdx = -1;
+          for (let i = stack.length - 1; i >= 0; i--) {
+            if (stack[i].role === mk.role) {
+              pairIdx = i;
+              break;
+            }
+          }
+          if (pairIdx !== -1) {
+            const open = stack.splice(pairIdx, 1)[0];
+            // Hide open marker
+            builder.add(open.from, open.to, Decoration.replace({}));
+            // Hide close marker
+            builder.add(mk.from, mk.to, Decoration.replace({}));
+            // Add background/border to content between
+            if (open.to < mk.from) {
+              builder.add(open.to, mk.from, Decoration.mark({
+                attributes: {
+                  style: `display: block; background: ${COLORS[mk.role]}15; border-left: 3px solid ${COLORS[mk.role]}; padding: 4px 8px; margin: 4px 0; border-radius: 4px;`
+                }
+              }));
+            }
+          }
+        }
+      }
     }
     return builder.finish();
   }
 }, { decorations: v => v.decorations });
 
+/* ── Settings tab ────────────────────────────── */
 class RoleStamperSettingTab extends PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
@@ -94,14 +157,126 @@ module.exports = class RoleStamperPlugin extends Plugin {
     this.registerEditorExtension(teammateDecorationPlugin);
 
     this.registerMarkdownPostProcessor((el, ctx) => {
+      // Inline stamps → colored spans
       el.innerHTML = el.innerHTML.replace(
         /::(t[123]):(.*?)::/gs,
         (_, role, text) => `<span style="color: ${COLORS[role]}">${text}</span>`
       );
+
+      // Box markers → textarea
+      this._processBoxMarkers(el, ctx);
     });
   }
 
-  /* ── Ribbon (sidebar button) ───────────────── */
+  /* ── Box marker processing (reading mode) ──── */
+  async _processBoxMarkers(el, ctx) {
+    const walker = document.createNodeIterator(el, NodeFilter.SHOW_COMMENT, null);
+    const boxes = [];
+    let node;
+    while ((node = walker.nextNode())) {
+      const text = node.nodeValue.trim();
+      const openM = text.match(/^(t[123]):(.+)$/);
+      const closeM = text.match(/^\/(t[123])$/);
+      if (openM) {
+        boxes.push({ type: 'open', role: openM[1], label: openM[2].trim(), node });
+      } else if (closeM) {
+        boxes.push({ type: 'close', role: closeM[1], node });
+      }
+    }
+
+    // Match pairs
+    const stack = [];
+    for (const b of boxes) {
+      if (b.type === 'open') {
+        stack.push(b);
+      } else if (b.type === 'close') {
+        let pairIdx = -1;
+        for (let i = stack.length - 1; i >= 0; i--) {
+          if (stack[i].role === b.role) {
+            pairIdx = i;
+            break;
+          }
+        }
+        if (pairIdx !== -1) {
+          const open = stack.splice(pairIdx, 1)[0];
+          this._replaceBoxWithTextarea(open, b, el, ctx);
+        }
+      }
+    }
+  }
+
+  async _replaceBoxWithTextarea(open, close, el, ctx) {
+    // Collect all DOM nodes between the two comment nodes
+    let cur = open.node.nextSibling;
+    const contentNodes = [];
+    while (cur && cur !== close.node) {
+      contentNodes.push(cur);
+      cur = cur.nextSibling;
+    }
+
+    // Read raw file to get content between markers
+    const file = this.app.vault.getAbstractFileByPath(ctx.sourcePath);
+    if (!file) return;
+    let rawContent = '';
+    try {
+      rawContent = await this.app.vault.read(file);
+    } catch { return; }
+
+    // Find content in raw file
+    const openPat = `<!-- ${open.role}:${open.label}-->`;
+    const closePat = `<!-- /${open.role}-->`;
+    const openIdx = rawContent.indexOf(openPat);
+    const closeIdx = rawContent.indexOf(closePat, openIdx + openPat.length);
+    if (openIdx === -1 || closeIdx === -1) return;
+
+    const innerRaw = rawContent.slice(openIdx + openPat.length, closeIdx).trim();
+
+    // Create the textarea container
+    const container = createDiv({ cls: `teammate-box ${ROLES[open.role].cls}` });
+    const header = container.createDiv({ cls: 'teammate-box-header' });
+    header.innerHTML = `${ROLES[open.role].emoji} ${open.label}`;
+    const textarea = container.createEl('textarea', {
+      cls: 'teammate-box-textarea',
+      attr: { 'data-role': open.role, 'data-label': open.label }
+    });
+    textarea.value = innerRaw;
+
+    const saveBtn = container.createEl('button', {
+      cls: 'teammate-box-save',
+      text: 'Update'
+    });
+    saveBtn.addEventListener('click', async () => {
+      const newContent = textarea.value;
+      const currentFile = this.app.vault.getAbstractFileByPath(ctx.sourcePath);
+      if (!currentFile) return;
+      try {
+        const currentRaw = await this.app.vault.read(currentFile);
+        const oldOpen = `<!-- ${open.role}:${open.label}-->`;
+        const oldClose = `<!-- /${open.role}-->`;
+        const oi = currentRaw.indexOf(oldOpen);
+        const ci = currentRaw.indexOf(oldClose, oi + oldOpen.length);
+        if (oi === -1 || ci === -1) {
+          new Notice('Could not find box in file — maybe it moved?');
+          return;
+        }
+        const updated = currentRaw.slice(0, oi + oldOpen.length) + '\n' + newContent + '\n' + currentRaw.slice(ci);
+        await this.app.vault.modify(currentFile, updated);
+        new Notice(`Saved ${ROLES[open.role].emoji} ${open.label}`);
+      } catch (e) {
+        new Notice('Save failed: ' + e.message);
+      }
+    });
+
+    // Replace nodes between markers with the container
+    for (const cn of contentNodes) {
+      cn.remove();
+    }
+    open.node.parentNode.insertBefore(container, close.node);
+    open.node.remove();
+    close.node.remove();
+  }
+
+  /* ── Ribbon ────────────────────────────────── */
   _addRibbon() {
     const icon = this.addRibbonIcon('bar-chart', 'Update contribution bar', () => {
       this._updateBarInHomePage();

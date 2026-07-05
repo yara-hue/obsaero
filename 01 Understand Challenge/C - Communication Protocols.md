@@ -37,4 +37,4 @@ Our team alignment rules. Contains our meeting schedules, sync links, file-namin
 
 ---
 
-? [[01 - Understand the Challenge]] | ? [[_Project Roadmap]]
+? [[📖 01]] | ? [[_Project Roadmap]]

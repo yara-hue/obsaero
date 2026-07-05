@@ -12,15 +12,15 @@ Work alternates between **individual sprints** and **team syncs**.
 
 | Stage | Mode | Who | Team Sync |
 |:------|:-----|:----|:----------|
-| [[01 - Understand the Challenge]] | Individual | Read brief & rubric | Align as team |
-| [[02 - Research]] | Individual | Split by topic | Share findings |
-| [[03 - Idea Dump]] | Individual | Everyone ideates | Pool & discuss |
-| [[04 - Concept Evaluation]] | Team | Everyone | Vote on winner |
-| [[05 - Devil's Advocate]] | Team | Everyone | Stress-test together |
-| [[06 - Concept Blueprint]] | Individual | Per module | Merge into master doc |
-| [[07 - Validation & Evidence]] | Individual | Per claim | Cross-check evidence |
-| [[08 - Pitch Studio]] | Team | Everyone | Build story together |
-| [[09 - Final Deliverables]] | Team | Everyone | Final review & submit |
+| [[📖 01]] | Individual | Read brief & rubric | Align as team |
+| [[📖 02]] | Individual | Split by topic | Share findings |
+| [[📖 03]] | Individual | Everyone ideates | Pool & discuss |
+| [[📖 04]] | Team | Everyone | Vote on winner |
+| [[📖 05]] | Team | Everyone | Stress-test together |
+| [[📖 06]] | Individual | Per module | Merge into master doc |
+| [[📖 07]] | Individual | Per claim | Cross-check evidence |
+| [[📖 08]] | Team | Everyone | Build story together |
+| [[📖 09]] | Team | Everyone | Final review & submit |
 
 > [!important] **Connection points**
 > After stages **01, 02, 03, 06, 07** the team meets to merge individual work before moving forward.
@@ -29,15 +29,15 @@ Work alternates between **individual sprints** and **team syncs**.
 
 ## The Journey
 
-1. **[[01 - Understand the Challenge]]** — Learn the rules and align the team.
-2. **[[02 - Research]]** — Build the factual foundation.
-3. **[[03 - Idea Dump]]** — Generate a large pool of concepts.
-4. **[[04 - Concept Evaluation]]** — Compare and select the strongest.
-5. **[[05 - Devil's Advocate]]** — Stress-test until bulletproof.
-6. **[[06 - Concept Blueprint]]** — Define the complete system.
-7. **[[07 - Validation & Evidence]]** — Prove every claim.
-8. **[[08 - Pitch Studio]]** — Craft a compelling story.
-9. **[[09 - Final Deliverables]]** — Submit the final package.
+1. **[[📖 01]]** — Learn the rules and align the team.
+2. **[[📖 02]]** — Build the factual foundation.
+3. **[[📖 03]]** — Generate a large pool of concepts.
+4. **[[📖 04]]** — Compare and select the strongest.
+5. **[[📖 05]]** — Stress-test until bulletproof.
+6. **[[📖 06]]** — Define the complete system.
+7. **[[📖 07]]** — Prove every claim.
+8. **[[📖 08]]** — Craft a compelling story.
+9. **[[📖 09]]** — Submit the final package.
 
 ---
 

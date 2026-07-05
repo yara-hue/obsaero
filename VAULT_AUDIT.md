@@ -200,7 +200,7 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 
 ### 40_Team_Journey/ — Process documentation for judges
 
-#### 40 - Team Journey.md
+#### 📖 40.md
 - **Role:** Index for team journey folder
 - **Content:** Historical record of project development over the 4-week sprint
 - **Structure:** Short index header
@@ -239,7 +239,7 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 
 ### 50_Templates/ — Reusable note templates
 
-#### 50 - Templates.md
+#### 📖 50.md
 - **Role:** Index for the template vault
 - **Content:** Lists all available templates
 - **Structure:** Short index
@@ -412,7 +412,7 @@ Number prefixes ensure correct sort order in Obsidian. This folder is an AI oper
 
 ### 99_Archive/
 
-#### 99 - Archive.md
+#### 📖 99.md
 - **Role:** Archive index for completed or deprecated materials
 - **Content:** Links to archived notes no longer active
 - **Structure:** Simple list
@@ -539,5 +539,5 @@ footnotes, slash-command, markdown-importer, zk-prefixer, random-note, slides, a
 
 All content notes were placeholder files — 36 of 55 markdown files still have FILE PURPOSE headers (empty templates). The 60_AI_Prompt_Engineering/ folder has been fully populated with 13 files (AI Operating Manual, 5 AI rules, Devil's Advocate, 4 task prompt sets, LLM anti-patterns, debugging). Numbered prefixes keep them in logical order in Obsidian's file explorer. The only exception is -Home.md which has the dashboard structure with real metadata.
 
-File sizes: 87 bytes (99 - Archive.md) to ~720 KB (obsidian-git/main.js).
+File sizes: 87 bytes (📖 99.md) to ~720 KB (obsidian-git/main.js).
 

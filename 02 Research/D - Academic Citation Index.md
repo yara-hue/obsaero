@@ -21,4 +21,4 @@ _Add rows for each scientific principle supporting our concept._
 
 ---
 
-? [[02 - Research]] | ? [[_Project Roadmap]]
+? [[📖 02]] | ? [[_Project Roadmap]]

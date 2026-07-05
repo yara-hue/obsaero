@@ -599,8 +599,62 @@
 .contrib-legend-dot.t2 { background: var(--contrib-t2); }
 .contrib-legend-dot.t3 { background: var(--contrib-t3); }
 
-
-
+/* Teammate box textarea widget (reading mode) */
+.teammate-box {
+  margin: 12px 0;
+  border-radius: 8px;
+  padding: 0;
+  border: 1px solid var(--background-modifier-border);
+  overflow: hidden;
+}
+.teammate-box-header {
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+.teammate-box .teammate-box-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 0;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-monospace);
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+  outline: none;
+  border-top: 1px solid var(--background-modifier-border);
+}
+.teammate-box .teammate-box-textarea:focus {
+  box-shadow: inset 0 0 0 2px var(--interactive-accent);
+}
+.teammate-box .teammate-box-save {
+  display: block;
+  width: 100%;
+  padding: 4px 12px;
+  border: none;
+  border-top: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  transition: background 0.15s ease;
+}
+.teammate-box .teammate-box-save:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+.teammate-box.contrib-t1 .teammate-box-header { background: var(--contrib-t1-bg); color: var(--contrib-t1); }
+.teammate-box.contrib-t2 .teammate-box-header { background: var(--contrib-t2-bg); color: var(--contrib-t2); }
+.teammate-box.contrib-t3 .teammate-box-header { background: var(--contrib-t3-bg); color: var(--contrib-t3); }
+.teammate-box.contrib-t1 { border-left: 3px solid var(--contrib-t1); }
+.teammate-box.contrib-t2 { border-left: 3px solid var(--contrib-t2); }
+.teammate-box.contrib-t3 { border-left: 3px solid var(--contrib-t3); }
 
 
 

@@ -29,4 +29,4 @@ _Add a new section for each document you upload._
 
 ---
 
-? [[02 - Research]] | ? [[_Project Roadmap]]
+? [[📖 02]] | ? [[_Project Roadmap]]

@@ -21,4 +21,4 @@ _Status options: Not Started → Draft → In Progress → Done_
 
 ---
 
-? [[08 - Pitch Studio]] | ? [[_Project Roadmap]]
+? [[📖 08]] | ? [[_Project Roadmap]]
