@@ -3,6 +3,8 @@
 .obsidian/cache
 .obsidian/graph.json
 .obsidian/plugins/role-stamper/data.json
+.obsidian/plugins/obsidian-livesync/
+.obsidian/plugins/obsidian-livesync/data.json
 trash/
 .DS_Store
 Thumbs.db
