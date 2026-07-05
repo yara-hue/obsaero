@@ -1,4 +1,4 @@
-> [!success]+ **✅ Vault is ready!**
+::t2:> [!success]+ **✅ Vault is ready!**::
 > Everything is pre-configured. Just follow the steps below.
 
 ## ⚡ Setup
