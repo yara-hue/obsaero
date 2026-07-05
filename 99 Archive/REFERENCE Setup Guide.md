@@ -24,7 +24,7 @@ That's it. The vault will auto-sync via Git.
 | "Git not found" | Install Git and restart Obsidian |
 | Push fails | You might not have write access — that's OK, you'll still get updates |
 | Plugins not loading | You didn't trust the author — close vault, reopen, click "Trust" |
-| Merge conflict | A file was edited by two people at once. Resolve in Obsidian or VS Code. |
+| Merge conflict | Normal! Git auto-merges most of the time. See `conflict-files-obsidian-git.md` for any files needing manual fix |
 
 ## Tips
 
