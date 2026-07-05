@@ -1,4 +1,4 @@
-::t2:> [!success]+ **✅ Vault is ready!**::
+> [!success]+ **✅ Vault is ready!**
 > Everything is pre-configured. Just follow the steps below.
 
 ## ⚡ Setup
@@ -6,15 +6,23 @@
 1. **Trust the author** when Obsidian asks → enables all plugins
 2. That's it. Seriously.
 
+### 📝 How to contribute (important!)
+
+Every file has **colored boxes** for each teammate:
+
+| Color | Teammate | Symbol | Write ONLY in these boxes |
+|-------|----------|--------|--------------------------|
+| 🟡 Gold | Teammate 1 | ✈︎ | `[!t1]` callout boxes |
+| 🔵 Blue | Teammate 2 | ⌕ | `[!t2]` callout boxes |
+| 🟣 Purple | Teammate 3 | ✧ | `[!t3]` callout boxes |
+
+**Rule:** Never edit a box that isn't your color. Git auto-merges your changes with no conflicts because you're on different lines.
+
 ### How sync works
 
 - **Auto-pull** on every startup (you get the latest)
 - **Auto-commit + push** every 10 minutes (your changes go up)
 - **Auto-pull** every 10 minutes (teammates' changes come down)
-
-### ⚠️ Merge conflicts (normal!)
-
-If two people edit the same file at the same time, Git auto-merges silently 90% of the time. When it can't, Obsidian Git creates **`conflict-files-obsidian-git.md`** listing the files to fix. Open them, pick which version to keep, and close. That's it.
 
 ### Troubleshooting
 

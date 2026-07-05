@@ -1,4 +1,45 @@
 ﻿# 🧠 Individual Team Reflections
 ### 📌 FILE PURPOSE
 A collection space for personal weekly journal entries from each of our three team members.
-*   **How to use:** Each team member should write a quick paragraph here every Friday detailing what they learned, what challenged them, and how they solved it.
+*   **How to use:** Each teammate writes ONLY in their own colored box below. Never edit another teammate's box. Write a quick paragraph every Friday detailing what you learned, what challenged you, and how you solved it.
+
+---
+
+> [!t1]- ✈︎ T1's Reflections
+> ### Week 1
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 2
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 3
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 4
+> _What did you learn this week? What challenged you?_
+
+> [!t2]- ⌕ T2's Reflections
+> ### Week 1
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 2
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 3
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 4
+> _What did you learn this week? What challenged you?_
+
+> [!t3]- ✧ T3's Reflections
+> ### Week 1
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 2
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 3
+> _What did you learn this week? What challenged you?_
+>
+> ### Week 4
+> _What did you learn this week? What challenged you?_

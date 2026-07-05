@@ -559,9 +559,9 @@
 .contrib-t3 { color: var(--contrib-t3); }
 
 /* Custom callouts per teammate */
-.callout[data-callout="t1"] { --callout-color: 244, 208, 63; }
-.callout[data-callout="t2"] { --callout-color: 93, 173, 226; }
-.callout[data-callout="t3"] { --callout-color: 175, 122, 197; }
+.callout[data-callout="t1"] { --callout-color: 244, 208, 63; --callout-icon: lucide-plane; }
+.callout[data-callout="t2"] { --callout-color: 93, 173, 226; --callout-icon: lucide-search; }
+.callout[data-callout="t3"] { --callout-color: 175, 122, 197; --callout-icon: lucide-sparkles; }
 
 /* Contribution Bar Widget on Home page */
 .contrib-bar-container {

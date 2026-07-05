@@ -1,11 +1,11 @@
-# ?? Quantitative Survey Data
+# 📊 Quantitative Survey Data
 
 > **Purpose:** Charts and statistics from any team-run surveys.
-> **When to use:** After collecting survey responses � compile data here.
+> **When to use:** After collecting survey responses — compile data here.
 
-### ?? FILE PURPOSE
+### 📌 FILE PURPOSE
 The dashboard for structural data, numeric metrics, and consumer survey percentages.
-*   **How to use:** If we run a questionnaire, map out the charts, statistical sample sizes, and percentage data points here to build our quantitative proof.
+*   **How to use:** Each teammate writes ONLY in their own colored box below. Never edit another teammate's box. If we run a questionnaire, map out the charts, statistical sample sizes, and percentage data points here to build our quantitative proof.
 
 ---
 
@@ -16,26 +16,58 @@ The dashboard for structural data, numeric metrics, and consumer survey percenta
 - **Sample size:** _e.g. n = 200_
 - **Method:** _e.g. Google Forms, in-terminal intercept_
 
+---
+
 ## Key Findings
 
-### Finding 1
-- **Question:** _e.g. "Would you sort waste if guided by a screen?"_
-- **Result:** _e.g. 73% said yes_
-- **Chart placeholder:** _paste chart or describe visual_
+> [!t1]- ✈︎ T1's Findings
+> **Survey conducted:** _name / date_
+> **Sample:** _size & demographics_
+>
+> ### Finding 1
+> - **Question:** _e.g. "Would you sort waste if guided by a screen?"_
+> - **Result:** _e.g. 73% said yes_
+> - **Chart placeholder:** _paste chart or describe visual_
+>
+> _Add more findings..._
 
-### Finding 2
-- **Question:** _e.g. "What stops you from recycling on flights?"_
-- **Result:** _e.g. 61% said "confusion about bin types"_
-- **Chart placeholder:** _paste chart or describe visual_
+> [!t2]- ⌕ T2's Findings
+> **Survey conducted:** _name / date_
+> **Sample:** _size & demographics_
+>
+> ### Finding 1
+> - **Question:** _e.g. "What stops you from recycling on flights?"_
+> - **Result:** _e.g. 61% said "confusion about bin types"_
+> - **Chart placeholder:** _paste chart or describe visual_
+>
+> _Add more findings..._
 
-_Add more findings as data is collected._
-
-## Statistical Notes
-
-- **Confidence level:** _e.g. 95%_
-- **Margin of error:** _e.g. ±5%_
-- **Key insight:** _one-line takeaway from the data_
+> [!t3]- ✧ T3's Findings
+> **Survey conducted:** _name / date_
+> **Sample:** _size & demographics_
+>
+> ### Finding 1
+> - **Question:** _Add your question here_
+> - **Result:** _Add your result here_
+> - **Chart placeholder:** _paste chart or describe visual_
+>
+> _Add more findings..._
 
 ---
 
-? [[07 - Validation & Evidence]] | ? [[_Project Roadmap]]
+## Statistical Notes
+
+> [!t1]- ✈︎ T1's Notes
+> - **Confidence level:** _e.g. 95%_
+> - **Margin of error:** _e.g. ±5%_
+> - **Key insight:** _one-line takeaway from the data_
+
+> [!t2]- ⌕ T2's Notes
+> _Add your statistical notes here..._
+
+> [!t3]- ✧ T3's Notes
+> _Add your statistical notes here..._
+
+---
+
+← [[07 - Validation & Evidence]] | ← [[_Project Roadmap]]
