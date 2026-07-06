@@ -20,54 +20,31 @@ Every file has **colored textarea boxes** for each teammate:
 
 **In Reading mode**, each box renders as an editable `<textarea>`. Type your content and click **Update** to save it back to the file. The marker code is hidden in Live Preview mode.
 
-### 📊 Dashboard Cards
+### 🎛️ Research Board (native UI)
 
-Research pages now use a **dashboard layout** built with HTML divs + CSS Grid — like Notion or Linear. Each researcher has a colored card with a two-column layout.
+Open any collaborative file and press **`Ctrl+Shift+B`** to launch the **Research Board** — a native Obsidian ItemView that replaces the markdown editor with a Linear/Notion-style UI.
 
-**To enable:** Go to Settings → Appearance → CSS snippets → toggle on `research-dashboard.css`.
+Each researcher gets a **colored card** with:
+- **Questions panel** (left, 40%) — titled inputs with status chips (Todo/Researching/Complete/Blocked) and priority
+- **Findings panel** (right, 60%) — large rich-text area
+- **Sources section** (full width) — add, edit, delete source entries
 
-**Card HTML structure:**
-```html
-<div class="research-card" style="--card-color: #hex; --card-rgb: R,G,B;">
-  <div class="card-header">✈︎ Name — Research</div>
-  <div class="card-body">
-    <div class="card-col col-questions">
-      <div class="col-header">🔵 Research Questions</div>
-
-      <div class="q-field">
-        <!-- tN:Q1:Label-->
-        1. Your question here...
-        <!-- /tN-->
-      </div>
-
-    </div>
-    <div class="card-col col-findings">
-      <div class="col-header">🟢 Findings / Sources</div>
-
-      <div class="findings-field">
-        <!-- tN:Findings-->
-        Your findings here...
-        <!-- /tN-->
-      </div>
-
-    </div>
-  </div>
-</div>
-```
-
-**To add a new researcher (T4/T5):** Copy a `.research-card` block and change:
-- `--card-color` — the hex color
-- `--card-rgb` — RGB components separated by commas
-- Marker prefixes: `t4:`, `t5:`
-- Emoji and name in the header
+The Board reads `<!-- tN:Label-->...<!-- /tN-->` markers from any file. Label keywords control layout:
+- `Question` in label → question list
+- `Findings` / `Answer` → findings panel
+- `Source` → source list
 
 **Researcher colors:**
 
-| Teammate | Color | Inline style |
+| Teammate | Color | Markers |
 |---|---|---|
-| Seif | Gold `#F4D03F` | `--card-color: #F4D03F; --card-rgb: 244, 208, 63;` |
-| Marwan | Blue `#5DADE2` | `--card-color: #5DADE2; --card-rgb: 93, 173, 226;` |
-| Yara | Purple `#AF7AC5` | `--card-color: #AF7AC5; --card-rgb: 175, 122, 197;` |
+| Seif | Gold | `<!-- t1:Questions-->`, `<!-- t1:Findings-->` |
+| Marwan | Blue | `<!-- t2:Questions-->`, `<!-- t2:Findings-->` |
+| Yara | Purple | `<!-- t3:Questions-->`, `<!-- t3:Findings-->` |
+
+**Add T4/T5:** Add entry to `COLORS` in `main.js`, then use `t4:`/`t5:` markers in files.
+
+**To go back to markdown:** Close the Board tab, or open a fresh editor leaf via the File Explorer.
 
 ### How sync works
 
