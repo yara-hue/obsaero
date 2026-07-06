@@ -22,9 +22,14 @@ Every file has **colored textarea boxes** for each teammate:
 
 ### 🎛️ Research Board (native UI)
 
-Any collaborative file (containing `<!-- tN:...-->` markers) **automatically opens** in the Research Board — a native Obsidian ItemView that replaces the markdown editor with a Linear/Notion-style UI. The markdown file becomes the invisible storage backend.
+Any collaborative file (containing `<!-- tN:...-->` markers) **automatically opens** in the Research Board — a native Obsidian ItemView that replaces the markdown editor with a Linear/Notion-style UI. The markdown file becomes the invisible storage backend that you never need to touch.
 
-**No manual activation needed.** Open a file from the explorer → board loads instantly.
+**No manual activation needed.** Open a file from the explorer → board loads instantly. The markdown editor is replaced by a new tab with the board. The original markdown tab is closed automatically.
+
+**Keyboard shortcuts:**
+- `Ctrl+Shift+B` — Open Board for current file (or activate existing one)
+- `Ctrl+Shift+S` — Save
+- **📝 Source** button in board header — temporarily view raw markdown
 
 Each researcher gets a **colored card** with:
 - **Questions panel** (left, 40%) — titled inputs with status chips (Todo/Researching/Complete/Blocked) and priority
