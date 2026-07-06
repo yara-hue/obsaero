@@ -1,56 +1,53 @@
-# Dashboard Card Template
+# Research Board Template
 
-Copy-paste the format below to add a teammate card to any collaborative file.
+The vault now uses a **native UI board** instead of markdown/HTML cards. Open any collaborative file and press `Ctrl+Shift+B` to launch the Research Board.
 
-## Standard Card (two-column: questions + findings)
+## How it works
 
-```html
-<div class="research-card" style="--card-color: #hex; --card-rgb: R,G,B;">
-  <div class="card-header">✈︎ Name — Research</div>
-  <div class="card-body">
-    <div class="card-col col-questions">
-      <div class="col-header">🔵 Research Questions</div>
+The Board reads `<!-- tN:Label-->...<!-- /tN-->` marker pairs from any file and renders:
 
-      <div class="q-field">
-        <!-- tN:Q1:Label-->
-        1. Your question here...
-        <!-- /tN-->
-      </div>
+- One **colored card per researcher**
+- **Questions panel** (left, 40%) — each question has title, status chip, priority, notes
+- **Findings panel** (right, 60%) — large rich-text area
+- **Sources section** (full width) — add/edit/delete source entries
 
-      <div class="q-field">
-        <!-- tN:Q2:Label-->
-        2. Another question...
-        <!-- /tN-->
-      </div>
+## Marker format
 
-    </div>
-    <div class="card-col col-findings">
-      <div class="col-header">🟢 Findings / Sources</div>
+The Board auto-detects marker pairs. Label keywords control layout:
+- `Question` in label → renders as question list
+- `Findings` / `Answer` in label → renders as findings panel
+- `Source` in label → renders as source list
+- Any other label → renders as notes block
 
-      <div class="findings-field">
-        <!-- tN:Findings-->
-        Your findings here...
-        <!-- /tN-->
-      </div>
+### Questions format (between markers):
+```
+## Question title here
+Status: researching
+Priority: high
+Notes: optional notes
+```
 
-    </div>
-  </div>
-</div>
+### Findings format (between markers):
+Plain text or structured notes.
+
+### Sources format (between markers):
+```
+## Source title
+URL: https://...
+Type: report|paper|interview|dataset|other
+Notes: optional
 ```
 
 ## Researcher colors
 
-| Teammate | Inline style |
-|---|---|
-| Seif | `--card-color: #F4D03F; --card-rgb: 244, 208, 63;` |
-| Marwan | `--card-color: #5DADE2; --card-rgb: 93, 173, 226;` |
-| Yara | `--card-color: #AF7AC5; --card-rgb: 175, 122, 197;` |
+| Teammate | Color | Default labels |
+|---|---|---|
+| Seif | Gold `#F4D03F` | `t1:Questions`, `t1:Findings`, `t1:Sources` |
+| Marwan | Blue `#5DADE2` | `t2:Questions`, `t2:Findings`, `t2:Sources` |
+| Yara | Purple `#AF7AC5` | `t3:Questions`, `t3:Findings`, `t3:Sources` |
 
 ## Adding T4/T5
 
-Copy a `.research-card` div, pick a hex color, and set:
-- `--card-color: #HexColor; --card-rgb: R, G, B;`
-- Marker prefixes: `t4:`, `t5:`
-- Emoji + name in `.card-header`
+Copy any marker pair block, change `tN:` prefix, and use labels matching the patterns above. The Board dynamically assigns card colors from `COLORS` in `main.js` — add an entry there for new roles.
 
-No CSS changes needed — the inline `--card-*` variables style the card automatically.
+No CSS changes needed. No HTML/markdown wrappers needed.

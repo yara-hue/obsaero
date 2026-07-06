@@ -1,0 +1,418 @@
+/* ===== RESEARCH BOARD — Vault-wide native UI ===== */
+
+:root {
+  --rb-find:    #2ECC71;
+  --rb-find-rgb: 46, 204, 113;
+  --rb-radius: 16px;
+  --rb-radius-sm: 10px;
+  --rb-radius-xs: 8px;
+  --rb-gap: 20px;
+  --rb-pad: 18px;
+}
+
+/* ── Container ──────────────────────────────────── */
+.rb-container {
+  padding: 24px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.rb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.rb-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.rb-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Board grid (stacks cards) ──────────────────── */
+.rb-board {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Researcher Card ────────────────────────────── */
+.rb-card {
+  border-radius: var(--rb-radius);
+  overflow: hidden;
+  background: rgba(var(--card-rgb), 0.035);
+  border: 1px solid rgba(var(--card-rgb), 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rb-card:hover {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.07);
+}
+
+.rb-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px var(--rb-pad);
+  background: rgba(var(--card-rgb), 0.07);
+  border-bottom: 1px solid rgba(var(--card-rgb), 0.1);
+  color: var(--card-color);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.rb-card-header .rb-name {
+  flex: 1;
+}
+
+.rb-card-header .rb-status-chip {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(var(--card-rgb), 0.1);
+  color: var(--card-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Card body: two-column grid ─────────────────── */
+.rb-card-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rb-gap);
+  padding: var(--rb-pad);
+}
+
+.rb-card-body.has-findings {
+  grid-template-columns: 2fr 3fr;
+}
+
+/* ── Section header ─────────────────────────────── */
+.rb-section-header {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid rgba(var(--card-rgb), 0.15);
+  color: var(--card-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rb-col-findings .rb-section-header {
+  color: var(--rb-find);
+  border-bottom-color: rgba(var(--rb-find-rgb), 0.15);
+}
+
+/* ── Question Panel ─────────────────────────────── */
+.rb-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Question Item ──────────────────────────────── */
+.rb-question {
+  border-radius: var(--rb-radius-xs);
+  overflow: hidden;
+  border: 1px solid rgba(var(--card-rgb), 0.1);
+  background: rgba(var(--card-rgb), 0.015);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.rb-question:hover {
+  border-color: rgba(var(--card-rgb), 0.2);
+  box-shadow: 0 2px 8px rgba(var(--card-rgb), 0.04);
+}
+
+.rb-question-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 0 12px;
+}
+
+.rb-question-title {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-normal);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 0;
+  outline: none;
+  font-family: var(--font-monospace);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.rb-question-title:focus {
+  border-bottom-color: rgba(var(--card-rgb), 0.3);
+}
+
+.rb-question-status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+  transition: all 0.15s ease;
+}
+.rb-question-status.s-todo        { background: rgba(150,150,150,0.12); color: var(--text-muted); }
+.rb-question-status.s-researching { background: rgba(244,208,63,0.15);  color: #F4D03F; }
+.rb-question-status.s-complete    { background: rgba(46,204,113,0.12);  color: #2ECC71; }
+.rb-question-status.s-blocked     { background: rgba(231,76,60,0.12);   color: #E74C3C; }
+
+.rb-question-priority {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+.rb-question-priority.p-low    { color: var(--text-muted); }
+.rb-question-priority.p-medium { color: #F39C12; }
+.rb-question-priority.p-high   { color: #E74C3C; }
+
+.rb-question-notes {
+  padding: 0 12px 8px 12px;
+}
+
+.rb-question-notes textarea {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  font-family: var(--font-monospace);
+  min-height: 0;
+  padding: 4px 0;
+  transition: color 0.15s ease;
+}
+.rb-question-notes textarea:focus {
+  color: var(--text-normal);
+}
+
+.rb-question-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 4px 12px;
+  border-top: 1px solid rgba(var(--card-rgb), 0.05);
+}
+
+.rb-question-footer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--text-faint);
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.rb-question-footer button:hover {
+  background: rgba(var(--card-rgb), 0.08);
+  color: var(--card-color);
+}
+
+/* ── Add Question button ────────────────────────── */
+.rb-add-question {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--rb-radius-xs);
+  border: 1px dashed rgba(var(--card-rgb), 0.15);
+  background: transparent;
+  color: rgba(var(--card-rgb), 0.4);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-monospace);
+}
+.rb-add-question:hover {
+  border-color: rgba(var(--card-rgb), 0.3);
+  color: var(--card-color);
+  background: rgba(var(--card-rgb), 0.03);
+}
+
+/* ── Findings Panel ─────────────────────────────── */
+.rb-findings-panel {
+  border-radius: var(--rb-radius-xs);
+  border: 1px solid rgba(var(--rb-find-rgb), 0.1);
+  background: rgba(var(--rb-find-rgb), 0.01);
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease;
+}
+
+.rb-findings-panel:focus-within {
+  border-color: rgba(var(--rb-find-rgb), 0.2);
+}
+
+.rb-findings-panel .rb-editor {
+  flex: 1;
+  min-height: 280px;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-normal);
+  outline: none;
+  border: none;
+  background: transparent;
+  resize: vertical;
+  font-family: var(--font-monospace);
+}
+
+.rb-findings-panel .rb-editor:focus {
+  box-shadow: inset 0 0 0 2px rgba(var(--rb-find-rgb), 0.1);
+  border-radius: var(--rb-radius-xs);
+}
+
+/* ── Sources Section ────────────────────────────── */
+.rb-sources {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+}
+
+.rb-sources .rb-section-header {
+  color: var(--text-muted);
+  border-bottom-color: rgba(var(--card-rgb), 0.08);
+}
+
+.rb-source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rb-source-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--rb-radius-xs);
+  border: 1px solid rgba(var(--card-rgb), 0.08);
+  background: rgba(var(--card-rgb), 0.01);
+  transition: border-color 0.2s ease;
+}
+.rb-source-item:hover {
+  border-color: rgba(var(--card-rgb), 0.15);
+}
+
+.rb-source-item input,
+.rb-source-item select {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-normal);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  outline: none;
+  font-family: var(--font-monospace);
+  transition: border-color 0.15s ease;
+}
+.rb-source-item input:focus,
+.rb-source-item select:focus {
+  border-color: rgba(var(--card-rgb), 0.2);
+}
+
+.rb-source-item select {
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.rb-source-item .rb-source-del {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-faint);
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.rb-source-item .rb-source-del:hover {
+  color: #E74C3C;
+  background: rgba(231,76,60,0.08);
+}
+
+.rb-add-source {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--rb-radius-xs);
+  border: 1px dashed rgba(var(--card-rgb), 0.12);
+  background: transparent;
+  color: rgba(var(--card-rgb), 0.35);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-monospace);
+}
+.rb-add-source:hover {
+  border-color: rgba(var(--card-rgb), 0.25);
+  color: var(--card-color);
+}
+
+/* ── Dark theme ─────────────────────────────────── */
+.theme-dark .rb-card {
+  background: rgba(var(--card-rgb), 0.025);
+  border-color: rgba(var(--card-rgb), 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+.theme-dark .rb-card:hover {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
+}
+.theme-dark .rb-card-header {
+  background: rgba(var(--card-rgb), 0.05);
+  border-bottom-color: rgba(var(--card-rgb), 0.06);
+}
+.theme-dark .rb-question {
+  background: rgba(255, 255, 255, 0.01);
+  border-color: rgba(var(--card-rgb), 0.06);
+}
+.theme-dark .rb-findings-panel {
+  background: rgba(255, 255, 255, 0.01);
+  border-color: rgba(var(--rb-find-rgb), 0.06);
+}
+.theme-dark .rb-source-item {
+  background: rgba(255, 255, 255, 0.01);
+  border-color: rgba(var(--card-rgb), 0.05);
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 720px) {
+  .rb-container { padding: 16px; }
+  .rb-card-body.has-findings { grid-template-columns: 1fr; }
+  .rb-source-item { grid-template-columns: 1fr; }
+}
