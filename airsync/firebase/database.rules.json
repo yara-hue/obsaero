@@ -1,0 +1,38 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth.uid === $uid",
+        ".write": "auth.uid === $uid",
+        ".validate": "newData.hasChildren(['displayName', 'color', 'joinedAt'])"
+      }
+    },
+    "presence": {
+      ".read": "auth.uid !== null",
+      "$uid": {
+        ".write": "auth.uid === $uid",
+        ".validate": "newData.hasChildren(['online', 'activeNote', 'color'])"
+      }
+    },
+    "docs": {
+      ".read": "auth.uid !== null",
+      ".write": "auth.uid !== null"
+    },
+    "vault": {
+      ".read": "auth.uid !== null",
+      ".write": "auth.uid !== null",
+      "$vaultId": {
+        "$file": {
+          ".validate": "newData.hasChildren(['content', 'mtime', 'size', 'hash'])"
+        }
+      }
+    },
+    "signaling": {
+      ".read": "auth.uid !== null",
+      ".write": "auth.uid !== null",
+      "$session": {
+        ".indexOn": ["fromUid", "toUid"]
+      }
+    }
+  }
+}
