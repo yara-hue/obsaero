@@ -1,0 +1,21 @@
+.airsync-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.airsync-status.connected {
+  color: var(--color-green, #7ecf6b);
+}
+
+.airsync-status.disconnected {
+  color: var(--color-red, #e06c75);
+}
+
+.airsync-status.connecting {
+  color: var(--color-yellow, #e5c07b);
+}

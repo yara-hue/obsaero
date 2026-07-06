@@ -1,8 +1,9 @@
-import { FirebaseApp, initializeApp } from 'firebase/app';
+import { FirebaseApp, initializeApp, deleteApp } from 'firebase/app';
 import {
   Auth,
   getAuth,
   signInAnonymously,
+  signOut,
   onAuthStateChanged,
   User,
 } from 'firebase/auth';
@@ -22,8 +23,17 @@ export class FirebaseService {
   auth: Auth | null = null;
   db: Database | null = null;
   user: User | null = null;
+  private _authUnsub: (() => void) | null = null;
+
+  get isConnected(): boolean {
+    return this.app !== null && this.auth !== null && this.user !== null;
+  }
 
   async initialize(settings: AirsyncSettings): Promise<void> {
+    if (this.app) {
+      throw new Error('Firebase already initialized. Disconnect first.');
+    }
+
     if (
       !settings.firebaseApiKey ||
       !settings.firebaseAuthDomain ||
@@ -49,12 +59,32 @@ export class FirebaseService {
 
   onAuthChanged(callback: (user: User | null) => void): () => void {
     if (!this.auth) return () => {};
-    return onAuthStateChanged(this.auth, callback);
+    this._authUnsub = onAuthStateChanged(this.auth, callback);
+    return this._authUnsub;
+  }
+
+  async disconnect(): Promise<void> {
+    this._authUnsub?.();
+
+    if (this.auth) {
+      await signOut(this.auth);
+    }
+    if (this.app) {
+      await deleteApp(this.app);
+    }
+
+    this.app = null;
+    this.auth = null;
+    this.db = null;
+    this.user = null;
+    this._authUnsub = null;
   }
 
   async checkFirstTimeUser(uid: string): Promise<boolean> {
     if (!this.db) return false;
-    const snapshot = await get(child(ref(this.db), `users/${uid}/displayName`));
+    const snapshot = await get(
+      child(ref(this.db), `users/${uid}/displayName`),
+    );
     return !snapshot.exists();
   }
 
@@ -78,15 +108,5 @@ export class FirebaseService {
 
   getUserId(): string | null {
     return this.user?.uid ?? null;
-  }
-
-  dispose(): void {
-    if (this.auth) {
-      this.auth.signOut();
-    }
-    this.app = null;
-    this.auth = null;
-    this.db = null;
-    this.user = null;
   }
 }

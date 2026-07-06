@@ -1,0 +1,10 @@
+{
+  "id": "airsync",
+  "name": "Airsync",
+  "version": "0.1.0",
+  "minAppVersion": "1.0.0",
+  "description": "Real-time collaborative editing with live cursors, author attribution, and P2P file sync via Firebase",
+  "author": "AeroSTAR",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}

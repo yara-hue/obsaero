@@ -1,3 +1,5 @@
+export type ConnectionState = 'disconnected' | 'connecting' | 'connected';
+
 export interface AirsyncSettings {
   firebaseApiKey: string;
   firebaseAuthDomain: string;
