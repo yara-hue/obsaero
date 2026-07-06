@@ -93,7 +93,7 @@ export default class AirsyncPlugin extends Plugin {
     if (!uid) throw new Error('Not authenticated');
 
     const timeout = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error('Connection timed out')), 20000),
+      setTimeout(() => reject(new Error('Connection timed out')), 30000),
     );
 
     await Promise.race([

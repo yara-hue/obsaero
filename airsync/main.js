@@ -17199,6 +17199,7 @@ function assignColor(uid, index = 0) {
 }
 
 // src/firebase.ts
+forceWebSockets();
 var FirebaseService = class {
   constructor() {
     this.app = null;
@@ -17214,7 +17215,6 @@ var FirebaseService = class {
     if (this.app) {
       throw new Error("Firebase already initialized");
     }
-    forceWebSockets();
     if (!settings.firebaseApiKey || !settings.firebaseAuthDomain || !settings.firebaseDatabaseURL || !settings.firebaseProjectId) {
       throw new Error("Firebase configuration incomplete");
     }
@@ -17356,7 +17356,7 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     const uid = this.firebase.getUserId();
     if (!uid) throw new Error("Not authenticated");
     const timeout = new Promise(
-      (_, reject) => setTimeout(() => reject(new Error("Connection timed out")), 2e4)
+      (_, reject) => setTimeout(() => reject(new Error("Connection timed out")), 3e4)
     );
     await Promise.race([
       this.finishSetup(uid),

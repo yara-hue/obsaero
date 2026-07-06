@@ -19,6 +19,8 @@ import {
 import type { AirsyncSettings, UserProfile } from './types';
 import { assignColor } from './color-utils';
 
+forceWebSockets();
+
 export class FirebaseService {
   app: FirebaseApp | null = null;
   auth: Auth | null = null;
@@ -34,7 +36,6 @@ export class FirebaseService {
     if (this.app) {
       throw new Error('Firebase already initialized');
     }
-    forceWebSockets();
 
     if (
       !settings.firebaseApiKey ||
