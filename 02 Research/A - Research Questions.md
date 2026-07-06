@@ -5,83 +5,112 @@
 
 ### 📌 FILE PURPOSE
 Our active knowledge gaps. This file lists the specific operational, psychological, and environmental questions we need to answer to make our case believable.
-*   **How to use:** Each teammate writes ONLY in their own colored card below. Never edit another teammate's card. When you find an answer, link to the source in [[B - Sources Database]].
+*   **How to use:** Edit ONLY inside your own card below. Never edit another teammate's card. When you find an answer, link to the source in [[B - Sources Database]].
 
 ---
 
-## Open Questions
+<div class="research-dashboard">
 
-> [!card-t1-grid]- ✈︎ Seif's Research
->
-> <div class="rq-col">
->
-> ### 🔵 Questions
->
-> <!-- t1:Questions-->
-> _Log your questions here:_
-> 1. _e.g. What is the average CO2 per passenger-mile on short-haul?_
-> 2. _Add your questions..._
-> <!-- /t1-->
->
-> </div>
->
-> <div class="rq-col rq-col-findings">
->
-> ### 🟢 Findings / Answer
->
-> <!-- t1:Findings-->
-> _Link your findings here once resolved..._
-> <!-- /t1-->
->
-> </div>
+  <!-- ===== Seif ===== -->
+  <div class="research-card" style="--card-color: #F4D03F; --card-rgb: 244, 208, 63;">
+    <div class="card-header">✈︎ Seif — Research</div>
+    <div class="card-body">
+      <div class="card-col col-questions">
+        <div class="col-header">🔵 Research Questions</div>
 
-> [!card-t2-grid]- ⌕ Marwan's Research
->
-> <div class="rq-col">
->
-> ### 🔵 Questions
->
-> <!-- t2:Questions-->
-> _Log your questions here:_
-> 1. _e.g. How many passengers board with anxiety?_
-> 2. _Add your questions..._
-> <!-- /t2-->
->
-> </div>
->
-> <div class="rq-col rq-col-findings">
->
-> ### 🟢 Findings / Answer
->
-> <!-- t2:Findings-->
-> _Link your findings here once resolved..._
-> <!-- /t2-->
->
-> </div>
+        <div class="q-field">
+          <!-- t1:Q1:CO2 per passenger-mile-->
+          1. What is the average CO2 per passenger-mile on short-haul?
+          <!-- /t1-->
+        </div>
 
-> [!card-t3-grid]- ✧ Yara's Research
->
-> <div class="rq-col">
->
-> ### 🔵 Questions
->
-> <!-- t3:Questions-->
-> _Log your questions here:_
-> 1. _e.g. Which IATA report covers cabin waste reduction?_
-> 2. _Add your questions..._
-> <!-- /t3-->
->
-> </div>
->
-> <div class="rq-col rq-col-findings">
->
-> ### 🟢 Findings / Answer
->
-> <!-- t3:Findings-->
-> _Link your findings here once resolved..._
-> <!-- /t3-->
->
-> </div>
+        <div class="q-field">
+          <!-- t1:Q2:Passenger anxiety-->
+          2. How many passengers board with anxiety?
+          <!-- /t1-->
+        </div>
+
+      </div>
+      <div class="card-col col-findings">
+        <div class="col-header">🟢 Findings / Sources</div>
+
+        <div class="findings-field">
+          <!-- t1:Findings-->
+          _Link your findings here once resolved. Reference [[B - Sources Database]]._
+          <!-- /t1-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Marwan ===== -->
+  <div class="research-card" style="--card-color: #5DADE2; --card-rgb: 93, 173, 226;">
+    <div class="card-header">⌕ Marwan — Research</div>
+    <div class="card-body">
+      <div class="card-col col-questions">
+        <div class="col-header">🔵 Research Questions</div>
+
+        <div class="q-field">
+          <!-- t2:Q1:Nudge effectiveness-->
+          1. How effective are behavioral nudges in cabin waste sorting?
+          <!-- /t2-->
+        </div>
+
+        <div class="q-field">
+          <!-- t2:Q2:Fuel savings-->
+          2. What is the potential fuel savings from cabin waste reduction?
+          <!-- /t2-->
+        </div>
+
+      </div>
+      <div class="card-col col-findings">
+        <div class="col-header">🟢 Findings / Sources</div>
+
+        <div class="findings-field">
+          <!-- t2:Findings-->
+          _Link your findings here once resolved. Reference [[B - Sources Database]]._
+          <!-- /t2-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Yara ===== -->
+  <div class="research-card" style="--card-color: #AF7AC5; --card-rgb: 175, 122, 197;">
+    <div class="card-header">✧ Yara — Research</div>
+    <div class="card-body">
+      <div class="card-col col-questions">
+        <div class="col-header">🔵 Research Questions</div>
+
+        <div class="q-field">
+          <!-- t3:Q1:IATA report-->
+          1. Which IATA report covers cabin waste reduction targets?
+          <!-- /t3-->
+        </div>
+
+        <div class="q-field">
+          <!-- t3:Q2:Passenger willingness-->
+          2. What percentage of passengers are willing to participate in sorting?
+          <!-- /t3-->
+        </div>
+
+      </div>
+      <div class="card-col col-findings">
+        <div class="col-header">🟢 Findings / Sources</div>
+
+        <div class="findings-field">
+          <!-- t3:Findings-->
+          _Link your findings here once resolved. Reference [[B - Sources Database]]._
+          <!-- /t3-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
 
 ---
 

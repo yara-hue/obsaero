@@ -1,249 +1,258 @@
-/* ===== DASHBOARD CARD SYSTEM =====
- * Usage:
- *   Simple card:  > [!card-t1]- Title
- *   Grid card:    > [!card-t1-grid]- Title
- *                    > <div class="rq-col"> + <div class="rq-col rq-col-findings">
+/* ===== RESEARCH DASHBOARD =====
+ * Usage: wrap content in <div class="research-dashboard"> then <div class="research-card">
  *
- * Per-teammate variable pattern (RGB components):
- *   --card-tN:       hex color
- *   --card-tN-rgb:   R, G, B
- * Add T4/T5 by adding :root vars and .callout[data-callout="card-t4"] rules.
+ * Card markup:
+ *   <div class="research-card" style="--card-color: #hex; --card-rgb: R,G,B;">
+ *     <div class="card-header">✈︎ Name</div>
+ *     <div class="card-body">
+ *       <div class="card-col col-questions">...</div>
+ *       <div class="card-col col-findings">...</div>
+ *     </div>
+ *   </div>
+ *
+ * Add researcher: copy a card, change --card-color, --card-rgb, header text.
+ * T4/T5 ready — just add new inline styles on the card div.
  */
 
 :root {
-  --card-t1:     #F4D03F;
-  --card-t1-rgb: 244, 208, 63;
-  --card-t2:     #5DADE2;
-  --card-t2-rgb: 93, 173, 226;
-  --card-t3:     #AF7AC5;
-  --card-t3-rgb: 175, 122, 197;
-  --card-find:   #2ECC71;
-  --card-find-rgb: 46, 204, 113;
+  --find-color:  #2ECC71;
+  --find-rgb:    46, 204, 113;
 }
 
-/* ── Card container (all variants) ──────────────────── */
-.callout[data-callout^="card-t"] {
-  border: none;
+/* ── Dashboard container ────────────────────────────── */
+.research-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+/* ── Card ───────────────────────────────────────────── */
+.research-card {
   border-radius: 16px;
-  padding: 0;
   overflow: hidden;
+  background: rgba(var(--card-rgb), 0.04);
+  border: 1px solid rgba(var(--card-rgb), 0.15);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(var(--card-rgb), 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.callout[data-callout^="card-t"]:hover {
+.research-card:hover {
   transform: translateY(-3px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(var(--card-rgb), 0.08);
 }
 
-/* ── Per-teammate card colors ───────────────────────── */
-.callout[data-callout="card-t1"],
-.callout[data-callout="card-t1-grid"] {
-  --card-color: var(--card-t1);
-  --card-color-rgb: var(--card-t1-rgb);
-  background: rgba(var(--card-t1-rgb), 0.05);
-  border: 1px solid rgba(var(--card-t1-rgb), 0.2);
-  box-shadow: 0 4px 24px rgba(var(--card-t1-rgb), 0.08);
-}
-.callout[data-callout="card-t1"]:hover,
-.callout[data-callout="card-t1-grid"]:hover {
-  box-shadow: 0 8px 36px rgba(var(--card-t1-rgb), 0.16);
-}
-
-.callout[data-callout="card-t2"],
-.callout[data-callout="card-t2-grid"] {
-  --card-color: var(--card-t2);
-  --card-color-rgb: var(--card-t2-rgb);
-  background: rgba(var(--card-t2-rgb), 0.05);
-  border: 1px solid rgba(var(--card-t2-rgb), 0.2);
-  box-shadow: 0 4px 24px rgba(var(--card-t2-rgb), 0.08);
-}
-.callout[data-callout="card-t2"]:hover,
-.callout[data-callout="card-t2-grid"]:hover {
-  box-shadow: 0 8px 36px rgba(var(--card-t2-rgb), 0.16);
-}
-
-.callout[data-callout="card-t3"],
-.callout[data-callout="card-t3-grid"] {
-  --card-color: var(--card-t3);
-  --card-color-rgb: var(--card-t3-rgb);
-  background: rgba(var(--card-t3-rgb), 0.05);
-  border: 1px solid rgba(var(--card-t3-rgb), 0.2);
-  box-shadow: 0 4px 24px rgba(var(--card-t3-rgb), 0.08);
-}
-.callout[data-callout="card-t3"]:hover,
-.callout[data-callout="card-t3-grid"]:hover {
-  box-shadow: 0 8px 36px rgba(var(--card-t3-rgb), 0.16);
-}
-
-/* ── Card title bar ─────────────────────────────────── */
-.callout[data-callout^="card-t"] .callout-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  font-size: 14px;
+/* ── Card header (teammate name bar) ────────────────── */
+.research-card .card-header {
+  padding: 12px 18px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  background: rgba(var(--card-color-rgb), 0.08);
-  border-bottom: 1px solid rgba(var(--card-color-rgb), 0.12);
   color: var(--card-color);
+  background: rgba(var(--card-rgb), 0.07);
+  border-bottom: 1px solid rgba(var(--card-rgb), 0.1);
 }
 
-.callout[data-callout^="card-t"] .callout-title .callout-icon svg {
-  stroke: var(--card-color);
+.research-card .card-header .card-emoji {
+  margin-right: 6px;
 }
 
-.callout[data-callout^="card-t"] .callout-title-inner {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--card-color);
-}
-
-/* ── Card content area ──────────────────────────────── */
-.callout[data-callout^="card-t"] .callout-content {
-  padding: 16px;
-}
-
-/* ── Grid layout (for -grid variants) ──────────────── */
-.callout[data-callout$="-grid"] .callout-content {
+/* ── Card body (two-column grid) ────────────────────── */
+.research-card .card-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  padding: 18px;
 }
 
-/* ── Column styling ─────────────────────────────────── */
-.rq-col {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ── Column headers ─────────────────────────────────── */
-.rq-col h3 {
-  margin: 0 0 4px 0;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid rgba(var(--card-color-rgb), 0.25);
-  color: var(--card-color);
-}
-
-.rq-col-findings h3 {
-  color: var(--card-find);
-  border-bottom-color: rgba(var(--card-find-rgb), 0.25);
-}
-
-/* ── Findings column accent ──────────────────────────── */
-.rq-col-findings {
-  --find-color: var(--card-find);
-  --find-color-rgb: var(--card-find-rgb);
-}
-
-/* ── Teammate boxes inside dashboard cards ───────────── */
-.callout[data-callout^="card-t"] .teammate-box {
-  border-radius: 10px;
-  border: 1px solid rgba(var(--card-color-rgb), 0.15);
-  overflow: hidden;
-  margin: 0;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
-}
-
-.callout[data-callout^="card-t"] .teammate-box-header {
-  padding: 8px 12px;
+/* ── Column header ──────────────────────────────────── */
+.research-card .card-col > .col-header {
+  margin: 0 0 14px 0;
+  padding: 0 0 8px 0;
   font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 2px solid;
+}
+
+.col-questions > .col-header {
+  color: #5DADE2;
+  border-bottom-color: rgba(93, 173, 226, 0.2);
+}
+
+.col-findings > .col-header {
+  color: var(--find-color);
+  border-bottom-color: rgba(var(--find-rgb), 0.2);
+}
+
+/* ── Question field ─────────────────────────────────── */
+.q-field {
+  margin-bottom: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--card-rgb), 0.12);
+  background: rgba(var(--card-rgb), 0.02);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.q-field:hover {
+  border-color: rgba(var(--card-rgb), 0.25);
+  box-shadow: 0 2px 8px rgba(var(--card-rgb), 0.06);
+}
+
+/* ── Findings field ─────────────────────────────────── */
+.findings-field {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--find-rgb), 0.15);
+  background: rgba(var(--find-rgb), 0.02);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  min-height: 180px;
+}
+
+.findings-field:hover {
+  border-color: rgba(var(--find-rgb), 0.25);
+  box-shadow: 0 2px 8px rgba(var(--find-rgb), 0.06);
+}
+
+/* ── Teammate boxes inside the dashboard (override base) ─ */
+.research-card .teammate-box {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.research-card .teammate-box-header {
+  padding: 7px 14px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.3px;
-  background: rgba(var(--card-color-rgb), 0.07);
+  text-transform: uppercase;
+  border-bottom: 1px solid;
+}
+
+.research-card .col-questions .teammate-box .teammate-box-header {
+  background: rgba(var(--card-rgb), 0.06);
   color: var(--card-color);
-  border-bottom: 1px solid rgba(var(--card-color-rgb), 0.1);
+  border-bottom-color: rgba(var(--card-rgb), 0.08);
 }
 
-/* ── Findings textarea (green accent) ───────────────── */
-.rq-col-findings .teammate-box {
-  border-left: 3px solid var(--card-find);
+.research-card .col-findings .teammate-box .teammate-box-header {
+  background: rgba(var(--find-rgb), 0.06);
+  color: var(--find-color);
+  border-bottom-color: rgba(var(--find-rgb), 0.08);
 }
 
-.rq-col-findings .teammate-box-header {
-  background: rgba(var(--card-find-rgb), 0.07);
-  color: var(--card-find);
-  border-bottom-color: rgba(var(--card-find-rgb), 0.1);
-}
-
-/* ── Question box - input-style accent ───────────────── */
-.rq-col:not(.rq-col-findings) .teammate-box {
-  border-left: 3px solid var(--card-color);
-}
-
-/* ── Form field feel for question textareas ──────────── */
-.teammate-box .teammate-box-textarea {
+.research-card .teammate-box .teammate-box-textarea {
   min-height: 48px;
+  padding: 10px 14px;
   font-size: 13px;
   line-height: 1.6;
-  padding: 10px 12px;
+  resize: vertical;
+  border: none;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: var(--text-normal);
   font-family: var(--font-monospace);
-  transition: box-shadow 0.2s ease;
 }
 
-.teammate-box .teammate-box-textarea:focus {
-  box-shadow: inset 0 0 0 2px rgba(var(--card-color-rgb), 0.25);
+.research-card .col-findings .teammate-box .teammate-box-textarea {
+  min-height: 140px;
 }
 
-.rq-col-findings .teammate-box-textarea {
-  min-height: 80px;
+.research-card .teammate-box .teammate-box-textarea:focus {
+  box-shadow: inset 0 0 0 2px rgba(var(--card-rgb), 0.15);
 }
 
-.rq-col-findings .teammate-box-textarea:focus {
-  box-shadow: inset 0 0 0 2px rgba(var(--card-find-rgb), 0.25);
+.research-card .col-findings .teammate-box .teammate-box-textarea:focus {
+  box-shadow: inset 0 0 0 2px rgba(var(--find-rgb), 0.15);
 }
 
-/* ── Save button ─────────────────────────────────────── */
-.teammate-box .teammate-box-save {
-  padding: 5px 12px;
-  font-size: 12px;
+.research-card .teammate-box .teammate-box-save {
+  padding: 5px 14px;
+  font-size: 11px;
+  text-align: center;
   letter-spacing: 0.3px;
-  background: rgba(var(--card-color-rgb), 0.06);
-  color: var(--text-muted);
+  cursor: pointer;
   transition: all 0.15s ease;
+  border: none;
+  width: 100%;
+  display: block;
 }
 
-.teammate-box .teammate-box-save:hover {
-  background: rgba(var(--card-color-rgb), 0.12);
+.research-card .col-questions .teammate-box .teammate-box-save {
+  background: rgba(var(--card-rgb), 0.04);
+  color: rgba(var(--card-rgb), 0.5);
+}
+.research-card .col-questions .teammate-box .teammate-box-save:hover {
+  background: rgba(var(--card-rgb), 0.1);
   color: var(--card-color);
 }
 
-.rq-col-findings .teammate-box-save:hover {
-  background: rgba(var(--card-find-rgb), 0.12);
-  color: var(--card-find);
+.research-card .col-findings .teammate-box .teammate-box-save {
+  background: rgba(var(--find-rgb), 0.04);
+  color: rgba(var(--find-rgb), 0.5);
+}
+.research-card .col-findings .teammate-box .teammate-box-save:hover {
+  background: rgba(var(--find-rgb), 0.1);
+  color: var(--find-color);
 }
 
-/* ── Dark theme overrides ────────────────────────────── */
-.theme-dark .callout[data-callout^="card-t"] {
-  background: rgba(var(--card-color-rgb), 0.04);
-  border-color: rgba(var(--card-color-rgb), 0.15);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+/* ── Correct border-left removal (overrides aerostar-color-codes) ─ */
+.research-card .teammate-box {
+  border-left: none !important;
 }
 
-.theme-dark .callout[data-callout^="card-t"]:hover {
-  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.3);
+.q-field {
+  border-left: 3px solid rgba(var(--card-rgb), 0.3);
 }
 
-.theme-dark .callout[data-callout^="card-t"] .callout-title {
-  background: rgba(var(--card-color-rgb), 0.06);
-  border-bottom-color: rgba(var(--card-color-rgb), 0.1);
+.findings-field {
+  border-left: 3px solid rgba(var(--find-rgb), 0.3);
 }
 
-.theme-dark .callout[data-callout^="card-t"] .teammate-box {
-  border-color: rgba(var(--card-color-rgb), 0.12);
+/* ── Dark theme ─────────────────────────────────────── */
+.theme-dark .research-card {
+  background: rgba(var(--card-rgb), 0.03);
+  border-color: rgba(var(--card-rgb), 0.1);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(var(--card-rgb), 0.03);
 }
 
-.theme-dark .rq-col-findings .teammate-box {
-  border-color: rgba(var(--card-find-rgb), 0.12);
+.theme-dark .research-card:hover {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(var(--card-rgb), 0.06);
 }
 
-/* ── Responsive: stack columns on narrow screens ──────── */
-@media (max-width: 768px) {
-  .callout[data-callout$="-grid"] .callout-content {
+.theme-dark .research-card .card-header {
+  background: rgba(var(--card-rgb), 0.05);
+  border-bottom-color: rgba(var(--card-rgb), 0.08);
+}
+
+.theme-dark .q-field {
+  background: rgba(var(--card-rgb), 0.015);
+  border-color: rgba(var(--card-rgb), 0.08);
+}
+
+.theme-dark .findings-field {
+  background: rgba(var(--find-rgb), 0.015);
+  border-color: rgba(var(--find-rgb), 0.08);
+}
+
+/* ── Responsive: stack columns on narrow screens ─────── */
+@media (max-width: 720px) {
+  .research-card .card-body {
     grid-template-columns: 1fr;
   }
 }

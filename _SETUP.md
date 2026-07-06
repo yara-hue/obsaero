@@ -22,68 +22,52 @@ Every file has **colored textarea boxes** for each teammate:
 
 ### 📊 Dashboard Cards
 
-Many pages now use **dashboard-style cards** instead of plain boxes. Each card has a per-teammate color, rounded corners, subtle shadow, and hover animation.
-
-| Callout type | Layout | Example file |
-|---|---|---|
-| `[!card-t1]` / `[!card-t2]` / `[!card-t3]` | Single column — content stacks vertically | Individual Reflections, Idea Pool |
-| `[!card-t1-grid]` / `[!card-t2-grid]` / `[!card-t3-grid]` | Two-column grid — Questions (🔵 left) / Findings (🟢 right) | Research Questions |
+Research pages now use a **dashboard layout** built with HTML divs + CSS Grid — like Notion or Linear. Each researcher has a colored card with a two-column layout.
 
 **To enable:** Go to Settings → Appearance → CSS snippets → toggle on `research-dashboard.css`.
 
-**Card markdown structure (single column):**
-```markdown
-> [!card-t1]- ✈︎ Seif's Title
-> 
-> <!-- t1:Label-->
-> _Your content here..._
-> <!-- /t1-->
+**Card HTML structure:**
+```html
+<div class="research-card" style="--card-color: #hex; --card-rgb: R,G,B;">
+  <div class="card-header">✈︎ Name — Research</div>
+  <div class="card-body">
+    <div class="card-col col-questions">
+      <div class="col-header">🔵 Research Questions</div>
+
+      <div class="q-field">
+        <!-- tN:Q1:Label-->
+        1. Your question here...
+        <!-- /tN-->
+      </div>
+
+    </div>
+    <div class="card-col col-findings">
+      <div class="col-header">🟢 Findings / Sources</div>
+
+      <div class="findings-field">
+        <!-- tN:Findings-->
+        Your findings here...
+        <!-- /tN-->
+      </div>
+
+    </div>
+  </div>
+</div>
 ```
 
-**Card markdown structure (grid):**
-```markdown
-> [!card-t1-grid]- ✈︎ Seif's Title
-> 
-> <div class="rq-col">
-> 
-> ### 🔵 Questions
-> 
-> <!-- t1:Questions-->
-> _Your questions here..._
-> <!-- /t1-->
-> 
-> </div>
-> 
-> <div class="rq-col rq-col-findings">
-> 
-> ### 🟢 Findings
-> 
-> <!-- t1:Findings-->
-> _Your findings here..._
-> <!-- /t1-->
-> 
-> </div>
-```
+**To add a new researcher (T4/T5):** Copy a `.research-card` block and change:
+- `--card-color` — the hex color
+- `--card-rgb` — RGB components separated by commas
+- Marker prefixes: `t4:`, `t5:`
+- Emoji and name in the header
 
-**Adding T4/T5:** Add a new callout rule to `research-dashboard.css`:
-```css
-:root {
-  --card-t4:     #E74C3C;
-  --card-t4-rgb: 231, 76, 60;
-}
-.callout[data-callout="card-t4"],
-.callout[data-callout="card-t4-grid"] {
-  --card-color: var(--card-t4);
-  --card-color-rgb: var(--card-t4-rgb);
-  background: rgba(var(--card-t4-rgb), 0.05);
-  border: 1px solid rgba(var(--card-t4-rgb), 0.2);
-  box-shadow: 0 4px 24px rgba(var(--card-t4-rgb), 0.08);
-}
-.callout[data-callout="card-t4"]:hover,
-.callout[data-callout="card-t4-grid"]:hover {
-  box-shadow: 0 8px 36px rgba(var(--card-t4-rgb), 0.16);
-}
-```
+**Researcher colors:**
+
+| Teammate | Color | Inline style |
+|---|---|---|
+| Seif | Gold `#F4D03F` | `--card-color: #F4D03F; --card-rgb: 244, 208, 63;` |
+| Marwan | Blue `#5DADE2` | `--card-color: #5DADE2; --card-rgb: 93, 173, 226;` |
+| Yara | Purple `#AF7AC5` | `--card-color: #AF7AC5; --card-rgb: 175, 122, 197;` |
 
 ### How sync works
 

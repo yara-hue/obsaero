@@ -2,46 +2,55 @@
 
 Copy-paste the format below to add a teammate card to any collaborative file.
 
-## Single-Column Card (for reflections, notes, etc.)
+## Standard Card (two-column: questions + findings)
 
-> [!card-t1]- ✈︎ Seif's Section Title
->
-> <!-- t1:Label-->
-> _Your content here..._
-> <!-- /t1-->
+```html
+<div class="research-card" style="--card-color: #hex; --card-rgb: R,G,B;">
+  <div class="card-header">✈︎ Name — Research</div>
+  <div class="card-body">
+    <div class="card-col col-questions">
+      <div class="col-header">🔵 Research Questions</div>
 
-Replace `t1` / `Seif` with your teammate (`t2`/`Marwan`, `t3`/`Yara`).
+      <div class="q-field">
+        <!-- tN:Q1:Label-->
+        1. Your question here...
+        <!-- /tN-->
+      </div>
 
-## Two-Column Grid Card (for questions + findings, etc.)
+      <div class="q-field">
+        <!-- tN:Q2:Label-->
+        2. Another question...
+        <!-- /tN-->
+      </div>
 
-> [!card-t1-grid]- ✈︎ Seif's Section Title
->
-> <div class="rq-col">
->
-> ### 🔵 Questions / Content
->
-> <!-- t1:Questions-->
-> _Left column content here..._
-> <!-- /t1-->
->
-> </div>
->
-> <div class="rq-col rq-col-findings">
->
-> ### 🟢 Findings / Answer
->
-> <!-- t1:Findings-->
-> _Right column content here..._
-> <!-- /t1-->
->
-> </div>
+    </div>
+    <div class="card-col col-findings">
+      <div class="col-header">🟢 Findings / Sources</div>
+
+      <div class="findings-field">
+        <!-- tN:Findings-->
+        Your findings here...
+        <!-- /tN-->
+      </div>
+
+    </div>
+  </div>
+</div>
+```
+
+## Researcher colors
+
+| Teammate | Inline style |
+|---|---|
+| Seif | `--card-color: #F4D03F; --card-rgb: 244, 208, 63;` |
+| Marwan | `--card-color: #5DADE2; --card-rgb: 93, 173, 226;` |
+| Yara | `--card-color: #AF7AC5; --card-rgb: 175, 122, 197;` |
 
 ## Adding T4/T5
 
-1. Add RGB variables in `:root` in `.obsidian/snippets/research-dashboard.css`:
-   ```css
-   --card-t4:     #E74C3C;
-   --card-t4-rgb: 231, 76, 60;
-   ```
-2. Add `.callout[data-callout="card-t4"]` and `.callout[data-callout="card-t4-grid"]` rules (copy from an existing T1-T3 rule and change the names).
-3. Use `[!card-t4]` or `[!card-t4-grid]` in your markdown files.
+Copy a `.research-card` div, pick a hex color, and set:
+- `--card-color: #HexColor; --card-rgb: R, G, B;`
+- Marker prefixes: `t4:`, `t5:`
+- Emoji + name in `.card-header`
+
+No CSS changes needed — the inline `--card-*` variables style the card automatically.
