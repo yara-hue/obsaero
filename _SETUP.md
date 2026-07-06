@@ -22,17 +22,18 @@ Every file has **colored textarea boxes** for each teammate:
 
 ### 🎛️ Research Board (native UI)
 
-Open any collaborative file and press **`Ctrl+Shift+B`** to launch the **Research Board** — a native Obsidian ItemView that replaces the markdown editor with a Linear/Notion-style UI.
+Any collaborative file (containing `<!-- tN:...-->` markers) **automatically opens** in the Research Board — a native Obsidian ItemView that replaces the markdown editor with a Linear/Notion-style UI. The markdown file becomes the invisible storage backend.
+
+**No manual activation needed.** Open a file from the explorer → board loads instantly.
 
 Each researcher gets a **colored card** with:
 - **Questions panel** (left, 40%) — titled inputs with status chips (Todo/Researching/Complete/Blocked) and priority
 - **Findings panel** (right, 60%) — large rich-text area
 - **Sources section** (full width) — add, edit, delete source entries
 
-The Board reads `<!-- tN:Label-->...<!-- /tN-->` markers from any file. Label keywords control layout:
-- `Question` in label → question list
-- `Findings` / `Answer` → findings panel
-- `Source` → source list
+**Auto-open can be toggled off** in Settings → Teammate Stamper → Auto-open Research Board.
+
+**To view raw markdown:** Click **📝 Source** button in the board header.
 
 **Researcher colors:**
 
@@ -43,8 +44,6 @@ The Board reads `<!-- tN:Label-->...<!-- /tN-->` markers from any file. Label ke
 | Yara | Purple | `<!-- t3:Questions-->`, `<!-- t3:Findings-->` |
 
 **Add T4/T5:** Add entry to `COLORS` in `main.js`, then use `t4:`/`t5:` markers in files.
-
-**To go back to markdown:** Close the Board tab, or open a fresh editor leaf via the File Explorer.
 
 ### How sync works
 

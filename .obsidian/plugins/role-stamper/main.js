@@ -12,7 +12,7 @@ const ROLES = {
 const ROLE_ORDER = ['t1', 't2', 't3'];
 const COLORS = { t1: '#F4D03F', t2: '#5DADE2', t3: '#AF7AC5' };
 const DRAFT_DIR = '40_Team_Journey/Drafts';
-const DEFAULT_SETTINGS = { currentRole: '', autostamp: false };
+const DEFAULT_SETTINGS = { currentRole: '', autostamp: false, autoBoard: true };
 
 /* ── Regex patterns ──────────────────────────────── */
 const INLINE_RE = /::(t[123]):(.*?)::/gs;
@@ -132,6 +132,15 @@ class RoleStamperSettingTab extends PluginSettingTab {
           this.plugin.settings.autostamp = v;
           await this.plugin.saveSettings();
         }));
+    new Setting(containerEl)
+      .setName('Auto-open Research Board')
+      .setDesc('Automatically open the native Board view when opening files with teammate markers')
+      .addToggle(tb => tb
+        .setValue(this.plugin.settings.autoBoard)
+        .onChange(async v => {
+          this.plugin.settings.autoBoard = v;
+          await this.plugin.saveSettings();
+        }));
   }
 }
 
@@ -147,23 +156,27 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     this.registerEditorExtension(teammateDecorationPlugin);
 
-    // ── Auto-detect marker files and suggest board ─
+    // ── Auto-open board for files with markers ──
     this.registerEvent(this.app.workspace.on('file-open', (file) => {
       if (!file || file.extension !== 'md') return;
-      // Check if we're already in a board view
-      if (this.app.workspace.getActiveViewOfType(ResearchBoardView)) return;
-      // Peek first few KB for markers
+      if (!this.settings.autoBoard) return;
+      // Respect skip flag from "View Source" action
+      const state = this.app.workspace.getActiveViewOfType(MarkdownView)?.leaf?.getViewState();
+      if (state?.state?.skipAutoBoard) return;
+      // Already in a board view for this file?
+      const existingBoards = this.app.workspace.getLeavesOfType('research-board');
+      if (existingBoards.some(l => l.view && l.view.file && l.view.file.path === file.path)) return;
       this.app.vault.cachedRead(file).then(c => {
-        if (/<!--\s*t[123]:/.test(c.slice(0, 3000))) {
-          // Only suggest if not already shown recently
-          const k = `board-hint-${file.path}`;
-          const last = localStorage.getItem(k);
-          const now = Date.now();
-          if (!last || now - parseInt(last) > 3600000) {
-            localStorage.setItem(k, String(now));
-            new Notice(`📋 "${file.name}" has teammate markers — press Ctrl+Shift+B to open the Board`, 5000);
-          }
-        }
+        if (!/<!--\s*t[123]:/.test(c.slice(0, 3000))) return;
+        requestAnimationFrame(async () => {
+          const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
+          if (!mdView || mdView.file.path !== file.path) return;
+          const leaf = mdView.leaf;
+          await leaf.setViewState({
+            type: 'research-board',
+            state: { file: file.path },
+          });
+        });
       });
     }));
 
@@ -597,11 +610,12 @@ class ResearchBoardView extends ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.plugin = plugin;
-    this.file = null;
+    this._boardFile = null;
     this.blocks = [];
     this._saveTimer = null;
   }
 
+  get file() { return this._boardFile; }
   getViewType() { return 'research-board'; }
   getDisplayText() { return this.file ? `${this.file.basename} — Board` : 'Research Board'; }
   getIcon() { return 'layout-dashboard'; }
@@ -626,7 +640,7 @@ class ResearchBoardView extends ItemView {
   }
 
   async setFile(file) {
-    this.file = file;
+    this._boardFile = file;
     if (!file) return;
     const content = await this.app.vault.read(file);
     this.blocks = this.plugin._parseBoardBlocks(content);
@@ -663,8 +677,11 @@ class ResearchBoardView extends ItemView {
     const header = container.createDiv({ cls: 'rb-header' });
     const title = header.createEl('h1', { text: this.file ? this.file.basename : 'Research Board' });
     const actions = header.createDiv({ cls: 'rb-header-actions' });
-    const backBtn = actions.createEl('button', { cls: 'clickable-icon', text: '✕ Close' });
-    backBtn.addEventListener('click', () => this.plugin._closeBoardView());
+    const sourceBtn = actions.createEl('button', { cls: 'clickable-icon', text: '📝 Source' });
+    sourceBtn.addEventListener('click', () => {
+      if (!this.file) return;
+      this.app.workspace.openLinkText(this.file.path, this.file.path, 'tab', { active: true, state: { skipAutoBoard: true } });
+    });
     const saveBtn = actions.createEl('button', { cls: 'clickable-icon', text: '💾 Save' });
     saveBtn.addEventListener('click', () => this.save());
 
