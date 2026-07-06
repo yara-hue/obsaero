@@ -12,9 +12,9 @@ Every file has **colored textarea boxes** for each teammate:
 
 | Color | Teammate | Symbol | Write ONLY in your box |
 |-------|----------|--------|------------------------|
-| 🟡 Gold | Teammate 1 | ✈︎ | `<!-- t1:label -->` boxes |
-| 🔵 Blue | Teammate 2 | ⌕ | `<!-- t2:label -->` boxes |
-| 🟣 Purple | Teammate 3 | ✧ | `<!-- t3:label -->` boxes |
+| 🟡 Gold | Seif | ✈︎ | `<!-- t1:label -->` boxes |
+| 🔵 Blue | Marwan | ⌕ | `<!-- t2:label -->` boxes |
+| 🟣 Purple | Yara | ✧ | `<!-- t3:label -->` boxes |
 
 **Rule:** Never edit a box that isn't your color. Git auto-merges your changes with no conflicts because you're on different lines.
 
@@ -25,6 +25,7 @@ Every file has **colored textarea boxes** for each teammate:
 - **Auto-pull** on every startup (you get the latest)
 - **Auto-commit + push** every 10 minutes (your changes go up)
 - **Auto-pull** every 10 minutes (teammates' changes come down)
+- **Manual commit** — click the Git icon in the left ribbon or press `Ctrl+Shift+G` to commit & push immediately
 
 ### Troubleshooting
 

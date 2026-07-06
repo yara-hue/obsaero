@@ -11,18 +11,18 @@ An open, unfiltered sandbox for raw brainstorming. There are no bad ideas here d
 
 ## Terminal Operations Ideas
 
-<!-- t1:✈︎ T1's Concepts-->
+<!-- t1:✈︎ Seif's Concepts-->
 _e.g. Smart tray table that changes color based on waste type_
 _e.g. AI-powered seatback sorting assistant_
 _Add your ideas here..._
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Concepts-->
+<!-- t2:⌕ Marwan's Concepts-->
 _e.g. Biodegradable packaging with embedded seeds_
 _Add your ideas here..._
 <!-- /t2-->
 
-<!-- t3:✧ T3's Concepts-->
+<!-- t3:✧ Yara's Concepts-->
 _Add your ideas here..._
 <!-- /t3-->
 
@@ -30,17 +30,17 @@ _Add your ideas here..._
 
 ## Cabin Behavior Ideas
 
-<!-- t1:✈︎ T1's Concepts-->
+<!-- t1:✈︎ Seif's Concepts-->
 _e.g. Gamified recycling — passengers earn miles for proper sorting_
 _Add your ideas here..._
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Concepts-->
+<!-- t2:⌕ Marwan's Concepts-->
 _e.g. "Green seat" upgrade for passengers who opt into zero-waste_
 _Add your ideas here..._
 <!-- /t2-->
 
-<!-- t3:✧ T3's Concepts-->
+<!-- t3:✧ Yara's Concepts-->
 _e.g. Ambient lighting shifts when cabin reaches waste milestone_
 _Add your ideas here..._
 <!-- /t3-->
@@ -49,17 +49,17 @@ _Add your ideas here..._
 
 ## Communication Style Ideas
 
-<!-- t1:✈︎ T1's Concepts-->
+<!-- t1:✈︎ Seif's Concepts-->
 _e.g. Crew script: "Would you like to join our sustainability challenge?"_
 _Add your ideas here..._
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Concepts-->
+<!-- t2:⌕ Marwan's Concepts-->
 _e.g. Seatback screen shows live cabin waste metrics_
 _Add your ideas here..._
 <!-- /t2-->
 
-<!-- t3:✧ T3's Concepts-->
+<!-- t3:✧ Yara's Concepts-->
 _e.g. Post-flight email: "You helped save X kg of waste today"_
 _Add your ideas here..._
 <!-- /t3-->

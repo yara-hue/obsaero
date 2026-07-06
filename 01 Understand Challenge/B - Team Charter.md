@@ -11,21 +11,21 @@ This document defines our team's roles, individual strengths, and internal perfo
 
 ## Team Members
 
-### Teammate 1
+### Seif
 - **Name:** _your name_
 - **Role:** _e.g. Team Lead / Research Lead / Design Lead_
 - **Strengths:** _e.g. data analysis, writing, visual design_
 - **Commitment Hours:** _e.g. 15 hours/week_
 - **Responsibilities:** _what you own_
 
-### Teammate 2
+### Marwan
 - **Name:** _your name_
 - **Role:** _e.g. Research Lead / Design Lead / Tech Lead_
 - **Strengths:** _e.g. coding, public speaking, project management_
 - **Commitment Hours:** _e.g. 15 hours/week_
 - **Responsibilities:** _what you own_
 
-### Teammate 3
+### Yara
 - **Name:** _your name_
 - **Role:** _e.g. Design Lead / Tech Lead / Team Lead_
 - **Strengths:** _e.g. UX design, storytelling, analytics_

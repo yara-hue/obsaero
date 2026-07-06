@@ -11,7 +11,7 @@ The home for raw notes and quotes gathered from real passengers, cabin crew, or 
 
 ## Interview Log
 
-<!-- t1:✈︎ T1's Interviews-->
+<!-- t1:✈︎ Seif's Interviews-->
 ### Interview 1
 - **Interviewee:** _name or role (e.g. "Frequent flyer, age 34")_
 - **Date:** _date_
@@ -24,7 +24,7 @@ The home for raw notes and quotes gathered from real passengers, cabin crew, or 
 _Add more interviews below..._
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Interviews-->
+<!-- t2:⌕ Marwan's Interviews-->
 ### Interview 1
 - **Interviewee:** _name or role_
 - **Date:** _date_
@@ -36,7 +36,7 @@ _Add more interviews below..._
 _Add more interviews below..._
 <!-- /t2-->
 
-<!-- t3:✧ T3's Interviews-->
+<!-- t3:✧ Yara's Interviews-->
 ### Interview 1
 - **Interviewee:** _name or role_
 - **Date:** _date_
@@ -52,19 +52,19 @@ _Add more interviews below..._
 
 ## Best Quotes for Pitch
 
-<!-- t1:✈︎ T1's Best Quotes-->
+<!-- t1:✈︎ Seif's Best Quotes-->
 _Pull the strongest quotes here for easy access when building slides:_
 1. _"quote"_ — _source_
 2. _"quote"_ — _source_
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Best Quotes-->
+<!-- t2:⌕ Marwan's Best Quotes-->
 _Pull the strongest quotes here:_
 1. _"quote"_ — _source_
 2. _"quote"_ — _source_
 <!-- /t2-->
 
-<!-- t3:✧ T3's Best Quotes-->
+<!-- t3:✧ Yara's Best Quotes-->
 _Pull the strongest quotes here:_
 1. _"quote"_ — _source_
 2. _"quote"_ — _source_

@@ -11,7 +11,7 @@ Our active knowledge gaps. This file lists the specific operational, psychologic
 
 ## Open Questions
 
-<!-- t1:✈︎ T1's Research Questions-->
+<!-- t1:✈︎ Seif's Research Questions-->
 _Log your questions here:_
 1. _e.g. What is the average CO2 per passenger-mile on short-haul?_
 2. _Add your questions..._
@@ -20,7 +20,7 @@ _Log your questions here:_
 _Link your findings here once resolved..._
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Research Questions-->
+<!-- t2:⌕ Marwan's Research Questions-->
 _Log your questions here:_
 1. _e.g. How many passengers board with anxiety?_
 2. _Add your questions..._
@@ -29,7 +29,7 @@ _Log your questions here:_
 _Link your findings here once resolved..._
 <!-- /t2-->
 
-<!-- t3:✧ T3's Research Questions-->
+<!-- t3:✧ Yara's Research Questions-->
 _Log your questions here:_
 1. _e.g. Which IATA report covers cabin waste reduction?_
 2. _Add your questions..._

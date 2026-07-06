@@ -60,12 +60,12 @@ Open **[[_Project Roadmap]]** for the full pipeline with a visual flowchart.
 
 <div class="contrib-legend">
   <span class="contrib-legend-item">
-    <span class="contrib-legend-dot t1"></span> ✈︎ Teammate 1 — <strong>33%</strong>
+    <span class="contrib-legend-dot t1"></span> ✈︎ Seif — <strong>33%</strong>
   </span>
   <span class="contrib-legend-item">
-    <span class="contrib-legend-dot t2"></span> ⌕ Teammate 2 — <strong>33%</strong>
+    <span class="contrib-legend-dot t2"></span> ⌕ Marwan — <strong>33%</strong>
   </span>
   <span class="contrib-legend-item">
-    <span class="contrib-legend-dot t3"></span> ✧ Teammate 3 — <strong>34%</strong>
+    <span class="contrib-legend-dot t3"></span> ✧ Yara — <strong>34%</strong>
   </span>
 </div>

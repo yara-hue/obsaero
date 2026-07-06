@@ -5,7 +5,7 @@ A collection space for personal weekly journal entries from each of our three te
 
 ---
 
-<!-- t1:✈︎ T1's Reflections-->
+<!-- t1:✈︎ Seif's Reflections-->
 ### Week 1
 _What did you learn this week? What challenged you?_
 
@@ -19,7 +19,7 @@ _What did you learn this week? What challenged you?_
 _What did you learn this week? What challenged you?_
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Reflections-->
+<!-- t2:⌕ Marwan's Reflections-->
 ### Week 1
 _What did you learn this week? What challenged you?_
 
@@ -33,7 +33,7 @@ _What did you learn this week? What challenged you?_
 _What did you learn this week? What challenged you?_
 <!-- /t2-->
 
-<!-- t3:✧ T3's Reflections-->
+<!-- t3:✧ Yara's Reflections-->
 ### Week 1
 _What did you learn this week? What challenged you?_
 

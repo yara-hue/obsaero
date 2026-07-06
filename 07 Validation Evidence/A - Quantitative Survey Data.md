@@ -20,7 +20,7 @@ The dashboard for structural data, numeric metrics, and consumer survey percenta
 
 ## Key Findings
 
-<!-- t1:✈︎ T1's Findings-->
+<!-- t1:✈︎ Seif's Findings-->
 **Survey conducted:** _name / date_
 **Sample:** _size & demographics_
 
@@ -32,7 +32,7 @@ The dashboard for structural data, numeric metrics, and consumer survey percenta
 _Add more findings..._
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Findings-->
+<!-- t2:⌕ Marwan's Findings-->
 **Survey conducted:** _name / date_
 **Sample:** _size & demographics_
 
@@ -44,7 +44,7 @@ _Add more findings..._
 _Add more findings..._
 <!-- /t2-->
 
-<!-- t3:✧ T3's Findings-->
+<!-- t3:✧ Yara's Findings-->
 **Survey conducted:** _name / date_
 **Sample:** _size & demographics_
 
@@ -60,17 +60,17 @@ _Add more findings..._
 
 ## Statistical Notes
 
-<!-- t1:✈︎ T1's Notes-->
+<!-- t1:✈︎ Seif's Notes-->
 - **Confidence level:** _e.g. 95%_
 - **Margin of error:** _e.g. ±5%_
 - **Key insight:** _one-line takeaway from the data_
 <!-- /t1-->
 
-<!-- t2:⌕ T2's Notes-->
+<!-- t2:⌕ Marwan's Notes-->
 _Add your statistical notes here..._
 <!-- /t2-->
 
-<!-- t3:✧ T3's Notes-->
+<!-- t3:✧ Yara's Notes-->
 _Add your statistical notes here..._
 <!-- /t3-->
 

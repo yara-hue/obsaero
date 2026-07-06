@@ -40,7 +40,7 @@ Our absolute quality control gatekeeper to ensure we meet every single competiti
 - [ ] _Backup copies saved in vault_
 - [ ] _Submission uploaded to competition portal_
 
-**Signed off by:** _Teammate 1_ | _Teammate 2_ | _Teammate 3_
+**Signed off by:** _Seif_ | _Marwan_ | _Yara_
 
 ---
 

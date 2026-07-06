@@ -1,11 +1,12 @@
-const { Plugin, PluginSettingTab, Setting, Notice, MarkdownView, normalizePath } = require('obsidian');
+const { Plugin, PluginSettingTab, Setting, Notice, MarkdownView, normalizePath, Platform } = require('obsidian');
+const { exec } = require('child_process');
 const { ViewPlugin, Decoration } = require('@codemirror/view');
 const { RangeSetBuilder } = require('@codemirror/state');
 
 const ROLES = {
-  t1: { emoji: '✈︎', name: 'Teammate 1', cls: 'contrib-t1' },
-  t2: { emoji: '⌕',  name: 'Teammate 2', cls: 'contrib-t2' },
-  t3: { emoji: '✧',  name: 'Teammate 3', cls: 'contrib-t3' },
+  t1: { emoji: '✈︎', name: 'Seif', cls: 'contrib-t1' },
+  t2: { emoji: '⌕',  name: 'Marwan', cls: 'contrib-t2' },
+  t3: { emoji: '✧',  name: 'Yara', cls: 'contrib-t3' },
 };
 
 const ROLE_ORDER = ['t1', 't2', 't3'];
@@ -214,7 +215,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     const container = createDiv({ cls: `teammate-box ${ROLES[open.role].cls}` });
     const header = container.createDiv({ cls: 'teammate-box-header' });
-    header.innerHTML = `${ROLES[open.role].emoji} ${open.label}`;
+    header.textContent = open.label;
     const textarea = container.createEl('textarea', {
       cls: 'teammate-box-textarea',
       attr: { 'data-role': open.role, 'data-label': open.label }
@@ -257,10 +258,15 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
   /* ── Ribbon ────────────────────────────────── */
   _addRibbon() {
-    const icon = this.addRibbonIcon('bar-chart', 'Update contribution bar', () => {
+    const barIcon = this.addRibbonIcon('bar-chart', 'Update contribution bar', () => {
       this._updateBarInHomePage();
     });
-    icon.style.color = 'var(--text-muted)';
+    barIcon.style.color = 'var(--text-muted)';
+
+    const gitIcon = this.addRibbonIcon('git-commit', 'Commit & push to GitHub', () => {
+      this._commitAndPush();
+    });
+    gitIcon.style.color = 'var(--text-muted)';
   }
 
   /* ── Status Bar ────────────────────────────── */
@@ -328,6 +334,12 @@ module.exports = class RoleStamperPlugin extends Plugin {
       name: 'Update contribution bar on Home page',
       callback: () => this._updateBarInHomePage(),
     });
+    this.addCommand({
+      id: 'commit-push',
+      name: 'Commit & push to GitHub',
+      hotkeys: [{ modifiers: ['Mod', 'Shift'], key: 'G' }],
+      callback: () => this._commitAndPush(),
+    });
   }
 
   /* ── Context Menu ─────────────────────────── */
@@ -389,7 +401,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
           await this.app.vault.createFolder(DRAFT_DIR);
         }
       } catch (_) {}
-      const content = `## ✎ Personal Draft — ${role.emoji} ${role.name}\n\n*Use this page for brainstorming, notes, and drafts. Every entry is auto-colored with your teammate color.*\n\n---\n\n`;
+      const content = `## ✎ Personal Draft — ${role.emoji} ${role.name}\n\n*Use this page for brainstorming, notes, and drafts.*\n\n---\n\n`;
       try { await this.app.vault.create(filePath, content); } catch (_) {}
     }
     this.app.workspace.openLinkText(filePath, '');
@@ -413,7 +425,7 @@ module.exports = class RoleStamperPlugin extends Plugin {
     const p1 = Math.round((c1 / total) * 100);
     const p2 = Math.round((c2 / total) * 100);
     const p3 = 100 - p1 - p2;
-    return `<div class="contrib-bar-container">\n  <div class="contrib-bar-t1" style="width: ${p1}%"></div>\n  <div class="contrib-bar-t2" style="width: ${p2}%"></div>\n  <div class="contrib-bar-t3" style="width: ${p3}%"></div>\n</div>\n\n<div class="contrib-legend">\n  <span class="contrib-legend-item">\n    <span class="contrib-legend-dot t1"></span> ✈︎ Teammate 1 — <strong>${p1}%</strong>\n  </span>\n  <span class="contrib-legend-item">\n    <span class="contrib-legend-dot t2"></span> ⌕ Teammate 2 — <strong>${p2}%</strong>\n  </span>\n  <span class="contrib-legend-item">\n    <span class="contrib-legend-dot t3"></span> ✧ Teammate 3 — <strong>${p3}%</strong>\n  </span>\n</div>`;
+    return `<div class="contrib-bar-container">\n  <div class="contrib-bar-t1" style="width: ${p1}%"></div>\n  <div class="contrib-bar-t2" style="width: ${p2}%"></div>\n  <div class="contrib-bar-t3" style="width: ${p3}%"></div>\n</div>\n\n<div class="contrib-legend">\n  <span class="contrib-legend-item">\n    <span class="contrib-legend-dot t1"></span> ✈︎ Seif — <strong>${p1}%</strong>\n  </span>\n  <span class="contrib-legend-item">\n    <span class="contrib-legend-dot t2"></span> ⌕ Marwan — <strong>${p2}%</strong>\n  </span>\n  <span class="contrib-legend-item">\n    <span class="contrib-legend-dot t3"></span> ✧ Yara — <strong>${p3}%</strong>\n  </span>\n</div>`;
   }
 
   async _updateBarInHomePage() {
@@ -461,6 +473,39 @@ module.exports = class RoleStamperPlugin extends Plugin {
   _editor() {
     const view = this.app.workspace.getActiveViewOfType(MarkdownView);
     return view ? view.editor : null;
+  }
+
+  /* ── Git commit & push ─────────────────────── */
+  _commitAndPush() {
+    const vaultPath = (this.app.vault.adapter).getBasePath ? this.app.vault.adapter.getBasePath() : this.app.vault.adapter.basePath;
+    if (!vaultPath) {
+      new Notice('Could not find vault path');
+      return;
+    }
+    new Notice('Committing & pushing to GitHub...');
+    const now = new Date();
+    const msg = `vault update ${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+    exec(`git -C "${vaultPath}" add -A`, (errAdd) => {
+      if (errAdd) { new Notice('Git add failed: ' + (errAdd.message || 'unknown')); return; }
+      exec(`git -C "${vaultPath}" commit -m "${msg}"`, (errCommit) => {
+        if (errCommit) {
+          if (errCommit.message && errCommit.message.includes('nothing to commit')) {
+            new Notice('Nothing to commit — everything is up to date');
+          } else {
+            new Notice('Git commit failed: ' + (errCommit.message || 'unknown'));
+          }
+          return;
+        }
+        exec(`git -C "${vaultPath}" pull --rebase`, (errPull) => {
+          if (errPull) { new Notice('Git pull failed: ' + (errPull.message || 'unknown')); return; }
+          exec(`git -C "${vaultPath}" push`, (errPush) => {
+            if (errPush) { new Notice('Git push failed: ' + (errPush.message || 'unknown')); return; }
+            new Notice('Pushed to GitHub!');
+          });
+        });
+      });
+    });
   }
 
   /* ── Settings ──────────────────────────────── */
