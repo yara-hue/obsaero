@@ -157,28 +157,36 @@ module.exports = class RoleStamperPlugin extends Plugin {
     this.registerEditorExtension(teammateDecorationPlugin);
 
     // ── Auto-open board for files with markers ──
+    const tryOpenBoard = async (file, leaf) => {
+      if (!file || file.extension !== 'md' || !this.settings.autoBoard) return;
+      if (leaf?.view?.getViewState()?.state?.skipAutoBoard) return;
+      if (this.app.workspace.getLeavesOfType('research-board')
+        .some(l => l.view && l.view.file && l.view.file.path === file.path)) return;
+      const peek = await this.app.vault.cachedRead(file);
+      if (!/<!--\s*t[123]:/.test(peek.slice(0, 3000))) return;
+      const boardLeaf = this.app.workspace.getLeaf('tab');
+      await boardLeaf.setViewState({
+        type: 'research-board',
+        state: { file: file.path },
+      });
+      this.app.workspace.setActiveLeaf(boardLeaf);
+      if (leaf && boardLeaf && leaf.view?.getViewType() === 'markdown') {
+        setTimeout(() => {
+          try {
+            if (leaf.view?.file?.path === file.path) this.app.workspace.detachLeaf(leaf);
+          } catch {}
+        }, 80);
+      }
+    };
     this.registerEvent(this.app.workspace.on('file-open', (file) => {
       if (!file || file.extension !== 'md') return;
-      if (!this.settings.autoBoard) return;
-      // Respect skip flag from "View Source" action
-      const state = this.app.workspace.getActiveViewOfType(MarkdownView)?.leaf?.getViewState();
-      if (state?.state?.skipAutoBoard) return;
-      // Already in a board view for this file?
-      const existingBoards = this.app.workspace.getLeavesOfType('research-board');
-      if (existingBoards.some(l => l.view && l.view.file && l.view.file.path === file.path)) return;
-      this.app.vault.cachedRead(file).then(c => {
-        if (!/<!--\s*t[123]:/.test(c.slice(0, 3000))) return;
-        requestAnimationFrame(async () => {
-          const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
-          if (!mdView || mdView.file.path !== file.path) return;
-          const leaf = mdView.leaf;
-          await leaf.setViewState({
-            type: 'research-board',
-            state: { file: file.path },
-          });
-        });
-      });
+      const leaf = this.app.workspace.getActiveViewOfType(MarkdownView)?.leaf;
+      tryOpenBoard(file, leaf);
     }));
+    // Scan existing leaves on load (covers workspace restore)
+    for (const leaf of this.app.workspace.getLeavesOfType('markdown')) {
+      if (leaf.view?.file) tryOpenBoard(leaf.view.file, leaf);
+    }
 
     this.registerMarkdownPostProcessor((el, ctx) => {
       // Inline stamps → colored spans
@@ -209,17 +217,24 @@ module.exports = class RoleStamperPlugin extends Plugin {
   async _openBoardView() {
     const file = this.app.workspace.getActiveFile();
     if (!file) { new Notice('No active file'); return; }
+    // Check if board already exists for this file
+    const existing = this.app.workspace.getLeavesOfType('research-board')
+      .find(l => l.view && l.view.file && l.view.file.path === file.path);
+    if (existing) {
+      this.app.workspace.setActiveLeaf(existing);
+      return;
+    }
     const content = await this.app.vault.read(file);
     if (!/<!--\s*t[123]:/.test(content)) {
       new Notice('No marker pairs found — open a collaborative file first');
       return;
     }
-    const leaf = this.app.workspace.getLeaf('tab');
-    await leaf.setViewState({
+    const boardLeaf = this.app.workspace.getLeaf('tab');
+    await boardLeaf.setViewState({
       type: 'research-board',
       state: { file: file.path },
-      active: true,
     });
+    this.app.workspace.setActiveLeaf(boardLeaf);
   }
 
   async _closeBoardView() {
