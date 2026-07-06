@@ -10,6 +10,7 @@ import {
 import {
   Database,
   getDatabase,
+  forceWebSockets,
   ref,
   set,
   get,
@@ -33,6 +34,7 @@ export class FirebaseService {
     if (this.app) {
       throw new Error('Firebase already initialized');
     }
+    forceWebSockets();
 
     if (
       !settings.firebaseApiKey ||

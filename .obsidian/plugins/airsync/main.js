@@ -17110,6 +17110,15 @@ var Database = class {
     }
   }
 };
+function checkTransportInit() {
+  if (TransportManager.IS_TRANSPORT_INITIALIZED) {
+    warn("Transport has already been initialized. Please call this function before calling ref or setting up a listener");
+  }
+}
+function forceWebSockets() {
+  checkTransportInit();
+  BrowserPollConnection.forceDisallow();
+}
 function getDatabase(app = getApp(), url) {
   const db = _getProvider(app, "database").getImmediate({
     identifier: url
@@ -17205,6 +17214,7 @@ var FirebaseService = class {
     if (this.app) {
       throw new Error("Firebase already initialized");
     }
+    forceWebSockets();
     if (!settings.firebaseApiKey || !settings.firebaseAuthDomain || !settings.firebaseDatabaseURL || !settings.firebaseProjectId) {
       throw new Error("Firebase configuration incomplete");
     }
@@ -17328,36 +17338,52 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     this.setConnectionState("connecting");
     try {
       this.firebase.initApp(this.settings);
-      this.firebase.onAuthChanged((user2) => {
-        this.firebase.user = user2;
+      this.firebase.onAuthChanged((user) => {
+        this.firebase.user = user;
       });
-      const user = await this.firebase.signIn();
-      const uid = user.uid;
-      const isFirstTime = await this.firebase.checkFirstTimeUser(uid);
-      if (isFirstTime) {
+      await this.firebase.signIn();
+      await this.connectAndSetup();
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error("Airsync:", msg);
+      new import_obsidian2.Notice(`Airsync: ${msg}`);
+      await this.firebase.disconnect().catch(() => {
+      });
+      this.setConnectionState("disconnected");
+    }
+  }
+  async connectAndSetup() {
+    const uid = this.firebase.getUserId();
+    if (!uid) throw new Error("Not authenticated");
+    const timeout = new Promise(
+      (_, reject) => setTimeout(() => reject(new Error("Connection timed out")), 2e4)
+    );
+    await Promise.race([
+      this.finishSetup(uid),
+      timeout
+    ]);
+  }
+  async finishSetup(uid) {
+    const isFirstTime = await this.firebase.checkFirstTimeUser(uid);
+    if (isFirstTime) {
+      this.setConnectionState("connected");
+      new DisplayNameModal(this.app, this).open();
+    } else if (this.settings.displayName) {
+      this.setConnectionState("connected");
+      new import_obsidian2.Notice(`Airsync: Connected as ${this.settings.displayName}`);
+      this.app.workspace.trigger("airsync:ready");
+    } else {
+      const profile = await this.firebase.getUserProfile(uid);
+      if (profile) {
+        this.settings.displayName = profile.displayName;
+        await this.saveSettings();
         this.setConnectionState("connected");
-        new DisplayNameModal(this.app, this).open();
-      } else if (this.settings.displayName) {
-        this.setConnectionState("connected");
-        new import_obsidian2.Notice(`Airsync: Connected as ${this.settings.displayName}`);
+        new import_obsidian2.Notice(`Airsync: Connected as ${profile.displayName}`);
         this.app.workspace.trigger("airsync:ready");
       } else {
-        const profile = await this.firebase.getUserProfile(uid);
-        if (profile) {
-          this.settings.displayName = profile.displayName;
-          await this.saveSettings();
-          this.setConnectionState("connected");
-          new import_obsidian2.Notice(`Airsync: Connected as ${profile.displayName}`);
-          this.app.workspace.trigger("airsync:ready");
-        } else {
-          this.setConnectionState("connected");
-          new DisplayNameModal(this.app, this).open();
-        }
+        this.setConnectionState("connected");
+        new DisplayNameModal(this.app, this).open();
       }
-    } catch (err) {
-      console.error("Airsync: Connection failed", err);
-      new import_obsidian2.Notice("Airsync: Failed to connect. Check Firebase settings.");
-      this.setConnectionState("disconnected");
     }
   }
   async disconnectFirebase() {
