@@ -20,54 +20,60 @@ The dashboard for structural data, numeric metrics, and consumer survey percenta
 
 ## Key Findings
 
-> [!t1]- ✈︎ T1's Findings
-> **Survey conducted:** _name / date_
-> **Sample:** _size & demographics_
->
-> ### Finding 1
-> - **Question:** _e.g. "Would you sort waste if guided by a screen?"_
-> - **Result:** _e.g. 73% said yes_
-> - **Chart placeholder:** _paste chart or describe visual_
->
-> _Add more findings..._
+<!-- t1:✈︎ T1's Findings-->
+**Survey conducted:** _name / date_
+**Sample:** _size & demographics_
 
-> [!t2]- ⌕ T2's Findings
-> **Survey conducted:** _name / date_
-> **Sample:** _size & demographics_
->
-> ### Finding 1
-> - **Question:** _e.g. "What stops you from recycling on flights?"_
-> - **Result:** _e.g. 61% said "confusion about bin types"_
-> - **Chart placeholder:** _paste chart or describe visual_
->
-> _Add more findings..._
+### Finding 1
+- **Question:** _e.g. "Would you sort waste if guided by a screen?"_
+- **Result:** _e.g. 73% said yes_
+- **Chart placeholder:** _paste chart or describe visual_
 
-> [!t3]- ✧ T3's Findings
-> **Survey conducted:** _name / date_
-> **Sample:** _size & demographics_
->
-> ### Finding 1
-> - **Question:** _Add your question here_
-> - **Result:** _Add your result here_
-> - **Chart placeholder:** _paste chart or describe visual_
->
-> _Add more findings..._
+_Add more findings..._
+<!-- /t1-->
+
+<!-- t2:⌕ T2's Findings-->
+**Survey conducted:** _name / date_
+**Sample:** _size & demographics_
+
+### Finding 1
+- **Question:** _e.g. "What stops you from recycling on flights?"_
+- **Result:** _e.g. 61% said "confusion about bin types"_
+- **Chart placeholder:** _paste chart or describe visual_
+
+_Add more findings..._
+<!-- /t2-->
+
+<!-- t3:✧ T3's Findings-->
+**Survey conducted:** _name / date_
+**Sample:** _size & demographics_
+
+### Finding 1
+- **Question:** _Add your question here_
+- **Result:** _Add your result here_
+- **Chart placeholder:** _paste chart or describe visual_
+
+_Add more findings..._
+<!-- /t3-->
 
 ---
 
 ## Statistical Notes
 
-> [!t1]- ✈︎ T1's Notes
-> - **Confidence level:** _e.g. 95%_
-> - **Margin of error:** _e.g. ±5%_
-> - **Key insight:** _one-line takeaway from the data_
+<!-- t1:✈︎ T1's Notes-->
+- **Confidence level:** _e.g. 95%_
+- **Margin of error:** _e.g. ±5%_
+- **Key insight:** _one-line takeaway from the data_
+<!-- /t1-->
 
-> [!t2]- ⌕ T2's Notes
-> _Add your statistical notes here..._
+<!-- t2:⌕ T2's Notes-->
+_Add your statistical notes here..._
+<!-- /t2-->
 
-> [!t3]- ✧ T3's Notes
-> _Add your statistical notes here..._
+<!-- t3:✧ T3's Notes-->
+_Add your statistical notes here..._
+<!-- /t3-->
 
 ---
 
-← [[07 - Validation & Evidence]] | ← [[_Project Roadmap]]
+← [[📖 07]] | ← [[_Project Roadmap]]

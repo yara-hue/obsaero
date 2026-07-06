@@ -15,10 +15,9 @@ const DEFAULT_SETTINGS = { currentRole: '', autostamp: false };
 
 /* ── Regex patterns ──────────────────────────────── */
 const INLINE_RE = /::(t[123]):(.*?)::/gs;
-const BOX_OPEN_RE  = /<!--\s*(t[123]):(.*?)-->/g;
-const BOX_CLOSE_RE = /<!--\s*\/(t[123])\s*-->/g;
+const MARKER_RE = /<!--\s*(\/?)(t[123]):?(.*?)-->/g;
 
-/* ── CM6 decoration: hide markers, color text ──── */
+/* ── CM6 decoration ──────────────────────────── */
 const teammateDecorationPlugin = ViewPlugin.fromClass(class {
   decorations;
   constructor(view) { this.decorations = this.buildDecorations(view); }
@@ -28,11 +27,57 @@ const teammateDecorationPlugin = ViewPlugin.fromClass(class {
   }
   buildDecorations(view) {
     const builder = new RangeSetBuilder();
-    for (const { from, to } of view.visibleRanges) {
-      const text = view.state.doc.sliceString(from, to);
+    const doc = view.state.doc;
 
-      // Hide inline ::t1:content:: markers & color content
+    for (const { from, to } of view.visibleRanges) {
+      const text = doc.sliceString(from, to);
+
+      /* ── Box markers: find all ────────────────── */
+      const markers = [];
+      MARKER_RE.lastIndex = 0;
       let m;
+      while ((m = MARKER_RE.exec(text)) !== null) {
+        const absFrom = from + m.index;
+        const absTo = absFrom + m[0].length;
+        const isOpen = m[1] !== '/';
+        const role = m[2];
+        markers.push({ from: absFrom, to: absTo, isOpen, role });
+      }
+
+      // Hide ALL markers
+      for (const mk of markers) {
+        builder.add(mk.from, mk.to, Decoration.replace({}));
+      }
+
+      // Match pairs & add line-level box styling to content lines between them
+      markers.sort((a, b) => a.from - b.from);
+      const stack = [];
+      for (const mk of markers) {
+        if (mk.isOpen) {
+          stack.push(mk);
+        } else {
+          for (let i = stack.length - 1; i >= 0; i--) {
+            if (stack[i].role === mk.role) {
+              const open = stack.splice(i, 1)[0];
+              const startLine = doc.lineAt(open.to).number + 1;
+              const endLine = doc.lineAt(mk.from).number - 1;
+              if (startLine <= endLine) {
+                for (let ln = startLine; ln <= endLine; ln++) {
+                  const line = doc.line(ln);
+                  builder.add(line.from, line.from, Decoration.line({
+                    attributes: {
+                      style: `background: ${COLORS[mk.role]}15; border-left: 3px solid ${COLORS[mk.role]};`
+                    }
+                  }));
+                }
+              }
+              break;
+            }
+          }
+        }
+      }
+
+      /* ── Inline ::t1:content:: stamps ──────────── */
       INLINE_RE.lastIndex = 0;
       while ((m = INLINE_RE.exec(text)) !== null) {
         const tagLen = `::${m[1]}:`.length;
@@ -45,61 +90,6 @@ const teammateDecorationPlugin = ViewPlugin.fromClass(class {
           attributes: { style: `color: ${COLORS[m[1]]}` }
         }));
         builder.add(ce, ee, Decoration.replace({}));
-      }
-
-      // Hide box markers and add background to content
-      const markers = [];
-      BOX_OPEN_RE.lastIndex = 0;
-      while ((m = BOX_OPEN_RE.exec(text)) !== null) {
-        markers.push({
-          type: 'open',
-          role: m[1],
-          from: from + m.index,
-          to: from + m.index + m[0].length,
-        });
-      }
-      BOX_CLOSE_RE.lastIndex = 0;
-      while ((m = BOX_CLOSE_RE.exec(text)) !== null) {
-        markers.push({
-          type: 'close',
-          role: m[1],
-          from: from + m.index,
-          to: from + m.index + m[0].length,
-        });
-      }
-
-      markers.sort((a, b) => a.from - b.from);
-
-      // Match open/close pairs and add decorations
-      const stack = [];
-      for (const mk of markers) {
-        if (mk.type === 'open') {
-          stack.push(mk);
-        } else if (mk.type === 'close') {
-          // Find matching open marker on stack
-          let pairIdx = -1;
-          for (let i = stack.length - 1; i >= 0; i--) {
-            if (stack[i].role === mk.role) {
-              pairIdx = i;
-              break;
-            }
-          }
-          if (pairIdx !== -1) {
-            const open = stack.splice(pairIdx, 1)[0];
-            // Hide open marker
-            builder.add(open.from, open.to, Decoration.replace({}));
-            // Hide close marker
-            builder.add(mk.from, mk.to, Decoration.replace({}));
-            // Add background/border to content between
-            if (open.to < mk.from) {
-              builder.add(open.to, mk.from, Decoration.mark({
-                attributes: {
-                  style: `display: block; background: ${COLORS[mk.role]}15; border-left: 3px solid ${COLORS[mk.role]}; padding: 4px 8px; margin: 4px 0; border-radius: 4px;`
-                }
-              }));
-            }
-          }
-        }
       }
     }
     return builder.finish();
@@ -162,13 +152,12 @@ module.exports = class RoleStamperPlugin extends Plugin {
         /::(t[123]):(.*?)::/gs,
         (_, role, text) => `<span style="color: ${COLORS[role]}">${text}</span>`
       );
-
       // Box markers → textarea
       this._processBoxMarkers(el, ctx);
     });
   }
 
-  /* ── Box marker processing (reading mode) ──── */
+  /* ── Reading-mode textarea rendering ────────── */
   async _processBoxMarkers(el, ctx) {
     const walker = document.createNodeIterator(el, NodeFilter.SHOW_COMMENT, null);
     const boxes = [];
@@ -184,29 +173,23 @@ module.exports = class RoleStamperPlugin extends Plugin {
       }
     }
 
-    // Match pairs
     const stack = [];
     for (const b of boxes) {
       if (b.type === 'open') {
         stack.push(b);
       } else if (b.type === 'close') {
-        let pairIdx = -1;
         for (let i = stack.length - 1; i >= 0; i--) {
           if (stack[i].role === b.role) {
-            pairIdx = i;
+            const open = stack.splice(i, 1)[0];
+            this._replaceBoxWithTextarea(open, b, el, ctx);
             break;
           }
-        }
-        if (pairIdx !== -1) {
-          const open = stack.splice(pairIdx, 1)[0];
-          this._replaceBoxWithTextarea(open, b, el, ctx);
         }
       }
     }
   }
 
   async _replaceBoxWithTextarea(open, close, el, ctx) {
-    // Collect all DOM nodes between the two comment nodes
     let cur = open.node.nextSibling;
     const contentNodes = [];
     while (cur && cur !== close.node) {
@@ -214,15 +197,13 @@ module.exports = class RoleStamperPlugin extends Plugin {
       cur = cur.nextSibling;
     }
 
-    // Read raw file to get content between markers
     const file = this.app.vault.getAbstractFileByPath(ctx.sourcePath);
     if (!file) return;
-    let rawContent = '';
+    let rawContent;
     try {
       rawContent = await this.app.vault.read(file);
     } catch { return; }
 
-    // Find content in raw file
     const openPat = `<!-- ${open.role}:${open.label}-->`;
     const closePat = `<!-- /${open.role}-->`;
     const openIdx = rawContent.indexOf(openPat);
@@ -231,7 +212,6 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     const innerRaw = rawContent.slice(openIdx + openPat.length, closeIdx).trim();
 
-    // Create the textarea container
     const container = createDiv({ cls: `teammate-box ${ROLES[open.role].cls}` });
     const header = container.createDiv({ cls: 'teammate-box-header' });
     header.innerHTML = `${ROLES[open.role].emoji} ${open.label}`;
@@ -267,7 +247,6 @@ module.exports = class RoleStamperPlugin extends Plugin {
       }
     });
 
-    // Replace nodes between markers with the container
     for (const cn of contentNodes) {
       cn.remove();
     }
@@ -379,10 +358,8 @@ module.exports = class RoleStamperPlugin extends Plugin {
     }
     const role = ROLES[roleKey];
     if (!role) return;
-
     const editor = this._editor();
     if (!editor) return;
-
     const sel = editor.getSelection();
     if (sel) {
       editor.replaceSelection(`::${roleKey}:${sel}::`);
@@ -403,10 +380,8 @@ module.exports = class RoleStamperPlugin extends Plugin {
     }
     const role = ROLES[roleKey];
     if (!role) return;
-
     const fileName = `Draft - ${role.name}.md`;
     const filePath = normalizePath(`${DRAFT_DIR}/${fileName}`);
-
     const existing = this.app.vault.getAbstractFileByPath(filePath);
     if (!existing) {
       try {
@@ -415,11 +390,8 @@ module.exports = class RoleStamperPlugin extends Plugin {
         }
       } catch (_) {}
       const content = `## ✎ Personal Draft — ${role.emoji} ${role.name}\n\n*Use this page for brainstorming, notes, and drafts. Every entry is auto-colored with your teammate color.*\n\n---\n\n`;
-      try {
-        await this.app.vault.create(filePath, content);
-      } catch (_) {}
+      try { await this.app.vault.create(filePath, content); } catch (_) {}
     }
-
     this.app.workspace.openLinkText(filePath, '');
   }
 
@@ -446,33 +418,20 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
   async _updateBarInHomePage() {
     const homeFile = this.app.vault.getAbstractFileByPath('_Home.md');
-    if (!homeFile) {
-      new Notice('00 🏠 _Home.md not found!');
-      return;
-    }
-
+    if (!homeFile) { new Notice('00 🏠 _Home.md not found!'); return; }
     const { c1, c2, c3 } = await this._countContribs();
     const total = c1 + c2 + c3;
-    if (!total) {
-      new Notice('No contributions found. Start stamping with Ctrl+Shift+L!');
-      return;
-    }
-
+    if (!total) { new Notice('No contributions found. Start stamping with Ctrl+Shift+L!'); return; }
     const content = await this.app.vault.read(homeFile);
     const newBar = this._barHTML(c1, c2, c3);
-
     const pattern = /<div class="contrib-bar-container">[\s\S]*?<\/div>\n\n<div class="contrib-legend">[\s\S]*?<\/div>/;
-    if (!pattern.test(content)) {
-      new Notice('Could not find the bar section in 🏠 _Home.md');
-      return;
-    }
-
+    if (!pattern.test(content)) { new Notice('Could not find the bar section in 🏠 _Home.md'); return; }
     const updated = content.replace(pattern, newBar);
     await this.app.vault.modify(homeFile, updated);
     new Notice(`📊 Bar updated! T1: ${c1}, T2: ${c2}, T3: ${c3} (${total} total)`);
   }
 
-  /* ── Autostamp ─────────────────────────────── */
+  /* ── Autostamp (skip box markers) ──────────── */
   _addAutoStamp() {
     let timer = null;
     this.registerEvent(
@@ -486,13 +445,12 @@ module.exports = class RoleStamperPlugin extends Plugin {
           if (!editor) return;
           const role = ROLES[this.settings.currentRole];
           if (!role) return;
-
           const cursor = editor.getCursor();
           const line = editor.getLine(cursor.line);
           const t = line.trim();
           if (!t) return;
-          if (t.startsWith('::')) return;
-
+          // Don't stamp lines that already have stamps or contain box markers
+          if (t.startsWith('::') || t.includes('<!--') || t.includes('-->')) return;
           editor.setLine(cursor.line, `::${this.settings.currentRole}:${t}::`);
           editor.setCursor({ line: cursor.line, ch: `::${this.settings.currentRole}:${t}::`.length });
         }, 600);

@@ -5,41 +5,44 @@ A collection space for personal weekly journal entries from each of our three te
 
 ---
 
-> [!t1]- ✈︎ T1's Reflections
-> ### Week 1
-> _What did you learn this week? What challenged you?_
->
-> ### Week 2
-> _What did you learn this week? What challenged you?_
->
-> ### Week 3
-> _What did you learn this week? What challenged you?_
->
-> ### Week 4
-> _What did you learn this week? What challenged you?_
+<!-- t1:✈︎ T1's Reflections-->
+### Week 1
+_What did you learn this week? What challenged you?_
 
-> [!t2]- ⌕ T2's Reflections
-> ### Week 1
-> _What did you learn this week? What challenged you?_
->
-> ### Week 2
-> _What did you learn this week? What challenged you?_
->
-> ### Week 3
-> _What did you learn this week? What challenged you?_
->
-> ### Week 4
-> _What did you learn this week? What challenged you?_
+### Week 2
+_What did you learn this week? What challenged you?_
 
-> [!t3]- ✧ T3's Reflections
-> ### Week 1
-> _What did you learn this week? What challenged you?_
->
-> ### Week 2
-> _What did you learn this week? What challenged you?_
->
-> ### Week 3
-> _What did you learn this week? What challenged you?_
->
-> ### Week 4
-> _What did you learn this week? What challenged you?_
+### Week 3
+_What did you learn this week? What challenged you?_
+
+### Week 4
+_What did you learn this week? What challenged you?_
+<!-- /t1-->
+
+<!-- t2:⌕ T2's Reflections-->
+### Week 1
+_What did you learn this week? What challenged you?_
+
+### Week 2
+_What did you learn this week? What challenged you?_
+
+### Week 3
+_What did you learn this week? What challenged you?_
+
+### Week 4
+_What did you learn this week? What challenged you?_
+<!-- /t2-->
+
+<!-- t3:✧ T3's Reflections-->
+### Week 1
+_What did you learn this week? What challenged you?_
+
+### Week 2
+_What did you learn this week? What challenged you?_
+
+### Week 3
+_What did you learn this week? What challenged you?_
+
+### Week 4
+_What did you learn this week? What challenged you?_
+<!-- /t3-->

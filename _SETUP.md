@@ -8,15 +8,17 @@
 
 ### 📝 How to contribute (important!)
 
-Every file has **colored boxes** for each teammate:
+Every file has **colored textarea boxes** for each teammate:
 
-| Color | Teammate | Symbol | Write ONLY in these boxes |
-|-------|----------|--------|--------------------------|
-| 🟡 Gold | Teammate 1 | ✈︎ | `[!t1]` callout boxes |
-| 🔵 Blue | Teammate 2 | ⌕ | `[!t2]` callout boxes |
-| 🟣 Purple | Teammate 3 | ✧ | `[!t3]` callout boxes |
+| Color | Teammate | Symbol | Write ONLY in your box |
+|-------|----------|--------|------------------------|
+| 🟡 Gold | Teammate 1 | ✈︎ | `<!-- t1:label -->` boxes |
+| 🔵 Blue | Teammate 2 | ⌕ | `<!-- t2:label -->` boxes |
+| 🟣 Purple | Teammate 3 | ✧ | `<!-- t3:label -->` boxes |
 
 **Rule:** Never edit a box that isn't your color. Git auto-merges your changes with no conflicts because you're on different lines.
+
+**In Reading mode**, each box renders as an editable `<textarea>`. Type your content and click **Update** to save it back to the file. The marker code is hidden in Live Preview mode.
 
 ### How sync works
 
