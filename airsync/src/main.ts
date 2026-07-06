@@ -71,40 +71,36 @@ export default class AirsyncPlugin extends Plugin {
     this.setConnectionState('connecting');
 
     try {
-      await this.firebase.initialize(this.settings);
+      this.firebase.initApp(this.settings);
 
-      this.firebase.onAuthChanged(async (user) => {
-        if (user) {
-          this.firebase.user = user;
-          const uid = user.uid;
-          const isFirstTime = await this.firebase.checkFirstTimeUser(uid);
-
-          if (isFirstTime) {
-            this.setConnectionState('connected');
-            new DisplayNameModal(this.app, this).open();
-          } else if (this.settings.displayName) {
-            this.setConnectionState('connected');
-            new Notice(`Airsync: Connected as ${this.settings.displayName}`);
-            this.app.workspace.trigger('airsync:ready');
-          } else {
-            const profile = await this.firebase.getUserProfile(uid);
-            if (profile) {
-              this.settings.displayName = profile.displayName;
-              await this.saveSettings();
-              this.setConnectionState('connected');
-              new Notice(`Airsync: Connected as ${profile.displayName}`);
-              this.app.workspace.trigger('airsync:ready');
-            } else {
-              this.setConnectionState('disconnected');
-              new Notice(
-                'Airsync: No profile found. Set a display name to continue.',
-              );
-            }
-          }
-        } else {
-          this.setConnectionState('disconnected');
-        }
+      this.firebase.onAuthChanged((user) => {
+        this.firebase.user = user;
       });
+
+      const user = await this.firebase.signIn();
+      const uid = user.uid;
+      const isFirstTime = await this.firebase.checkFirstTimeUser(uid);
+
+      if (isFirstTime) {
+        this.setConnectionState('connected');
+        new DisplayNameModal(this.app, this).open();
+      } else if (this.settings.displayName) {
+        this.setConnectionState('connected');
+        new Notice(`Airsync: Connected as ${this.settings.displayName}`);
+        this.app.workspace.trigger('airsync:ready');
+      } else {
+        const profile = await this.firebase.getUserProfile(uid);
+        if (profile) {
+          this.settings.displayName = profile.displayName;
+          await this.saveSettings();
+          this.setConnectionState('connected');
+          new Notice(`Airsync: Connected as ${profile.displayName}`);
+          this.app.workspace.trigger('airsync:ready');
+        } else {
+          this.setConnectionState('connected');
+          new DisplayNameModal(this.app, this).open();
+        }
+      }
     } catch (err) {
       console.error('Airsync: Connection failed', err);
       new Notice('Airsync: Failed to connect. Check Firebase settings.');
@@ -113,7 +109,6 @@ export default class AirsyncPlugin extends Plugin {
   }
 
   async disconnectFirebase(): Promise<void> {
-    this.setConnectionState('connecting');
     try {
       await this.firebase.disconnect();
     } catch (err) {

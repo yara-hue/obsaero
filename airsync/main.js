@@ -17201,27 +17201,34 @@ var FirebaseService = class {
   get isConnected() {
     return this.app !== null && this.auth !== null && this.user !== null;
   }
-  async initialize(settings) {
+  initApp(settings) {
     if (this.app) {
-      throw new Error("Firebase already initialized. Disconnect first.");
+      throw new Error("Firebase already initialized");
     }
     if (!settings.firebaseApiKey || !settings.firebaseAuthDomain || !settings.firebaseDatabaseURL || !settings.firebaseProjectId) {
       throw new Error("Firebase configuration incomplete");
     }
-    const firebaseConfig = {
+    const config = {
       apiKey: settings.firebaseApiKey,
       authDomain: settings.firebaseAuthDomain,
       databaseURL: settings.firebaseDatabaseURL,
       projectId: settings.firebaseProjectId
     };
-    this.app = initializeApp(firebaseConfig, "airsync");
+    this.app = initializeApp(config, "airsync");
     this.auth = getAuth(this.app);
     this.db = getDatabase(this.app);
-    await signInAnonymously(this.auth);
+  }
+  async signIn() {
+    if (!this.auth) throw new Error("Firebase not initialized");
+    const cred = await signInAnonymously(this.auth);
+    this.user = cred.user;
+    return cred.user;
   }
   onAuthChanged(callback) {
+    var _a;
     if (!this.auth) return () => {
     };
+    (_a = this._authUnsub) == null ? void 0 : _a.call(this);
     this._authUnsub = onAuthStateChanged(this.auth, callback);
     return this._authUnsub;
   }
@@ -17320,38 +17327,33 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     }
     this.setConnectionState("connecting");
     try {
-      await this.firebase.initialize(this.settings);
-      this.firebase.onAuthChanged(async (user) => {
-        if (user) {
-          this.firebase.user = user;
-          const uid = user.uid;
-          const isFirstTime = await this.firebase.checkFirstTimeUser(uid);
-          if (isFirstTime) {
-            this.setConnectionState("connected");
-            new DisplayNameModal(this.app, this).open();
-          } else if (this.settings.displayName) {
-            this.setConnectionState("connected");
-            new import_obsidian2.Notice(`Airsync: Connected as ${this.settings.displayName}`);
-            this.app.workspace.trigger("airsync:ready");
-          } else {
-            const profile = await this.firebase.getUserProfile(uid);
-            if (profile) {
-              this.settings.displayName = profile.displayName;
-              await this.saveSettings();
-              this.setConnectionState("connected");
-              new import_obsidian2.Notice(`Airsync: Connected as ${profile.displayName}`);
-              this.app.workspace.trigger("airsync:ready");
-            } else {
-              this.setConnectionState("disconnected");
-              new import_obsidian2.Notice(
-                "Airsync: No profile found. Set a display name to continue."
-              );
-            }
-          }
-        } else {
-          this.setConnectionState("disconnected");
-        }
+      this.firebase.initApp(this.settings);
+      this.firebase.onAuthChanged((user2) => {
+        this.firebase.user = user2;
       });
+      const user = await this.firebase.signIn();
+      const uid = user.uid;
+      const isFirstTime = await this.firebase.checkFirstTimeUser(uid);
+      if (isFirstTime) {
+        this.setConnectionState("connected");
+        new DisplayNameModal(this.app, this).open();
+      } else if (this.settings.displayName) {
+        this.setConnectionState("connected");
+        new import_obsidian2.Notice(`Airsync: Connected as ${this.settings.displayName}`);
+        this.app.workspace.trigger("airsync:ready");
+      } else {
+        const profile = await this.firebase.getUserProfile(uid);
+        if (profile) {
+          this.settings.displayName = profile.displayName;
+          await this.saveSettings();
+          this.setConnectionState("connected");
+          new import_obsidian2.Notice(`Airsync: Connected as ${profile.displayName}`);
+          this.app.workspace.trigger("airsync:ready");
+        } else {
+          this.setConnectionState("connected");
+          new DisplayNameModal(this.app, this).open();
+        }
+      }
     } catch (err) {
       console.error("Airsync: Connection failed", err);
       new import_obsidian2.Notice("Airsync: Failed to connect. Check Firebase settings.");
@@ -17359,7 +17361,6 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     }
   }
   async disconnectFirebase() {
-    this.setConnectionState("connecting");
     try {
       await this.firebase.disconnect();
     } catch (err) {

@@ -29,9 +29,9 @@ export class FirebaseService {
     return this.app !== null && this.auth !== null && this.user !== null;
   }
 
-  async initialize(settings: AirsyncSettings): Promise<void> {
+  initApp(settings: AirsyncSettings): void {
     if (this.app) {
-      throw new Error('Firebase already initialized. Disconnect first.');
+      throw new Error('Firebase already initialized');
     }
 
     if (
@@ -43,22 +43,28 @@ export class FirebaseService {
       throw new Error('Firebase configuration incomplete');
     }
 
-    const firebaseConfig = {
+    const config = {
       apiKey: settings.firebaseApiKey,
       authDomain: settings.firebaseAuthDomain,
       databaseURL: settings.firebaseDatabaseURL,
       projectId: settings.firebaseProjectId,
     };
 
-    this.app = initializeApp(firebaseConfig, 'airsync');
+    this.app = initializeApp(config, 'airsync');
     this.auth = getAuth(this.app);
     this.db = getDatabase(this.app);
+  }
 
-    await signInAnonymously(this.auth);
+  async signIn(): Promise<User> {
+    if (!this.auth) throw new Error('Firebase not initialized');
+    const cred = await signInAnonymously(this.auth);
+    this.user = cred.user;
+    return cred.user;
   }
 
   onAuthChanged(callback: (user: User | null) => void): () => void {
     if (!this.auth) return () => {};
+    this._authUnsub?.();
     this._authUnsub = onAuthStateChanged(this.auth, callback);
     return this._authUnsub;
   }
