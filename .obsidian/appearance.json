@@ -3,6 +3,7 @@
   "cssTheme": "",
   "enabledCssSnippets": [
     "aerostar-color-codes",
+    "research-dashboard",
     "vocabulary-highlights"
   ],
   "theme": "obsidian"

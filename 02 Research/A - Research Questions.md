@@ -5,38 +5,83 @@
 
 ### 📌 FILE PURPOSE
 Our active knowledge gaps. This file lists the specific operational, psychological, and environmental questions we need to answer to make our case believable.
-*   **How to use:** Each teammate writes ONLY in their own colored box below. Never edit another teammate's box. When you find an answer, link to the source in [[B - Sources Database]].
+*   **How to use:** Each teammate writes ONLY in their own colored card below. Never edit another teammate's card. When you find an answer, link to the source in [[B - Sources Database]].
 
 ---
 
 ## Open Questions
 
-<!-- t1:✈︎ Seif's Research Questions-->
-_Log your questions here:_
-1. _e.g. What is the average CO2 per passenger-mile on short-haul?_
-2. _Add your questions..._
+> [!card-t1-grid]- ✈︎ Seif's Research
+>
+> <div class="rq-col">
+>
+> ### 🔵 Questions
+>
+> <!-- t1:Questions-->
+> _Log your questions here:_
+> 1. _e.g. What is the average CO2 per passenger-mile on short-haul?_
+> 2. _Add your questions..._
+> <!-- /t1-->
+>
+> </div>
+>
+> <div class="rq-col rq-col-findings">
+>
+> ### 🟢 Findings / Answer
+>
+> <!-- t1:Findings-->
+> _Link your findings here once resolved..._
+> <!-- /t1-->
+>
+> </div>
 
-**Answered:**
-_Link your findings here once resolved..._
-<!-- /t1-->
+> [!card-t2-grid]- ⌕ Marwan's Research
+>
+> <div class="rq-col">
+>
+> ### 🔵 Questions
+>
+> <!-- t2:Questions-->
+> _Log your questions here:_
+> 1. _e.g. How many passengers board with anxiety?_
+> 2. _Add your questions..._
+> <!-- /t2-->
+>
+> </div>
+>
+> <div class="rq-col rq-col-findings">
+>
+> ### 🟢 Findings / Answer
+>
+> <!-- t2:Findings-->
+> _Link your findings here once resolved..._
+> <!-- /t2-->
+>
+> </div>
 
-<!-- t2:⌕ Marwan's Research Questions-->
-_Log your questions here:_
-1. _e.g. How many passengers board with anxiety?_
-2. _Add your questions..._
-
-**Answered:**
-_Link your findings here once resolved..._
-<!-- /t2-->
-
-<!-- t3:✧ Yara's Research Questions-->
-_Log your questions here:_
-1. _e.g. Which IATA report covers cabin waste reduction?_
-2. _Add your questions..._
-
-**Answered:**
-_Link your findings here once resolved..._
-<!-- /t3-->
+> [!card-t3-grid]- ✧ Yara's Research
+>
+> <div class="rq-col">
+>
+> ### 🔵 Questions
+>
+> <!-- t3:Questions-->
+> _Log your questions here:_
+> 1. _e.g. Which IATA report covers cabin waste reduction?_
+> 2. _Add your questions..._
+> <!-- /t3-->
+>
+> </div>
+>
+> <div class="rq-col rq-col-findings">
+>
+> ### 🟢 Findings / Answer
+>
+> <!-- t3:Findings-->
+> _Link your findings here once resolved..._
+> <!-- /t3-->
+>
+> </div>
 
 ---
 

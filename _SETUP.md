@@ -20,6 +20,71 @@ Every file has **colored textarea boxes** for each teammate:
 
 **In Reading mode**, each box renders as an editable `<textarea>`. Type your content and click **Update** to save it back to the file. The marker code is hidden in Live Preview mode.
 
+### 📊 Dashboard Cards
+
+Many pages now use **dashboard-style cards** instead of plain boxes. Each card has a per-teammate color, rounded corners, subtle shadow, and hover animation.
+
+| Callout type | Layout | Example file |
+|---|---|---|
+| `[!card-t1]` / `[!card-t2]` / `[!card-t3]` | Single column — content stacks vertically | Individual Reflections, Idea Pool |
+| `[!card-t1-grid]` / `[!card-t2-grid]` / `[!card-t3-grid]` | Two-column grid — Questions (🔵 left) / Findings (🟢 right) | Research Questions |
+
+**To enable:** Go to Settings → Appearance → CSS snippets → toggle on `research-dashboard.css`.
+
+**Card markdown structure (single column):**
+```markdown
+> [!card-t1]- ✈︎ Seif's Title
+> 
+> <!-- t1:Label-->
+> _Your content here..._
+> <!-- /t1-->
+```
+
+**Card markdown structure (grid):**
+```markdown
+> [!card-t1-grid]- ✈︎ Seif's Title
+> 
+> <div class="rq-col">
+> 
+> ### 🔵 Questions
+> 
+> <!-- t1:Questions-->
+> _Your questions here..._
+> <!-- /t1-->
+> 
+> </div>
+> 
+> <div class="rq-col rq-col-findings">
+> 
+> ### 🟢 Findings
+> 
+> <!-- t1:Findings-->
+> _Your findings here..._
+> <!-- /t1-->
+> 
+> </div>
+```
+
+**Adding T4/T5:** Add a new callout rule to `research-dashboard.css`:
+```css
+:root {
+  --card-t4:     #E74C3C;
+  --card-t4-rgb: 231, 76, 60;
+}
+.callout[data-callout="card-t4"],
+.callout[data-callout="card-t4-grid"] {
+  --card-color: var(--card-t4);
+  --card-color-rgb: var(--card-t4-rgb);
+  background: rgba(var(--card-t4-rgb), 0.05);
+  border: 1px solid rgba(var(--card-t4-rgb), 0.2);
+  box-shadow: 0 4px 24px rgba(var(--card-t4-rgb), 0.08);
+}
+.callout[data-callout="card-t4"]:hover,
+.callout[data-callout="card-t4-grid"]:hover {
+  box-shadow: 0 8px 36px rgba(var(--card-t4-rgb), 0.16);
+}
+```
+
 ### How sync works
 
 - **Auto-pull** on every startup (you get the latest)
