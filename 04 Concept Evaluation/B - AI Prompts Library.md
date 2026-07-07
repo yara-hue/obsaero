@@ -27,4 +27,4 @@ _paste your full prompt here_
 
 _Add a new section for each proven prompt._
 
-? [[📖 04]] | ? [[_Project Roadmap]]
+[[📖 04]] | [[_Project Roadmap]]

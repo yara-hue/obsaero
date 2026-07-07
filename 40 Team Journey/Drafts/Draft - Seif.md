@@ -1,12 +1,7 @@
-<div class="contrib-t1">
+# Personal Draft — Seif
 
-## ✎ Personal Draft — ✈︎ Seif
-
-*Use this page for brainstorming, notes, and drafts. Every entry is auto-colored with your teammate color.*
+**Use this page for brainstorming, notes, and drafts.**
 
 ---
 
-_start writing here..._
-
-
-</div>
+<span style="color: var(--text-faint);">start writing here...</span>

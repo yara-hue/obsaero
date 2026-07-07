@@ -38,4 +38,4 @@ _Score each idea 1-10 per criterion. Multiply by weight. Highest total wins._
 
 ---
 
-? [[📖 04]] | ? [[_Project Roadmap]]
+[[📖 04]] | [[_Project Roadmap]]

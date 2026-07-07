@@ -43,4 +43,4 @@ _Agree on these together before starting:_
 
 ---
 
-? [[📖 01]] | ? [[_Project Roadmap]]
+[[📖 01]] | [[_Project Roadmap]]
