@@ -1,0 +1,4 @@
+/* Lower opacity on faint example text across the vault */
+span[style*="text-faint"] {
+  opacity: 0.45;
+}

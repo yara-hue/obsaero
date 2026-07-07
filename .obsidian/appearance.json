@@ -3,7 +3,8 @@
   "cssTheme": "",
   "enabledCssSnippets": [
     "aerostar-color-codes",
-    "vocabulary-highlights"
+    "vocabulary-highlights",
+    "faint-examples"
   ],
   "theme": "obsidian"
 }

@@ -1,4 +1,4 @@
-﻿# Individual Team Reflections
+# Individual Team Reflections
 
 ### FILE PURPOSE
 A collection space for personal weekly journal entries from each of our three team members.
@@ -55,4 +55,4 @@ A collection space for personal weekly journal entries from each of our three te
 
 ---
 
-← [[40]] | ← [[_Project Roadmap]]
+? [[?? 40]] | ? [[_Project Roadmap]]

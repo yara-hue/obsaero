@@ -1,4 +1,4 @@
-﻿# Process Artifact Draft
+# Process Artifact Draft
 
 ### FILE PURPOSE
 The staging ground for our optional written report or background documentation showing our detailed design methodology.
@@ -23,4 +23,4 @@ The staging ground for our optional written report or background documentation s
 
 ---
 
-← [[40]] | ← [[_Project Roadmap]]
+? [[?? 40]] | ? [[_Project Roadmap]]

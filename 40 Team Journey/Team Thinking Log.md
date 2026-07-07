@@ -1,4 +1,4 @@
-﻿# Team Thinking Log
+# Team Thinking Log
 
 ### FILE PURPOSE
 A chronological journal showing how our ideas evolved, mutated, or changed based on research or AI stress testing.
@@ -21,4 +21,4 @@ A chronological journal showing how our ideas evolved, mutated, or changed based
 
 ---
 
-← [[40]] | ← [[_Project Roadmap]]
+? [[?? 40]] | ? [[_Project Roadmap]]
