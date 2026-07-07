@@ -9291,9 +9291,9 @@ var BrowserPollConnection = class _BrowserPollConnection {
    * @param onMessage - Callback when messages arrive
    * @param onDisconnect - Callback with connection lost.
    */
-  open(onMessage, onDisconnect) {
+  open(onMessage, onDisconnect2) {
     this.curSegmentNum = 0;
-    this.onDisconnect_ = onDisconnect;
+    this.onDisconnect_ = onDisconnect2;
     this.myPacketOrderer = new PacketReceiver(onMessage);
     this.isClosed_ = false;
     this.connectTimeoutTimer_ = setTimeout(() => {
@@ -9491,8 +9491,8 @@ var FirebaseIFrameScriptHolder = class _FirebaseIFrameScriptHolder {
    * @param onDisconnect - The callback to be triggered when this tag holder is closed
    * @param urlFn - A function that provides the URL of the endpoint to send data to.
    */
-  constructor(commandCB, onMessageCB, onDisconnect, urlFn) {
-    this.onDisconnect = onDisconnect;
+  constructor(commandCB, onMessageCB, onDisconnect2, urlFn) {
+    this.onDisconnect = onDisconnect2;
     this.urlFn = urlFn;
     this.outstandingRequests = /* @__PURE__ */ new Set();
     this.pendingSegs = [];
@@ -9569,10 +9569,10 @@ var FirebaseIFrameScriptHolder = class _FirebaseIFrameScriptHolder {
         }
       }, Math.floor(0));
     }
-    const onDisconnect = this.onDisconnect;
-    if (onDisconnect) {
+    const onDisconnect2 = this.onDisconnect;
+    if (onDisconnect2) {
       this.onDisconnect = null;
-      onDisconnect();
+      onDisconnect2();
     }
   }
   /**
@@ -9757,8 +9757,8 @@ var WebSocketConnection = class _WebSocketConnection {
    * @param onMessage - Callback when messages arrive
    * @param onDisconnect - Callback with connection lost.
    */
-  open(onMessage, onDisconnect) {
-    this.onDisconnect = onDisconnect;
+  open(onMessage, onDisconnect2) {
+    this.onDisconnect = onDisconnect2;
     this.onMessage = onMessage;
     this.log_("Websocket connecting to " + this.connURL);
     this.everConnected_ = false;
@@ -10292,8 +10292,8 @@ var Connection = class {
     this.secondaryConn_ = new conn(this.nextTransportId_(), this.repoInfo_, this.applicationId_, this.appCheckToken_, this.authToken_, this.sessionId);
     this.secondaryResponsesRequired_ = conn["responsesRequiredToBeHealthy"] || 0;
     const onMessage = this.connReceiver_(this.secondaryConn_);
-    const onDisconnect = this.disconnReceiver_(this.secondaryConn_);
-    this.secondaryConn_.open(onMessage, onDisconnect);
+    const onDisconnect2 = this.disconnReceiver_(this.secondaryConn_);
+    this.secondaryConn_.open(onMessage, onDisconnect2);
     setTimeoutNonBlocking(() => {
       if (this.secondaryConn_) {
         this.log_("Timed out trying to upgrade.");
@@ -10614,6 +10614,20 @@ function newRelativePath(outerPath, innerPath) {
   } else {
     throw new Error("INTERNAL ERROR: innerPath (" + innerPath + ") is not within outerPath (" + outerPath + ")");
   }
+}
+function pathCompare(left, right) {
+  const leftKeys = pathSlice(left, 0);
+  const rightKeys = pathSlice(right, 0);
+  for (let i = 0; i < leftKeys.length && i < rightKeys.length; i++) {
+    const cmp = nameCompare(leftKeys[i], rightKeys[i]);
+    if (cmp !== 0) {
+      return cmp;
+    }
+  }
+  if (leftKeys.length === rightKeys.length) {
+    return 0;
+  }
+  return leftKeys.length < rightKeys.length ? -1 : 1;
 }
 function pathEquals(path, other) {
   if (pathGetLength(path) !== pathGetLength(other)) {
@@ -11326,7 +11340,7 @@ var PersistentConnection = class _PersistentConnection extends ServerActions {
       this.lastConnectionEstablishedTime_ = null;
       const onDataMessage = this.onDataMessage_.bind(this);
       const onReady = this.onReady_.bind(this);
-      const onDisconnect = this.onRealtimeDisconnect_.bind(this);
+      const onDisconnect2 = this.onRealtimeDisconnect_.bind(this);
       const connId = this.id + ":" + _PersistentConnection.nextConnectionId_++;
       const lastSessionId = this.lastSessionId;
       let canceled = false;
@@ -11336,7 +11350,7 @@ var PersistentConnection = class _PersistentConnection extends ServerActions {
           connection.close();
         } else {
           canceled = true;
-          onDisconnect();
+          onDisconnect2();
         }
       };
       const sendRequestFn = function(msg) {
@@ -11366,7 +11380,7 @@ var PersistentConnection = class _PersistentConnection extends ServerActions {
             this.authToken_,
             onDataMessage,
             onReady,
-            onDisconnect,
+            onDisconnect2,
             /* onKill= */
             (reason) => {
               warn(reason + " (" + this.repoInfo_.toString() + ")");
@@ -13785,6 +13799,38 @@ function sparseSnapshotTreeRemember(sparseSnapshotTree, path, data) {
     sparseSnapshotTreeRemember(child2, path, data);
   }
 }
+function sparseSnapshotTreeForget(sparseSnapshotTree, path) {
+  if (pathIsEmpty(path)) {
+    sparseSnapshotTree.value = null;
+    sparseSnapshotTree.children.clear();
+    return true;
+  } else {
+    if (sparseSnapshotTree.value !== null) {
+      if (sparseSnapshotTree.value.isLeafNode()) {
+        return false;
+      } else {
+        const value = sparseSnapshotTree.value;
+        sparseSnapshotTree.value = null;
+        value.forEachChild(PRIORITY_INDEX, (key, tree) => {
+          sparseSnapshotTreeRemember(sparseSnapshotTree, new Path(key), tree);
+        });
+        return sparseSnapshotTreeForget(sparseSnapshotTree, path);
+      }
+    } else if (sparseSnapshotTree.children.size > 0) {
+      const childKey = pathGetFront(path);
+      path = pathPopFront(path);
+      if (sparseSnapshotTree.children.has(childKey)) {
+        const safeToRemove = sparseSnapshotTreeForget(sparseSnapshotTree.children.get(childKey), path);
+        if (safeToRemove) {
+          sparseSnapshotTree.children.delete(childKey);
+        }
+      }
+      return sparseSnapshotTree.children.size === 0;
+    } else {
+      return true;
+    }
+  }
+}
 function sparseSnapshotTreeForEachTree(sparseSnapshotTree, prefixPath, func) {
   if (sparseSnapshotTree.value !== null) {
     func(prefixPath, sparseSnapshotTree.value);
@@ -15896,6 +15942,10 @@ var isValidRootPathString = function(pathString) {
   }
   return isValidPathString(pathString);
 };
+var isValidPriority = function(priority) {
+  return priority === null || typeof priority === "string" || typeof priority === "number" && !isInvalidJSONNumber(priority) || priority && typeof priority === "object" && // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  contains(priority, ".sv");
+};
 var validateFirebaseDataArg = function(fnName, value, path, optional) {
   if (optional && value === void 0) {
     return;
@@ -15935,6 +15985,60 @@ var validateFirebaseData = function(errorPrefix2, data, path_) {
     if (hasDotValue && hasActualChild) {
       throw new Error(errorPrefix2 + ' contains ".value" child ' + validationPathToErrorString(path) + " in addition to actual children.");
     }
+  }
+};
+var validateFirebaseMergePaths = function(errorPrefix2, mergePaths) {
+  let i, curPath;
+  for (i = 0; i < mergePaths.length; i++) {
+    curPath = mergePaths[i];
+    const keys2 = pathSlice(curPath);
+    for (let j = 0; j < keys2.length; j++) {
+      if (keys2[j] === ".priority" && j === keys2.length - 1) ;
+      else if (!isValidKey2(keys2[j])) {
+        throw new Error(errorPrefix2 + "contains an invalid key (" + keys2[j] + ") in path " + curPath.toString() + `. Keys must be non-empty strings and can't contain ".", "#", "$", "/", "[", or "]"`);
+      }
+    }
+  }
+  mergePaths.sort(pathCompare);
+  let prevPath = null;
+  for (i = 0; i < mergePaths.length; i++) {
+    curPath = mergePaths[i];
+    if (prevPath !== null && pathContains(prevPath, curPath)) {
+      throw new Error(errorPrefix2 + "contains a path " + prevPath.toString() + " that is ancestor of another path " + curPath.toString());
+    }
+    prevPath = curPath;
+  }
+};
+var validateFirebaseMergeDataArg = function(fnName, data, path, optional) {
+  if (optional && data === void 0) {
+    return;
+  }
+  const errorPrefix$1 = errorPrefix(fnName, "values");
+  if (!(data && typeof data === "object") || Array.isArray(data)) {
+    throw new Error(errorPrefix$1 + " must be an object containing the children to replace.");
+  }
+  const mergePaths = [];
+  each(data, (key, value) => {
+    const curPath = new Path(key);
+    validateFirebaseData(errorPrefix$1, value, pathChild(path, curPath));
+    if (pathGetBack(curPath) === ".priority") {
+      if (!isValidPriority(value)) {
+        throw new Error(errorPrefix$1 + "contains an invalid value for '" + curPath.toString() + "', which must be a valid Firebase priority (a string, finite number, server value, or null).");
+      }
+    }
+    mergePaths.push(curPath);
+  });
+  validateFirebaseMergePaths(errorPrefix$1, mergePaths);
+};
+var validatePriority = function(fnName, priority, optional) {
+  if (optional && priority === void 0) {
+    return;
+  }
+  if (isInvalidJSONNumber(priority)) {
+    throw new Error(errorPrefix(fnName, "priority") + "is " + priority.toString() + ", but must be a valid Firebase priority (a string, finite number, server value, or null).");
+  }
+  if (!isValidPriority(priority)) {
+    throw new Error(errorPrefix(fnName, "priority") + "must be a valid Firebase priority (a string, finite number, server value, or null).");
   }
 };
 var validatePathString = function(fnName, argumentName, pathString, optional) {
@@ -16245,6 +16349,54 @@ function repoRunOnDisconnectEvents(repo) {
   });
   repo.onDisconnect_ = newSparseSnapshotTree();
   eventQueueRaiseEventsForChangedPath(repo.eventQueue_, newEmptyPath(), events);
+}
+function repoOnDisconnectCancel(repo, path, onComplete) {
+  repo.server_.onDisconnectCancel(path.toString(), (status, errorReason) => {
+    if (status === "ok") {
+      sparseSnapshotTreeForget(repo.onDisconnect_, path);
+    }
+    repoCallOnCompleteCallback(repo, onComplete, status, errorReason);
+  });
+}
+function repoOnDisconnectSet(repo, path, value, onComplete) {
+  const newNode = nodeFromJSON(value);
+  repo.server_.onDisconnectPut(path.toString(), newNode.val(
+    /*export=*/
+    true
+  ), (status, errorReason) => {
+    if (status === "ok") {
+      sparseSnapshotTreeRemember(repo.onDisconnect_, path, newNode);
+    }
+    repoCallOnCompleteCallback(repo, onComplete, status, errorReason);
+  });
+}
+function repoOnDisconnectSetWithPriority(repo, path, value, priority, onComplete) {
+  const newNode = nodeFromJSON(value, priority);
+  repo.server_.onDisconnectPut(path.toString(), newNode.val(
+    /*export=*/
+    true
+  ), (status, errorReason) => {
+    if (status === "ok") {
+      sparseSnapshotTreeRemember(repo.onDisconnect_, path, newNode);
+    }
+    repoCallOnCompleteCallback(repo, onComplete, status, errorReason);
+  });
+}
+function repoOnDisconnectUpdate(repo, path, childrenToMerge, onComplete) {
+  if (isEmpty(childrenToMerge)) {
+    log("onDisconnect().update() called with empty data.  Don't do anything.");
+    repoCallOnCompleteCallback(repo, onComplete, "ok", void 0);
+    return;
+  }
+  repo.server_.onDisconnectMerge(path.toString(), childrenToMerge, (status, errorReason) => {
+    if (status === "ok") {
+      each(childrenToMerge, (childName, childNode) => {
+        const newChildNode = nodeFromJSON(childNode);
+        sparseSnapshotTreeRemember(repo.onDisconnect_, pathChild(path, childName), newChildNode);
+      });
+    }
+    repoCallOnCompleteCallback(repo, onComplete, status, errorReason);
+  });
 }
 function repoAddEventCallbackForQuery(repo, query, eventRegistration) {
   let events;
@@ -16764,6 +16916,112 @@ var CallbackContext = class {
     return this.snapshotCallback === other.snapshotCallback || this.snapshotCallback.userCallback !== void 0 && this.snapshotCallback.userCallback === other.snapshotCallback.userCallback && this.snapshotCallback.context === other.snapshotCallback.context;
   }
 };
+var OnDisconnect = class {
+  /** @hideconstructor */
+  constructor(_repo, _path) {
+    this._repo = _repo;
+    this._path = _path;
+  }
+  /**
+   * Cancels all previously queued `onDisconnect()` set or update events for this
+   * location and all children.
+   *
+   * If a write has been queued for this location via a `set()` or `update()` at a
+   * parent location, the write at this location will be canceled, though writes
+   * to sibling locations will still occur.
+   *
+   * @returns Resolves when synchronization to the server is complete.
+   */
+  cancel() {
+    const deferred = new Deferred();
+    repoOnDisconnectCancel(this._repo, this._path, deferred.wrapCallback(() => {
+    }));
+    return deferred.promise;
+  }
+  /**
+   * Ensures the data at this location is deleted when the client is disconnected
+   * (due to closing the browser, navigating to a new page, or network issues).
+   *
+   * @returns Resolves when synchronization to the server is complete.
+   */
+  remove() {
+    validateWritablePath("OnDisconnect.remove", this._path);
+    const deferred = new Deferred();
+    repoOnDisconnectSet(this._repo, this._path, null, deferred.wrapCallback(() => {
+    }));
+    return deferred.promise;
+  }
+  /**
+   * Ensures the data at this location is set to the specified value when the
+   * client is disconnected (due to closing the browser, navigating to a new page,
+   * or network issues).
+   *
+   * `set()` is especially useful for implementing "presence" systems, where a
+   * value should be changed or cleared when a user disconnects so that they
+   * appear "offline" to other users. See
+   * {@link https://firebase.google.com/docs/database/web/offline-capabilities | Enabling Offline Capabilities in JavaScript}
+   * for more information.
+   *
+   * Note that `onDisconnect` operations are only triggered once. If you want an
+   * operation to occur each time a disconnect occurs, you'll need to re-establish
+   * the `onDisconnect` operations each time.
+   *
+   * @param value - The value to be written to this location on disconnect (can
+   * be an object, array, string, number, boolean, or null).
+   * @returns Resolves when synchronization to the Database is complete.
+   */
+  set(value) {
+    validateWritablePath("OnDisconnect.set", this._path);
+    validateFirebaseDataArg("OnDisconnect.set", value, this._path, false);
+    const deferred = new Deferred();
+    repoOnDisconnectSet(this._repo, this._path, value, deferred.wrapCallback(() => {
+    }));
+    return deferred.promise;
+  }
+  /**
+   * Ensures the data at this location is set to the specified value and priority
+   * when the client is disconnected (due to closing the browser, navigating to a
+   * new page, or network issues).
+   *
+   * @param value - The value to be written to this location on disconnect (can
+   * be an object, array, string, number, boolean, or null).
+   * @param priority - The priority to be written (string, number, or null).
+   * @returns Resolves when synchronization to the Database is complete.
+   */
+  setWithPriority(value, priority) {
+    validateWritablePath("OnDisconnect.setWithPriority", this._path);
+    validateFirebaseDataArg("OnDisconnect.setWithPriority", value, this._path, false);
+    validatePriority("OnDisconnect.setWithPriority", priority, false);
+    const deferred = new Deferred();
+    repoOnDisconnectSetWithPriority(this._repo, this._path, value, priority, deferred.wrapCallback(() => {
+    }));
+    return deferred.promise;
+  }
+  /**
+   * Writes multiple values at this location when the client is disconnected (due
+   * to closing the browser, navigating to a new page, or network issues).
+   *
+   * The `values` argument contains multiple property-value pairs that will be
+   * written to the Database together. Each child property can either be a simple
+   * property (for example, "name") or a relative path (for example, "name/first")
+   * from the current location to the data to update.
+   *
+   * As opposed to the `set()` method, `update()` can be use to selectively update
+   * only the referenced properties at the current location (instead of replacing
+   * all the child properties at the current location).
+   *
+   * @param values - Object containing multiple values.
+   * @returns Resolves when synchronization to the Database is complete.
+   */
+  update(values) {
+    validateWritablePath("OnDisconnect.update", this._path);
+    validateFirebaseMergeDataArg("OnDisconnect.update", values, this._path, false);
+    const deferred = new Deferred();
+    repoOnDisconnectUpdate(this._repo, this._path, values, deferred.wrapCallback(() => {
+    }));
+    return deferred.promise;
+  }
+};
 var QueryImpl = class _QueryImpl {
   /**
    * @hideconstructor
@@ -16998,6 +17256,10 @@ function child(parent, path) {
   }
   return new ReferenceImpl(parent._repo, pathChild(parent._path, path));
 }
+function onDisconnect(ref2) {
+  ref2 = getModularInstance(ref2);
+  return new OnDisconnect(ref2._repo, ref2._path);
+}
 function push(parent, value) {
   parent = getModularInstance(parent);
   validateWritablePath("push", parent._path);
@@ -17145,6 +17407,12 @@ function addEventListener2(query, eventType, callback, cancelCallbackOrListenOpt
 }
 function onChildAdded(query, callback, cancelCallbackOrListenOptions, options) {
   return addEventListener2(query, "child_added", callback, cancelCallbackOrListenOptions, options);
+}
+function onChildChanged(query, callback, cancelCallbackOrListenOptions, options) {
+  return addEventListener2(query, "child_changed", callback, cancelCallbackOrListenOptions, options);
+}
+function onChildRemoved(query, callback, cancelCallbackOrListenOptions, options) {
+  return addEventListener2(query, "child_removed", callback, cancelCallbackOrListenOptions, options);
 }
 syncPointSetReferenceConstructor(ReferenceImpl);
 syncTreeSetReferenceConstructor(ReferenceImpl);
@@ -26880,63 +27148,207 @@ var yCollab = (ytext, awareness, { undoManager = new UndoManager(ytext) } = {}) 
 
 // src/collaboration.ts
 var import_state = require("@codemirror/state");
+
+// src/awareness-provider.ts
+function encodePath(path) {
+  return btoa(path).replace(/\+/g, "-").replace(/\//g, "_");
+}
+var AwarenessProvider = class {
+  constructor(doc2, db, path, userId, displayName, color) {
+    this._localState = {};
+    this._states = /* @__PURE__ */ new Map();
+    this._uidToClientId = /* @__PURE__ */ new Map();
+    this._listeners = /* @__PURE__ */ new Map();
+    this._unsubs = [];
+    this._doc = doc2;
+    this._db = db;
+    this._userId = userId;
+    const encoded = encodePath(path);
+    this._parentRef = ref(db, `docs/${encoded}/awareness`);
+    this._myRef = ref(db, `docs/${encoded}/awareness/${userId}`);
+    this._localState = {
+      user: { name: displayName, color },
+      cursor: null
+    };
+    this._states.set(doc2.clientID, this._localState);
+    const unsubAdded = onChildAdded(this._parentRef, (snapshot) => {
+      if (snapshot.key === userId) return;
+      const data = snapshot.val();
+      if ((data == null ? void 0 : data.state) && typeof data.clientId === "number") {
+        this._setRemoteState(data.clientId, snapshot.key, data.state);
+      }
+    });
+    this._unsubs.push(unsubAdded);
+    const unsubChanged = onChildChanged(this._parentRef, (snapshot) => {
+      if (snapshot.key === userId) return;
+      const data = snapshot.val();
+      if ((data == null ? void 0 : data.state) && typeof data.clientId === "number") {
+        this._setRemoteState(data.clientId, snapshot.key, data.state);
+      }
+    });
+    this._unsubs.push(unsubChanged);
+    const unsubRemoved = onChildRemoved(this._parentRef, (snapshot) => {
+      if (snapshot.key === userId) return;
+      this._removeRemoteState(snapshot.key);
+    });
+    this._unsubs.push(unsubRemoved);
+    this._disconnect = onDisconnect(this._myRef);
+    this._disconnect.remove();
+    set(this._myRef, {
+      state: this._localState,
+      clientId: doc2.clientID
+    });
+  }
+  get doc() {
+    return this._doc;
+  }
+  get clientID() {
+    return this._doc.clientID;
+  }
+  setLocalState(state) {
+    this._localState = state != null ? state : {};
+    this._states.set(this._doc.clientID, this._localState);
+    this._broadcast();
+    this._emit("change", { added: [], removed: [], updated: [this._doc.clientID] });
+  }
+  setLocalStateField(field, value) {
+    this._localState = { ...this._localState, [field]: value };
+    this._states.set(this._doc.clientID, this._localState);
+    this._broadcast();
+    this._emit("change", { added: [], removed: [], updated: [this._doc.clientID] });
+  }
+  getLocalState() {
+    return this._localState;
+  }
+  getStates() {
+    return new Map(this._states);
+  }
+  on(event, handler) {
+    if (!this._listeners.has(event)) {
+      this._listeners.set(event, /* @__PURE__ */ new Set());
+    }
+    this._listeners.get(event).add(handler);
+  }
+  off(event, handler) {
+    var _a;
+    (_a = this._listeners.get(event)) == null ? void 0 : _a.delete(handler);
+  }
+  destroy() {
+    this._disconnect.cancel();
+    set(this._myRef, null).catch(() => {
+    });
+    for (const unsub of this._unsubs) {
+      unsub();
+    }
+    this._unsubs.length = 0;
+    this._listeners.clear();
+    this._states.clear();
+    this._uidToClientId.clear();
+  }
+  _setRemoteState(clientId, uid, state) {
+    if (clientId === this._doc.clientID) return;
+    const oldCid = this._uidToClientId.get(uid);
+    if (oldCid !== void 0 && oldCid !== clientId) {
+      this._states.delete(oldCid);
+    }
+    this._uidToClientId.set(uid, clientId);
+    const had = this._states.has(clientId);
+    this._states.set(clientId, state);
+    const added = had ? [] : [clientId];
+    const updated = had ? [clientId] : [];
+    if (added.length > 0 || updated.length > 0) {
+      this._emit("change", { added, removed: [], updated });
+    }
+  }
+  _removeRemoteState(uid) {
+    const clientId = this._uidToClientId.get(uid);
+    if (clientId !== void 0) {
+      this._uidToClientId.delete(uid);
+      if (this._states.has(clientId)) {
+        this._states.delete(clientId);
+        this._emit("change", { added: [], removed: [clientId], updated: [] });
+      }
+    }
+  }
+  _broadcast() {
+    set(this._myRef, {
+      state: this._localState,
+      clientId: this._doc.clientID
+    }).catch(() => {
+    });
+  }
+  _emit(event, ...args2) {
+    var _a;
+    (_a = this._listeners.get(event)) == null ? void 0 : _a.forEach((handler) => {
+      handler(...args2);
+    });
+  }
+};
+
+// src/collaboration.ts
 var CollaborationManager = class {
-  constructor(db) {
+  constructor(db, displayName, userColor, userId) {
     this.docs = /* @__PURE__ */ new Map();
     this.ytexts = /* @__PURE__ */ new Map();
     this.unsubs = /* @__PURE__ */ new Map();
+    this.boundPaths = /* @__PURE__ */ new Set();
+    this.awarenessProviders = /* @__PURE__ */ new Map();
     this.db = db;
+    this.displayName = displayName;
+    this.userColor = userColor;
+    this.userId = userId;
   }
   openDocument(path) {
-    if (this.docs.has(path)) {
-      console.log("Airsync: openDocument already open:", path);
-      return;
-    }
+    if (this.docs.has(path)) return;
     const doc2 = new Doc();
     const ytext = doc2.getText("content");
-    const encoded = encodePath(path);
+    const encoded = encodePath2(path);
     const updatesRef = ref(this.db, `docs/${encoded}/updates`);
-    console.log("Airsync: openDocument creating doc for:", path, "firebase path: docs/" + encoded + "/updates");
     const unsub = onChildAdded(updatesRef, (snapshot) => {
       const val = snapshot.val();
-      console.log("Airsync: onChildAdded fired, key:", snapshot.key, "val type:", typeof val, "length:", typeof val === "string" ? val.length : 0);
       if (typeof val !== "string") return;
       try {
         applyUpdate(doc2, decodeUpdate(val), "firebase");
-        console.log("Airsync: applied remote update successfully");
       } catch (e) {
         console.error("Airsync: Failed to apply update", e);
       }
     });
     doc2.on("update", (update, origin) => {
       if (origin === "firebase") return;
-      const encodedUpd = encodeUpdate(update);
-      console.log("Airsync: local update, size:", update.length, "origin:", origin, "encoded length:", encodedUpd.length);
-      push(updatesRef, encodedUpd).then(() => console.log("Airsync: push succeeded")).catch((err) => console.error("Airsync: push failed", err));
+      push(updatesRef, encodeUpdate(update)).catch((err) => console.error("Airsync: push failed", err));
     });
+    const awareness = new AwarenessProvider(
+      doc2,
+      this.db,
+      path,
+      this.userId,
+      this.displayName,
+      this.userColor
+    );
     this.docs.set(path, doc2);
     this.ytexts.set(path, ytext);
     this.unsubs.set(path, unsub);
+    this.awarenessProviders.set(path, awareness);
   }
   bindEditor(path, editorView) {
+    var _a;
     const ytext = this.ytexts.get(path);
-    console.log("Airsync: bindEditor", path, "ytext found:", !!ytext);
-    if (!ytext) return;
+    if (!ytext || this.boundPaths.has(path)) return;
+    this.boundPaths.add(path);
     if (ytext.length === 0) {
       const content = editorView.state.doc.toString();
-      console.log("Airsync: initializing empty ytext with content length:", content.length);
       if (content.length > 0) {
         ytext.insert(0, content);
       }
     }
-    const ext = yCollab(ytext, null, { undoManager: false });
+    const awareness = (_a = this.awarenessProviders.get(path)) != null ? _a : null;
+    const ext = yCollab(ytext, awareness, { undoManager: false });
     editorView.dispatch({
       effects: import_state.StateEffect.appendConfig.of(ext)
     });
-    console.log("Airsync: bindEditor dispatch completed");
   }
   closeDocument(path) {
-    var _a;
+    var _a, _b;
     const doc2 = this.docs.get(path);
     if (!doc2) return;
     doc2.destroy();
@@ -26944,6 +27356,9 @@ var CollaborationManager = class {
     this.ytexts.delete(path);
     (_a = this.unsubs.get(path)) == null ? void 0 : _a();
     this.unsubs.delete(path);
+    this.boundPaths.delete(path);
+    (_b = this.awarenessProviders.get(path)) == null ? void 0 : _b.destroy();
+    this.awarenessProviders.delete(path);
   }
   getDoc(path) {
     return this.docs.get(path);
@@ -26954,7 +27369,7 @@ var CollaborationManager = class {
     }
   }
 };
-function encodePath(path) {
+function encodePath2(path) {
   return btoa(path).replace(/\+/g, "-").replace(/\//g, "_");
 }
 function encodeUpdate(update) {
@@ -27010,13 +27425,11 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     });
     this.registerEvent(
       this.app.workspace.on("active-leaf-change", () => {
-        console.log("Airsync: event active-leaf-change fired, connected:", this.connectionState);
         this.handleActiveFileChange();
       })
     );
     this.registerEvent(
-      this.app.workspace.on("file-open", (file) => {
-        console.log("Airsync: event file-open fired, file:", file == null ? void 0 : file.path, "connected:", this.connectionState);
+      this.app.workspace.on("file-open", () => {
         this.handleActiveFileChange();
       })
     );
@@ -27025,18 +27438,13 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     }
   }
   handleActiveFileChange() {
-    if (this.connectionState !== "connected" || !this.collaboration) {
-      console.log("Airsync: handleActiveFileChange skipped \u2014 not connected or no collaboration");
-      return;
-    }
+    if (this.connectionState !== "connected" || !this.collaboration) return;
     const view = this.app.workspace.getActiveViewOfType(import_obsidian2.MarkdownView);
     const file = view == null ? void 0 : view.file;
-    console.log("Airsync: handleActiveFileChange view:", !!view, "file:", file == null ? void 0 : file.path, "ext:", file == null ? void 0 : file.extension);
     if (!file || file.extension !== "md") return;
     const path = file.path;
     this.collaboration.openDocument(path);
     const cm = view.editor.cm;
-    console.log("Airsync: cm:", !!cm, typeof cm, cm ? Object.keys(cm).slice(0, 8) : "N/A");
     if (cm) {
       this.collaboration.bindEditor(path, cm);
     }
@@ -27097,10 +27505,17 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     }
   }
   afterConnected() {
-    this.collaboration = new CollaborationManager(this.firebase.db);
+    const uid = this.firebase.getUserId();
+    if (!uid) return;
+    const color = assignColor(uid);
+    this.collaboration = new CollaborationManager(
+      this.firebase.db,
+      this.settings.displayName,
+      color,
+      uid
+    );
     this.setConnectionState("connected");
     this.app.workspace.trigger("airsync:ready");
-    console.log("Airsync: afterConnected \u2014 calling handleActiveFileChange");
     this.handleActiveFileChange();
   }
   async disconnectFirebase() {
@@ -28689,42 +29104,6 @@ firebase/app/dist/esm/index.esm.js:
    * See the License for the specific language governing permissions and
    * limitations under the License.
    *)
-
-@firebase/database/dist/index.esm2017.js:
-  (**
-   * @license
-   * Copyright 2017 Google LLC
-   *
-   * Licensed under the Apache License, Version 2.0 (the "License");
-   * you may not use this file except in compliance with the License.
-   * You may obtain a copy of the License at
-   *
-   *   http://www.apache.org/licenses/LICENSE-2.0
-   *
-   * Unless required by applicable law or agreed to in writing, software
-   * distributed under the License is distributed on an "AS IS" BASIS,
-   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   * See the License for the specific language governing permissions and
-   * limitations under the License.
-   *)
-
-@firebase/database/dist/index.esm2017.js:
-  (**
-   * @license
-   * Copyright 2017 Google LLC
-   *
-   * Licensed under the Apache License, Version 2.0 (the "License");
-   * you may not use this file except in compliance with the License.
-   * You may obtain a copy of the License at
-   *
-   *   http://www.apache.org/licenses/LICENSE-2.0
-   *
-   * Unless required by applicable law or agreed to in writing, software
-   * distributed under the License is distributed on an "AS IS" BASIS,
-   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   * See the License for the specific language governing permissions and
-   * limitations under the License.
-   *)
   (**
    * @license
    * Copyright 2021 Google LLC
@@ -28741,8 +29120,6 @@ firebase/app/dist/esm/index.esm.js:
    * See the License for the specific language governing permissions and
    * limitations under the License.
    *)
-
-@firebase/database/dist/index.esm2017.js:
   (**
    * @license
    * Copyright 2020 Google LLC

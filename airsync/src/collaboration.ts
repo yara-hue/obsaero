@@ -3,36 +3,39 @@ import { yCollab } from 'y-codemirror.next';
 import { Database, ref, push, onChildAdded } from 'firebase/database';
 import { EditorView } from '@codemirror/view';
 import { StateEffect, Extension } from '@codemirror/state';
+import { AwarenessProvider } from './awareness-provider';
 
 export class CollaborationManager {
   private docs = new Map<string, Y.Doc>();
   private ytexts = new Map<string, Y.Text>();
   private unsubs = new Map<string, () => void>();
+  private boundPaths = new Set<string>();
+  private awarenessProviders = new Map<string, AwarenessProvider>();
   private db: Database;
+  private displayName: string;
+  private userColor: string;
+  private userId: string;
 
-  constructor(db: Database) {
+  constructor(db: Database, displayName: string, userColor: string, userId: string) {
     this.db = db;
+    this.displayName = displayName;
+    this.userColor = userColor;
+    this.userId = userId;
   }
 
   openDocument(path: string): void {
-    if (this.docs.has(path)) {
-      console.log('Airsync: openDocument already open:', path);
-      return;
-    }
+    if (this.docs.has(path)) return;
 
     const doc = new Y.Doc();
     const ytext = doc.getText('content');
     const encoded = encodePath(path);
     const updatesRef = ref(this.db, `docs/${encoded}/updates`);
-    console.log('Airsync: openDocument creating doc for:', path, 'firebase path: docs/' + encoded + '/updates');
 
     const unsub = onChildAdded(updatesRef, (snapshot) => {
       const val = snapshot.val();
-      console.log('Airsync: onChildAdded fired, key:', snapshot.key, 'val type:', typeof val, 'length:', typeof val === 'string' ? val.length : 0);
       if (typeof val !== 'string') return;
       try {
         Y.applyUpdate(doc, decodeUpdate(val), 'firebase');
-        console.log('Airsync: applied remote update successfully');
       } catch (e) {
         console.error('Airsync: Failed to apply update', e);
       }
@@ -40,37 +43,40 @@ export class CollaborationManager {
 
     doc.on('update', (update: Uint8Array, origin: any) => {
       if (origin === 'firebase') return;
-      const encodedUpd = encodeUpdate(update);
-      console.log('Airsync: local update, size:', update.length, 'origin:', origin, 'encoded length:', encodedUpd.length);
-      push(updatesRef, encodedUpd)
-        .then(() => console.log('Airsync: push succeeded'))
+      push(updatesRef, encodeUpdate(update))
         .catch((err) => console.error('Airsync: push failed', err));
     });
+
+    const awareness = new AwarenessProvider(
+      doc, this.db, path, this.userId,
+      this.displayName, this.userColor,
+    );
 
     this.docs.set(path, doc);
     this.ytexts.set(path, ytext);
     this.unsubs.set(path, unsub);
+    this.awarenessProviders.set(path, awareness);
   }
 
   bindEditor(path: string, editorView: EditorView): void {
     const ytext = this.ytexts.get(path);
-    console.log('Airsync: bindEditor', path, 'ytext found:', !!ytext);
-    if (!ytext) return;
+    if (!ytext || this.boundPaths.has(path)) return;
+    this.boundPaths.add(path);
 
     if (ytext.length === 0) {
       const content = editorView.state.doc.toString();
-      console.log('Airsync: initializing empty ytext with content length:', content.length);
       if (content.length > 0) {
         ytext.insert(0, content);
       }
     }
 
-    const ext = yCollab(ytext, null, { undoManager: false });
+    const awareness = this.awarenessProviders.get(path) ?? null;
+
+    const ext = yCollab(ytext, awareness, { undoManager: false });
 
     editorView.dispatch({
       effects: StateEffect.appendConfig.of(ext as Extension[]),
     });
-    console.log('Airsync: bindEditor dispatch completed');
   }
 
   closeDocument(path: string): void {
@@ -81,6 +87,9 @@ export class CollaborationManager {
     this.ytexts.delete(path);
     this.unsubs.get(path)?.();
     this.unsubs.delete(path);
+    this.boundPaths.delete(path);
+    this.awarenessProviders.get(path)?.destroy();
+    this.awarenessProviders.delete(path);
   }
 
   getDoc(path: string): Y.Doc | undefined {

@@ -1,9 +1,10 @@
 import { Plugin, Modal, App, Notice, MarkdownView } from 'obsidian';
-import type { AirsyncSettings, ConnectionState } from './types';
+import type { AirsyncSettings, ConnectionState, UserProfile } from './types';
 import { DEFAULT_SETTINGS } from './types';
 import { AirsyncSettingTab } from './settings';
 import { FirebaseService } from './firebase';
 import { CollaborationManager } from './collaboration';
+import { assignColor } from './color-utils';
 
 export default class AirsyncPlugin extends Plugin {
   settings: AirsyncSettings;
@@ -54,14 +55,12 @@ export default class AirsyncPlugin extends Plugin {
 
     this.registerEvent(
       this.app.workspace.on('active-leaf-change', () => {
-        console.log('Airsync: event active-leaf-change fired, connected:', this.connectionState);
         this.handleActiveFileChange();
       }),
     );
 
     this.registerEvent(
-      this.app.workspace.on('file-open', (file) => {
-        console.log('Airsync: event file-open fired, file:', file?.path, 'connected:', this.connectionState);
+      this.app.workspace.on('file-open', () => {
         this.handleActiveFileChange();
       }),
     );
@@ -72,21 +71,16 @@ export default class AirsyncPlugin extends Plugin {
   }
 
   private handleActiveFileChange(): void {
-    if (this.connectionState !== 'connected' || !this.collaboration) {
-      console.log('Airsync: handleActiveFileChange skipped — not connected or no collaboration');
-      return;
-    }
+    if (this.connectionState !== 'connected' || !this.collaboration) return;
 
     const view = this.app.workspace.getActiveViewOfType(MarkdownView);
     const file = view?.file;
-    console.log('Airsync: handleActiveFileChange view:', !!view, 'file:', file?.path, 'ext:', file?.extension);
     if (!file || file.extension !== 'md') return;
 
     const path = file.path;
     this.collaboration.openDocument(path);
 
     const cm = (view!.editor as any).cm;
-    console.log('Airsync: cm:', !!cm, typeof cm, cm ? Object.keys(cm).slice(0, 8) : 'N/A');
     if (cm) {
       this.collaboration.bindEditor(path, cm);
     }
@@ -163,10 +157,14 @@ export default class AirsyncPlugin extends Plugin {
   }
 
   private afterConnected(): void {
-    this.collaboration = new CollaborationManager(this.firebase.db!);
+    const uid = this.firebase.getUserId();
+    if (!uid) return;
+    const color = assignColor(uid);
+    this.collaboration = new CollaborationManager(
+      this.firebase.db!, this.settings.displayName, color, uid,
+    );
     this.setConnectionState('connected');
     this.app.workspace.trigger('airsync:ready');
-    console.log('Airsync: afterConnected — calling handleActiveFileChange');
     this.handleActiveFileChange();
   }
 

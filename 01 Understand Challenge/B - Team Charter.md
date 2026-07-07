@@ -1,6 +1,3 @@
-test
-manga# ?? Team Charter
-
 > **Purpose:** Defines each teammate's role, strengths, and commitment hours.
 > **When to use:** Day 1 � fill in before starting any work.
 
