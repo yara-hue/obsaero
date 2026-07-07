@@ -147,115 +147,12 @@ module.exports = class RoleStamperPlugin extends Plugin {
 
     this.registerEditorExtension(teammateDecorationPlugin);
 
-    this.registerMarkdownPostProcessor(async (el, ctx) => {
-      // Inline stamps → colored spans
+    this.registerMarkdownPostProcessor((el) => {
       el.innerHTML = el.innerHTML.replace(
         /::(t[123]):(.*?)::/gs,
         (_, role, text) => `<span style="color: ${COLORS[role]}">${text}</span>`
       );
-      // Box markers → bordered containers
-      await this._processBoxMarkers(el, ctx);
     });
-  }
-
-  /* ── Reading-mode marker processing ────────── */
-  async _processBoxMarkers(el, ctx) {
-    const walker = document.createNodeIterator(el, NodeFilter.SHOW_COMMENT, null);
-    const boxes = [];
-    let node;
-    while ((node = walker.nextNode())) {
-      const text = node.nodeValue.trim();
-      const openM = text.match(/^(t[123]):(.+)$/);
-      const closeM = text.match(/^\/(t[123])$/);
-      if (openM) {
-        boxes.push({ type: 'open', role: openM[1], label: openM[2].trim(), node });
-      } else if (closeM) {
-        boxes.push({ type: 'close', role: closeM[1], node });
-      }
-    }
-
-    const stack = [];
-    for (const b of boxes) {
-      if (b.type === 'open') {
-        stack.push(b);
-      } else if (b.type === 'close') {
-        for (let i = stack.length - 1; i >= 0; i--) {
-          if (stack[i].role === b.role) {
-            const open = stack.splice(i, 1)[0];
-            await this._replaceBoxWithTextarea(open, b, el, ctx);
-            break;
-          }
-        }
-      }
-    }
-  }
-
-  async _replaceBoxWithTextarea(open, close, el, ctx) {
-    let cur = open.node.nextSibling;
-    const contentNodes = [];
-    while (cur && cur !== close.node) {
-      contentNodes.push(cur);
-      cur = cur.nextSibling;
-    }
-
-    const role = open.role;
-    const label = open.label;
-    const roleInfo = ROLES[role];
-
-    const file = this.app.vault.getAbstractFileByPath(ctx.sourcePath);
-    if (!file) return;
-    let rawContent;
-    try {
-      rawContent = await this.app.vault.cachedRead(file);
-    } catch { return; }
-
-    const openPat = `<!-- ${role}:${label}-->`;
-    const closePat = `<!-- /${role}-->`;
-    const openIdx = rawContent.indexOf(openPat);
-    const closeIdx = rawContent.indexOf(closePat, openIdx + openPat.length);
-    if (openIdx === -1 || closeIdx === -1) return;
-    const innerRaw = rawContent.slice(openIdx + openPat.length, closeIdx).trim();
-
-    const container = createDiv({ cls: `board-section ${roleInfo.cls}` });
-    const header = container.createDiv({ cls: 'board-section-header' });
-    const hLeft = header.createSpan({ cls: 'board-section-role' });
-    hLeft.textContent = `${roleInfo.emoji} ${roleInfo.name}`;
-    const hRight = header.createSpan({ cls: 'board-section-label' });
-    hRight.textContent = label;
-
-    const textarea = container.createEl('textarea', {
-      cls: 'board-section-textarea',
-      attr: { 'data-role': role, 'data-label': label }
-    });
-    textarea.value = innerRaw;
-
-    const doSave = async () => {
-      const currentFile = this.app.vault.getAbstractFileByPath(ctx.sourcePath);
-      if (!currentFile) return;
-      try {
-        const currentRaw = await this.app.vault.read(currentFile);
-        const oi = currentRaw.indexOf(openPat);
-        const ci = currentRaw.indexOf(closePat, oi + openPat.length);
-        if (oi === -1 || ci === -1) return;
-        const updated = currentRaw.slice(0, oi + openPat.length) + '\n' + textarea.value + '\n' + currentRaw.slice(ci);
-        await this.app.vault.modify(currentFile, updated);
-      } catch {}
-    };
-
-    textarea.addEventListener('blur', () => doSave());
-    textarea.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-        e.preventDefault();
-        doSave();
-      }
-    });
-
-    for (const cn of contentNodes) {
-      cn.remove();
-    }
-    open.node.parentNode.insertBefore(container, close.node);
-    open.node.remove();
-    close.node.remove();
   }
 
   /* ── Ribbon ────────────────────────────────── */
