@@ -18,9 +18,9 @@ Use **color stamps** to tag your contributions inline:
 
 | Teammate | Stamp | Color |
 |----------|-------|-------|
-| ︎ Seif | `::t1:text::` |  Gold |
-| ⌕ Marwan | `::t2:text::` |  Blue |
-| ✧ Yara | `::t3:text::` |  Purple |
+|  Seif | `::t1:text::` |  Gold |
+|  Marwan | `::t2:text::` |  Blue |
+|  Yara | `::t3:text::` |  Purple |
 
 Select text and press **`Ctrl+Shift+L`** to stamp it with your current teammate. Or type the stamp manually: `::t1:your text::`.
 

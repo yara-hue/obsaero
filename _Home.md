@@ -60,10 +60,10 @@ Open **[[_Project Roadmap]]** for the full pipeline with a visual flowchart.
 
 <div class="contrib-legend">
   <span class="contrib-legend-item">
-    <span class="contrib-legend-dot t1"></span> ︎ Seif — <strong>33%</strong>
+    <span class="contrib-legend-dot t1"></span>  Seif — <strong>33%</strong>
   </span>
   <span class="contrib-legend-item">
-    <span class="contrib-legend-dot t2"></span> ⌕ Marwan — <strong>33%</strong>
+    <span class="contrib-legend-dot t2"></span>  Marwan — <strong>33%</strong>
   </span>
   <span class="contrib-legend-item">
     <span class="contrib-legend-dot t3"></span>  Yara — <strong>34%</strong>
