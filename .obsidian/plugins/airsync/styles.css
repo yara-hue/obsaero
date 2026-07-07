@@ -19,3 +19,152 @@
 .airsync-status.connecting {
   color: var(--color-yellow, #e5c07b);
 }
+
+.cm-ySelectionCaret {
+  position: relative;
+  border-left: 2px solid currentColor;
+  border-right: none;
+  margin-left: -1px;
+  margin-right: 0;
+  box-sizing: border-box;
+  height: 1.2em;
+  background: transparent;
+  box-shadow: 0 0 4px currentColor;
+}
+
+.cm-ySelectionCaretDot {
+  display: none;
+}
+
+.cm-ySelectionInfo {
+  position: absolute;
+  top: -1.5em;
+  left: -2px;
+  font-size: .65em;
+  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.4;
+  user-select: none;
+  color: #fff;
+  padding: 0 6px;
+  border-radius: 4px;
+  z-index: 101;
+  white-space: nowrap;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.airsync-peers {
+  padding: 8px;
+}
+
+.airsync-peers-empty {
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.airsync-peer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.airsync-peer:hover {
+  background: var(--background-modifier-hover);
+}
+
+.airsync-peer-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.airsync-peer-name {
+  font-weight: 600;
+  color: var(--text-normal);
+  flex-shrink: 0;
+}
+
+.airsync-peer-note {
+  color: var(--text-muted);
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.airsync-section-header {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  padding: 8px 8px 4px;
+}
+
+.airsync-section-body {
+  margin-bottom: 8px;
+}
+
+.airsync-file-entry {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.airsync-file-entry:hover {
+  background: var(--background-modifier-hover);
+}
+
+.airsync-file-dots {
+  display: inline-flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.airsync-file-dots .airsync-peer-dot {
+  width: 7px;
+  height: 7px;
+}
+
+.airsync-file-path {
+  color: var(--text-normal);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.airsync-file-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.airsync-tab-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 4px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.cm-line.airsync-remote-line {
+  border-left: 3px solid var(--text-accent) !important;
+}
