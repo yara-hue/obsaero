@@ -8,17 +8,17 @@
 
 ### 📝 How to contribute (important!)
 
-Files are split into **colored bordered boxes** — one per teammate per section:
+Use **color stamps** to tag your contributions inline:
 
-| Color | Teammate | Symbol | Your markers |
-|-------|----------|--------|-------------|
-| 🟡 Gold | Seif | ✈︎ | `<!-- t1:Questions-->` / `<!-- t1:Findings-->` |
-| 🔵 Blue | Marwan | ⌕ | `<!-- t2:Questions-->` / `<!-- t2:Findings-->` |
-| 🟣 Purple | Yara | ✧ | `<!-- t3:Questions-->` / `<!-- t3:Findings-->` |
+| Teammate | Stamp | Color |
+|----------|-------|-------|
+| ✈︎ Seif | `::t1:text::` | 🟡 Gold |
+| ⌕ Marwan | `::t2:text::` | 🔵 Blue |
+| ✧ Yara | `::t3:text::` | 🟣 Purple |
 
-**How to edit:** Open the file in **Live Preview** (editing mode) — you'll see the markers as greyed-out comments. Type your text between the opening `<!-- tN:Label-->` and closing `<!-- /tN-->` markers. Switch to **Reading mode** to see your content inside a bordered box with a colored left border matching your teammate color.
+Select text and press **`Ctrl+Shift+L`** to stamp it with your current teammate. Or type the stamp manually: `::t1:your text::`.
 
-**Rule:** Never edit inside another teammate's markers. Git auto-merges with no conflicts because you're on different lines.
+**No special boxes.** Edit the markdown file normally — type anywhere, add headers, lists, links. Git tracks changes like normal.
 
 
 ### How sync works
