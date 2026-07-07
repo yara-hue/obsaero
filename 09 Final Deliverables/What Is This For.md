@@ -1,8 +1,8 @@
-#  Final Deliverables
+# 09 Final Deliverables
 
 ## Purpose
 
-Produce the polished, submission‑ready materials that will be handed over to the judges.
+Produce the polished, submission‑ready materials for our locked, enriched concept — the final package that will be handed over to the judges.
 
 ## Inputs
 
@@ -28,18 +28,18 @@ Produce the polished, submission‑ready materials that will be handed over to t
 ## Files in this Stage
 
 ### Executive Summary (One-Pager)
-*Purpose:* Concise overview of the concept, system mechanics, and SDG impact – for quick reading.
+_Purpose:_ Concise overview of the concept, system mechanics, and SDG impact — for quick reading.
 
 ### Final Presentation Script
-*Purpose:* The locked, timed script used for rehearsal and final delivery.
+_Purpose:_ The locked, timed script used for rehearsal and final delivery.
 
 ### Submission Checklist
-*Purpose:* The quality‑control gatekeeper verifying file formats, word limits, and rubric compliance.
+_Purpose:_ The quality‑control gatekeeper verifying file formats, word limits, and rubric compliance.
 
 ## Next Stage
 
-None – you've reached the end!
+None — you've reached the end!
 
 ---
 
-← [[ 08]] | ↑ [[_Project Roadmap]]
+← [[08 Pitch Studio/What Is This For|08 Pitch Studio]] | ↑ [[_Project Roadmap]]

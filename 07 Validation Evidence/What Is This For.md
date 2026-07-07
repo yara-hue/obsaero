@@ -1,8 +1,8 @@
-#  Validation & Evidence
+# 07 Validation Evidence
 
 ## Purpose
 
-Prove every claim made in the blueprint with real‑world evidence. Judges will look for data, not just stories.
+Prove every claim made in the enriched locked concept with real‑world evidence. Surveys/interviews test whether the features and framing resonate, and produce evidence for the pitch.
 
 ## Inputs
 
@@ -25,18 +25,18 @@ Prove every claim made in the blueprint with real‑world evidence. Judges will 
 ## Files in this Stage
 
 ### Quantitative Survey Data
-*Purpose:* Charts and statistics from any team‑run surveys.
+_Purpose:_ Charts and statistics from any team‑run surveys.
 
 ### User Interview Transcripts
-*Purpose:* Raw notes or transcripts from passenger/crew interviews, with direct quotes for credibility.
+_Purpose:_ Raw notes or transcripts from passenger/crew interviews, with direct quotes for credibility.
 
 ### Academic Citation Index
-*Purpose:* Links each blueprint feature to peer‑reviewed principles.
+_Purpose:_ Links each blueprint feature to peer‑reviewed principles.
 
 ## Next Stage
 
-[[ 08]] →
+[[08 Pitch Studio/What Is This For|08 Pitch Studio]]
 
 ---
 
-← [[ 06]] | ↑ [[_Project Roadmap]]
+← [[06 Concept Blueprint/What Is This For|06 Concept Blueprint]] | ↑ [[_Project Roadmap]]

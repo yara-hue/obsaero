@@ -2,6 +2,12 @@
 
 > Version 1.1 --- Team Standard Operating Procedure
 
+## Pipeline Pivot (read first)
+
+The core concept (AeroMind AI) is LOCKED — submitted before the brief was released. All AI prompts in this manual that reference "generating concepts" or "choosing between ideas" should be read as "generating/choosing FEATURES around the locked concept." The Devil's Advocate prompts are now the highest-priority prompt set, since we cannot pivot away from weaknesses — we must find and mitigate every one.
+
+See [[01 Understand Challenge/C - Locked Core Concept]] for the locked concept and its Brief Alignment Strategy.
+
 ## Mission
 
 Use the right AI for the right job. Every prompt must obey:
@@ -53,7 +59,7 @@ Never skip verification before design.
 NotebookLM (extract from PDFs) → Perplexity (verify with current data) → Claude (synthesize findings) → Sources Database (log results)
 
 ### Concept Chain
-Claude (generate concepts from research) → Concept Evaluation Matrix (score) → Claude (refine winner) → Concept Blueprint (document)
+Claude (generate features from research) → Feature Evaluation Matrix (score) → Claude (refine enriched concept) → Concept Blueprint (document)
 
 ### Pitch Chain
 Claude (draft narrative) → Napkin (create diagrams) → Gamma (build slides) → Devil's Advocate (stress-test) → Gamma (final polish)

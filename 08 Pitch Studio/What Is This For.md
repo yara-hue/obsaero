@@ -1,8 +1,8 @@
-#  Pitch Studio
+# 08 Pitch Studio
 
 ## Purpose
 
-Transform the solution into a compelling presentation that sells the idea to Boeing judges.
+Transform our locked, enriched concept into a compelling presentation that sells AeroMind AI to Boeing judges.
 
 ## Inputs
 
@@ -12,7 +12,7 @@ Transform the solution into a compelling presentation that sells the idea to Boe
 
 ## Process
 
-1. **Craft the narrative** – use [[A - Narrative Outline|Narrative Outline]] to build a hero's journey arc.
+1. **Craft the narrative** – use [[A - Narrative Outline|Narrative Outline]] to build a hero's journey arc around the locked concept.
 2. **Write the script** – in [[B - Pitch Script|Pitch Script]], word‑for‑word with slide cues.
 3. **Design visuals** – track assets in [[C - Visual Assets Tracker|Visual Assets Tracker]]; generate diagrams with Napkin AI and slides with Gamma.
 4. **Rehearse** – use the script for timed runs.
@@ -26,21 +26,21 @@ Transform the solution into a compelling presentation that sells the idea to Boe
 ## Files in this Stage
 
 ### Narrative Outline
-*Purpose:* The emotional and structural story arc for the pitch.
+_Purpose:_ The emotional and structural story arc for the pitch.
 
 ### Pitch Script
-*Purpose:* The spoken script, paired with slide transition cues.
+_Purpose:_ The spoken script, paired with slide transition cues.
 
 ### Visual Assets Tracker
-*Purpose:* Production pipeline for diagrams, mockups, and graphics.
+_Purpose:_ Production pipeline for diagrams, mockups, and graphics.
 
 ### Gamma Deck Link
-*Purpose:* Live link to the Gamma presentation with version notes.
+_Purpose:_ Live link to the Gamma presentation with version notes.
 
 ## Next Stage
 
-[[ 09]] →
+[[09 Final Deliverables/What Is This For|09 Final Deliverables]]
 
 ---
 
-← [[ 07]] | ↑ [[_Project Roadmap]]
+← [[07 Validation Evidence/What Is This For|07 Validation Evidence]] | ↑ [[_Project Roadmap]]

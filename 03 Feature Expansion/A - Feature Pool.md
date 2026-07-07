@@ -1,58 +1,50 @@
-# The Master Idea Dump (100+ Concepts)
+# Feature Pool
 
-> **Purpose:** The active brainstorming sandbox — add every idea here without judgment.
-> **When to use:** During the divergent phase — anything goes.
+> [!info] Divergence lives here now — but around the LOCKED concept, AeroMind AI ([[01 Understand Challenge/C - Locked Core Concept]]). Quantity first, judgment in Stage 04. Features that strengthen the brief's weak spots (passenger-facing angle, storytelling, waste metrics) are especially valuable.
 
-### FILE PURPOSE
-An open, unfiltered sandbox for raw brainstorming. There are no bad ideas here during Week 1.
-
-**How to use:** Each teammate adds ideas in their own section below.
+> **Purpose:** The active feature-brainstorming sandbox — add every idea that could enhance the locked core concept.
+> **When to use:** During Feature Expansion (Stage 03) — quantity over quality.
 
 ---
 
-## Terminal Operations Ideas
+## Seif (t1)
 
-### Seif
-<span style="color: var(--text-faint);">e.g. Smart tray table that changes color based on waste type</span>
-<span style="color: var(--text-faint);">e.g. AI-powered seatback sorting assistant</span>
+### Feature: Sustainability Impact Dashboard
+- **What it adds to the core concept:** AeroMind auto-generates plain-language reports of parts saved from scrap, fuel saved, and CO₂ avoided, for airline ESG communication and even passenger-facing transparency displays.
+- **Brief focus area served:** storytelling, waste reduction
+- **Constraint check:** hardware ❌ app ❌ boarding delay ❌ airline integration ✅
+- **Rough effort:** M
+- **Status:** proposed
 
-### Marwan
-<span style="color: var(--text-faint);">e.g. Biodegradable packaging with embedded seeds</span>
-
-### Yara
-<span style="color: var(--text-faint);">e.g. Smart bin that logs weight per passenger</span>
-
----
-
-## Cabin Behavior Ideas
-
-### Seif
-<span style="color: var(--text-faint);">e.g. Gamified recycling — passengers earn miles for proper sorting</span>
-
-### Marwan
-<span style="color: var(--text-faint);">e.g. Green seat upgrade for passengers who opt into zero-waste</span>
-
-### Yara
-<span style="color: var(--text-faint);">e.g. Ambient lighting shifts when cabin reaches waste milestone</span>
+### Feature: {name}
+- **What it adds to the core concept:**
+- **Brief focus area served:**
+- **Constraint check:**
+- **Rough effort:**
+- **Status:** proposed
 
 ---
 
-## Communication Style Ideas
+## Marwan (t2)
 
-### Seif
-<span style="color: var(--text-faint);">e.g. Crew script: Would you like to join our sustainability challenge?</span>
-
-### Marwan
-<span style="color: var(--text-faint);">e.g. Seatback screen shows live cabin waste metrics</span>
-
-### Yara
-<span style="color: var(--text-faint);">e.g. Post-flight email: You helped save X kg of waste today</span>
+### Feature: {name}
+- **What it adds to the core concept:**
+- **Brief focus area served:**
+- **Constraint check:**
+- **Rough effort:**
+- **Status:** proposed
 
 ---
 
-## Notes
-<span style="color: var(--text-faint);">e.g. Random thoughts, links to inspiration, or sketches</span>
+## Yara (t3)
+
+### Feature: {name}
+- **What it adds to the core concept:**
+- **Brief focus area served:**
+- **Constraint check:**
+- **Rough effort:**
+- **Status:** proposed
 
 ---
 
-← [[?? 03]] | ← [[_Project Roadmap]]
+← [[03 Feature Expansion/What Is This For|03 Feature Expansion]] | ← [[_Project Roadmap]]

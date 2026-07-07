@@ -1,42 +1,42 @@
-#  Concept Evaluation
+# 04 Feature Evaluation
 
 ## Purpose
 
-Objectively compare the generated concepts to identify the strongest candidates. This is the convergent phase.
+Converge — score every candidate feature and decide what makes it into the final concept. We are selecting _features_, never re-selecting the concept.
 
 ## Inputs
 
-- The raw idea pool from [[A - Idea Pool|Idea Pool]]
-- The [[A - Evaluation Rubric|Evaluation Rubric]] (from Stage 01)
+- Feature Pool ([[03 Feature Expansion/A - Feature Pool]])
+- Evaluation Rubric ([[01 Understand Challenge/A - Evaluation Rubric]])
+- Constraints list (from [[01 Understand Challenge/B - Official Challenge Brief]])
 
 ## Process
 
-1. **Shortlist** – pick the top 5–10 ideas that seem most feasible and impactful.
-2. **Score each** – use [[A - Concept Evaluation Matrix|Concept Evaluation Matrix]] with weighted criteria:
-   - Friction (passenger/crew impact)
-   - Feasibility (operational, cost, timeline)
-   - SDG Alignment (score against at least 2 SDGs)
-   - Novelty / competitive edge
-3. **Calculate scores** – the highest scorer becomes your *primary* concept.
-4. **Document** the winning concept in [[A - Concept Blueprint|Concept Blueprint]] (next stage).
+1. Score each feature in [[A - Feature Evaluation Matrix|Feature Evaluation Matrix]] on:
+   - Brief alignment
+   - Feasibility within constraints
+   - Impact (SDG 12/13)
+   - Pitch / storytelling value
+   - Effort
+2. Categorise each feature: Keep / Park / Kill.
+3. Surviving features feed the Devil's Advocate gauntlet and the Concept Blueprint.
 
 ## Outputs
 
-- A ranked list of concepts.
-- The selected winning concept (to be detailed in the blueprint).
+- A ranked feature shortlist feeding the Devil's Advocate gauntlet (05) and the Concept Blueprint (06).
 
 ## Files in this Stage
 
-### Concept Evaluation Matrix
-*Purpose:* Weighted scoring table used to rank ideas objectively.
+### Feature Evaluation Matrix
+_Purpose:_ Weighted scoring table used to rank features objectively.
 
-### AI Prompts Library
-*Purpose:* Successful prompts and custom instructions used across Claude, ChatGPT, and Perplexity, saved for team reuse.
+### Useful Prompts I Found
+_Purpose:_ Successful prompts and custom instructions used across AI tools, saved for team reuse.
 
 ## Next Stage
 
-[[ 05]] →
+[[05 Devils Advocate/What Is This For|05 Devils Advocate]]
 
 ---
 
-← [[ 03]] | ↑ [[_Project Roadmap]]
+← [[03 Feature Expansion/What Is This For|03 Feature Expansion]] | ↑ [[_Project Roadmap]]

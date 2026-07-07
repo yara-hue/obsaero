@@ -1,10 +1,10 @@
 # Final Concept Functional Blueprint
 
-> **Purpose:** The definitive description of your solution — the source for all subsequent deliverables.
-> **When to use:** After Devil's Advocate — document the refined concept here.
+> **Purpose:** The definitive description of our locked core concept, enriched with the features that survived Stages 03–05 — the source for all subsequent deliverables.
+> **When to use:** After Devil's Advocate — document the enriched concept here. See [[01 Understand Challenge/C - Locked Core Concept]] for the locked core and [[05 Devils Advocate/B - Risk Mitigation Register]] for mitigations.
 
 ### FILE PURPOSE
-The definitive master document for our winning concept. It details exactly how our system works at every passenger and crew touchpoint.
+The definitive master document for our locked, enriched concept. It details exactly how our system works at every passenger and crew touchpoint.
 
 **How to use:** Each teammate owns specific modules below.
 
@@ -79,4 +79,4 @@ The definitive master document for our winning concept. It details exactly how o
 
 ---
 
-← [[?? 06]] | ← [[_Project Roadmap]]
+← [[06 Concept Blueprint/What Is This For|06 Concept Blueprint]] | ← [[_Project Roadmap]]

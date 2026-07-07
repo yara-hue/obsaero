@@ -1,8 +1,8 @@
-#  Research
+# 02 Research
 
 ## Purpose
 
-Build the factual foundation for your proposal. All decisions must be grounded in real‑world data, academic research, and industry reports.
+Targeted research _within the locked concept's topic area_ — evidence, statistics, case studies, and precedents that strengthen the concept and its candidate features. We are NOT researching alternative concepts. Every research question must serve the locked concept (see [[01 Understand Challenge/C - Locked Core Concept]]).
 
 ## Inputs
 
@@ -20,26 +20,26 @@ Build the factual foundation for your proposal. All decisions must be grounded i
 
 - A verified evidence base.
 - A comprehensive bibliography.
-- Clear answers to all research questions.
+- Clear answers to all research questions — outputs feed Feature Expansion (03) and Validation Evidence (07).
 
 ## Files in this Stage
 
 ### Research Questions
-*Purpose:* Active log of unanswered questions; link each to the answer once found.
+_Purpose:_ Active log of unanswered questions; link each to the answer once found.
 
 ### Sources Database
-*Purpose:* Central repository of every statistic, report, and paper with full citation and SDG relevance.
+_Purpose:_ Central repository of every statistic, report, and paper with full citation and SDG relevance.
 
 ### NotebookLM Briefings
-*Purpose:* AI‑generated summaries and extractions from uploaded PDFs, used to quickly surface key facts.
+_Purpose:_ AI‑generated summaries and extractions from uploaded PDFs, used to quickly surface key facts.
 
 ### Academic Citation Index
-*Purpose:* Cross‑reference table linking concept features to specific academic principles (e.g., Nudge Theory, EAST framework).
+_Purpose:_ Cross‑reference table linking concept features to specific academic principles (e.g., Nudge Theory, EAST framework).
 
 ## Next Stage
 
-[[ 03]] →
+[[03 Feature Expansion/What Is This For|03 Feature Expansion]]
 
 ---
 
-← [[ 01]] | ↑ [[_Project Roadmap]]
+← [[01 Understand Challenge/What Is This For|01 Understand Challenge]] | ↑ [[_Project Roadmap]]

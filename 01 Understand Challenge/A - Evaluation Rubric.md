@@ -26,6 +26,9 @@ The absolute rulebook. This file contains a detailed breakdown of the official c
 ## Boeing Operational Expectations
 <span style="color: var(--text-faint);">Briefly map each criterion to what Boeing specifically cares about (safety, scalability, crew workflow, etc.).</span>
 
+## Locked-Concept Fit
+Score the _enriched concept_ (core + surviving features) against each criterion above. This rubric is not used to compare multiple concepts — the concept is locked; we score its fitness.
+
 ---
 
-[[?? 01]] | [[_Project Roadmap]]
+[[01 Understand Challenge/What Is This For|01 Understand Challenge]] | [[_Project Roadmap]]

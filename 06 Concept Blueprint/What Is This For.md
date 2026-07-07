@@ -1,12 +1,12 @@
-#  Concept Blueprint
+# 06 Concept Blueprint
 
 ## Purpose
 
-Turn the refined concept into a complete, detailed system design. This is the master document that describes exactly how the solution works.
+Assemble the locked concept + surviving features + mitigations into one coherent program design, with per-module ownership (Seif/Marwan/Yara). This is our locked core concept, enriched through stages 03–05.
 
 ## Inputs
 
-- Refined concept from [[ 05]]
+- Refined concept from [[05 Devils Advocate]]
 - Research data and citations
 - Evaluation rubric alignment
 
@@ -25,12 +25,12 @@ Turn the refined concept into a complete, detailed system design. This is the ma
 ## Files in this Stage
 
 ### Concept Blueprint (file)
-*Purpose:* The definitive description of your solution – the source for all subsequent deliverables.
+_Purpose:_ The definitive description of your solution — the source for all subsequent deliverables.
 
 ## Next Stage
 
-[[ 07]] →
+[[07 Validation Evidence/What Is This For|07 Validation Evidence]]
 
 ---
 
-← [[ 05]] | ↑ [[_Project Roadmap]]
+← [[05 Devils Advocate/What Is This For|05 Devils Advocate]] | ↑ [[_Project Roadmap]]
