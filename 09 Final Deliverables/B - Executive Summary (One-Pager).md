@@ -1,44 +1,42 @@
 # Executive Summary (One-Pager)
 
-> **Purpose:** Concise overview of the concept, system mechanics, and SDG impact � for quick reading.
-> **When to use:** Final stage � distill the entire concept into one page.
+> **Purpose:** Concise overview of the concept, system mechanics, and SDG impact — for quick reading.
+> **When to use:** Final stage — distill the entire concept into one page.
 
 ### FILE PURPOSE
 A concise, high-impact overview of our entire sustainability concept, system mechanics, and SDG impacts.
-*   **How to use:** Write this as a standalone executive brief that a judge can read and completely understand in under 60 seconds.
+
+**How to use:** Write this as a standalone executive brief that a judge can read and completely understand in under 60 seconds.
 
 ---
 
 ## One-Pager
 
-**Concept Name:** _your concept name_
+**Concept Name:** <span style="color: var(--text-faint);">your concept name</span>
 
 **The Problem:**
-_In 1-2 sentences, describe the problem you're solving._
+<span style="color: var(--text-faint);">In 1-2 sentences, describe the problem you are solving.</span>
 
 **Our Solution:**
-_In 1-2 sentences, describe your concept._
+<span style="color: var(--text-faint);">In 1-2 sentences, describe your concept.</span>
 
 **How It Works:**
-_3-5 bullet points explaining the mechanism._
-
-- _e.g. Color-coded smart bins at every seat_
-- _e.g. Seatback AI guides passengers in real time_
-- _e.g. Crew dashboards track cabin-wide sorting rates_
+- <span style="color: var(--text-faint);">e.g. Color-coded smart bins at every seat</span>
+- <span style="color: var(--text-faint);">e.g. Seatback AI guides passengers in real time</span>
+- <span style="color: var(--text-faint);">e.g. Crew dashboards track cabin-wide sorting rates</span>
 
 **Key Metrics:**
-- _e.g. X% waste reduction_
-- _e.g. $Y cost savings per flight_
-- _e.g. Z passenger satisfaction increase_
+- <span style="color: var(--text-faint);">e.g. X% waste reduction</span>
+- <span style="color: var(--text-faint);">e.g. $Y cost savings per flight</span>
+- <span style="color: var(--text-faint);">e.g. Z passenger satisfaction increase</span>
 
 **SDG Impact:**
-_Which SDGs and how._
-- _e.g. SDG 12 — reduces cabin waste by X%_
-- _e.g. SDG 13 — lower disposal = less fuel burn_
+- <span style="color: var(--text-faint);">e.g. SDG 12 — reduces cabin waste by X%</span>
+- <span style="color: var(--text-faint);">e.g. SDG 13 — lower disposal = less fuel burn</span>
 
 **Why We Win:**
-_1 sentence — your killer differentiator._
+<span style="color: var(--text-faint);">1 sentence — your killer differentiator.</span>
 
 ---
 
-? [[📖 09]] | ? [[_Project Roadmap]]
+← [[09]] | ← [[_Project Roadmap]]

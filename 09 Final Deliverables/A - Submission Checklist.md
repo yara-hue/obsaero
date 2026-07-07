@@ -1,47 +1,48 @@
-# ? Final Submission Checklist
+# Final Submission Checklist
 
 > **Purpose:** The quality-control gatekeeper verifying file formats, word limits, and rubric compliance.
-> **When to use:** Before submission � run through every item.
+> **When to use:** Before submission — run through every item.
 
 ### FILE PURPOSE
 Our absolute quality control gatekeeper to ensure we meet every single competition rule before hitting submit.
-*   **How to use:** Run through this list on our final week. Verify file formats, word limits, criteria requirements, and make sure we have focused on at least two SDGs.
+
+**How to use:** Run through this list on our final week.
 
 ---
 
 ## File Format Check
 
-- [ ] _All files in correct format (PDF / DOCX / PPTX as required)_
-- [ ] _File names match submission guidelines_
-- [ ] _No broken links or missing images_
+- [ ] <span style="color: var(--text-faint);">All files in correct format (PDF / DOCX / PPTX as required)</span>
+- [ ] <span style="color: var(--text-faint);">File names match submission guidelines</span>
+- [ ] <span style="color: var(--text-faint);">No broken links or missing images</span>
 
 ## Word / Page Limits
 
-- [ ] _Executive summary within word limit: _e.g. max 500 words_
-- [ ] _Blueprint document within word limit: _e.g. max 2000 words_
-- [ ] _Presentation within time limit: _e.g. max 5 minutes_
+- [ ] <span style="color: var(--text-faint);">Executive summary within word limit: e.g. max 500 words</span>
+- [ ] <span style="color: var(--text-faint);">Blueprint document within word limit: e.g. max 2000 words</span>
+- [ ] <span style="color: var(--text-faint);">Presentation within time limit: e.g. max 5 minutes</span>
 
 ## Rubric Compliance
 
-- [ ] _All grading criteria addressed (check against [[A - Evaluation Rubric]])_
-- [ ] _Innovation clearly demonstrated_
-- [ ] _Feasibility explained with operational details_
-- [ ] _Business case / cost model included_
+- [ ] <span style="color: var(--text-faint);">All grading criteria addressed (check against rubric)</span>
+- [ ] <span style="color: var(--text-faint);">Innovation clearly demonstrated</span>
+- [ ] <span style="color: var(--text-faint);">Feasibility explained with operational details</span>
+- [ ] <span style="color: var(--text-faint);">Business case / cost model included</span>
 
 ## SDG Requirements
 
-- [ ] _At least 2 UN SDGs addressed_
-- [ ] _SDG mapping explicit in blueprint document_
-- [ ] _SDG impact measurable or estimable_
+- [ ] <span style="color: var(--text-faint);">At least 2 UN SDGs addressed</span>
+- [ ] <span style="color: var(--text-faint);">SDG mapping explicit in blueprint document</span>
+- [ ] <span style="color: var(--text-faint);">SDG impact measurable or estimable</span>
 
 ## Final Sign-off
 
-- [ ] _All teammates have reviewed final files_
-- [ ] _Backup copies saved in vault_
-- [ ] _Submission uploaded to competition portal_
+- [ ] <span style="color: var(--text-faint);">All teammates have reviewed final files</span>
+- [ ] <span style="color: var(--text-faint);">Backup copies saved in vault</span>
+- [ ] <span style="color: var(--text-faint);">Submission uploaded to competition portal</span>
 
-**Signed off by:** _Seif_ | _Marwan_ | _Yara_
+**Signed off by:** <span style="color: var(--text-faint);">Seif / Marwan / Yara</span>
 
 ---
 
-? [[📖 09]] | ? [[_Project Roadmap]]
+← [[09]] | ← [[_Project Roadmap]]

@@ -1,11 +1,12 @@
 # Spoken Presentation Script
 
 > **Purpose:** The spoken script, paired with slide transition cues.
-> **When to use:** After narrative outline � write the script here.
+> **When to use:** After narrative outline — write the script here.
 
 ### FILE PURPOSE
 The exact word-for-word script that our team will memorize and deliver during the live pitch competition.
-*   **How to use:** Write our spoken lines here side-by-side with slide transition cues. Use punchy headlines under 7 words to ensure maximum impact.
+
+**How to use:** Write our spoken lines here side-by-side with slide transition cues. Use punchy headlines under 7 words for maximum impact.
 
 ---
 
@@ -13,16 +14,19 @@ The exact word-for-word script that our team will memorize and deliver during th
 
 | Time | Slide | Visual | Spoken Lines | Cue |
 |------|-------|--------|-------------|-----|
-| 0:00 | _Title_ | _e.g. Dark slide, bold text_ | _e.g. "Every year..."_ | _e.g. Pause for effect_ |
-| 0:30 | _Problem_ | _e.g. Infographic of waste stats_ | _e.g. "Passengers want to help..."_ | _e.g. Slow, deliberate_ |
-| 1:30 | _Solution_ | _e.g. Concept mockup_ | _e.g. "What if..."_ | _e.g. Energy up_ |
-| 2:00 | _How it works_ | _e.g. Step-by-step diagram_ | _e.g. "Here's how it works..."_ | _e.g. Point to screen_ |
-| 3:00 | _Data_ | _e.g. Bar charts_ | _e.g. "Our survey shows..."_ | _e.g. Pause between stats_ |
-| 4:00 | _SDG_ | _e.g. SDG icons_ | _e.g. "This isn't just about waste..."_ | _e.g. Slow, impactful_ |
-| 4:30 | _Close_ | _e.g. Bold text, no distractions_ | _e.g. "Airlines are ready..."_ | _e.g. Hold eye contact_ |
-
-_Add or remove rows as the script evolves._
+| 0:00 | <span style="color: var(--text-faint);">Title</span> | <span style="color: var(--text-faint);">Dark slide, bold text</span> | <span style="color: var(--text-faint);">Every year...</span> | <span style="color: var(--text-faint);">Pause for effect</span> |
+| 0:30 | <span style="color: var(--text-faint);">Problem</span> | <span style="color: var(--text-faint);">Infographic of waste stats</span> | <span style="color: var(--text-faint);">Passengers want to help...</span> | <span style="color: var(--text-faint);">Slow, deliberate</span> |
+| 1:30 | <span style="color: var(--text-faint);">Solution</span> | <span style="color: var(--text-faint);">Concept mockup</span> | <span style="color: var(--text-faint);">What if...</span> | <span style="color: var(--text-faint);">Energy up</span> |
+| 2:00 | <span style="color: var(--text-faint);">How it works</span> | <span style="color: var(--text-faint);">Step-by-step diagram</span> | <span style="color: var(--text-faint);">Here is how it works...</span> | <span style="color: var(--text-faint);">Point to screen</span> |
+| 3:00 | <span style="color: var(--text-faint);">Data</span> | <span style="color: var(--text-faint);">Bar charts</span> | <span style="color: var(--text-faint);">Our survey shows...</span> | <span style="color: var(--text-faint);">Pause between stats</span> |
+| 4:00 | <span style="color: var(--text-faint);">SDG</span> | <span style="color: var(--text-faint);">SDG icons</span> | <span style="color: var(--text-faint);">This is not just about waste...</span> | <span style="color: var(--text-faint);">Slow, impactful</span> |
+| 4:30 | <span style="color: var(--text-faint);">Close</span> | <span style="color: var(--text-faint);">Bold text, no distractions</span> | <span style="color: var(--text-faint);">Airlines are ready...</span> | <span style="color: var(--text-faint);">Hold eye contact</span> |
 
 ---
 
-? [[📖 08]] | ? [[_Project Roadmap]]
+## Notes
+<span style="color: var(--text-faint);">e.g. Timing adjustments, pronunciation notes, or backup lines</span>
+
+---
+
+← [[08]] | ← [[_Project Roadmap]]

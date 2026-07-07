@@ -1,48 +1,58 @@
-﻿# 🧠 Individual Team Reflections
-### 📌 FILE PURPOSE
+﻿# Individual Team Reflections
+
+### FILE PURPOSE
 A collection space for personal weekly journal entries from each of our three team members.
-*   **How to use:** Each teammate writes ONLY in their own colored box below. Never edit another teammate's box. Write a quick paragraph every Friday detailing what you learned, what challenged you, and how you solved it.
+
+**How to use:** Each teammate writes their weekly reflections in their own section below.
 
 ---
 
-<!-- t1:✈︎ Seif's Reflections-->
+## Seif
+
 ### Week 1
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 2
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 3
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 4
-_What did you learn this week? What challenged you?_
-<!-- /t1-->
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
-<!-- t2:⌕ Marwan's Reflections-->
+---
+
+## Marwan
+
 ### Week 1
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 2
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 3
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 4
-_What did you learn this week? What challenged you?_
-<!-- /t2-->
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
-<!-- t3:✧ Yara's Reflections-->
+---
+
+## Yara
+
 ### Week 1
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 2
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 3
-_What did you learn this week? What challenged you?_
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
 
 ### Week 4
-_What did you learn this week? What challenged you?_
-<!-- /t3-->
+<span style="color: var(--text-faint);">What did you learn this week? What challenged you?</span>
+
+---
+
+← [[40]] | ← [[_Project Roadmap]]

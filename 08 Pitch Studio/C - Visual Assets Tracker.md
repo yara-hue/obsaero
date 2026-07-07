@@ -1,11 +1,12 @@
 # Visual Assets & Diagram Tracker
 
 > **Purpose:** Production pipeline for diagrams, mockups, and graphics.
-> **When to use:** Throughout pitch creation � track each asset from draft to final.
+> **When to use:** Throughout pitch creation — track each asset from draft to final.
 
 ### FILE PURPOSE
 A production pipeline managing our journey maps, UI mockups, and diagrams generated via Napkin AI or Canva.
-*   **How to use:** Log every visual we need to create. Track its progress from raw text outlines to finalized high-res presentation assets.
+
+**How to use:** Log every visual we need to create. Track its progress from raw text outlines to finalized high-res presentation assets.
 
 ---
 
@@ -13,12 +14,15 @@ A production pipeline managing our journey maps, UI mockups, and diagrams genera
 
 | # | Asset Name | Type | Status | Tool | Assigned To | Notes |
 |---|-----------|------|--------|------|-------------|-------|
-| 1 | _e.g. Passenger flow diagram_ | _Diagram_ | _Draft_ | _e.g. Napkin AI_ | _Seif_ | _e.g. Needs color coding_ |
-| 2 | _e.g. Survey results chart_ | _Chart_ | _In Progress_ | _e.g. Canva_ | _Marwan_ | _e.g. Use brand colors_ |
-| 3 | _e.g. Concept mockup_ | _Mockup_ | _Not Started_ | _e.g. Figma_ | _Yara_ | _e.g. Reference seat layout_ |
-
-_Status options: Not Started → Draft → In Progress → Done_
+| 1 | <span style="color: var(--text-faint);">Passenger flow diagram</span> | <span style="color: var(--text-faint);">Diagram</span> | <span style="color: var(--text-faint);">Draft</span> | <span style="color: var(--text-faint);">Napkin AI</span> | <span style="color: var(--text-faint);">Seif</span> | <span style="color: var(--text-faint);">Needs color coding</span> |
+| 2 | <span style="color: var(--text-faint);">Survey results chart</span> | <span style="color: var(--text-faint);">Chart</span> | <span style="color: var(--text-faint);">In Progress</span> | <span style="color: var(--text-faint);">Canva</span> | <span style="color: var(--text-faint);">Marwan</span> | <span style="color: var(--text-faint);">Use brand colors</span> |
+| 3 | <span style="color: var(--text-faint);">Concept mockup</span> | <span style="color: var(--text-faint);">Mockup</span> | <span style="color: var(--text-faint);">Not Started</span> | <span style="color: var(--text-faint);">Figma</span> | <span style="color: var(--text-faint);">Yara</span> | <span style="color: var(--text-faint);">Reference seat layout</span> |
 
 ---
 
-? [[📖 08]] | ? [[_Project Roadmap]]
+## Notes
+<span style="color: var(--text-faint);">e.g. File naming conventions, export formats, or approval status</span>
+
+---
+
+← [[08]] | ← [[_Project Roadmap]]

@@ -1,79 +1,69 @@
-# 📊 Quantitative Survey Data
+# Quantitative Survey Data
 
 > **Purpose:** Charts and statistics from any team-run surveys.
 > **When to use:** After collecting survey responses — compile data here.
 
-### 📌 FILE PURPOSE
+### FILE PURPOSE
 The dashboard for structural data, numeric metrics, and consumer survey percentages.
-*   **How to use:** Each teammate writes ONLY in their own colored box below. Never edit another teammate's box. If we run a questionnaire, map out the charts, statistical sample sizes, and percentage data points here to build our quantitative proof.
+
+**How to use:** Each teammate logs their survey findings below.
 
 ---
 
 ## Survey Overview
+<span style="color: var(--text-faint);">Describe the survey methodology here.</span>
 
-- **Survey name:** _e.g. Passenger Recycling Behavior Survey_
-- **Date conducted:** _date_
-- **Sample size:** _e.g. n = 200_
-- **Method:** _e.g. Google Forms, in-terminal intercept_
+- **Survey name:** <span style="color: var(--text-faint);">e.g. Passenger Recycling Behavior Survey</span>
+- **Date conducted:** <span style="color: var(--text-faint);">date</span>
+- **Sample size:** <span style="color: var(--text-faint);">e.g. n = 200</span>
+- **Method:** <span style="color: var(--text-faint);">e.g. Google Forms, in-terminal intercept</span>
 
 ---
 
 ## Key Findings
 
-<!-- t1:✈︎ Seif's Findings-->
-**Survey conducted:** _name / date_
-**Sample:** _size & demographics_
+### Seif
+**Survey conducted:** <span style="color: var(--text-faint);">name / date</span>
+**Sample:** <span style="color: var(--text-faint);">size & demographics</span>
 
-### Finding 1
-- **Question:** _e.g. "Would you sort waste if guided by a screen?"_
-- **Result:** _e.g. 73% said yes_
-- **Chart placeholder:** _paste chart or describe visual_
+#### Finding 1
+- **Question:** <span style="color: var(--text-faint);">e.g. Would you sort waste if guided by a screen?</span>
+- **Result:** <span style="color: var(--text-faint);">e.g. 73% said yes</span>
+- **Chart placeholder:** <span style="color: var(--text-faint);">paste chart or describe visual</span>
 
-_Add more findings..._
-<!-- /t1-->
+### Marwan
+**Survey conducted:** <span style="color: var(--text-faint);">name / date</span>
+**Sample:** <span style="color: var(--text-faint);">size & demographics</span>
 
-<!-- t2:⌕ Marwan's Findings-->
-**Survey conducted:** _name / date_
-**Sample:** _size & demographics_
+#### Finding 1
+- **Question:** <span style="color: var(--text-faint);">e.g. What stops you from recycling on flights?</span>
+- **Result:** <span style="color: var(--text-faint);">e.g. 61% said confusion about bin types</span>
+- **Chart placeholder:** <span style="color: var(--text-faint);">paste chart or describe visual</span>
 
-### Finding 1
-- **Question:** _e.g. "What stops you from recycling on flights?"_
-- **Result:** _e.g. 61% said "confusion about bin types"_
-- **Chart placeholder:** _paste chart or describe visual_
+### Yara
+**Survey conducted:** <span style="color: var(--text-faint);">name / date</span>
+**Sample:** <span style="color: var(--text-faint);">size & demographics</span>
 
-_Add more findings..._
-<!-- /t2-->
-
-<!-- t3:✧ Yara's Findings-->
-**Survey conducted:** _name / date_
-**Sample:** _size & demographics_
-
-### Finding 1
-- **Question:** _Add your question here_
-- **Result:** _Add your result here_
-- **Chart placeholder:** _paste chart or describe visual_
-
-_Add more findings..._
-<!-- /t3-->
+#### Finding 1
+- **Question:** <span style="color: var(--text-faint);">e.g. Would you prefer a 2-bin or 3-bin system?</span>
+- **Result:** <span style="color: var(--text-faint);">e.g. 80% preferred 2-bin for simplicity</span>
+- **Chart placeholder:** <span style="color: var(--text-faint);">paste chart or describe visual</span>
 
 ---
 
 ## Statistical Notes
 
-<!-- t1:✈︎ Seif's Notes-->
-- **Confidence level:** _e.g. 95%_
-- **Margin of error:** _e.g. ±5%_
-- **Key insight:** _one-line takeaway from the data_
-<!-- /t1-->
+### Seif
+- **Confidence level:** <span style="color: var(--text-faint);">e.g. 95%</span>
+- **Margin of error:** <span style="color: var(--text-faint);">e.g. +/- 5%</span>
+- **Key insight:** <span style="color: var(--text-faint);">one-line takeaway from the data</span>
 
-<!-- t2:⌕ Marwan's Notes-->
-_Add your statistical notes here..._
-<!-- /t2-->
+### Marwan
+<span style="color: var(--text-faint);">Add your statistical notes here...</span>
 
-<!-- t3:✧ Yara's Notes-->
-_Add your statistical notes here..._
-<!-- /t3-->
+### Yara
+<span style="color: var(--text-faint);">Add your statistical notes here...</span>
 
 ---
 
-← [[📖 07]] | ← [[_Project Roadmap]]
+← [[07]] | ← [[_Project Roadmap]]

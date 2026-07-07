@@ -1,75 +1,67 @@
-# 🎙️ User & Stakeholder Interview Transcripts
+# User & Stakeholder Interview Transcripts
 
 > **Purpose:** Raw notes or transcripts from passenger/crew interviews, with direct quotes for credibility.
 > **When to use:** After conducting interviews — transcribe and log key quotes here.
 
-### 📌 FILE PURPOSE
+### FILE PURPOSE
 The home for raw notes and quotes gathered from real passengers, cabin crew, or airport staff.
-*   **How to use:** Each teammate writes ONLY in their own colored box below. Never edit another teammate's box. Pull direct quotes from this file to add credibility to our pitch slides.
+
+**How to use:** Each teammate logs their interviews below. Pull direct quotes from this file to add credibility to our pitch slides.
 
 ---
 
 ## Interview Log
 
-<!-- t1:✈︎ Seif's Interviews-->
-### Interview 1
-- **Interviewee:** _name or role (e.g. "Frequent flyer, age 34")_
-- **Date:** _date_
-- **Method:** _e.g. In-person, Zoom, WhatsApp call_
+### Seif
+
+#### Interview 1
+- **Interviewee:** <span style="color: var(--text-faint);">name or role (e.g. Frequent flyer, age 34)</span>
+- **Date:** <span style="color: var(--text-faint);">date</span>
+- **Method:** <span style="color: var(--text-faint);">e.g. In-person, Zoom, WhatsApp call</span>
 - **Key quotes:**
-  - _"paste a direct quote here"_
-  - _"paste another quote"_
-- **Insights:** _what did you learn that you didn't expect?_
+  - <span style="color: var(--text-faint);">"paste a direct quote here"</span>
+  - <span style="color: var(--text-faint);">"paste another quote"</span>
+- **Insights:** <span style="color: var(--text-faint);">what did you learn that you did not expect?</span>
 
-_Add more interviews below..._
-<!-- /t1-->
+### Marwan
 
-<!-- t2:⌕ Marwan's Interviews-->
-### Interview 1
-- **Interviewee:** _name or role_
-- **Date:** _date_
-- **Method:** _e.g. In-person, Zoom, WhatsApp call_
+#### Interview 1
+- **Interviewee:** <span style="color: var(--text-faint);">name or role</span>
+- **Date:** <span style="color: var(--text-faint);">date</span>
+- **Method:** <span style="color: var(--text-faint);">e.g. In-person, Zoom, WhatsApp call</span>
 - **Key quotes:**
-  - _"paste a direct quote here"_
-- **Insights:** _what did you learn?_
+  - <span style="color: var(--text-faint);">"paste a direct quote here"</span>
+- **Insights:** <span style="color: var(--text-faint);">what did you learn?</span>
 
-_Add more interviews below..._
-<!-- /t2-->
+### Yara
 
-<!-- t3:✧ Yara's Interviews-->
-### Interview 1
-- **Interviewee:** _name or role_
-- **Date:** _date_
-- **Method:** _e.g. In-person, Zoom, WhatsApp call_
+#### Interview 1
+- **Interviewee:** <span style="color: var(--text-faint);">name or role</span>
+- **Date:** <span style="color: var(--text-faint);">date</span>
+- **Method:** <span style="color: var(--text-faint);">e.g. In-person, Zoom, WhatsApp call</span>
 - **Key quotes:**
-  - _"paste a direct quote here"_
-- **Insights:** _what did you learn?_
-
-_Add more interviews below..._
-<!-- /t3-->
+  - <span style="color: var(--text-faint);">"paste a direct quote here"</span>
+- **Insights:** <span style="color: var(--text-faint);">what did you learn?</span>
 
 ---
 
 ## Best Quotes for Pitch
 
-<!-- t1:✈︎ Seif's Best Quotes-->
-_Pull the strongest quotes here for easy access when building slides:_
-1. _"quote"_ — _source_
-2. _"quote"_ — _source_
-<!-- /t1-->
+### Seif
+<span style="color: var(--text-faint);">Pull the strongest quotes here for easy access when building slides:</span>
+1. <span style="color: var(--text-faint);">"quote" — source</span>
+2. <span style="color: var(--text-faint);">"quote" — source</span>
 
-<!-- t2:⌕ Marwan's Best Quotes-->
-_Pull the strongest quotes here:_
-1. _"quote"_ — _source_
-2. _"quote"_ — _source_
-<!-- /t2-->
+### Marwan
+<span style="color: var(--text-faint);">Pull the strongest quotes here:</span>
+1. <span style="color: var(--text-faint);">"quote" — source</span>
+2. <span style="color: var(--text-faint);">"quote" — source</span>
 
-<!-- t3:✧ Yara's Best Quotes-->
-_Pull the strongest quotes here:_
-1. _"quote"_ — _source_
-2. _"quote"_ — _source_
-<!-- /t3-->
+### Yara
+<span style="color: var(--text-faint);">Pull the strongest quotes here:</span>
+1. <span style="color: var(--text-faint);">"quote" — source</span>
+2. <span style="color: var(--text-faint);">"quote" — source</span>
 
 ---
 
-← [[📖 07]] | ← [[_Project Roadmap]]
+← [[07]] | ← [[_Project Roadmap]]
