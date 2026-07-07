@@ -4,7 +4,7 @@
     "providers": [
       {
         "id": "b9955db3-3047-4c46-9f41-8f5f8a48c045",
-        "type": "openai",
+        "type": "anthropic",
         "credential": "",
         "availableModels": [],
         "isVerified": false
