@@ -1,4 +1,4 @@
-# AI Operating Manual --- AeroSTAR Boeing Challenge
+::t1:# AI Operating Manual --- AeroSTAR Boeing Challenge::
 
 > Version 1.1 --- Team Standard Operating Procedure
 
@@ -29,21 +29,21 @@ Never skip verification before design.
 
 # Task-to-AI Reference
 
-| Task | Best AI | Why |
-|------|---------|-----|
-| Read and analyze PDFs | NotebookLM | Zero hallucinations, document-locked |
-| Find latest statistics | Perplexity | Live web search, authoritative sources |
-| Verify evidence | NotebookLM | Evidence-only mode |
-| Build system blueprint | Claude | Best reasoning, multi-step logic |
-| Write scripts | Claude | Strong structural editing |
-| Judge simulation | Claude | Multi-role persona reasoning |
-| Generate diagrams | Napkin | Automatic text-to-diagram |
-| Build slides | Gamma | Presentation-native engine |
-| Fact-check claims | Perplexity | Current web sources |
-| Identify research gaps | NotebookLM + Perplexity | Internal then external sweep |
-| SDG alignment audit | Claude | Constraint checking across targets |
-| Find weaknesses in concept | Claude | Long-context multi-role reasoning |
-| Pitch deck final pass | Gamma | Slide-level optimization |
+| Task                       | Best AI                 | Why                                    |
+| -------------------------- | ----------------------- | -------------------------------------- |
+| Read and analyze PDFs      | NotebookLM              | Zero hallucinations, document-locked   |
+| Find latest statistics     | Perplexity              | Live web search, authoritative sources |
+| Verify evidence            | NotebookLM              | Evidence-only mode                     |
+| Build system blueprint     | Claude                  | Best reasoning, multi-step logic       |
+| Write scripts              | Claude                  | Strong structural editing              |
+| Judge simulation           | Claude                  | Multi-role persona reasoning           |
+| Generate diagrams          | Napkin                  | Automatic text-to-diagram              |
+| Build slides               | Gamma                   | Presentation-native engine             |
+| Fact-check claims          | Perplexity              | Current web sources                    |
+| Identify research gaps     | NotebookLM + Perplexity | Internal then external sweep           |
+| SDG alignment audit        | Claude                  | Constraint checking across targets     |
+| Find weaknesses in concept | Claude                  | Long-context multi-role reasoning      |
+| Pitch deck final pass      | Gamma                   | Slide-level optimization               |
 
 ---
 
