@@ -2,13 +2,12 @@ import * as Y from 'yjs';
 import { yCollab } from 'y-codemirror.next';
 import { Database, ref, push, onChildAdded } from 'firebase/database';
 import { EditorView } from '@codemirror/view';
-import { Compartment, Extension } from '@codemirror/state';
+import { StateEffect, Extension } from '@codemirror/state';
 
 export class CollaborationManager {
   private docs = new Map<string, Y.Doc>();
   private ytexts = new Map<string, Y.Text>();
   private unsubs = new Map<string, () => void>();
-  private compartments = new Map<string, Compartment>();
   private db: Database;
 
   constructor(db: Database) {
@@ -40,7 +39,6 @@ export class CollaborationManager {
     this.docs.set(path, doc);
     this.ytexts.set(path, ytext);
     this.unsubs.set(path, unsub);
-    this.compartments.set(path, new Compartment());
   }
 
   bindEditor(path: string, editorView: EditorView): void {
