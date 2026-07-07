@@ -38365,40 +38365,48 @@ var CollaborationManager = class {
     this.docs = /* @__PURE__ */ new Map();
     this.ytexts = /* @__PURE__ */ new Map();
     this.unsubs = /* @__PURE__ */ new Map();
-    this.compartments = /* @__PURE__ */ new Map();
     this.db = db;
   }
   openDocument(path) {
-    if (this.docs.has(path)) return;
+    if (this.docs.has(path)) {
+      console.log("Airsync: openDocument already open:", path);
+      return;
+    }
     const doc3 = new Doc();
     const ytext = doc3.getText("content");
-    const updatesRef = ref(this.db, `docs/${encodePath(path)}/updates`);
+    const encoded = encodePath(path);
+    const updatesRef = ref(this.db, `docs/${encoded}/updates`);
+    console.log("Airsync: openDocument creating doc for:", path, "firebase path: docs/" + encoded + "/updates");
     const unsub = onChildAdded(updatesRef, (snapshot) => {
       const val = snapshot.val();
+      console.log("Airsync: onChildAdded fired, key:", snapshot.key, "val type:", typeof val, "length:", typeof val === "string" ? val.length : 0);
       if (typeof val !== "string") return;
       try {
-        applyUpdate(doc3, decodeUpdate(val));
+        applyUpdate(doc3, decodeUpdate(val), "firebase");
+        console.log("Airsync: applied remote update successfully");
       } catch (e) {
         console.error("Airsync: Failed to apply update", e);
       }
     });
     doc3.on("update", (update, origin) => {
       if (origin === "firebase") return;
-      push(updatesRef, encodeUpdate(update));
+      const encodedUpd = encodeUpdate(update);
+      console.log("Airsync: local update, size:", update.length, "origin:", origin, "encoded length:", encodedUpd.length);
+      push(updatesRef, encodedUpd).then(() => console.log("Airsync: push succeeded")).catch((err) => console.error("Airsync: push failed", err));
     });
     this.docs.set(path, doc3);
     this.ytexts.set(path, ytext);
     this.unsubs.set(path, unsub);
-    this.compartments.set(path, new Compartment());
   }
   bindEditor(path, editorView) {
     const ytext = this.ytexts.get(path);
-    const comp = this.compartments.get(path);
-    if (!ytext || !comp) return;
+    console.log("Airsync: bindEditor", path, "ytext found:", !!ytext);
+    if (!ytext) return;
     const ext = yCollab(ytext, null, { undoManager: false });
     editorView.dispatch({
-      effects: comp.reconfigure(ext)
+      effects: StateEffect.appendConfig.of(ext)
     });
+    console.log("Airsync: bindEditor dispatch completed");
   }
   closeDocument(path) {
     var _a;
@@ -38409,7 +38417,6 @@ var CollaborationManager = class {
     this.ytexts.delete(path);
     (_a = this.unsubs.get(path)) == null ? void 0 : _a();
     this.unsubs.delete(path);
-    this.compartments.delete(path);
   }
   getDoc(path) {
     return this.docs.get(path);
@@ -38476,6 +38483,13 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     });
     this.registerEvent(
       this.app.workspace.on("active-leaf-change", () => {
+        console.log("Airsync: event active-leaf-change fired, connected:", this.connectionState);
+        this.handleActiveFileChange();
+      })
+    );
+    this.registerEvent(
+      this.app.workspace.on("file-open", (file) => {
+        console.log("Airsync: event file-open fired, file:", file == null ? void 0 : file.path, "connected:", this.connectionState);
         this.handleActiveFileChange();
       })
     );
@@ -38484,13 +38498,18 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     }
   }
   handleActiveFileChange() {
-    if (this.connectionState !== "connected" || !this.collaboration) return;
+    if (this.connectionState !== "connected" || !this.collaboration) {
+      console.log("Airsync: handleActiveFileChange skipped \u2014 not connected or no collaboration");
+      return;
+    }
     const view = this.app.workspace.getActiveViewOfType(import_obsidian2.MarkdownView);
     const file = view == null ? void 0 : view.file;
+    console.log("Airsync: handleActiveFileChange view:", !!view, "file:", file == null ? void 0 : file.path, "ext:", file == null ? void 0 : file.extension);
     if (!file || file.extension !== "md") return;
     const path = file.path;
     this.collaboration.openDocument(path);
     const cm = view.editor.cm;
+    console.log("Airsync: cm:", !!cm, typeof cm, cm ? Object.keys(cm).slice(0, 8) : "N/A");
     if (cm) {
       this.collaboration.bindEditor(path, cm);
     }
@@ -38554,6 +38573,7 @@ var AirsyncPlugin = class extends import_obsidian2.Plugin {
     this.collaboration = new CollaborationManager(this.firebase.db);
     this.setConnectionState("connected");
     this.app.workspace.trigger("airsync:ready");
+    console.log("Airsync: afterConnected \u2014 calling handleActiveFileChange");
     this.handleActiveFileChange();
   }
   async disconnectFirebase() {

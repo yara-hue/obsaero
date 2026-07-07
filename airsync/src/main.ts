@@ -54,6 +54,14 @@ export default class AirsyncPlugin extends Plugin {
 
     this.registerEvent(
       this.app.workspace.on('active-leaf-change', () => {
+        console.log('Airsync: event active-leaf-change fired, connected:', this.connectionState);
+        this.handleActiveFileChange();
+      }),
+    );
+
+    this.registerEvent(
+      this.app.workspace.on('file-open', (file) => {
+        console.log('Airsync: event file-open fired, file:', file?.path, 'connected:', this.connectionState);
         this.handleActiveFileChange();
       }),
     );
@@ -64,16 +72,21 @@ export default class AirsyncPlugin extends Plugin {
   }
 
   private handleActiveFileChange(): void {
-    if (this.connectionState !== 'connected' || !this.collaboration) return;
+    if (this.connectionState !== 'connected' || !this.collaboration) {
+      console.log('Airsync: handleActiveFileChange skipped — not connected or no collaboration');
+      return;
+    }
 
     const view = this.app.workspace.getActiveViewOfType(MarkdownView);
     const file = view?.file;
+    console.log('Airsync: handleActiveFileChange view:', !!view, 'file:', file?.path, 'ext:', file?.extension);
     if (!file || file.extension !== 'md') return;
 
     const path = file.path;
     this.collaboration.openDocument(path);
 
     const cm = (view!.editor as any).cm;
+    console.log('Airsync: cm:', !!cm, typeof cm, cm ? Object.keys(cm).slice(0, 8) : 'N/A');
     if (cm) {
       this.collaboration.bindEditor(path, cm);
     }
@@ -153,6 +166,7 @@ export default class AirsyncPlugin extends Plugin {
     this.collaboration = new CollaborationManager(this.firebase.db!);
     this.setConnectionState('connected');
     this.app.workspace.trigger('airsync:ready');
+    console.log('Airsync: afterConnected — calling handleActiveFileChange');
     this.handleActiveFileChange();
   }
 
