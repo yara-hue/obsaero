@@ -1,4 +1,4 @@
-# ⚡ Vault Setup Guide
+#  Vault Setup Guide
 
 ## First-time setup
 

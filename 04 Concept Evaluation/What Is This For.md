@@ -1,4 +1,4 @@
-# ⚖️ Concept Evaluation
+#  Concept Evaluation
 
 ## Purpose
 
@@ -35,8 +35,8 @@ Objectively compare the generated concepts to identify the strongest candidates.
 
 ## Next Stage
 
-[[📖 05]] →
+[[ 05]] →
 
 ---
 
-← [[📖 03]] | ↑ [[_Project Roadmap]]
+← [[ 03]] | ↑ [[_Project Roadmap]]

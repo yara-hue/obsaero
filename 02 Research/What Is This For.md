@@ -1,4 +1,4 @@
-# 🔬 Research
+#  Research
 
 ## Purpose
 
@@ -38,8 +38,8 @@ Build the factual foundation for your proposal. All decisions must be grounded i
 
 ## Next Stage
 
-[[📖 03]] →
+[[ 03]] →
 
 ---
 
-← [[📖 01]] | ↑ [[_Project Roadmap]]
+← [[ 01]] | ↑ [[_Project Roadmap]]

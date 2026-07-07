@@ -1,4 +1,4 @@
-# ✅ Validation & Evidence
+#  Validation & Evidence
 
 ## Purpose
 
@@ -35,8 +35,8 @@ Prove every claim made in the blueprint with real‑world evidence. Judges will 
 
 ## Next Stage
 
-[[📖 08]] →
+[[ 08]] →
 
 ---
 
-← [[📖 06]] | ↑ [[_Project Roadmap]]
+← [[ 06]] | ↑ [[_Project Roadmap]]

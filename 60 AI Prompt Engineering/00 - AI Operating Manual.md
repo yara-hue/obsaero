@@ -6,12 +6,12 @@
 
 Use the right AI for the right job. Every prompt must obey:
 
-- ❌ Zero new aircraft hardware
-- ❌ No standalone mobile apps
-- ✅ Integrate into existing airline workflows
-- ✅ Zero boarding or operational delays (10-Second Rule)
-- ✅ Explicitly support SDG 12 and SDG 13
-- ✅ Think like Boeing and an airline operator first
+-  Zero new aircraft hardware
+-  No standalone mobile apps
+-  Integrate into existing airline workflows
+-  Zero boarding or operational delays (10-Second Rule)
+-  Explicitly support SDG 12 and SDG 13
+-  Think like Boeing and an airline operator first
 
 ---
 

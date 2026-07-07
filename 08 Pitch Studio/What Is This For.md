@@ -1,4 +1,4 @@
-# 🎤 Pitch Studio
+#  Pitch Studio
 
 ## Purpose
 
@@ -39,8 +39,8 @@ Transform the solution into a compelling presentation that sells the idea to Boe
 
 ## Next Stage
 
-[[📖 09]] →
+[[ 09]] →
 
 ---
 
-← [[📖 07]] | ↑ [[_Project Roadmap]]
+← [[ 07]] | ↑ [[_Project Roadmap]]

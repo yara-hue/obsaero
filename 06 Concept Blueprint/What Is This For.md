@@ -1,4 +1,4 @@
-# 🏗️ Concept Blueprint
+#  Concept Blueprint
 
 ## Purpose
 
@@ -6,7 +6,7 @@ Turn the refined concept into a complete, detailed system design. This is the ma
 
 ## Inputs
 
-- Refined concept from [[📖 05]]
+- Refined concept from [[ 05]]
 - Research data and citations
 - Evaluation rubric alignment
 
@@ -29,8 +29,8 @@ Turn the refined concept into a complete, detailed system design. This is the ma
 
 ## Next Stage
 
-[[📖 07]] →
+[[ 07]] →
 
 ---
 
-← [[📖 05]] | ↑ [[_Project Roadmap]]
+← [[ 05]] | ↑ [[_Project Roadmap]]

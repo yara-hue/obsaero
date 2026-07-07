@@ -1,4 +1,4 @@
-# 📦 Final Deliverables
+#  Final Deliverables
 
 ## Purpose
 
@@ -42,4 +42,4 @@ None – you've reached the end!
 
 ---
 
-← [[📖 08]] | ↑ [[_Project Roadmap]]
+← [[ 08]] | ↑ [[_Project Roadmap]]

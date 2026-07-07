@@ -59,4 +59,4 @@ document. Format as a bullet list with source page numbers.
 
 ---
 
-[[📖 04]] | [[_Project Roadmap]]
+[[ 04]] | [[_Project Roadmap]]

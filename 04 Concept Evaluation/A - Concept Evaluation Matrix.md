@@ -38,4 +38,4 @@ The objective screening filter used to grade our top ideas mathematically so we 
 
 ---
 
-[[📖 04]] | [[_Project Roadmap]]
+[[ 04]] | [[_Project Roadmap]]

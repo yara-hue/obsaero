@@ -1,4 +1,4 @@
-# 📖 Understand the Challenge
+#  Understand the Challenge
 
 ## Purpose
 
@@ -35,7 +35,7 @@ Before you can solve a problem, you must understand it completely. This stage en
 
 ## Next Stage
 
-[[📖 02]] →
+[[ 02]] →
 
 ---
 

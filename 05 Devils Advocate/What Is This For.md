@@ -1,4 +1,4 @@
-# 🛡️ Devil's Advocate
+#  Devil's Advocate
 
 ## Purpose
 
@@ -6,7 +6,7 @@ Most ideas fail because nobody tries to break them before the judges do. This st
 
 ## Inputs
 
-- The winning concept from [[📖 04]]
+- The winning concept from [[ 04]]
 - The [[A - Evaluation Rubric|Evaluation Rubric]] (judge expectations)
 - The [[B - Risk Mitigation Register|Risk Mitigation Register]] (to track threats)
 
@@ -35,8 +35,8 @@ Most ideas fail because nobody tries to break them before the judges do. This st
 
 ## Next Stage
 
-[[📖 06]] →
+[[ 06]] →
 
 ---
 
-← [[📖 04]] | ↑ [[_Project Roadmap]]
+← [[ 04]] | ↑ [[_Project Roadmap]]

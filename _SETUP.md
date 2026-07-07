@@ -4,23 +4,23 @@ simulated peer edit
 simulated peer edit
 hello
 
-::t2:> [!success]+ **✅ Vault is ready!**::
+::t2:> [!success]+ ** Vault is ready!**::
 > Everything is pre-configured. Just follow the steps below.
 
-## ⚡ Setup
+##  Setup
 
 1. **Trust the author** when Obsidian asks → enables all plugins
 2. That's it. Seriously.
 
-### 📝 How to contribute (important!)
+###  How to contribute (important!)
 
 Use **color stamps** to tag your contributions inline:
 
 | Teammate | Stamp | Color |
 |----------|-------|-------|
-| ✈︎ Seif | `::t1:text::` | 🟡 Gold |
-| ⌕ Marwan | `::t2:text::` | 🔵 Blue |
-| ✧ Yara | `::t3:text::` | 🟣 Purple |
+| ︎ Seif | `::t1:text::` |  Gold |
+| ⌕ Marwan | `::t2:text::` |  Blue |
+| ✧ Yara | `::t3:text::` |  Purple |
 
 Select text and press **`Ctrl+Shift+L`** to stamp it with your current teammate. Or type the stamp manually: `::t1:your text::`.
 

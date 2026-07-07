@@ -1,4 +1,4 @@
-# 💡 Idea Dump
+#  Idea Dump
 
 ## Purpose
 
@@ -28,8 +28,8 @@ Generate as many ideas as possible – without judging them. Quantity leads to q
 
 ## Next Stage
 
-[[📖 04]] →
+[[ 04]] →
 
 ---
 
-← [[📖 02]] | ↑ [[_Project Roadmap]]
+← [[ 02]] | ↑ [[_Project Roadmap]]

@@ -202,7 +202,7 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 
 ### 40_Team_Journey/ — Process documentation for judges
 
-#### 📖 40.md
+####  40.md
 - **Role:** Index for team journey folder
 - **Content:** Historical record of project development over the 4-week sprint
 - **Structure:** Short index header
@@ -241,7 +241,7 @@ Each entry includes: (a) what the file is for, (b) what kind of content belongs 
 
 ### 50_Templates/ — Reusable note templates
 
-#### 📖 50.md
+####  50.md
 - **Role:** Index for the template vault
 - **Content:** Lists all available templates
 - **Structure:** Short index
@@ -420,7 +420,7 @@ Number prefixes ensure correct sort order in Obsidian. This folder is an AI oper
 
 ### 99_Archive/
 
-#### 📖 99.md
+####  99.md
 - **Role:** Archive index for completed or deprecated materials
 - **Content:** Links to archived notes no longer active
 - **Structure:** Simple list
