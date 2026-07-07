@@ -1,43 +1,42 @@
-# 📚 Master Sources Database
+# Master Sources Database
 
 > **Purpose:** Central repository of every statistic, report, and paper with full citation and SDG relevance.
 > **When to use:** Every time you find a verified fact — log it here immediately.
 
-### 📌 FILE PURPOSE
+### FILE PURPOSE
 The central repository for all verified data, IATA reports, academic papers, and industrial statistics.
-*   **How to use:** Each teammate writes ONLY in their own colored box below. Never edit another teammate's box. This serves as the master bibliography for our pitch.
+
+**How to use:** Each teammate logs their sources in their section below.
 
 ---
 
-## Verified Sources
+## Seif
 
-<!-- t1:✈︎ Seif's Sources-->
 | # | Source Title | Author / Org | Year | Key Statistic | SDG Relevance | Link |
 |---|-------------|--------------|------|---------------|---------------|------|
-| 1 | _e.g. IATA Environmental Report_ | _IATA_ | _2024_ | _e.g. Aviation = 2.5% global CO2_ | _SDG 13: Climate Action_ | _link_ |
-| 2 | _Add source here..._ | | | | | |
-
-_Add more rows as you find verified sources._
-<!-- /t1-->
-
-<!-- t2:⌕ Marwan's Sources-->
-| # | Source Title | Author / Org | Year | Key Statistic | SDG Relevance | Link |
-|---|-------------|--------------|------|---------------|---------------|------|
-| 1 | _e.g. Nudge Theory paper_ | _Thaler & Sunstein_ | _2008_ | _e.g. Choice architecture boosts compliance 30%_ | _SDG 12: Responsible Consumption_ | _link_ |
-| 2 | _Add source here..._ | | | | | |
-
-_Add more rows as you find verified sources._
-<!-- /t2-->
-
-<!-- t3:✧ Yara's Sources-->
-| # | Source Title | Author / Org | Year | Key Statistic | SDG Relevance | Link |
-|---|-------------|--------------|------|---------------|---------------|------|
-| 1 | _e.g. Boeing EcoDemonstrator summary_ | _Boeing_ | _2023_ | _e.g. 30% fuel savings on test flights_ | _SDG 9: Industry & Innovation_ | _link_ |
-| 2 | _Add source here..._ | | | | | |
-
-_Add more rows as you find verified sources._
-<!-- /t3-->
+| 1 | <span style="color: var(--text-faint);">IATA Environmental Report</span> | <span style="color: var(--text-faint);">IATA</span> | <span style="color: var(--text-faint);">2024</span> | <span style="color: var(--text-faint);">Aviation = 2.5% global CO2</span> | <span style="color: var(--text-faint);">SDG 13</span> | <span style="color: var(--text-faint);">link</span> |
 
 ---
 
-← [[📖 02]] | ← [[_Project Roadmap]]
+## Marwan
+
+| # | Source Title | Author / Org | Year | Key Statistic | SDG Relevance | Link |
+|---|-------------|--------------|------|---------------|---------------|------|
+| 1 | <span style="color: var(--text-faint);">Nudge Theory paper</span> | <span style="color: var(--text-faint);">Thaler & Sunstein</span> | <span style="color: var(--text-faint);">2008</span> | <span style="color: var(--text-faint);">Defaults increase participation by 40%</span> | <span style="color: var(--text-faint);">SDG 12</span> | <span style="color: var(--text-faint);">link</span> |
+
+---
+
+## Yara
+
+| # | Source Title | Author / Org | Year | Key Statistic | SDG Relevance | Link |
+|---|-------------|--------------|------|---------------|---------------|------|
+| 1 | <span style="color: var(--text-faint);">Boeing EcoDemonstrator summary</span> | <span style="color: var(--text-faint);">Boeing</span> | <span style="color: var(--text-faint);">2023</span> | <span style="color: var(--text-faint);">30% fuel savings on test flights</span> | <span style="color: var(--text-faint);">SDG 9</span> | <span style="color: var(--text-faint);">link</span> |
+
+---
+
+## Notes
+<span style="color: var(--text-faint);">e.g. Additional context, cross-references, or questions about sources</span>
+
+---
+
+← [[?? 02]] | ← [[_Project Roadmap]]
