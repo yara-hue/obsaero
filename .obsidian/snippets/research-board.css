@@ -27,6 +27,25 @@
   padding: 12px 16px;
 }
 
+.markdown-preview-view .board-section-textarea {
+  width: 100%;
+  min-height: 100px;
+  border: none;
+  background: transparent;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  box-sizing: border-box;
+  color: var(--text-normal);
+}
+
+.markdown-preview-view .board-section-textarea:focus {
+  outline: none;
+  background: var(--background-primary-alt);
+}
+
 .markdown-preview-view .board-section-content > :first-child {
   margin-top: 0;
 }
