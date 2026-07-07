@@ -50,7 +50,7 @@ Open **[[_Project Roadmap]]** for the full pipeline with a visual flowchart.
 
 ---
 
-##  Contributions
+## Contributions
 
 <div class="contrib-bar-container">
   <div class="contrib-bar-t1" style="width: 33%"></div>

@@ -1,13 +1,12 @@
-
 ::t2:> [!success]+ ** Vault is ready!**::
 > Everything is pre-configured. Just follow the steps below.
 
-##  Setup
+## Setup
 
 1. **Trust the author** when Obsidian asks → enables all plugins
 2. That's it. Seriously.
 
-###  How to contribute (important!)
+### How to contribute (important!)
 
 Use **color stamps** to tag your contributions inline:
 
@@ -40,7 +39,3 @@ Select text and press **`Ctrl+Shift+L`** to stamp it with your current teammate.
 ---
 
 > [!tip] Close this tab and open **[[_Home]]** to start exploring the vault.
-simulated peer edit
-simulated peer edit
-simulated peer edit
-simulated peer edit
