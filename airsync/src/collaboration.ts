@@ -57,6 +57,14 @@ export class CollaborationManager {
     console.log('Airsync: bindEditor', path, 'ytext found:', !!ytext);
     if (!ytext) return;
 
+    if (ytext.length === 0) {
+      const content = editorView.state.doc.toString();
+      console.log('Airsync: initializing empty ytext with content length:', content.length);
+      if (content.length > 0) {
+        ytext.insert(0, content);
+      }
+    }
+
     const ext = yCollab(ytext, null, { undoManager: false });
 
     editorView.dispatch({
