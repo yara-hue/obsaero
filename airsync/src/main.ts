@@ -1,12 +1,14 @@
-import { Plugin, Modal, App, Notice } from 'obsidian';
+import { Plugin, Modal, App, Notice, MarkdownView } from 'obsidian';
 import type { AirsyncSettings, ConnectionState } from './types';
 import { DEFAULT_SETTINGS } from './types';
 import { AirsyncSettingTab } from './settings';
 import { FirebaseService } from './firebase';
+import { CollaborationManager } from './collaboration';
 
 export default class AirsyncPlugin extends Plugin {
   settings: AirsyncSettings;
   firebase: FirebaseService;
+  collaboration: CollaborationManager;
   connectionState: ConnectionState = 'disconnected';
   private statusBarEl: HTMLElement;
 
@@ -50,8 +52,30 @@ export default class AirsyncPlugin extends Plugin {
       },
     });
 
+    this.registerEvent(
+      this.app.workspace.on('active-leaf-change', () => {
+        this.handleActiveFileChange();
+      }),
+    );
+
     if (this.settings.firebaseApiKey) {
       await this.tryInitializeFirebase();
+    }
+  }
+
+  private handleActiveFileChange(): void {
+    if (this.connectionState !== 'connected' || !this.collaboration) return;
+
+    const view = this.app.workspace.getActiveViewOfType(MarkdownView);
+    const file = view?.file;
+    if (!file || file.extension !== 'md') return;
+
+    const path = file.path;
+    this.collaboration.openDocument(path);
+
+    const cm = (view!.editor as any).cm;
+    if (cm) {
+      this.collaboration.bindEditor(path, cm);
     }
   }
 
@@ -109,17 +133,15 @@ export default class AirsyncPlugin extends Plugin {
       this.setConnectionState('connected');
       new DisplayNameModal(this.app, this).open();
     } else if (this.settings.displayName) {
-      this.setConnectionState('connected');
+      this.afterConnected();
       new Notice(`Airsync: Connected as ${this.settings.displayName}`);
-      this.app.workspace.trigger('airsync:ready');
     } else {
       const profile = await this.firebase.getUserProfile(uid);
       if (profile) {
         this.settings.displayName = profile.displayName;
         await this.saveSettings();
-        this.setConnectionState('connected');
+        this.afterConnected();
         new Notice(`Airsync: Connected as ${profile.displayName}`);
-        this.app.workspace.trigger('airsync:ready');
       } else {
         this.setConnectionState('connected');
         new DisplayNameModal(this.app, this).open();
@@ -127,7 +149,15 @@ export default class AirsyncPlugin extends Plugin {
     }
   }
 
+  private afterConnected(): void {
+    this.collaboration = new CollaborationManager(this.firebase.db!);
+    this.setConnectionState('connected');
+    this.app.workspace.trigger('airsync:ready');
+    this.handleActiveFileChange();
+  }
+
   async disconnectFirebase(): Promise<void> {
+    this.collaboration?.destroy();
     try {
       await this.firebase.disconnect();
     } catch (err) {
@@ -168,6 +198,7 @@ export default class AirsyncPlugin extends Plugin {
   }
 
   onunload(): void {
+    this.collaboration?.destroy();
     this.firebase.disconnect().catch(() => {});
   }
 
@@ -225,7 +256,7 @@ class DisplayNameModal extends Modal {
       }
 
       new Notice(`Airsync: Connected as ${name}`);
-      this.plugin.app.workspace.trigger('airsync:ready');
+      this.plugin.afterConnected();
       this.close();
     };
 
