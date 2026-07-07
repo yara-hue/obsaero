@@ -39,3 +39,6 @@ Files are split into **colored bordered boxes** — one per teammate per section
 ---
 
 > [!tip] Close this tab and open **[[_Home]]** to start exploring the vault.
+
+
+hello
