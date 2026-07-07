@@ -1,6 +1,6 @@
 # Useful Prompts I Found
 
-> Prompts that actually worked — saved so I don't forget them.
+> Prompts that actually worked — saved so I do not forget them.
 
 ---
 
@@ -59,4 +59,4 @@ document. Format as a bullet list with source page numbers.
 
 ---
 
-[[60 AI Prompt Engineering]] | [[_Project Roadmap]]
+[[📖 04]] | [[_Project Roadmap]]
